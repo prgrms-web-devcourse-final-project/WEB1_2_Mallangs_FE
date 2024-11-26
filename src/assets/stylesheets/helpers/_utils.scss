@@ -1,0 +1,15 @@
+/* _utils.scss */
+
+@property --conic-range { // repeating-conic-gradient 각도
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@property --gradient-range { // linear-gradient 적용 범위
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+/* _utils.scss */

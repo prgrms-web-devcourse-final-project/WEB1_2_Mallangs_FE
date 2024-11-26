@@ -1,0 +1,308 @@
+/* _headers.scss */
+
+#headPrimary { // 메인 헤더
+    container-name: header-primary;
+    container-type: inline-size;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    inset-block-start: 0;
+    padding-inline: .8rem;
+    height: 3.6rem;
+    background-color: rgb(var(--clr-background) / .75);
+    backdrop-filter: blur(.8rem);
+    transition: background-color .25s;
+    z-index: 50000;
+}
+
+#navPrimary {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.nav-list {
+    display: contents;
+}
+
+.nav-item {
+    position: relative;
+
+    &::before {
+        display: block;
+        position: absolute;
+        inset: 0;
+        margin-block-start: auto;
+        margin-inline: auto;
+        width: 0;
+        height: .2rem;
+        background-color: rgb(var(--clr-tint-80));
+        content: '';
+    }
+
+    &:has(:hover) {
+        &::before {
+            width: calc(100% - 1.6rem);
+            transition: width .25s;
+        }
+    }
+
+    &:has(.router-link-active) {
+        &::before {
+            width: 100%;
+            background-color: rgb(var(--clr-tint-0));
+        }
+    }
+
+    > a {
+        display: block;
+        padding: .8rem;
+        border-radius: .2rem;
+        opacity: .5;
+
+        &:hover {
+            opacity: .75;
+        }
+
+        &.router-link-active {
+            font-weight: 900;
+            opacity: 1;
+        }
+    }
+}
+
+.temp-rotating-light { // 임시 - 테두리 빛이 회전하는 버튼
+    padding: 1px;
+    border-radius: .25rem;
+
+    &:has(.router-link-active) { // 색 변경 필요
+        background-image: repeating-conic-gradient(
+            from var(--conic-range),
+            rgb(var(--clr-if-0)),
+            rgb(var(--clr-tint-100)) 50%
+        );
+        box-shadow: 0 0 1.2rem -.4rem rgb(var(--clr-tint-80) / 1);
+        animation: rotate-conic 3s linear infinite;
+    }
+
+    > a {
+        display: block;
+        padding: .4rem 1.2rem;
+        border-radius: .2rem;
+
+        &:hover { // 색 변경 필요
+            background-image: linear-gradient(to top, rgb(var(--clr-theme)), rgb(var(--clr-theme)) .1rem, transparent .1rem);
+        }
+
+        &.router-link-active { // 색 변경 필요
+            background-color: rgb(var(--clr-surface-20));
+            font-weight: 900;
+        }
+    }
+}
+
+#menuElements { // 모바일 네비게이션을 겸한다
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+#chkTheme {
+    & + label {
+        --switch-rail-false: 184 238 255;
+        --switch-rail-true: 59 38 136;
+        --switch-button-false: 255 251 0;
+        --switch-button-true: 25 22 27;
+        --switch-icon-false: 255 102 0;
+        --switch-icon-true: 255 251 0;
+    }
+}
+
+.mobile-menu-container {
+    &.mobile-navigation {
+        padding: 0;
+    }
+}
+
+.mobile-navigation {
+    display: none;
+}
+
+#navSecondary {
+    font-size: var(--fnt-xl);
+}
+
+.mobile-nav-item {
+    > a {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        padding: .8rem;
+
+        > .remix {
+            width: .8rem;
+            opacity: .5;
+        }
+
+        &:focus,
+        &:active {
+            background-color: rgb(var(--clr-tint-0) / .75);
+            color: rgb(var(--clr-if-0));
+            font-weight: 900;
+
+            > .remix {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.user-info-container {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+#btnLogout {
+    &:hover {
+        color: rgb(var(--clr-if-0));
+    }
+}
+
+#btnBurger {
+    display: none;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgb(var(--clr-max) / .25);
+    border-radius: 25rem;
+    background-color: rgb(var(--clr-background));
+
+    > span {
+        display: block;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: .1rem;
+        background-color: rgb(var(--clr-max));
+
+        &:nth-child(1) { // 마지막
+            inset-inline-start: .5rem;
+            height: .4rem;
+        }
+
+        &:nth-child(2) { // 중간
+            height: .6rem;
+        }
+
+        &:nth-child(3) { // 처음
+            inset-inline-end: .5rem;
+            height: .2rem;
+        }
+    }
+
+    &:hover {
+        background-color: rgb(var(--clr-max) / .1);
+    }
+
+    &.on {
+        border-color: transparent;
+        background-color: rgb(var(--clr-alert));
+        transition: .5s;
+
+        > span {
+            background-color: rgb(255 255 255);
+
+            &:nth-child(1) {
+                --burger-self-start: .4rem;
+                --burger-self-rotate: 45deg;
+
+                animation: burger-toggle .5s 1 forwards;
+            }
+
+            &:nth-child(2) {
+                height: 0;
+                transition: height .25s .25s;
+            }
+
+            &:nth-child(3) {
+                --burger-self-end: .4rem;
+                --burger-self-rotate: -45deg;
+
+                animation: burger-toggle .5s 1 forwards;
+            }
+        }
+    }
+}
+
+/* 반응형 쿼리 */
+
+@container header-primary (max-width: 960px) {
+    #navPrimary {
+        gap: .6rem;
+    }
+
+    #btnLogin,
+    #btnLogout {
+        justify-content: center;
+        padding-inline: 0;
+        width: 1.6rem;
+
+        > span {
+            display: none;
+        }
+    }
+}
+
+@container header-primary (max-width: 640px) {
+    .nav-list {
+        display: none;
+    }
+
+    .mobile-menu-container {
+        padding: .8rem;
+
+        & + & {
+            border-block-start: 1px solid rgb(var(--clr-max) / .15);
+        }
+    }
+
+    #menuElements {
+        position: absolute;
+        inset-block-start: calc(100% + .4rem);
+        inset-inline-end: 1.2rem;
+        min-width: 9.6rem;
+        border: 1px solid rgb(var(--clr-max) / .15);
+        border-radius: .4rem;
+        background-color: rgb(var(--clr-background) / .9);
+        box-shadow: 0 .8rem .8rem -.4rem rgb(0 0 0 / .5);
+        opacity: 0;
+        pointer-events: none;
+
+        &.on {
+            display: initial;
+            opacity: 1;
+            transition: opacity .25s;
+            pointer-events: initial;
+        }
+    }
+
+    #chkTheme + label {
+        .switch-label {
+            display: block;
+        }
+    }
+
+    .mobile-navigation {
+        display: block;
+    }
+
+    #btnBurger {
+        display: flex;
+    }
+}
+
+/* _headers.scss */

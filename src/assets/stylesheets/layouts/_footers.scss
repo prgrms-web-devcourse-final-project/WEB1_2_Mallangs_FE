@@ -1,0 +1,15 @@
+/* _footers.scss */
+
+#footPrimary { // 메인 푸터
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-block-start: 3.6rem;
+    padding-block: 1.2rem;
+    border-block-start: 1px solid rgb(var(--clr-max) / .15);
+    color: rgb(var(--clr-text) / .5);
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+}
+
+/* _footers.scss */

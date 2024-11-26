@@ -1,0 +1,357 @@
+/* _formElements.scss */
+
+@mixin input-commons { // 입력 요소 공통사항
+    padding-inline: .4rem;
+    height: 1.6rem;
+    border: 1px solid rgb(var(--clr-theme) / .25);
+    border-radius: .2rem;
+    background-color: rgb(var(--clr-min) / .25);
+    backdrop-filter: blur(.4rem);
+    color: rgb(var(--clr-text));
+    transition: .25s;
+
+    &:hover {
+        border-color: rgb(var(--clr-theme) / .6);
+        background-color: rgb(var(--clr-min) / .5);
+    }
+
+    &:focus {
+        border-color: rgb(var(--clr-theme) / .75);
+        background-color: rgb(var(--clr-min));
+        outline: .2rem solid rgb(var(--clr-tint-0) / .25);
+    }
+
+    &.need-recognize:valid {
+        // 특정 형식의 입력 요소에서 입력 값이 올바를 때의 조건
+        // 일반 입력 요소에 모두 통일되어 적용되므로, 반드시 필요한 경우에만 .need-recognize 클래스를 붙여 사용한다.
+
+        border-color: rgb(var(--clr-clear) / .75);
+        background-color: rgb(var(--clr-clear) / .5);
+    }
+
+    &:invalid {
+        border-color: rgb(var(--clr-alert));
+        outline: .2rem solid rgb(var(--clr-alert) / .25);
+    }
+
+    &:disabled {
+        border-color: rgb(var(--clr-surface-60));
+        background-color: rgb(var(--clr-surface-0));
+        color: rgb(var(--clr-surface-60));
+        text-shadow: 1px 1px 0 rgb(255 255 255 / .25);
+        cursor: no-drop;
+    }
+}
+
+input,
+select,
+button {
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+input:not(.exclude) { // 폼 입력 요소 공통 - .exclude 클래스가 있을 경우 모든 조건 무시 (개별 스타일링이 필요한 경우를 위해)
+    &[type="text"],
+    &[type="number"],
+    &[type="email"],
+    &[type="tel"],
+    &[type="email"],
+    &[type="url"],
+    &[type="password"],
+    &[type="datetime-local"],
+    &[type="date"],
+    &[type="month"],
+    &[type="week"],
+    &[type="time"],
+    &[type="search"] {
+        @include input-commons();
+    }
+}
+
+textarea:not(.exclude) {
+    @include input-commons();
+
+    padding-block: .4rem;
+}
+
+select:not(.exclude) {
+    @include input-commons();
+
+    padding-inline-end: 1.6rem;
+    min-width: 3.6rem;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"%3E%3Cpath d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right .2rem center;
+    background-size: 24px;
+    appearance: none;
+
+    &:focus {
+        background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"%3E%3Cpath d="M12 11.8284L9.17154 14.6569L7.75732 13.2426L12 9L16.2426 13.2426L14.8284 14.6569L12 11.8284Z"%3E%3C/path%3E%3C/svg%3E');
+    }
+}
+
+@mixin toggle-commons { // 체크박스, 라디오 공통사항
+    display: none;
+
+    & + label {
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        position: relative;
+        cursor: pointer;
+
+        > .toggles-indicator {
+            display: grid;
+            place-items: center;
+            width: 1rem;
+            height: 1rem;
+            border: 1px solid rgb(var(--clr-theme) / .25);
+            background-color: rgb(var(--clr-min) / .25);
+            backdrop-filter: blur(.4rem);
+            color: rgb(var(--clr-text));
+        }
+
+        > .toggles-label {
+            font-weight: 200;
+            opacity: .75;
+        }
+    }
+
+    &:checked + label {
+        > .toggles-indicator {
+            border: 1px solid rgb(var(--clr-theme));
+            background-color: rgb(var(--clr-tint-0) / .15);
+            color: rgb(var(--clr-tint-100));
+        }
+
+        > .toggles-label {
+            font-weight: 900;
+        }
+    }
+
+    & + label:hover {
+        > .toggles-indicator {
+            border-color: rgb(var(--clr-theme) / .6);
+            background-color: rgb(var(--clr-min) / .5);
+        }
+    }
+
+    &:focus + label {
+        > .toggles-indicator {
+            border-color: rgb(var(--clr-theme) / .75);
+            background-color: rgb(var(--clr-min));
+            outline: .2rem solid rgb(var(--clr-tint-0) / .25);
+        }
+    }
+
+    &:disabled + label {
+        color: rgb(var(--clr-surface-60));
+        text-shadow: 1px 1px 0 rgb(255 255 255 / .25);
+        cursor: no-drop;
+
+        > .toggles-indicator {
+            border-color: rgb(var(--clr-surface-60));
+            background-color: rgb(var(--clr-surface-0));
+        }
+    }
+}
+
+input[type="radio"] { // 라디오 버튼 - 반드시 label과 짝을 이루어야 함
+    /*
+        <input type="radio" name="radio-something" id="rdoSomething">
+
+        <label for="rdoSomething">
+            <div class="toggles-indicator"></div>
+
+            <span class="toggles-label">라디오 버튼 라벨</span>
+        </label>
+    */
+
+
+    @include toggle-commons();
+
+    & + label {
+        > .toggles-indicator {
+            border-radius: 25rem;
+
+            &::before {
+                display: block;
+                width: .4rem;
+                height: .4rem;
+                border-radius: 25rem;
+                background-color: rgb(var(--clr-theme));
+                opacity: 0;
+                content: '';
+            }
+        }
+    }
+
+    &:checked + label {
+        > .toggles-indicator {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+input[type="checkbox"]:not([data-checkbox-type="toggle"]) { // 체크박스 - 반드시 label과 짝을 이루어야 함
+    /*
+        <input type="checkbox" name="check-something" id="chkSomething">
+
+        <label for="chkSomething">
+            <div class="toggles-indicator">
+                <svg class="remix">
+                    <use xlink:href="/miscs/remixicon.symbol.svg#ri-check-line"></use>
+                </svg>
+            </div>
+
+            <span class="toggles-label">체크박스 라벨</span>
+        </label>
+    */
+
+    @include toggle-commons();
+
+    & + label {
+        > .toggles-indicator {
+            border-radius: .2rem;
+
+            .remix {
+                width: .8rem;
+                height: .8rem;
+                opacity: 0;
+            }
+        }
+    }
+
+    &:checked + label {
+        > .toggles-indicator {
+            .remix {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위치 - 반드시 label과 짝을 이루어야 함
+    /*
+        <input type="checkbox" name="check-color-theme" id="chkTheme" data-checkbox-type="toggle" data-switch-label="false" :checked="currentThemeSetting" @change="setLocalTheme">
+
+        <label for="chkTheme">
+            <div class="switch-rail">
+                <div class="switch-button">
+                    <div class="switch-icon-container">
+                        <div class="switch-false">
+                            <svg class="remix">
+                                <use xlink:href="/miscs/remixicon.symbol.svg#ri-sun-fill"></use>
+                            </svg>
+                        </div>
+
+                        <div class="switch-true">
+                            <svg class="remix">
+                                <use xlink:href="/miscs/remixicon.symbol.svg#ri-moon-clear-fill"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="switch-label">색상 테마 설정</span>
+        </label>
+    */
+
+    display: none;
+
+    &:is([data-switch-label="false"]) {
+        & + label {
+            .switch-label {
+                display: none;
+            }
+        }
+    }
+
+    & + label {
+        --switch-rail-false: 184 238 255;
+        --switch-rail-true: 59 38 136;
+        --switch-button-false: 255 251 0;
+        --switch-button-true: 25 22 27;
+        --switch-icon-false: 255 102 0;
+        --switch-icon-true: 255 251 0;
+
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        cursor: pointer;
+
+        .switch-rail {
+            position: relative;
+            width: 2.4rem;
+            height: 1.2rem;
+            border-radius: 25rem;
+            background-color: rgb(var(--switch-rail-false));
+            box-shadow: inset 1px 1px .1rem 0 rgb(0 0 0 / .25);
+            outline: 1px solid rgb(255 255 255 / .25);
+            transition: background-color .5s;
+        }
+
+        .switch-button {
+            position: absolute;
+            inset: 0;
+            margin-block: .1rem;
+            margin-inline: .1rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 25rem;
+            background-color: rgb(var(--switch-button-false));
+            color: rgb(var(--switch-icon-false));
+            transition: translate .25s, background-color .5s, color .25s;
+            overflow: hidden;
+        }
+
+        .switch-icon-container {
+            position: absolute;
+            inset: 0;
+            width: 1rem;
+            height: 2rem;
+            transition: translate .5s .25s;
+        }
+
+        .switch-true,
+        .switch-false {
+            display: grid;
+            place-items: center;
+            width: 1rem;
+            height: 1rem;
+
+            > .remix {
+                width: .6rem;
+            }
+        }
+    }
+
+    &:checked + label {
+        .switch-rail {
+            background-color: rgb(var(--switch-rail-true));
+        }
+
+        .switch-button {
+            translate: 1.2rem 0 0;
+            background-color: rgb(var(--switch-button-true));
+            color: rgb(var(--switch-icon-true));
+        }
+
+        .switch-icon-container {
+            translate: 0 -1rem 0;
+        }
+    }
+
+    &:focus + label {
+        .switch-rail {
+            outline: .1rem dashed rgb(var(--clr-theme));
+            outline-offset: .1rem;
+        }
+    }
+}
+
+/* _formElements.scss */
