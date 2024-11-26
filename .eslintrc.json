@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended",
+        "plugin:@tanstack/eslint-plugin-query/recommended"
+    ],
+    "plugins": ["react", "react-hooks"],
+    "rules": {
+        "react/jsx-uses-vars": "error",
+        "react-hooks/rules-of-hooks": "error"
+    }
+}

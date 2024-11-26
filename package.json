@@ -1,0 +1,40 @@
+{
+  "name": "web1-2-mallangs-fe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.61.3",
+    "axios": "^1.7.8",
+    "photoswipe": "^5.4.4",
+    "quill": "^2.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sweetalert2": "^11.14.5",
+    "swiper": "^11.1.15",
+    "zustand": "^5.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@tanstack/eslint-plugin-query": "^5.61.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.81.0",
+    "vite": "^5.4.10"
+  }
+}
