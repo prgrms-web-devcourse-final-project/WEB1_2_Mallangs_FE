@@ -1,23 +1,11 @@
 /* _commons.scss */
 
 #root {
-    // App
-    position: relative;
-}
-
-#mainContainer {
-    // 주 컨테이너
+    // App, 컨테이너 쿼리를 위한 메인 컨테이너로 지정
     container-name: main-container;
     container-type: inline-size;
 
-    margin-block: 1.2rem;
-
-    &:has(#sideBarMain) {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: flex-start;
-        gap: 1.2rem;
-    }
+    position: relative;
 }
 
 #contentView {
@@ -29,16 +17,19 @@
 }
 
 .inner-wrapper {
+    // 내부 사이징 래퍼
     margin-inline: auto;
     width: min(100% - 1.6rem, 60rem);
 }
 
 :where(#logoMain, #logoFooter) {
+    // 접근성을 위한 로고 내부의 숨김 alt 처리
     position: relative;
     overflow: hidden;
 }
 
 .hidden-alt {
+    // 숨김 alt
     position: absolute;
     inset-block-start: -5000rem;
     opacity: 0;
@@ -46,7 +37,8 @@
 }
 
 .remix {
-    width: 1.2rem;
+    // Remix Icon 기본값 설정
+    width: var(--icon-size, 0.8rem);
     aspect-ratio: 1 / 1;
     fill: currentColor;
 }

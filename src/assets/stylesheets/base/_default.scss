@@ -16,25 +16,23 @@
     line-height: 1;
     scroll-behavior: smooth;
 
-    --opaq: 1; // 투명도 글로벌 픽스, 텍스트 투명도 조정이 필요할 때 사용
-
     --fnt-title-xl: 3.6rem;
     --fnt-title-lg: 2.4rem;
     --fnt-title-md: 1.6rem;
     --fnt-title-sm: 1.2rem;
     --fnt-title-xs: 1rem;
 
-    --fnt-xl: .9rem;
-    --fnt-lg: .8rem;
-    --fnt-md: .7rem;
-    --fnt-sm: .6rem;
-    --fnt-xs: .5rem;
+    --fnt-xl: 0.9rem;
+    --fnt-lg: 0.8rem;
+    --fnt-md: 0.7rem;
+    --fnt-sm: 0.6rem;
+    --fnt-xs: 0.5rem;
 
-    --ff-sans-kr: 'SUIT', sans-serif;
-    --ff-sans-en: 'Poppins', sans-serif;
+    --ff-sans-kr: 'SUIT', sans-serif; // 기본 폰트 (preload)
+    --ff-sans-en: 'Poppins', sans-serif; // 영어 기본 폰트
     --ff-gothic-kr: '';
     --ff-gothic-en: '';
-    --ff-serif-kr: '';
+    --ff-serif-kr: 'MaruBuri', serif;
     --ff-serif-en: '';
     --ff-cursive: '';
 }
@@ -50,23 +48,26 @@
 }
 
 body {
+    // --opaq 내장 픽스를 이용하여 텍스트의 투명도를 조절할 수 있다.
     min-height: 100vh;
     background-color: rgb(var(--clr-background));
     font-family: var(--ff-sans-kr);
-    color: rgb(var(--clr-text) / var(--opaq));
+    color: rgb(var(--clr-text) / var(--opaq, 1));
     font-size: var(--fnt-md);
     word-break: keep-all;
-    transition: background-color .25s;
+    transition: background-color 0.25s;
 
-    &.prevent-scroll { // 모달 등을 사용할 때 <body>에 클래스를 부여하여 스크롤 방지
+    &.prevent-scroll {
+        // 모달 등을 사용할 때 <body>에 클래스를 부여하여 스크롤 방지
         overflow: hidden;
     }
 
     overflow: overlay;
 }
 
-::selection { // 텍스트 선택 영역
-    background-color: rgba(var(--clr-theme) / .9);
+::selection {
+    // 텍스트 선택 영역
+    background-color: rgb(var(--clr-if-100) / 0.9);
     color: rgb(var(--clr-text-on-tint));
 }
 
@@ -78,38 +79,38 @@ body {
 
 ::-webkit-scrollbar-track-piece {
     border-radius: 2px;
-    background-color: rgba(var(--clr-min) / .3);
+    background-color: rgb(var(--clr-min) / 0.3);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background-color: rgba(var(--clr-max) / .25);
+    background-color: rgb(var(--clr-max) / 0.25);
 }
 
 hr {
+    height: 1px;
     border: 0;
-
-    &.vf {
-        width: .5px;
-        height: 100%;
-    }
-
-    &.hf {
-        width: 100%;
-        height: .5px;
-    }
+    background-color: rgb(var(--clr-text) / 0.15);
 }
 
 h2 {
-    font-size: var(--fnt-title-lg);
+    font-size: var(--fnt-title-xl);
 }
 
 h3 {
-    font-size: var(--fnt-title-md);
+    font-size: var(--fnt-title-lg);
 }
 
 h4 {
+    font-size: var(--fnt-title-md);
+}
+
+h5 {
     font-size: var(--fnt-title-sm);
+}
+
+h6 {
+    font-size: var(--fnt-title-xs);
 }
 
 img,
@@ -138,7 +139,8 @@ li {
 }
 
 a {
-    &, &:visited {
+    &,
+    &:visited {
         outline: none;
         color: inherit;
         text-decoration: none;

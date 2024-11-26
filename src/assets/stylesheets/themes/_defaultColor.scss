@@ -1,45 +1,52 @@
 /* _defaultColor.scss */
 
 :root {
-    --clr-min: 0 0 0; // 최소 대비 (컬러 스키마에 대해)
-    --clr-max: 255 255 255; // 최대 대비 (컬러 스키마에 대해)
+    --clr-min: 255 255 255; // 최소 대비 (컬러 스키마에 대해)
+    --clr-max: 0 0 0; // 최대 대비 (컬러 스키마에 대해)
 
-    --clr-theme: var(--clr-tint-80); // 메인 컬러
+    --clr-white: 255 255 255; // 그냥 하얀색이 필요한 경우
+    --clr-black: 0 0 0; // 그냥 검은색이 필요한 경우
+    --clr-gray: 128 128 128; // 중간 회색
+    --clr-point: 220 186 245; // 포인트 색상
+    --clr-notify: 246 74 0; // 알림 색상
+
+    --clr-theme: var(--clr-if-0); // 메인 컬러
     --clr-background: var(--clr-surface-0); // 배경
 
-    --clr-tint-0: 100 242 180; // 틴트 0
-    --clr-tint-20: 123 244 188; // 틴트 20
-    --clr-tint-40: 143 246 196; // 틴트 40
-    --clr-tint-60: 161 248 205; // 틴트 60
-    --clr-tint-80: 178 249 213; // 틴트 80
-    --clr-tint-100: 195 251 221; // 틴트 100
+    --clr-tint-0: 126 183 255; // 틴트 0
+    --clr-tint-20: 98 149 225; // 틴트 20
+    --clr-tint-40: 79 127 205; // 틴트 40
+    --clr-tint-60: 60 104 185; // 틴트 60
+    --clr-tint-80: 41 81 165; // 틴트 80
+    --clr-tint-100: 12 47 135; // 틴트 100
 
-    --clr-surface-0: 15 15 15; // 표면 0
-    --clr-surface-20: 38 38 38; // 표면 20
-    --clr-surface-40: 61 61 61; // 표면 40
-    --clr-surface-60: 85 85 85; // 표면 60
-    --clr-surface-80: 111 111 111; // 표면 80
-    --clr-surface-100: 138 138 138; // 표면 100
+    --clr-surface-0: 255 252 249; // 표면 0
+    --clr-surface-20: 255 245 228; // 표면 20
+    --clr-surface-40: 255 241 214; // 표면 40
+    --clr-surface-60: 255 237 200; // 표면 60
+    --clr-surface-80: 255 233 186; // 표면 80
+    --clr-surface-100: 255 228 172; // 표면 100
 
-    --clr-if-0: 26 35 30; // 인터페이스 0
-    --clr-if-20: 47 56 51; // 인터페이스 20
-    --clr-if-40: 70 77 73; // 인터페이스 40
-    --clr-if-60: 93 100 96; // 인터페이스 60
-    --clr-if-80: 118 124 121; // 인터페이스 80
-    --clr-if-100: 144 149 146; // 인터페이스 100
+    --clr-if-0: 253 227 108; // 인터페이스 0
+    --clr-if-20: 254 214 81; // 인터페이스 20
+    --clr-if-40: 254 205 63; // 인터페이스 40
+    --clr-if-60: 255 196 45; // 인터페이스 60
+    --clr-if-80: 255 188 27; // 인터페이스 80
+    --clr-if-100: 255 174 0; // 인터페이스 100
 
-    --clr-text: 255 255 255; // 문자
+    --clr-text: 48 40 37; // 일반 문자
     --clr-text-highlight: var(--clr-theme); // 하이라이트 된 문자
-    --clr-text-on-tint: var(--clr-if-0); // 틴트 배경 위의 문자
-    --clr-text-on-surface: 255 255 255; // 표면 배경 위의 문자
-    --clr-text-on-invert: var(--clr-if-0); // 반전 배경 위의 문자
-    --clr-text-disabled: ; // 비활성 문자
+    --clr-text-on-tint: var(--clr-white); // 틴트 배경 위의 문자
+    --clr-text-on-interface: var(--clr-text); // 표면 배경 위의 문자
+    --clr-text-disable: var(--clr-gray); // 비활성 문자
+    --on-low-contrast: ; // 저대비 배경 위의 문자
 
-    --clr-alert: 227 23 10; // 에러
-    --clr-warn: 247 179 43; // 경고
-    --clr-info: 89 96 232; // 정보
     --clr-clear: 35 206 107; // 안전
+    --clr-info: 89 96 232; // 정보
+    --clr-warn: 247 179 43; // 경고
+    --clr-alert: 190 30 20; // 에러
     --clr-unable: ; // 불가능
+    --clr-normal: ; // 일반적인 상황
 }
 
 /* _defaultColor.scss */
