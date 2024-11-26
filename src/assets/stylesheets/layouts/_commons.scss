@@ -1,0 +1,62 @@
+/* _commons.scss */
+
+#root {
+    // App
+    position: relative;
+}
+
+#mainContainer {
+    // 주 컨테이너
+    container-name: main-container;
+    container-type: inline-size;
+
+    margin-block: 1.2rem;
+
+    &:has(#sideBarMain) {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        gap: 1.2rem;
+    }
+}
+
+#contentView {
+    // 컨텐츠 컨테이너
+    flex: 1;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.inner-wrapper {
+    margin-inline: auto;
+    width: min(100% - 1.6rem, 60rem);
+}
+
+:where(#logoMain, #logoFooter) {
+    position: relative;
+    overflow: hidden;
+}
+
+.hidden-alt {
+    position: absolute;
+    inset-block-start: -5000rem;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.remix {
+    width: 1.2rem;
+    aspect-ratio: 1 / 1;
+    fill: currentColor;
+}
+
+/* 반응형 쿼리 */
+
+@container main-container (max-width: 960px) {
+}
+
+@container main-container (max-width: 640px) {
+}
+
+/* _commons.scss */

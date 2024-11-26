@@ -1,0 +1,53 @@
+/* _keyframes.scss */
+
+@keyframes rotate-conic { // 회전하는 conic-gradient
+    from {
+        --conic-range: 0deg;
+    }
+
+    to {
+        --conic-range: 360deg;
+    }
+}
+
+@keyframes blink { // 순서대로 깜빡이는 말줄임표
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes burger-toggle { // 햄버거 버튼
+    40% {
+        height: .1rem;
+        inset-inline-start: var(--burger-self-start);
+        inset-inline-end: var(--burger-self-end);
+    }
+
+    45% {
+        inset-inline-start: 0;
+        inset-inline-end: 0;
+    }
+
+    66% {
+        inset-inline-start: 0;
+        inset-inline-end: 0;
+        rotate: 0;
+    }
+
+    75% {
+        rotate: var(--burger-self-rotate) 0 0;
+    }
+
+    100% {
+        inset-inline-start: 0;
+        inset-inline-end: 0;
+        height: .8rem;
+        rotate: var(--burger-self-rotate) 0 0;
+    }
+}
+
+/* _keyframes.scss */
