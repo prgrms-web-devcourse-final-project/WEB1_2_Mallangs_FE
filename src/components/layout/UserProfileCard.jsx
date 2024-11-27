@@ -4,6 +4,7 @@ import Remix from '../common/Remix';
 const UserProfileCard = () => {
     const tempPet = {
         // 임시 대표 말랑이 객체
+        userID: 123,
         petImage: null,
         petName: '정신차려이각박한세상속에서',
         petType: '고양이',

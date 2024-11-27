@@ -1599,6 +1599,131 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 /* _customAlert.scss */
+/* _areaInfoPanel.scss */
+#panel-area-info {
+  position: fixed;
+  inset-block-start: 4rem;
+  inset-inline-start: 0.8rem;
+  width: 16rem;
+  border-radius: var(--rad-lg);
+  background-color: rgb(var(--clr-white));
+  box-shadow: var(--shd-100);
+  overflow: clip;
+  z-index: 50000;
+}
+
+.area-picture-carousel {
+  position: relative;
+  height: 12rem;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.area-picture-carousel::after {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to top, rgb(var(--clr-text)/0.5), transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+}
+
+.picture-carousel-wrapper {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(var(--clr-point));
+  z-index: -1;
+}
+
+#button-goto-community {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  inset-block-end: 0.8rem;
+  inset-inline: 0;
+  margin: auto;
+  padding-inline: 0.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 1.6rem;
+  border-radius: var(--rad-full);
+  background-color: rgb(var(--clr-white)/0.75);
+  -webkit-backdrop-filter: blur(1.8rem);
+          backdrop-filter: blur(1.8rem);
+  box-shadow: var(--shd-100);
+  font-size: var(--fnt-sm);
+  font-weight: 900;
+}
+
+.area-descriptions {
+  padding: 0.8rem;
+  font-size: var(--fnt-sm);
+}
+
+.area-town-name {
+  font-weight: 900;
+}
+
+.area-city-province-name {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-block: 0.4rem;
+}
+
+.area-users {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.user-icons-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  display: grid;
+  place-items: center;
+  padding: 0.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 0.1rem solid rgb(var(--clr-white));
+  border-radius: var(--rad-full);
+  background-color: rgb(var(--clr-tint-0));
+  box-shadow: 0 0.2rem 0.4rem -0.1rem rgb(var(--clr-text)/0.5);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: var(--order);
+  isolation: isolate;
+}
+.user-icon:not(:last-of-type) {
+  margin-inline-end: -0.4rem;
+}
+.user-icon:hover {
+  scale: 1.5;
+  z-index: 10 !important;
+}
+
+.area-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding-inline: 0.8rem;
+  height: 2.4rem;
+  border-block: 1px solid rgb(var(--clr-text)/0.15);
+}
+
+.area-threads-list {
+  padding: 0.8rem;
+  max-height: 16rem;
+}
+
+/* _areaInfoPanel.scss */
 /* _userProfileCard.scss */
 #user-profile-card {
   position: fixed;
