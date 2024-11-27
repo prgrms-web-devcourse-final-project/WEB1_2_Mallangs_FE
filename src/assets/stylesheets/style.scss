@@ -38,8 +38,10 @@
 ;
 
 // 6. Views
-@import "views/register", "views/login", "views/myPage";
+@import 'views/registerPage', 'views/loginPage', 'views/myPage';
 
 // 7. Components
-@import "components/buttons", "components/formElements", "components/spinLoader", "components/customAlert",
-    "components/dropdown", "components/receiveChat", "components/sendChat", "components/starRating";
+@import 'components/buttons', 'components/formElements', 'components/spinLoader',
+    'components/customAlert', 'components/areaInfoPanel',
+    'components/userProfileCard', 'components/mallangsItem',
+"components/dropdown", "components/receiveChat", "components/sendChat", "components/starRating";
