@@ -13,7 +13,7 @@
     position: sticky;
     inset-block-start: 0;
     padding-inline: 0.8rem;
-    height: 3.6rem;
+    height: 3.2rem;
     background-color: rgb(var(--clr-theme));
     outline: 1px solid rgb(var(--clr-text) / 0.15);
     z-index: 50000;
@@ -64,7 +64,7 @@
     padding-inline: 0.8rem;
     width: 10rem;
     height: 1.6rem;
-    border-radius: 25rem;
+    border-radius: var(--rad-full);
     background-color: rgb(var(--clr-white));
     outline: 1px solid rgb(var(--clr-if-20));
     font-size: var(--fnt-sm);
@@ -77,7 +77,7 @@
     position: relative;
     width: 1.8rem;
     height: 1.8rem;
-    border-radius: 25rem;
+    border-radius: var(--rad-full);
     scale: 0.75;
     opacity: 0.25;
     transition: 0.15s;
@@ -113,7 +113,7 @@
     position: relative;
     width: 1.8rem;
     height: 1.8rem;
-    border-radius: 25rem;
+    border-radius: var(--rad-full);
     background-color: rgb(var(--clr-gray));
     outline: 1px solid rgb(var(--clr-text) / 0.15);
     color: rgb(var(--clr-white) / 0.5);
@@ -138,7 +138,7 @@
     width: 2rem;
     height: 2rem;
     border: 1px solid rgb(var(--clr-max) / 0.25);
-    border-radius: 25rem;
+    border-radius: var(--rad-full);
     background-color: rgb(var(--clr-background));
 
     > span {

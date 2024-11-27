@@ -1,10 +1,17 @@
-import { useState } from 'react';
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import UserProfileCard from './components/layout/UserProfileCard';
+import MallangMap from './components/MallangMap';
 
 function App() {
     return (
         <div>
-            <Header></Header>
+            <UserProfileCard />
+            <Header />
+            <main>
+                <MallangMap />
+            </main>
+            <Footer />
         </div>
     );
 }
