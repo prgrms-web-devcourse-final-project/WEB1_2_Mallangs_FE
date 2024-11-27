@@ -19,7 +19,7 @@
 .inner-wrapper {
     // 내부 사이징 래퍼
     margin-inline: auto;
-    width: min(100% - 1.6rem, 60rem);
+    width: min(100% - 1.6rem, 36rem);
 }
 
 :where(#logoMain, #logoFooter) {

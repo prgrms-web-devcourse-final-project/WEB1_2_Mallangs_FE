@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Remix from '../common/Remix';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const [notifyList, setNotifies] = useState([]);
@@ -95,16 +96,22 @@ const Header = () => {
 
             <nav id="nav-primary">
                 <ul>
-                    <li className="nav-item primary on">
-                        <span>말랑맵</span>
+                    <li className="nav-item primary">
+                        <NavLink to="/">
+                            <span>말랑맵</span>
+                        </NavLink>
                     </li>
 
                     <li className="nav-item primary">
-                        <span>커뮤니티</span>
+                        <NavLink to="/community">
+                            <span>커뮤니티</span>
+                        </NavLink>
                     </li>
 
                     <li className="nav-item primary">
-                        <span>실종신고</span>
+                        <NavLink to="missing">
+                            <span>실종신고</span>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

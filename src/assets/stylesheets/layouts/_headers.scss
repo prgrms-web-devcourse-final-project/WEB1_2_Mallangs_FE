@@ -33,9 +33,6 @@
 .nav-item {
     --gradient-height: 0;
 
-    display: grid;
-    place-items: center;
-    padding-inline: 0.8rem;
     height: 100%;
     background-image: linear-gradient(
         to top,
@@ -44,7 +41,15 @@
     );
     font-weight: 200;
 
-    &.on {
+    > a {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.8rem;
+    }
+
+    &:has(.active) {
         --gradient-height: 0.2rem;
 
         font-weight: 900;
