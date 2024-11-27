@@ -10,8 +10,9 @@
     justify-content: flex-start;
     align-items: center;
     gap: 1.8rem;
-    position: sticky;
+    position: fixed;
     inset-block-start: 0;
+    inset-inline: 0;
     padding-inline: 0.8rem;
     height: 3.2rem;
     background-color: rgb(var(--clr-theme));

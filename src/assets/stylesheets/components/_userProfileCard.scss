@@ -11,6 +11,7 @@
     background-color: rgb(var(--clr-white));
     box-shadow: var(--shd-100);
     overflow: clip;
+    z-index: 50000;
 }
 
 .profile-card-title-bar {

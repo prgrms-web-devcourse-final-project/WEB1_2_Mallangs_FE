@@ -8,7 +8,7 @@ function App() {
         <div>
             <UserProfileCard />
             <Header />
-            <main>
+            <main id="main-wrapper">
                 <MallangMap />
             </main>
             <Footer />
