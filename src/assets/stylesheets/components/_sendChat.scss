@@ -1,0 +1,82 @@
+.chat-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    width: 169px;
+    max-width: 22.5rem;
+    height: 49px;
+}
+
+.chat-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    width: 169px;
+    height: 49px;
+}
+
+.chat-text-bubble {
+    display: flex;
+    max-width: 22.5rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0.5rem 0.75rem;
+    // width: 169px;
+    height: 33px;
+    background: var(----clr-info, #5960e8);
+    border-radius: var(----rad-lg, 0.5rem) var(----rad-lg, 0.5rem) 0rem var(----rad-lg, 0.5rem);
+    align-self: stretch;
+}
+
+.chat-text {
+    width: 145px;
+    height: 17px;
+    font-family: "SUIT Variable";
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(----fnt-md, 0.875rem);
+    line-height: 17px;
+    color: var(----clr-white, #fff);
+}
+
+.chat-time-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    width: 169px;
+    height: 12px;
+    order: 1;
+    align-self: stretch;
+}
+
+.time {
+    width: 38px;
+    height: 12px;
+    font-family: "SUIT Variable";
+    font-style: normal;
+    font-weight: 200;
+    font-size: var(----fnt-xs, 0.625rem);
+    line-height: 12px;
+    text-align: right;
+    color: #302825;
+    opacity: 0.5;
+}
+
+.show-read-text {
+    width: 18px;
+    height: 12px;
+    font-family: "SUIT Variable";
+    font-style: normal;
+    font-weight: 200;
+    font-size: var(----fnt-xs, 0.625rem);
+    line-height: 12px;
+    text-align: right;
+    color: #302825;
+    opacity: 0.5;
+    order: 3;
+}

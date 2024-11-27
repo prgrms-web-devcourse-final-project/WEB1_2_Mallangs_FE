@@ -1,40 +1,40 @@
-@use 'sass:list';
-@use 'sass:math';
+@use "sass:list";
+@use "sass:math";
 
 // 0. Reset
-@import 'vendors/normalize';
+@import "vendors/normalize";
 
 // 1. Base
-@import 'base/default' // Default
+@import "base/default" // Default
 ;
 
 // 2. Abstracts
-@import 'abstracts/variables',
+@import "abstracts/variables",
     // Global Variables
-    'abstracts/functions',
+    "abstracts/functions",
     // SASS Functions
-    'abstracts/keyframes' // Animations
+    "abstracts/keyframes" // Animations
 ;
 
 // 3. Helpers
-@import 'helpers/utils';
+@import "helpers/utils";
 
 // 4. Themes
-@import 'themes/lightScheme',
+@import "themes/lightScheme",
     // Prefered Scheme - Light (Not In Use)
-    'themes/darkScheme',
+    "themes/darkScheme",
     // Prefered Scheme - Dark (Not In Use)
-    'themes/defaultColor' // Default Color
+    "themes/defaultColor" // Default Color
 ;
 
 // 5. Layouts
-@import 'layouts/commons',
+@import "layouts/commons",
     // Commons
-    'layouts/headers',
+    "layouts/headers",
     // Headers
-    'layouts/footers',
+    "layouts/footers",
     // Footers
-    'layouts/mainPage' // Main Page Layout
+    "layouts/mainPage" // Main Page Layout
 ;
 
 // 6. Views
@@ -43,4 +43,5 @@
 // 7. Components
 @import 'components/buttons', 'components/formElements', 'components/spinLoader',
     'components/customAlert', 'components/areaInfoPanel',
-    'components/userProfileCard', 'components/mallangsItem';
+    'components/userProfileCard', 'components/mallangsItem',
+"components/dropdown", "components/receiveChat", "components/sendChat", "components/starRating";

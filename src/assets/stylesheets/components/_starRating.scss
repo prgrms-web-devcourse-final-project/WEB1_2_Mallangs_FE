@@ -1,0 +1,11 @@
+.star-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.star-full {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
