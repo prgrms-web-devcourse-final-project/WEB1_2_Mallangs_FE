@@ -2041,3 +2041,302 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 /* _customAlert.scss */
+.dropdown-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100px;
+  height: 2rem;
+  left: 343px;
+  top: 237px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #ffffff;
+  box-shadow: 0px 16px 24px -12px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(18px);
+          backdrop-filter: blur(18px);
+  border-radius: 4px;
+}
+.dropdown-container .option-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  height: 32px;
+  align-self: stretch;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  color: #302825;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+}
+.dropdown-container .option-item .separator-line {
+  width: 1px;
+  height: 32px;
+  background: #302825;
+  opacity: 0.15;
+  order: 1;
+  z-index: 1;
+}
+.dropdown-container .option-item .arrow-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  order: 2;
+  z-index: 2;
+}
+.dropdown-container .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  height: 96px;
+  top: 45px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 16px 24px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  order: 3;
+  z-index: 3;
+}
+.dropdown-container .dropdown-menu .dropdown-menu-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 8px;
+  gap: 10px;
+  width: 100px;
+  height: 32px;
+  align-self: stretch;
+}
+.dropdown-container .dropdown-menu .dropdown-menu-item.active {
+  background: #5960e8;
+}
+.dropdown-container .dropdown-menu .dropdown-menu-item.active .menu-item-label {
+  color: #ffffff;
+}
+.dropdown-container .dropdown-menu .dropdown-menu-item.active .icon-checked {
+  opacity: 1;
+}
+.dropdown-container .dropdown-menu .dropdown-menu-item .menu-item-label {
+  margin: 0 auto;
+  width: 35px;
+  height: 15px;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
+.dropdown-container .dropdown-menu .dropdown-menu-item .icon-checked {
+  margin: 0 auto;
+  width: 16px;
+  height: 16px;
+  order: 1;
+}
+
+.chat-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  width: 508px;
+  height: 65px;
+  left: 36px;
+  top: 399px;
+}
+.chat-item-profile {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  isolation: isolate;
+  width: 36px;
+  height: 36px;
+  background: #808080;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 500px;
+}
+.chat-item-profile-icon {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 7px;
+}
+.chat-item-profile-icon::before {
+  position: absolute;
+  left: 16.67%;
+  right: 16.67%;
+  top: 4.17%;
+  bottom: 8.33%;
+  background: #ffffff;
+}
+.chat-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 169px;
+  max-width: 360px;
+  height: 65px;
+  order: 1;
+}
+.chat-item-username {
+  width: 27px;
+  height: 12px;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  color: #302825;
+  opacity: 0.5;
+}
+.chat-item-bubble {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 169px;
+  padding: 0.5rem 0.75rem;
+  max-width: 360px;
+  height: 33px;
+  background: #ffe4ac;
+  border-radius: 0 8px 8px 8px;
+  align-self: stretch;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--fnt-md);
+  line-height: 17px;
+  color: #302825;
+  width: 145px;
+  height: 17px;
+}
+.chat-item-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  width: 169px;
+  height: 12px;
+  order: 1;
+  align-self: stretch;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: right;
+  color: #302825;
+  opacity: 0.5;
+  width: 38px;
+  height: 12px;
+  flex: none;
+}
+
+.chat-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  width: 169px;
+  max-width: 22.5rem;
+  height: 49px;
+}
+
+.chat-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: 169px;
+  height: 49px;
+}
+
+.chat-text-bubble {
+  display: flex;
+  max-width: 22.5rem;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0.5rem 0.75rem;
+  height: 33px;
+  background: var(----clr-info, #5960e8);
+  border-radius: var(----rad-lg, 0.5rem) var(----rad-lg, 0.5rem) 0rem var(----rad-lg, 0.5rem);
+  align-self: stretch;
+}
+
+.chat-text {
+  width: 145px;
+  height: 17px;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(----fnt-md, 0.875rem);
+  line-height: 17px;
+  color: var(----clr-white, #fff);
+}
+
+.chat-time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+  width: 169px;
+  height: 12px;
+  order: 1;
+  align-self: stretch;
+}
+
+.time {
+  width: 38px;
+  height: 12px;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 200;
+  font-size: var(----fnt-xs, 0.625rem);
+  line-height: 12px;
+  text-align: right;
+  color: #302825;
+  opacity: 0.5;
+}
+
+.show-read-text {
+  width: 18px;
+  height: 12px;
+  font-family: "SUIT Variable";
+  font-style: normal;
+  font-weight: 200;
+  font-size: var(----fnt-xs, 0.625rem);
+  line-height: 12px;
+  text-align: right;
+  color: #302825;
+  opacity: 0.5;
+  order: 3;
+}
+
+.star-container {
+  display: flex;
+  align-items: center;
+}
+
+.star-full {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
