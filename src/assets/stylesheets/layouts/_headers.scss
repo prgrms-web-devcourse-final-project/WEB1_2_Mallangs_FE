@@ -1,184 +1,150 @@
 /* _headers.scss */
 
-#headPrimary { // 메인 헤더
-    container-name: header-primary;
+#head-primary {
+    // 주 헤더, 컨테이너 쿼리를 위한 헤더 컨테이너로 지정
+    container-name: head-primary;
     container-type: inline-size;
 
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    position: sticky;
+    gap: 1.8rem;
+    position: fixed;
     inset-block-start: 0;
-    padding-inline: .8rem;
-    height: 3.6rem;
-    background-color: rgb(var(--clr-background) / .75);
-    backdrop-filter: blur(.8rem);
-    transition: background-color .25s;
+    inset-inline: 0;
+    padding-inline: 0.8rem;
+    height: 3.2rem;
+    background-color: rgb(var(--clr-theme));
+    outline: 1px solid rgb(var(--clr-text) / 0.15);
     z-index: 50000;
 }
 
-#navPrimary {
+#nav-primary {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-}
+    height: 100%;
 
-.nav-list {
-    display: contents;
+    > ul {
+        display: contents;
+    }
 }
 
 .nav-item {
-    position: relative;
+    --gradient-height: 0;
 
-    &::before {
-        display: block;
-        position: absolute;
-        inset: 0;
-        margin-block-start: auto;
-        margin-inline: auto;
-        width: 0;
-        height: .2rem;
-        background-color: rgb(var(--clr-tint-80));
-        content: '';
-    }
-
-    &:has(:hover) {
-        &::before {
-            width: calc(100% - 1.6rem);
-            transition: width .25s;
-        }
-    }
-
-    &:has(.router-link-active) {
-        &::before {
-            width: 100%;
-            background-color: rgb(var(--clr-tint-0));
-        }
-    }
+    height: 100%;
+    background-image: linear-gradient(
+        to top,
+        rgb(var(--clr-if-100)) var(--gradient-height),
+        transparent var(--gradient-height)
+    );
+    font-weight: 200;
 
     > a {
-        display: block;
-        padding: .8rem;
-        border-radius: .2rem;
-        opacity: .5;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        padding-inline: 0.8rem;
+    }
+
+    &:has(.active) {
+        --gradient-height: 0.2rem;
+
+        font-weight: 900;
+    }
+}
+
+#head-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-inline-start: auto;
+}
+
+#total-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 0.8rem;
+    width: 10rem;
+    height: 1.6rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-white));
+    outline: 1px solid rgb(var(--clr-if-20));
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+}
+
+#button-notify {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: var(--rad-full);
+    scale: 0.75;
+    opacity: 0.25;
+    transition: 0.15s;
+
+    &.on {
+        opacity: 1;
 
         &:hover {
-            opacity: .75;
+            background-color: rgb(var(--clr-if-60));
         }
 
-        &.router-link-active {
-            font-weight: 900;
-            opacity: 1;
-        }
-    }
-}
-
-.temp-rotating-light { // 임시 - 테두리 빛이 회전하는 버튼
-    padding: 1px;
-    border-radius: .25rem;
-
-    &:has(.router-link-active) { // 색 변경 필요
-        background-image: repeating-conic-gradient(
-            from var(--conic-range),
-            rgb(var(--clr-if-0)),
-            rgb(var(--clr-tint-100)) 50%
-        );
-        box-shadow: 0 0 1.2rem -.4rem rgb(var(--clr-tint-80) / 1);
-        animation: rotate-conic 3s linear infinite;
-    }
-
-    > a {
-        display: block;
-        padding: .4rem 1.2rem;
-        border-radius: .2rem;
-
-        &:hover { // 색 변경 필요
-            background-image: linear-gradient(to top, rgb(var(--clr-theme)), rgb(var(--clr-theme)) .1rem, transparent .1rem);
+        &:focus {
+            background-color: rgb(var(--clr-white));
+            color: rgb(var(--clr-if-100));
         }
 
-        &.router-link-active { // 색 변경 필요
-            background-color: rgb(var(--clr-surface-20));
-            font-weight: 900;
+        &::after {
+            display: block;
+            position: absolute;
+            inset: 0;
+            margin-inline-start: auto;
+            margin-block-end: auto;
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 25rem;
+            background-color: rgb(var(--clr-notify));
+            content: '';
         }
     }
 }
 
-#menuElements { // 모바일 네비게이션을 겸한다
+#button-user-profile {
+    position: relative;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-gray));
+    outline: 1px solid rgb(var(--clr-text) / 0.15);
+    color: rgb(var(--clr-white) / 0.5);
+    overflow: clip;
+
+    > .remix {
+        position: absolute;
+        inset: 0;
+        margin: 0.4rem auto auto;
+    }
+}
+
+.current-user-image {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+
+#button-burger {
     display: flex;
-    align-items: center;
-    gap: .8rem;
-}
-
-#chkTheme {
-    & + label {
-        --switch-rail-false: 184 238 255;
-        --switch-rail-true: 59 38 136;
-        --switch-button-false: 255 251 0;
-        --switch-button-true: 25 22 27;
-        --switch-icon-false: 255 102 0;
-        --switch-icon-true: 255 251 0;
-    }
-}
-
-.mobile-menu-container {
-    &.mobile-navigation {
-        padding: 0;
-    }
-}
-
-.mobile-navigation {
-    display: none;
-}
-
-#navSecondary {
-    font-size: var(--fnt-xl);
-}
-
-.mobile-nav-item {
-    > a {
-        display: flex;
-        align-items: center;
-        gap: .8rem;
-        padding: .8rem;
-
-        > .remix {
-            width: .8rem;
-            opacity: .5;
-        }
-
-        &:focus,
-        &:active {
-            background-color: rgb(var(--clr-tint-0) / .75);
-            color: rgb(var(--clr-if-0));
-            font-weight: 900;
-
-            > .remix {
-                opacity: 1;
-            }
-        }
-    }
-}
-
-.user-info-container {
-    display: flex;
-    align-items: center;
-    gap: .4rem;
-}
-
-#btnLogout {
-    &:hover {
-        color: rgb(var(--clr-if-0));
-    }
-}
-
-#btnBurger {
-    display: none;
     position: relative;
     width: 2rem;
     height: 2rem;
-    border: 1px solid rgb(var(--clr-max) / .25);
-    border-radius: 25rem;
+    border: 1px solid rgb(var(--clr-max) / 0.25);
+    border-radius: var(--rad-full);
     background-color: rgb(var(--clr-background));
 
     > span {
@@ -186,53 +152,56 @@
         position: absolute;
         inset: 0;
         margin: auto;
-        width: .1rem;
-        background-color: rgb(var(--clr-max));
+        width: 0.1rem;
+        background-color: rgb(var(--clr-text));
 
-        &:nth-child(1) { // 마지막
-            inset-inline-start: .5rem;
-            height: .4rem;
+        &:nth-child(1) {
+            // 마지막
+            inset-inline-start: 0.5rem;
+            height: 0.6rem;
         }
 
-        &:nth-child(2) { // 중간
-            height: .6rem;
+        &:nth-child(2) {
+            // 중간
+            height: 0.6rem;
         }
 
-        &:nth-child(3) { // 처음
-            inset-inline-end: .5rem;
-            height: .2rem;
+        &:nth-child(3) {
+            // 처음
+            inset-inline-end: 0.5rem;
+            height: 0.6rem;
         }
     }
 
     &:hover {
-        background-color: rgb(var(--clr-max) / .1);
+        background-color: rgb(var(--clr-if-40));
     }
 
     &.on {
         border-color: transparent;
-        background-color: rgb(var(--clr-alert));
-        transition: .5s;
+        background-color: rgb(var(--clr-if-100));
+        transition: 0.5s;
 
         > span {
             background-color: rgb(255 255 255);
 
             &:nth-child(1) {
-                --burger-self-start: .4rem;
+                --burger-self-start: 0.4rem;
                 --burger-self-rotate: 45deg;
 
-                animation: burger-toggle .5s 1 forwards;
+                animation: burger-toggle 0.5s 1 forwards;
             }
 
             &:nth-child(2) {
                 height: 0;
-                transition: height .25s .25s;
+                transition: height 0.25s 0.25s;
             }
 
             &:nth-child(3) {
-                --burger-self-end: .4rem;
+                --burger-self-end: 0.4rem;
                 --burger-self-rotate: -45deg;
 
-                animation: burger-toggle .5s 1 forwards;
+                animation: burger-toggle 0.5s 1 forwards;
             }
         }
     }
@@ -240,69 +209,10 @@
 
 /* 반응형 쿼리 */
 
-@container header-primary (max-width: 960px) {
-    #navPrimary {
-        gap: .6rem;
-    }
-
-    #btnLogin,
-    #btnLogout {
-        justify-content: center;
-        padding-inline: 0;
-        width: 1.6rem;
-
-        > span {
-            display: none;
-        }
-    }
+@container head-primary (max-width: 960px) {
 }
 
-@container header-primary (max-width: 640px) {
-    .nav-list {
-        display: none;
-    }
-
-    .mobile-menu-container {
-        padding: .8rem;
-
-        & + & {
-            border-block-start: 1px solid rgb(var(--clr-max) / .15);
-        }
-    }
-
-    #menuElements {
-        position: absolute;
-        inset-block-start: calc(100% + .4rem);
-        inset-inline-end: 1.2rem;
-        min-width: 9.6rem;
-        border: 1px solid rgb(var(--clr-max) / .15);
-        border-radius: .4rem;
-        background-color: rgb(var(--clr-background) / .9);
-        box-shadow: 0 .8rem .8rem -.4rem rgb(0 0 0 / .5);
-        opacity: 0;
-        pointer-events: none;
-
-        &.on {
-            display: initial;
-            opacity: 1;
-            transition: opacity .25s;
-            pointer-events: initial;
-        }
-    }
-
-    #chkTheme + label {
-        .switch-label {
-            display: block;
-        }
-    }
-
-    .mobile-navigation {
-        display: block;
-    }
-
-    #btnBurger {
-        display: flex;
-    }
+@container head-primary (max-width: 640px) {
 }
 
 /* _headers.scss */

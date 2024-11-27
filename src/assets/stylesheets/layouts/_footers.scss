@@ -1,13 +1,92 @@
 /* _footers.scss */
 
-#footPrimary { // 메인 푸터
+#foot-primary {
+    // 메인 푸터
+    margin-top: 200px;
+    user-select: none;
+}
+
+.footer-service-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.8rem;
+    padding-inline: 0.8rem;
+    height: 3.6rem;
+    font-size: var(--fnt-sm);
+}
+
+.footer-company-informations {
+    display: flex;
+    gap: 1.2rem;
+    padding-block: 1.2rem;
+    padding-inline: 0.8rem;
+    border-block: 1px solid rgb(var(--clr-text) / 0.15);
+}
+
+.footer-information-table {
+    flex: 1;
+    font-size: var(--fnt-sm);
+}
+
+.footer-table-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 1.8rem;
+    font-size: var(--fnt-lg);
+    font-weight: 700;
+}
+
+.footer-table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.8rem;
+}
+
+.footer-table-row-header {
+    font-weight: 200;
+    opacity: 50%;
+}
+
+.footer-table-row-values {
+}
+
+.company-call-center {
+    margin-block: 0.6rem;
+    padding-block: 0.6rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-theme));
+    font-weight: 700;
+    text-align: center;
+}
+
+.footer-table-disclaimer {
+    padding-block: 0.6rem;
+    color: rgb(var(--clr-tint-40) / 0.5);
+
+    &::before {
+        content: '* ';
+    }
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    padding-inline: 0.8rem;
+    height: 3.6rem;
+}
+
+.footer-copyright {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    margin-block-start: 3.6rem;
-    padding-block: 1.2rem;
-    border-block-start: 1px solid rgb(var(--clr-max) / .15);
-    color: rgb(var(--clr-text) / .5);
+    gap: 1.2rem;
+    padding-block: 1.8rem;
+    padding-inline: 0.8rem;
     font-size: var(--fnt-sm);
     font-weight: 200;
 }

@@ -1,6 +1,7 @@
 /* _buttons.scss */
 
-button { // 기본값 초기화
+button {
+    // 기본값 초기화
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -9,7 +10,8 @@ button { // 기본값 초기화
     cursor: pointer;
 }
 
-.buttons { // 아이콘이 포함된 버튼 - ButtonsWithIcon 컴포넌트
+.buttons {
+    // 아이콘이 포함된 버튼 - ButtonsWithIcon 컴포넌트
     --button-surface-color: var(--clr-theme); // 버튼 배경 컬러
     --button-outline-color: 0 0 0 / 0; // 버튼 테두리 컬러
     --button-text-color: var(--clr-text-on-tint); // 버튼 텍스트 컬러
@@ -17,41 +19,37 @@ button { // 기본값 초기화
 
     display: flex;
     align-items: center;
-    gap: .4rem;
+    gap: 0.4rem;
     height: 1.6rem;
-    padding-inline: .8rem;
+    padding-inline: 0.8rem;
     border: 1px solid rgb(var(--button-outline-color));
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     background-color: rgb(var(--button-surface-color));
-    outline-offset: .1rem;
+    outline-offset: 0.1rem;
     color: rgb(var(--button-text-color));
     font-size: var(--fnt-sm);
     font-weight: 700;
-    transition: background-color .25s;
+    transition: background-color 0.25s;
 
     &:hover {
         background-color: rgb(var(--button-hover-color));
     }
 
     &:active {
-        background-color: rgb(var(--clr-tint-0));
-        outline-offset: .2rem;
+        background-color: rgb(var(--clr-if-60));
+        outline-offset: 0.2rem;
     }
 
     &:focus {
-        outline: .1rem dashed rgb(var(--clr-tint-100) / .5);
+        outline: 0.1rem dashed rgb(var(--clr-if-100) / 0.5);
     }
 
     &:disabled {
         border-color: rgb(var(--clr-surface-60));
         background-color: rgb(var(--clr-surface-0));
         color: rgb(var(--clr-surface-60));
-        text-shadow: 1px 1px 0 rgb(255 255 255 / .25);
+        text-shadow: 1px 1px 0 rgb(var(--clr-white) / 0.25);
         cursor: no-drop;
-    }
-
-    > .remix {
-        width: .8rem;
     }
 
     > span {
@@ -81,13 +79,14 @@ button { // 기본값 초기화
     }
 }
 
-.button-post-controls { // 포스트 하단 컨트롤러 버튼
+.button-post-controls {
+    // 포스트 하단 컨트롤러 버튼
     --button-icon-color: currentColor; // 버튼 마우스 오버시 변경될 컬러
 
     position: relative;
     width: 3.6rem;
     height: 3.6rem;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
     font-size: var(--fnt-sm);
     overflow: hidden;
     user-select: none;
@@ -98,8 +97,8 @@ button { // 기본값 초기화
         inset-inline: 0;
         margin-block: auto;
         margin-inline: auto;
-        width: .8rem;
-        transition: .25s;
+        width: 0.8rem;
+        transition: 0.25s;
     }
 
     > span {
@@ -109,17 +108,21 @@ button { // 기본값 초기화
         inset-inline: 0;
         margin: auto;
         opacity: 0;
-        transition: .25s;
+        transition: 0.25s;
     }
 
     &:hover,
     &:focus {
-        background-image: radial-gradient(circle at top, rgb(var(--button-icon-color) / .1), rgb(var(--clr-surface-0)));
-        backdrop-filter: blur(.4rem);
-        box-shadow: 0 0 .8rem -.2rem rgb(var(--button-icon-color) / .25);
-        outline: 1px solid rgb(var(--button-icon-color) / .25);
+        background-image: radial-gradient(
+            circle at top,
+            rgb(var(--button-icon-color) / 0.1),
+            rgb(var(--clr-surface-0))
+        );
+        backdrop-filter: blur(0.4rem);
+        box-shadow: 0 0 0.8rem -0.2rem rgb(var(--button-icon-color) / 0.25);
+        outline: 1px solid rgb(var(--button-icon-color) / 0.25);
         outline-offset: 1px;
-        text-shadow: 0 .1rem .1rem rgb(0 0 0 / .5);
+        text-shadow: 0 0.1rem 0.1rem rgb(0 0 0 / 0.5);
 
         > .remix {
             inset-block: 0 1.2rem;
@@ -127,7 +130,7 @@ button { // 기본값 초기화
         }
 
         > span {
-            inset-block-start: calc(50% + .2rem);
+            inset-block-start: calc(50% + 0.2rem);
             opacity: 1;
         }
     }
@@ -135,17 +138,18 @@ button { // 기본값 초기화
 
 #btnSubmitReply,
 #btnSubmitGuestbook,
-.button-guestbook-reply { // 댓글, 방명록 등록 버튼
+.button-guestbook-reply {
+    // 댓글, 방명록 등록 버튼
     flex-shrink: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: .2rem;
+    gap: 0.2rem;
     width: 4.2rem;
-    border: 1px solid rgb(var(--clr-tint-60) / .5);
-    border-radius: .2rem;
-    background-color: rgb(var(--clr-theme) / .1);
+    border: 1px solid rgb(var(--clr-tint-60) / 0.5);
+    border-radius: 0.2rem;
+    background-color: rgb(var(--clr-theme) / 0.1);
     color: rgb(var(--clr-tint-60));
     font-weight: 700;
 
@@ -166,23 +170,24 @@ button { // 기본값 초기화
         border-color: rgb(var(--clr-surface-60));
         background-color: rgb(var(--clr-surface-0));
         color: rgb(var(--clr-surface-60));
-        text-shadow: 1px 1px 0 rgb(255 255 255 / .25);
+        text-shadow: 1px 1px 0 rgb(255 255 255 / 0.25);
         cursor: no-drop;
     }
 }
 
-.buttons-blog-control { // 사이드바 블로그 컨트롤러 버튼
+.buttons-blog-control {
+    // 사이드바 블로그 컨트롤러 버튼
     flex: 1;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: .2rem;
+    gap: 0.2rem;
     width: 100%;
     aspect-ratio: 1 / 1;
     border: 1px solid transparent;
-    border-radius: .4rem;
-    transition: background-color .15s;
+    border-radius: 0.4rem;
+    transition: background-color 0.15s;
 
     > .remix {
         width: 1rem;
@@ -200,20 +205,21 @@ button { // 기본값 초기화
 }
 
 .button-guestbook-controls, // 방명록 글 / 답글 컨트롤러 버튼
-.button-reply-controls { // 댓글 컨트롤러 버튼
+.button-reply-controls {
+    // 댓글 컨트롤러 버튼
     display: flex;
     align-items: center;
-    gap: .2rem;
+    gap: 0.2rem;
     font-size: var(--fnt-sm);
 
     > .remix {
-        width: .7rem;
-        opacity: .5;
+        width: 0.7rem;
+        opacity: 0.5;
     }
 
     &:hover {
         text-decoration: 1px solid underline;
-        text-underline-offset: .2rem;
+        text-underline-offset: 0.2rem;
     }
 }
 

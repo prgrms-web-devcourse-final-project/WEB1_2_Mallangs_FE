@@ -1,0 +1,55 @@
+/* _userProfileCard.scss */
+
+#user-profile-card {
+    position: fixed;
+    inset-block-start: 4rem;
+    inset-inline-end: 0.8rem;
+    margin: auto;
+    width: 16rem;
+    height: fit-content;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-white));
+    box-shadow: var(--shd-100);
+    overflow: clip;
+    z-index: 50000;
+}
+
+.profile-card-title-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding-inline: 0.8rem;
+    height: 2rem;
+    font-size: var(--fnt-sm);
+}
+
+.profile-card-body {
+    border-block: 1px solid rgb(var(--clr-text) / 0.15);
+}
+
+.profile-card-controls {
+    display: flex;
+    height: 2.4rem;
+}
+
+.profile-card-buttons {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding-inline: 0.8rem;
+    font-size: var(--fnt-sm);
+
+    > span {
+        margin-inline: auto;
+    }
+
+    &:hover {
+        background-color: rgb(var(--clr-if-60));
+    }
+}
+
+#button-show-profile {
+    background-color: rgb(var(--clr-theme));
+}
+
+/* _userProfileCard.scss */
