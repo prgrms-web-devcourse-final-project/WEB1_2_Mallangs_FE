@@ -14,7 +14,6 @@ $max-chat-width: 360px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0;
     gap: 8px;
     position: relative;
     width: 508px;
@@ -28,27 +27,18 @@ $max-chat-width: 360px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0;
         isolation: isolate;
         width: $profile-size;
         height: $profile-size;
         background: $profile-background;
         border: 1px solid rgba(0, 0, 0, 0.15);
         border-radius: 500px;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
 
         &-icon {
             position: absolute;
             width: $profile-size;
             height: $profile-size;
-            left: 0;
             top: 7px;
-            flex: none;
-            order: 0;
-            flex-grow: 0;
-            z-index: 0;
 
             // Vector styling (if needed)
             &::before {
@@ -70,9 +60,7 @@ $max-chat-width: 360px;
         width: $chat-width;
         max-width: $max-chat-width;
         height: 65px;
-        flex: none;
         order: 1;
-        flex-grow: 0;
     }
 
     &-username {
@@ -85,9 +73,6 @@ $max-chat-width: 360px;
         line-height: 12px;
         color: $text-primary;
         opacity: $text-opacity;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
     }
 
     &-bubble {
@@ -101,10 +86,7 @@ $max-chat-width: 360px;
         height: 33px;
         background: $background-bubble;
         border-radius: 0 8px 8px 8px;
-        flex: none;
-        order: 0;
         align-self: stretch;
-        flex-grow: 0;
 
         // Chat text styling
         font-family: "SUIT Variable";
@@ -115,9 +97,6 @@ $max-chat-width: 360px;
         color: $text-primary;
         width: 145px;
         height: 17px;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
     }
 
     &-time {
@@ -128,10 +107,8 @@ $max-chat-width: 360px;
         gap: 4px;
         width: $chat-width;
         height: 12px;
-        flex: none;
         order: 1;
         align-self: stretch;
-        flex-grow: 0;
 
         // Time text styling
         font-family: "SUIT Variable";
@@ -145,7 +122,5 @@ $max-chat-width: 360px;
         width: 38px;
         height: 12px;
         flex: none;
-        order: 0;
-        flex-grow: 0;
     }
 }
