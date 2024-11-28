@@ -1,6 +1,6 @@
 import ProfileImage from '../../assets/images/icon-user.svg?react';
 
-const ChatItem = ({
+const ReceiveChatItem = ({
     username = '홍길동',
     message = '요즘 drowning 이라는 노래를 하루에 10000번 듣고 있음. 그거랑 이호광의 롤라,, 마약이야 진짜,, 롤~~~라~~~~ ㅋㅋㅋㅋㅋㅋ 개웃김 진짜ㅠㅠ',
     time = '12:34:56',
@@ -34,4 +34,4 @@ const ChatItem = ({
     );
 };
 
-export default ChatItem;
+export default ReceiveChatItem;
