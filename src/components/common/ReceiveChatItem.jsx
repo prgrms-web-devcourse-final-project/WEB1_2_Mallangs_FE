@@ -1,24 +1,34 @@
-const ChatItem = () => {
+import ProfileImage from '../../assets/images/icon-user.svg?react';
+
+const ChatItem = ({
+    username = '홍길동',
+    message = '요즘 drowning 이라는 노래를 하루에 10000번 듣고 있음. 그거랑 이호광의 롤라,, 마약이야 진짜,, 롤~~~라~~~~ ㅋㅋㅋㅋㅋㅋ 개웃김 진짜ㅠㅠ',
+    time = '12:34:56',
+}) => {
     return (
         <div className="chat-item">
-            {/* 사용자 프로필 이미지 */}
             <div className="chat-item-profile">
-                <img
-                    className="chat-item-icon"
-                    src="src/assets/images/icon-user.svg"
-                />
+                <ProfileImage />
             </div>
 
-            {/* 채팅 메시지 컨테이너 */}
-            <div className="chat-item-content">
-                {/* 사용자 이름 */}
-                <span className="chat-item-username">홍길동</span>
+            <div className="chat-item-message-container">
+                <div className="chat-item-message-container-username">
+                    {username}
+                </div>
 
-                {/* 채팅 메시지 */}
-                <div className="chat-item-bubble">대화 내용</div>
+                <div className="chat-item-message-container-content">
+                    <div className="chat-item-message-container-content-bubble">
+                        <div className="chat-item-message-container-content-bubble-text">
+                            {message}
+                        </div>
+                    </div>
 
-                {/* 시간 표시 */}
-                <span className="chat-item-time">16:36:54</span>
+                    <div className="chat-item-message-container-content-datetime">
+                        <div className="chat-item-message-container-content-datetime-time">
+                            {time}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

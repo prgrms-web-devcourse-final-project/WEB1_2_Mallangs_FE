@@ -1,25 +1,11 @@
-// Color Variables
-$text-primary: #302825;
-$text-opacity: 0.5;
-$background-bubble: #ffe4ac;
-$profile-background: #808080;
-$white: #ffffff;
-
-// Sizing Variables
-$profile-size: 36px;
-$chat-width: 169px;
-$max-chat-width: 360px;
-
 .chat-item {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 8px;
+    gap: 0.5rem;
     position: relative;
-    width: 508px;
-    height: 65px;
-    left: 36px;
-    top: 399px;
+    width: 100%;
+    height: 100%;
 
     &-profile {
         box-sizing: border-box;
@@ -28,99 +14,105 @@ $max-chat-width: 360px;
         justify-content: center;
         align-items: center;
         isolation: isolate;
-        width: $profile-size;
-        height: $profile-size;
-        background: $profile-background;
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        border-radius: 500px;
-
-        &-icon {
-            position: absolute;
-            width: $profile-size;
-            height: $profile-size;
-            top: 7px;
-
-            // Vector styling (if needed)
-            &::before {
-                position: absolute;
-                left: 16.67%;
-                right: 16.67%;
-                top: 4.17%;
-                bottom: 8.33%;
-                background: $white;
-            }
-        }
+        width: 1.8rem;
+        height: 1.8rem;
+        background: rgb(var(--clr-gray));
+        border: 0.05rem solid rgba(0, 0, 0, 0.15);
+        border-radius: 25rem;
+        flex: none;
+        order: 0;
+        position: relative;
     }
 
-    &-content {
+    &-message-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 4px;
-        width: $chat-width;
-        max-width: $max-chat-width;
-        height: 65px;
+        gap: 0.2rem;
+        // width: 8.5rem;
+        max-width: 18rem;
+        height: 3.25rem;
         order: 1;
-    }
 
-    &-username {
-        width: 27px;
-        height: 12px;
-        font-family: "SUIT Variable";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 10px;
-        line-height: 12px;
-        color: $text-primary;
-        opacity: $text-opacity;
-    }
+        &-username {
+            width: 100%;
+            height: 0.6rem;
+            font-family: "SUIT Variable";
+            font-style: normal;
+            font-weight: 700;
+            font-size: var(--fnt-xs);
+            line-height: 0.6rem;
+            color: var(--clr-text);
+            opacity: 0.5;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+        }
 
-    &-bubble {
-        display: flex;
-        flex-direction: row;
-        // align-items: flex-start;
-        align-items: center;
-        width: $chat-width;
-        padding: 0.5rem 0.75rem;
-        max-width: $max-chat-width;
-        height: 33px;
-        background: $background-bubble;
-        border-radius: 0 8px 8px 8px;
-        align-self: stretch;
+        &-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.2rem;
+            width: auto;
+            height: auto;
+            order: 1;
+            flex-grow: 0;
 
-        // Chat text styling
-        font-family: "SUIT Variable";
-        font-style: normal;
-        font-weight: 400;
-        font-size: var(--fnt-md);
-        line-height: 17px;
-        color: $text-primary;
-        width: 145px;
-        height: 17px;
-    }
+            &-bubble {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 0.4rem 0.6rem;
+                max-width: 18rem;
+                height: auto;
+                background: rgb(var(--clr-surface-100));
+                border-radius: 0 0.4rem 0.4rem 0.4rem;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 1;
 
-    &-time {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 4px;
-        width: $chat-width;
-        height: 12px;
-        order: 1;
-        align-self: stretch;
+                &-text {
+                    width: 100%;
+                    // height: 100%;
+                    font-family: "SUIT Variable";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: var(--fnt-md);
+                    color: var(--clr-text);
+                    order: 0;
+                    word-break: break-word;
+                }
+            }
 
-        // Time text styling
-        font-family: "SUIT Variable";
-        font-style: normal;
-        font-weight: 200;
-        font-size: 10px;
-        line-height: 12px;
-        text-align: right;
-        color: $text-primary;
-        opacity: $text-opacity;
-        width: 38px;
-        height: 12px;
-        flex: none;
+            &-datetime {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 0.2rem;
+                width: 100%;
+                height: 0.75rem;
+                order: 1;
+                align-self: stretch;
+                flex-grow: 1;
+
+                &-time {
+                    width: 1.9rem;
+                    height: 0.6rem;
+                    font-family: "SUIT Variable";
+                    font-style: normal;
+                    font-weight: 200;
+                    font-size: var(--fnt-xs);
+                    line-height: 0.6rem;
+                    text-align: right;
+                    color: var(--clr-text);
+                    opacity: 0.5;
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                }
+            }
+        }
     }
 }
