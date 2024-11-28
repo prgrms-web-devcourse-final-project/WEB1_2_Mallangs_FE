@@ -1,0 +1,28 @@
+.nametag-content {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+    width: 3.5rem;
+    height: 1.25rem;
+
+    &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.2rem;
+        height: 1.2rem;
+        background: rgb(var(--clr-gray));
+        border: 0.05rem solid rgba(0, 0, 0, 0.15);
+        border-radius: var(--rad-full);
+        position: relative;
+    }
+
+    &-username {
+        color: rgb(var(--clr-text));
+        overflow: hidden;
+        font-size: var(--fnt-md);
+        font-weight: 700;
+        max-width: 6rem;
+    }
+}
