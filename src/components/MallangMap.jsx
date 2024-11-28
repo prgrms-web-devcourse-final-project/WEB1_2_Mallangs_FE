@@ -9,6 +9,7 @@ const MallangMap = () => {
 
     return (
         <Map
+            id="mallangMapContainer"
             center={{ lat: 35.183749, lng: 129.042256 }}
             level={3}
             style={{ width: '100%', height: '100vh' }}

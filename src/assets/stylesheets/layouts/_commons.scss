@@ -43,6 +43,18 @@
     fill: currentColor;
 }
 
+.modal-outside {
+    // 팝업 창의 외부 영역
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+
+    &.on {
+        display: initial;
+    }
+}
+
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 960px) {

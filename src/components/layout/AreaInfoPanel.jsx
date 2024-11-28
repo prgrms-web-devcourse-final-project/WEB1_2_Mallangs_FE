@@ -118,9 +118,11 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                 type="button"
                 id="button-toggle-area-info"
                 className={isActive ? null : 'on'}
-                onClick={() => onShow(3)}
+                onClick={() => {
+                    if (isActive ? onShow(0) : onShow(3));
+                }}
             >
-                <Remix iconName={'arrow-right-s-line'} />
+                <Remix iconName={'arrow-right-s-line'} iconSize={1.2} />
             </button>
 
             <aside id="panel-area-info" className={isActive ? 'on' : null}>

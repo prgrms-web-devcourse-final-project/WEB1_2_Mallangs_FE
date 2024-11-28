@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import Remix from '../common/Remix';
 import { NavLink } from 'react-router-dom';
+import Remix from '../common/Remix';
 
-const Header = ({ onShow }) => {
-    const [notifyList, setNotifies] = useState([]);
-
+const Header = ({ notiCount, onShow }) => {
     return (
         <header id="head-primary">
             <h1 id="logo-primary" title="말랑플레이스 로고">
@@ -91,6 +88,7 @@ const Header = ({ onShow }) => {
                         fill="#000000"
                     ></path>
                 </svg>
+
                 <span className="hidden-alt">말랑플레이스 로고</span>
             </h1>
 
@@ -119,14 +117,15 @@ const Header = ({ onShow }) => {
             <div id="head-controls">
                 <div id="total-search">
                     <span>키워드 검색</span>
+
                     <Remix iconName={'search-2-line'} iconSize={0.8} />
                 </div>
 
                 <button
                     id="button-notify"
-                    className={notifyList.length > 0 ? 'on' : null}
-                    data-item-count={notifyList.length}
-                    title={`현재 ${notifyList.length.toLocaleString('ko-KR') ?? 0}개의 알림이 있습니다.`}
+                    className={notiCount > 0 ? 'on' : null}
+                    data-item-count={notiCount}
+                    title={`현재 ${notiCount.toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
                     onClick={() => onShow(1)}
                 >
                     <Remix iconName={'notification-2-fill'} iconSize={1.2} />
@@ -134,6 +133,7 @@ const Header = ({ onShow }) => {
 
                 <button id="button-user-profile" onClick={() => onShow(2)}>
                     <Remix iconName={'user-fill'} iconSize={1.6} />
+
                     <img
                         className="current-user-image"
                         src="https://picsum.photos/36/36?random=1"

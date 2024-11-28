@@ -39,7 +39,7 @@
     --clr-text-on-tint: var(--clr-white); // 틴트 배경 위의 문자
     --clr-text-on-interface: var(--clr-text); // 표면 배경 위의 문자
     --clr-text-disable: var(--clr-gray); // 비활성 문자
-    --on-low-contrast: ; // 저대비 배경 위의 문자
+    --clr-text-on-low-contrast: ; // 저대비 배경 위의 문자
 
     --clr-clear: 35 206 107; // 안전
     --clr-info: 89 96 232; // 정보

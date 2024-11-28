@@ -16,7 +16,7 @@
         translate 0.25s,
         opacity 0.15s;
     overflow: clip;
-    z-index: 50000;
+    z-index: 500;
 
     &.on {
         translate: 0;
@@ -36,7 +36,15 @@
         margin-inline: 0 auto;
         width: 50%;
         height: 0.2rem;
+        background-color: rgb(var(--clr-theme));
+        transition: translate 0.25s;
         content: '';
+    }
+
+    &:has(.messages.on) {
+        &::before {
+            translate: 100% 0;
+        }
     }
 }
 
@@ -63,8 +71,6 @@
     }
 
     &.on {
-        background-color: rgb(var(--clr-theme));
-
         > .button-label {
             > .button-label-text {
                 font-weight: 700;
@@ -80,6 +86,124 @@
 
 .notification-list {
     padding: 0.8rem;
+    max-height: 12rem;
+    overflow-y: auto;
+
+    > * + * {
+        margin-block-start: 0.6rem;
+    }
+}
+
+.notification-reply-item {
+    // 댓글 알림 아이템
+    border-radius: var(--rad-sm);
+    font-size: var(--fnt-sm);
+
+    > .notification-reply-content {
+        opacity: 0.5;
+    }
+
+    &:not(.unread):hover {
+        background-color: rgb(var(--clr-text) / 0.1);
+    }
+
+    &.unread {
+        background-color: rgb(var(--clr-theme));
+
+        > .notification-reply-content {
+            opacity: 1;
+        }
+    }
+}
+
+.notification-reply-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding-inline: 0.4rem;
+    height: 1.6rem;
+
+    font-weight: 200;
+
+    > .remix {
+        opacity: 0.5;
+    }
+}
+
+.notification-reply-content {
+    padding: 0.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.notification-message-item {
+    // 메시지 알림 아이템
+    display: flex;
+    gap: 0.4rem;
+
+    &:not(.unread):hover {
+        > .notification-message-descriptions {
+            background-color: rgb(var(--clr-text) / 0.1);
+        }
+    }
+
+    &.unread {
+        > .notification-message-descriptions {
+            background-color: rgb(var(--clr-theme));
+        }
+    }
+}
+
+.notification-message-image-wrapper {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-gray));
+    color: rgb(var(--clr-white));
+
+    > .remix {
+        margin-block-start: 0.8rem;
+        opacity: 0.5;
+    }
+}
+
+.notification-message-descriptions {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+    padding: 0.4rem;
+    border-radius: var(--rad-sm);
+    font-size: var(--fnt-sm);
+}
+
+.notification-message-username {
+    font-weight: 700;
+}
+
+.notification-message-content {
+    min-height: 1.2rem;
+    font-weight: 200;
+}
+
+.notification-message-text {
+    line-height: 1.4;
+    vertical-align: middle;
+}
+
+.notification-message-count {
+    margin-inline-start: 0.2rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-notify));
+    color: rgb(var(--clr-text-on-tint));
+    font-size: var(--fnt-xs);
+    font-weight: 900;
 }
 
 /* _notificationCard.scss */
