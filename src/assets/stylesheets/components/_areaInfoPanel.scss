@@ -212,8 +212,9 @@
     flex: 1;
     display: flex;
     flex-flow: column nowrap;
-    gap: 0.4rem;
-    padding-inline: 0.4rem;
+    justify-content: space-between;
+    padding: 0.4rem;
+    height: 2.4rem;
     border-radius: var(--rad-sm);
 }
 

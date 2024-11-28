@@ -1,0 +1,14 @@
+[
+    {
+        "label": "찾는 중",
+        "value": "missing"
+    },
+    {
+        "label": "발견함",
+        "value": "found"
+    },
+    {
+        "label": "숨기기",
+        "value": "hide"
+    }
+]

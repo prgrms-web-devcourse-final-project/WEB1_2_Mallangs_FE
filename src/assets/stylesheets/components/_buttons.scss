@@ -12,16 +12,17 @@ button {
 
 .buttons {
     // 아이콘이 포함된 버튼 - ButtonsWithIcon 컴포넌트
-    --button-surface-color: var(--clr-theme); // 버튼 배경 컬러
+    --button-surface-color: var(--clr-black); // 버튼 배경 컬러
     --button-outline-color: 0 0 0 / 0; // 버튼 테두리 컬러
     --button-text-color: var(--clr-text-on-tint); // 버튼 텍스트 컬러
-    --button-hover-color: var(--clr-tint-20);
+    --button-hover-color: var(--clr-theme);
+    --button-hover-text-color: var(--clr-text);
 
     display: flex;
     align-items: center;
     gap: 0.4rem;
     height: 1.6rem;
-    padding-inline: 0.8rem;
+    padding-inline: 0.6rem;
     border: 1px solid rgb(var(--button-outline-color));
     border-radius: 0.2rem;
     background-color: rgb(var(--button-surface-color));
@@ -33,6 +34,7 @@ button {
 
     &:hover {
         background-color: rgb(var(--button-hover-color));
+        color: rgb(var(--button-hover-text-color));
     }
 
     &:active {

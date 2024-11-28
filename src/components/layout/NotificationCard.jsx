@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import Remix from '../common/Remix';
+import EmptyList from '../common/EmptyList';
+import tempReplies from '../../datas/temp-notification-replies.json'; // 임시 댓글 데이터
+import tempMessages from '../../datas/temp-notification-messages.json'; // 임시 메시지 데이터
 
 const NotiReplyItem = ({ replyObject }) => {
     // 댓글 알림 아이템
@@ -51,9 +54,11 @@ const NotiMessageItem = ({ messageObject }) => {
                     </span>
 
                     {messageObject.unReadCount > 0 && (
-                        <span className="notification-message-count">
-                            {messageObject.unReadCount}
-                        </span>
+                        <p className="notification-message-count">
+                            {messageObject.unReadCount > 999
+                                ? 999 + '+'
+                                : messageObject.unReadCount}
+                        </p>
                     )}
                 </dd>
             </dl>
@@ -69,69 +74,10 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
      * tempMessages: 임시 메시지 데이터 배열
      *
      * fetch한 실 데이터의 배열을 대입하여 데이터 형식만 맞추면 출력은 바로 해결됨
+     * 댓글과 메시지 모두 갱신일자가 최신인 것을 먼저 가지고 와야 한다. (DB 단에서 먼저 처리하는 편이 퍼포먼스가 높다.)
      */
 
     const [currentTabID, setCurrentTab] = useState(0);
-
-    const tempReplies = [
-        // 임시 댓글 데이터
-        {
-            articleID: 0,
-            replyContent:
-                '옥상에 올라가 그 밤을 옥상에 누워 그 달빛을 랄라 라라 랄라라라 황홀한 이 밤 랄라 랄랄라 라 라',
-            isRead: false,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-        {
-            articleID: 0,
-            replyContent: '없는게 메리트라네 난 있는게 젊음이라네 난',
-            isRead: true,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-        {
-            articleID: 1,
-            replyContent:
-                '우리 좋았던 날들의 기억을 설탕에 켜켜이 묻어 언젠가 문득 너무 힘들 때면 꺼내어 볼 수 있게',
-            isRead: true,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-        {
-            articleID: 2,
-            replyContent: '그때는 좋았었잖아 지금은 뭐가 또 달라졌지',
-            isRead: true,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-    ];
-
-    const tempMessages = [
-        // 임시 메시지 데이터
-        {
-            sessionID: 0,
-            oppositeUser: '보리꼬리너마저',
-            userProfileImage: null,
-            latestMessage: '이 차를 다 마시고 봄날으로 가자',
-            unReadCount: 4,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-        {
-            sessionID: 1,
-            oppositeUser: '속좁은여학생',
-            userProfileImage: null,
-            latestMessage:
-                '있잖아 내가 만약에 내가 너에게 가슴 아픈 말을 했다면 잊어줘',
-            unReadCount: 3,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-        {
-            sessionID: 2,
-            oppositeUser: '박복례',
-            userProfileImage: null,
-            latestMessage:
-                '미안해 내가 그러려던 건 아니었는데 하고 전화를 할까 말까',
-            unReadCount: 0,
-            receivedDateTime: '2024-01-01 16:36:45',
-        },
-    ];
 
     const replyNotiList = tempReplies.map((item, index) => {
         // 출력 리스트의 빠른 전환을 위한 맵 처리
@@ -154,11 +100,13 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
             <div className="notification-tab-container">
                 <button
                     className={`notification-tab-button replies ${currentTabID === 0 && 'on'}`}
+                    title={`${unReadReplies.length}개의 새 댓글이 있어요.`}
                     onClick={() => setCurrentTab(0)}
                 >
                     <Remix
                         iconName={`chat-thread-${currentTabID === 0 ? 'fill' : 'line'}`}
                     />
+
                     <p className="button-label">
                         <span className="button-label-text">댓글</span>
                         <span className="button-label-value">
@@ -166,13 +114,16 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
                         </span>
                     </p>
                 </button>
+
                 <button
                     className={`notification-tab-button messages ${currentTabID === 1 && 'on'}`}
+                    title={`${unReadMessages.length}개의 새 메시지가 있어요.`}
                     onClick={() => setCurrentTab(1)}
                 >
                     <Remix
                         iconName={`chat-quote-${currentTabID === 1 ? 'fill' : 'line'}`}
                     />
+
                     <p className="button-label">
                         <span className="button-label-text">메시지</span>
                         <span className="button-label-value">
@@ -185,8 +136,23 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
             <hr />
 
             <ul className="notification-list">
-                {currentTabID === 0 ? replyNotiList : messageNotiList}
+                {(currentTabID === 0 ? replyNotiList : messageNotiList) ??
+                    EmptyList}
             </ul>
+
+            <hr />
+
+            <div className="notification-clear-button-wrapper">
+                <button
+                    type="button"
+                    id="button-clear-notifications"
+                    title="확인한 알림 모두 지우기"
+                >
+                    <Remix iconName={'delete-bin-6-line'} />
+
+                    <span>확인한 알림 모두 지우기</span>
+                </button>
+            </div>
         </aside>
     );
 };

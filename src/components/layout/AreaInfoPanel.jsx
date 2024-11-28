@@ -1,6 +1,8 @@
 import Swal from 'sweetalert2';
+import EmptyList from '../common/EmptyList';
 import Remix from '../common/Remix';
 import dateFormat from '../../utils/dateFormat';
+import tempTown from '../../datas/temp-area-information.json'; // 임시 지역 데이터
 
 const AreaThreadArticle = ({ articleObject }) => {
     // 지역 글타래 미리보기 아이템 (내장 컴포넌트)
@@ -44,72 +46,6 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
             text: '우리 동네 보기',
             icon: 'info',
         });
-    };
-
-    const tempTown = {
-        // 임시 지역 데이터
-        townCity: '부산광역시',
-        townProvince: '부산진구',
-        townName: '연지동',
-        userTotal: 2412474,
-        currentThreads: [
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-            {
-                threadType: 'missing',
-                previewImage: null,
-                title: '실종된 아이를 찾아요',
-                dateBegin: '2024-01-01',
-                dateEnds: '2024-12-31',
-            },
-        ],
     };
 
     return (
@@ -198,14 +134,18 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                     </div>
 
                     <ul className="area-threads-list">
-                        {tempTown.currentThreads.map((item, index) => {
-                            return (
-                                <AreaThreadArticle
-                                    articleObject={item}
-                                    key={index}
-                                />
-                            );
-                        })}
+                        {tempTown.currentThreads.length > 0 ? (
+                            tempTown.currentThreads.map((item, index) => {
+                                return (
+                                    <AreaThreadArticle
+                                        articleObject={item}
+                                        key={index}
+                                    />
+                                );
+                            })
+                        ) : (
+                            <EmptyList placeHolderText="아직 이 지역에서 작성된 글타래가 없어요. 첫 글타래를 작성해 보는 건 어떨까요?" />
+                        )}
                     </ul>
                 </div>
             </aside>

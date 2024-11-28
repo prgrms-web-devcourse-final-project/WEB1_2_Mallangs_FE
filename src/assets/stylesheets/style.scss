@@ -37,12 +37,14 @@
     'layouts/mainPage' // Main Page Layout
 ;
 
-// 6. Views
-@import 'views/registerPage', 'views/loginPage', 'views/myPage';
+// 6. Pages
+@import 'pages/registerPage', 'pages/loginPage', 'pages/myPage',
+    'pages/mallangMap';
 
 // 7. Components
 @import 'components/buttons', 'components/formElements', 'components/spinLoader',
-    'components/customAlert', 'components/notificationCard',
-    'components/userProfileCard', 'components/areaInfoPanel',
+    'components/customAlert', 'components/emptyList',
+    'components/notificationCard', 'components/userProfileCard',
+    'components/areaInfoPanel', 'components/mainModalCover',
     'components/mallangsItem', 'components/dropdown', 'components/receiveChat',
     'components/sendChat', 'components/starRating';

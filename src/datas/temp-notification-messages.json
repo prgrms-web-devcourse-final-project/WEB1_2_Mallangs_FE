@@ -1,0 +1,26 @@
+[
+    {
+        "sessionID": 0,
+        "oppositeUser": "보리꼬리너마저",
+        "userProfileImage": null,
+        "latestMessage": "이 차를 다 마시고 봄날으로 가자",
+        "unReadCount": 4,
+        "receivedDateTime": "2024-01-01 16:36:45"
+    },
+    {
+        "sessionID": 1,
+        "oppositeUser": "속좁은여학생",
+        "userProfileImage": null,
+        "latestMessage": "있잖아 내가 만약에 내가 너에게 가슴 아픈 말을 했다면 잊어줘",
+        "unReadCount": 3,
+        "receivedDateTime": "2024-01-01 16:36:45"
+    },
+    {
+        "sessionID": 2,
+        "oppositeUser": "박복례",
+        "userProfileImage": null,
+        "latestMessage": "미안해 내가 그러려던 건 아니었는데 하고 전화를 할까 말까",
+        "unReadCount": 0,
+        "receivedDateTime": "2024-01-01 16:36:45"
+    }
+]
