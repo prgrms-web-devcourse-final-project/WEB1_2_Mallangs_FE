@@ -1,14 +1,24 @@
-const SendChatItem = () => {
-    return (
-        <div className="chat-message-container">
-            <div className="chat-content-container">
-                <div className="chat-text-bubble">
-                    <span className="chat-text">사용자가 전송한 대화 내용</span>
-                </div>
+import ProfileImage from '../../assets/images/icon-user.svg?react';
 
-                <div className="chat-time-container">
-                    <span className="time">16:35:54</span>
-                    <span className="show-read-text">읽음</span>
+const SendChatItem = ({
+    message = '그렇구나 이것은 답변',
+    time = '12:34:58',
+}) => {
+    return (
+        <div className="chat-item">
+            <div className="chat-item-message-container">
+                <div className="chat-item-message-container-content">
+                    <div className="chat-item-message-container-content-bubble">
+                        <div className="chat-item-message-container-content-bubble-text">
+                            {message}
+                        </div>
+                    </div>
+
+                    <div className="chat-item-message-container-content-datetime">
+                        <div className="chat-item-message-container-content-datetime-time">
+                            {time}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
