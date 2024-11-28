@@ -6,25 +6,25 @@ const ReceiveChatItem = ({
     time = '12:34:56',
 }) => {
     return (
-        <div className="chat-item">
-            <div className="chat-item-profile">
+        <div className="receive-chat-item">
+            <div className="receive-chat-item-profile">
                 <ProfileImage />
             </div>
 
-            <div className="chat-item-message-container">
-                <div className="chat-item-message-container-username">
+            <div className="receive-chat-item-message-container">
+                <div className="receive-chat-item-message-container-username">
                     {username}
                 </div>
 
-                <div className="chat-item-message-container-content">
-                    <div className="chat-item-message-container-content-bubble">
-                        <div className="chat-item-message-container-content-bubble-text">
+                <div className="receive-chat-item-message-container-content">
+                    <div className="receive-chat-item-message-container-content-bubble">
+                        <div className="receive-chat-item-message-container-content-bubble-text">
                             {message}
                         </div>
                     </div>
 
-                    <div className="chat-item-message-container-content-datetime">
-                        <div className="chat-item-message-container-content-datetime-time">
+                    <div className="receive-chat-item-message-container-content-datetime">
+                        <div className="receive-chat-item-message-container-content-datetime-time">
                             {time}
                         </div>
                     </div>

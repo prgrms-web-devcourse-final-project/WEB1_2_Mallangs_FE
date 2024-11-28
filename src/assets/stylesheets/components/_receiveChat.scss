@@ -1,4 +1,4 @@
-.chat-item {
+.receive-chat-item {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -42,7 +42,7 @@
             font-weight: 700;
             font-size: var(--fnt-xs);
             line-height: 0.6rem;
-            color: var(--clr-text);
+            color: rgb(var(--clr-text));
             opacity: 0.5;
             flex: none;
             order: 0;
@@ -79,7 +79,7 @@
                     font-style: normal;
                     font-weight: 400;
                     font-size: var(--fnt-md);
-                    color: var(--clr-text);
+                    color: rgb(var(--clr-text));
                     order: 0;
                     word-break: break-word;
                 }
@@ -106,7 +106,7 @@
                     font-size: var(--fnt-xs);
                     line-height: 0.6rem;
                     text-align: right;
-                    color: var(--clr-text);
+                    color: rgb(var(--clr-text));
                     opacity: 0.5;
                     flex: none;
                     order: 0;

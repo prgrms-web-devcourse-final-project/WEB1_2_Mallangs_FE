@@ -5,17 +5,17 @@ const SendChatItem = ({
     time = '12:34:58',
 }) => {
     return (
-        <div className="chat-item">
-            <div className="chat-item-message-container">
-                <div className="chat-item-message-container-content">
-                    <div className="chat-item-message-container-content-bubble">
-                        <div className="chat-item-message-container-content-bubble-text">
+        <div className="send-chat-item">
+            <div className="send-chat-item-message-container">
+                <div className="send-chat-item-message-container-content">
+                    <div className="send-chat-item-message-container-content-bubble">
+                        <div className="send-chat-item-message-container-content-bubble-text">
                             {message}
                         </div>
                     </div>
 
-                    <div className="chat-item-message-container-content-datetime">
-                        <div className="chat-item-message-container-content-datetime-time">
+                    <div className="send-chat-item-message-container-content-datetime">
+                        <div className="send-chat-item-message-container-content-datetime-time">
                             {time}
                         </div>
                     </div>
