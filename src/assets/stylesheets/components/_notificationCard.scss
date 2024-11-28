@@ -1,0 +1,85 @@
+/* _notificationCard.scss */
+
+#notification-card {
+    position: fixed;
+    inset-block-start: 4rem;
+    inset-inline-end: 0.8rem;
+    margin: auto;
+    width: 16rem;
+    height: fit-content;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-white));
+    box-shadow: var(--shd-100);
+    translate: 0 -8rem;
+    opacity: 0;
+    transition:
+        translate 0.25s,
+        opacity 0.15s;
+    overflow: clip;
+    z-index: 50000;
+
+    &.on {
+        translate: 0;
+        opacity: 1;
+    }
+}
+
+.notification-tab-container {
+    position: relative;
+    display: flex;
+    height: 2.4rem;
+
+    &::before {
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline: 0;
+        margin-inline: 0 auto;
+        width: 50%;
+        height: 0.2rem;
+        content: '';
+    }
+}
+
+.notification-tab-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8rem;
+    font-weight: 200;
+
+    > .button-label {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin-inline: auto;
+
+        > .button-label-text {
+            opacity: 0.5;
+        }
+
+        > .button-label-value {
+            font-size: var(--fnt-sm);
+        }
+    }
+
+    &.on {
+        background-color: rgb(var(--clr-theme));
+
+        > .button-label {
+            > .button-label-text {
+                font-weight: 700;
+                opacity: 1;
+            }
+
+            > .button-label-value {
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.notification-list {
+    padding: 0.8rem;
+}
+
+/* _notificationCard.scss */

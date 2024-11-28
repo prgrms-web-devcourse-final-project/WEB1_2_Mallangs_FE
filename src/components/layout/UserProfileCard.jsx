@@ -1,7 +1,7 @@
 import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
 
-const UserProfileCard = () => {
+const UserProfileCard = ({ isActive, onShow }) => {
     const tempPet = {
         // 임시 대표 말랑이 객체
         userID: 123,
@@ -14,7 +14,7 @@ const UserProfileCard = () => {
     };
 
     return (
-        <aside id="user-profile-card">
+        <aside id="user-profile-card" className={isActive ? 'on' : null}>
             <div className="profile-card-title-bar">
                 <Remix iconName={'user-fill'} />
                 <p>대표 말랑이</p>

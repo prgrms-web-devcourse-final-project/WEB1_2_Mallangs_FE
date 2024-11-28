@@ -50,9 +50,6 @@
     opacity: 50%;
 }
 
-.footer-table-row-values {
-}
-
 .company-call-center {
     margin-block: 0.6rem;
     padding-block: 0.6rem;
@@ -78,6 +75,7 @@
     gap: 1.2rem;
     padding-inline: 0.8rem;
     height: 3.6rem;
+    color: rgb(var(--clr-text) / 0.5);
 }
 
 .footer-copyright {

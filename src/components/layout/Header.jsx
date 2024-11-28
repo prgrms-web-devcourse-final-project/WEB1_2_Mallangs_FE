@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Remix from '../common/Remix';
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ onShow }) => {
     const [notifyList, setNotifies] = useState([]);
 
     return (
@@ -127,11 +127,12 @@ const Header = () => {
                     className={notifyList.length > 0 ? 'on' : null}
                     data-item-count={notifyList.length}
                     title={`현재 ${notifyList.length.toLocaleString('ko-KR') ?? 0}개의 알림이 있습니다.`}
+                    onClick={() => onShow(1)}
                 >
                     <Remix iconName={'notification-2-fill'} iconSize={1.2} />
                 </button>
 
-                <button id="button-user-profile">
+                <button id="button-user-profile" onClick={() => onShow(2)}>
                     <Remix iconName={'user-fill'} iconSize={1.6} />
                     <img
                         className="current-user-image"
