@@ -25,16 +25,29 @@
 
 .cover-controls {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.2rem;
     position: absolute;
     inset-block-start: 0.4rem;
     inset-inline: 0.4rem;
     z-index: 3;
+}
 
-    > button:last-of-type {
-        margin-inline-end: auto;
-    }
+.cover-controls-author {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+#button-close-modal {
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-black) / 0.15);
+    backdrop-filter: blur(1.8rem);
+    color: rgb(var(--clr-text-on-tint));
 }
 
 .cover-descriptions-container {
