@@ -10,8 +10,18 @@
     border-radius: var(--rad-lg);
     background-color: rgb(var(--clr-white));
     box-shadow: var(--shd-100);
+    translate: 200% 0;
+    opacity: 0;
+    transition:
+        translate 0.25s,
+        opacity 0.15s;
     overflow: clip;
-    z-index: 50000;
+    z-index: 500;
+
+    &.on {
+        translate: 0;
+        opacity: 1;
+    }
 }
 
 .profile-card-title-bar {
@@ -21,6 +31,20 @@
     padding-inline: 0.8rem;
     height: 2rem;
     font-size: var(--fnt-sm);
+}
+
+#button-profile-card-close {
+    display: grid;
+    place-items: center;
+    margin-inline-start: auto;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: var(--rad-full);
+
+    &:hover {
+        background-color: rgb(var(--clr-text));
+        color: rgb(var(--clr-white));
+    }
 }
 
 .profile-card-body {

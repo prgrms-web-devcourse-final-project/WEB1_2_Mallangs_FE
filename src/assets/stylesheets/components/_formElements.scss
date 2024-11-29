@@ -1,44 +1,45 @@
 /* _formElements.scss */
 
-@mixin input-commons { // 입력 요소 공통사항
-    padding-inline: .4rem;
+@mixin input-commons {
+    // 입력 요소 공통사항
+    padding-inline: 0.4rem;
     height: 1.6rem;
-    border: 1px solid rgb(var(--clr-theme) / .25);
-    border-radius: .2rem;
-    background-color: rgb(var(--clr-min) / .25);
-    backdrop-filter: blur(.4rem);
+    border: 1px solid rgb(var(--clr-theme) / 0.25);
+    border-radius: 0.2rem;
+    background-color: rgb(var(--clr-min) / 0.25);
+    backdrop-filter: blur(0.4rem);
     color: rgb(var(--clr-text));
-    transition: .25s;
+    transition: 0.25s;
 
     &:hover {
-        border-color: rgb(var(--clr-theme) / .6);
-        background-color: rgb(var(--clr-min) / .5);
+        border-color: rgb(var(--clr-theme) / 0.6);
+        background-color: rgb(var(--clr-min) / 0.5);
     }
 
     &:focus {
-        border-color: rgb(var(--clr-theme) / .75);
+        border-color: rgb(var(--clr-theme) / 0.75);
         background-color: rgb(var(--clr-min));
-        outline: .2rem solid rgb(var(--clr-tint-0) / .25);
+        outline: 0.2rem solid rgb(var(--clr-tint-0) / 0.25);
     }
 
     &.need-recognize:valid {
         // 특정 형식의 입력 요소에서 입력 값이 올바를 때의 조건
         // 일반 입력 요소에 모두 통일되어 적용되므로, 반드시 필요한 경우에만 .need-recognize 클래스를 붙여 사용한다.
 
-        border-color: rgb(var(--clr-clear) / .75);
-        background-color: rgb(var(--clr-clear) / .5);
+        border-color: rgb(var(--clr-clear) / 0.75);
+        background-color: rgb(var(--clr-clear) / 0.5);
     }
 
     &:invalid {
         border-color: rgb(var(--clr-alert));
-        outline: .2rem solid rgb(var(--clr-alert) / .25);
+        outline: 0.2rem solid rgb(var(--clr-alert) / 0.25);
     }
 
     &:disabled {
         border-color: rgb(var(--clr-surface-60));
         background-color: rgb(var(--clr-surface-0));
         color: rgb(var(--clr-surface-60));
-        text-shadow: 1px 1px 0 rgb(255 255 255 / .25);
+        text-shadow: 1px 1px 0 rgb(255 255 255 / 0.25);
         cursor: no-drop;
     }
 }
@@ -51,20 +52,21 @@ button {
     outline: 0;
 }
 
-input:not(.exclude) { // 폼 입력 요소 공통 - .exclude 클래스가 있을 경우 모든 조건 무시 (개별 스타일링이 필요한 경우를 위해)
-    &[type="text"],
-    &[type="number"],
-    &[type="email"],
-    &[type="tel"],
-    &[type="email"],
-    &[type="url"],
-    &[type="password"],
-    &[type="datetime-local"],
-    &[type="date"],
-    &[type="month"],
-    &[type="week"],
-    &[type="time"],
-    &[type="search"] {
+input:not(.exclude) {
+    // 폼 입력 요소 공통 - .exclude 클래스가 있을 경우 모든 조건 무시 (개별 스타일링이 필요한 경우를 위해)
+    &[type='text'],
+    &[type='number'],
+    &[type='email'],
+    &[type='tel'],
+    &[type='email'],
+    &[type='url'],
+    &[type='password'],
+    &[type='datetime-local'],
+    &[type='date'],
+    &[type='month'],
+    &[type='week'],
+    &[type='time'],
+    &[type='search'] {
         @include input-commons();
     }
 }
@@ -72,7 +74,7 @@ input:not(.exclude) { // 폼 입력 요소 공통 - .exclude 클래스가 있을
 textarea:not(.exclude) {
     @include input-commons();
 
-    padding-block: .4rem;
+    padding-block: 0.4rem;
 }
 
 select:not(.exclude) {
@@ -82,7 +84,7 @@ select:not(.exclude) {
     min-width: 3.6rem;
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"%3E%3Cpath d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"%3E%3C/path%3E%3C/svg%3E');
     background-repeat: no-repeat;
-    background-position: right .2rem center;
+    background-position: right 0.2rem center;
     background-size: 24px;
     appearance: none;
 
@@ -91,13 +93,14 @@ select:not(.exclude) {
     }
 }
 
-@mixin toggle-commons { // 체크박스, 라디오 공통사항
+@mixin toggle-commons {
+    // 체크박스, 라디오 공통사항
     display: none;
 
     & + label {
         display: flex;
         align-items: center;
-        gap: .4rem;
+        gap: 0.4rem;
         position: relative;
         cursor: pointer;
 
@@ -106,22 +109,22 @@ select:not(.exclude) {
             place-items: center;
             width: 1rem;
             height: 1rem;
-            border: 1px solid rgb(var(--clr-theme) / .25);
-            background-color: rgb(var(--clr-min) / .25);
-            backdrop-filter: blur(.4rem);
+            border: 1px solid rgb(var(--clr-theme) / 0.25);
+            background-color: rgb(var(--clr-min) / 0.25);
+            backdrop-filter: blur(0.4rem);
             color: rgb(var(--clr-text));
         }
 
         > .toggles-label {
             font-weight: 200;
-            opacity: .75;
+            opacity: 0.75;
         }
     }
 
     &:checked + label {
         > .toggles-indicator {
             border: 1px solid rgb(var(--clr-theme));
-            background-color: rgb(var(--clr-tint-0) / .15);
+            background-color: rgb(var(--clr-tint-0) / 0.15);
             color: rgb(var(--clr-tint-100));
         }
 
@@ -132,22 +135,22 @@ select:not(.exclude) {
 
     & + label:hover {
         > .toggles-indicator {
-            border-color: rgb(var(--clr-theme) / .6);
-            background-color: rgb(var(--clr-min) / .5);
+            border-color: rgb(var(--clr-theme) / 0.6);
+            background-color: rgb(var(--clr-min) / 0.5);
         }
     }
 
     &:focus + label {
         > .toggles-indicator {
-            border-color: rgb(var(--clr-theme) / .75);
+            border-color: rgb(var(--clr-theme) / 0.75);
             background-color: rgb(var(--clr-min));
-            outline: .2rem solid rgb(var(--clr-tint-0) / .25);
+            outline: 0.2rem solid rgb(var(--clr-tint-0) / 0.25);
         }
     }
 
     &:disabled + label {
         color: rgb(var(--clr-surface-60));
-        text-shadow: 1px 1px 0 rgb(255 255 255 / .25);
+        text-shadow: 1px 1px 0 rgb(255 255 255 / 0.25);
         cursor: no-drop;
 
         > .toggles-indicator {
@@ -157,7 +160,8 @@ select:not(.exclude) {
     }
 }
 
-input[type="radio"] { // 라디오 버튼 - 반드시 label과 짝을 이루어야 함
+input[type='radio'] {
+    // 라디오 버튼 - 반드시 label과 짝을 이루어야 함
     /*
         <input type="radio" name="radio-something" id="rdoSomething">
 
@@ -168,7 +172,6 @@ input[type="radio"] { // 라디오 버튼 - 반드시 label과 짝을 이루어�
         </label>
     */
 
-
     @include toggle-commons();
 
     & + label {
@@ -177,8 +180,8 @@ input[type="radio"] { // 라디오 버튼 - 반드시 label과 짝을 이루어�
 
             &::before {
                 display: block;
-                width: .4rem;
-                height: .4rem;
+                width: 0.4rem;
+                height: 0.4rem;
                 border-radius: 25rem;
                 background-color: rgb(var(--clr-theme));
                 opacity: 0;
@@ -196,7 +199,8 @@ input[type="radio"] { // 라디오 버튼 - 반드시 label과 짝을 이루어�
     }
 }
 
-input[type="checkbox"]:not([data-checkbox-type="toggle"]) { // 체크박스 - 반드시 label과 짝을 이루어야 함
+input[type='checkbox']:not([data-checkbox-type='toggle']) {
+    // 체크박스 - 반드시 label과 짝을 이루어야 함
     /*
         <input type="checkbox" name="check-something" id="chkSomething">
 
@@ -215,11 +219,11 @@ input[type="checkbox"]:not([data-checkbox-type="toggle"]) { // 체크박스 - �
 
     & + label {
         > .toggles-indicator {
-            border-radius: .2rem;
+            border-radius: 0.2rem;
 
             .remix {
-                width: .8rem;
-                height: .8rem;
+                width: 0.8rem;
+                height: 0.8rem;
                 opacity: 0;
             }
         }
@@ -234,7 +238,8 @@ input[type="checkbox"]:not([data-checkbox-type="toggle"]) { // 체크박스 - �
     }
 }
 
-input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위치 - 반드시 label과 짝을 이루어야 함
+input[type='checkbox']:is([data-checkbox-type='toggle']) {
+    // 토글형 스위치 - 반드시 label과 짝을 이루어야 함
     /*
         <input type="checkbox" name="check-color-theme" id="chkTheme" data-checkbox-type="toggle" data-switch-label="false" :checked="currentThemeSetting" @change="setLocalTheme">
 
@@ -263,7 +268,7 @@ input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위�
 
     display: none;
 
-    &:is([data-switch-label="false"]) {
+    &:is([data-switch-label='false']) {
         & + label {
             .switch-label {
                 display: none;
@@ -281,7 +286,7 @@ input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위�
 
         display: flex;
         align-items: center;
-        gap: .4rem;
+        gap: 0.4rem;
         cursor: pointer;
 
         .switch-rail {
@@ -290,22 +295,25 @@ input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위�
             height: 1.2rem;
             border-radius: 25rem;
             background-color: rgb(var(--switch-rail-false));
-            box-shadow: inset 1px 1px .1rem 0 rgb(0 0 0 / .25);
-            outline: 1px solid rgb(255 255 255 / .25);
-            transition: background-color .5s;
+            box-shadow: inset 1px 1px 0.1rem 0 rgb(0 0 0 / 0.25);
+            outline: 1px solid rgb(255 255 255 / 0.25);
+            transition: background-color 0.5s;
         }
 
         .switch-button {
             position: absolute;
             inset: 0;
-            margin-block: .1rem;
-            margin-inline: .1rem;
+            margin-block: 0.1rem;
+            margin-inline: 0.1rem;
             width: 1rem;
             height: 1rem;
             border-radius: 25rem;
             background-color: rgb(var(--switch-button-false));
             color: rgb(var(--switch-icon-false));
-            transition: translate .25s, background-color .5s, color .25s;
+            transition:
+                translate 0.25s,
+                background-color 0.5s,
+                color 0.25s;
             overflow: hidden;
         }
 
@@ -314,7 +322,7 @@ input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위�
             inset: 0;
             width: 1rem;
             height: 2rem;
-            transition: translate .5s .25s;
+            transition: translate 0.5s 0.25s;
         }
 
         .switch-true,
@@ -325,7 +333,7 @@ input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위�
             height: 1rem;
 
             > .remix {
-                width: .6rem;
+                width: 0.6rem;
             }
         }
     }
@@ -348,8 +356,8 @@ input[type="checkbox"]:is([data-checkbox-type="toggle"]) { // 토글형 스위�
 
     &:focus + label {
         .switch-rail {
-            outline: .1rem dashed rgb(var(--clr-theme));
-            outline-offset: .1rem;
+            outline: 0.1rem dashed rgb(var(--clr-theme));
+            outline-offset: 0.1rem;
         }
     }
 }

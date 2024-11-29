@@ -1,5 +1,37 @@
 /* _areaInfoPanel.scss */
 
+#button-toggle-area-info {
+    display: grid;
+    place-items: center;
+    position: fixed;
+    inset-block-start: 4.8rem;
+    inset-inline-start: 15.6rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-text));
+    box-shadow: var(--shd-100);
+    color: rgb(var(--clr-text-on-tint));
+    transition:
+        inset-inline-start 0.25s 0.1s,
+        background-color 0.25s;
+    z-index: 501;
+
+    > .remix {
+        rotate: -180deg;
+        transition: rotate 0.5s 0.1s;
+    }
+
+    &.on {
+        inset-inline-start: 0.8rem;
+        background-color: rgb(var(--clr-notify));
+
+        > .remix {
+            rotate: 0deg;
+        }
+    }
+}
+
 #panel-area-info {
     position: fixed;
     inset-block-start: 4rem;
@@ -8,8 +40,14 @@
     border-radius: var(--rad-lg);
     background-color: rgb(var(--clr-white));
     box-shadow: var(--shd-100);
+    translate: -200% 0;
+    transition: translate 0.25s;
     overflow: clip;
-    z-index: 50000;
+    z-index: 500;
+
+    &.on {
+        translate: 0;
+    }
 }
 
 .area-picture-carousel {
@@ -110,6 +148,16 @@
     }
 }
 
+.user-total-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    > span:first-of-type {
+        font-weight: 900;
+    }
+}
+
 .area-section-title {
     display: flex;
     align-items: center;
@@ -122,6 +170,60 @@
 .area-threads-list {
     padding: 0.8rem;
     max-height: 16rem;
+    overflow-y: auto;
+}
+
+.area-thread-item {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    height: fit-content;
+
+    &:hover {
+        > .area-thread-item-descriptions {
+            background-color: rgb(var(--clr-text) / 0.1);
+        }
+    }
+
+    & + & {
+        margin-block-start: 0.6rem;
+    }
+}
+
+.area-thread-item-image-wrapper {
+    flex-shrink: 0;
+    padding: 0.2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--color-thread-type, var(--clr-gray)));
+
+    > * {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--rad-xs);
+        background-color: rgb(var(--clr-black) / 0.15);
+    }
+}
+
+.area-thread-item-descriptions {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 0.4rem;
+    height: 2.4rem;
+    border-radius: var(--rad-sm);
+}
+
+.area-thread-item-title {
+    font-weight: 700;
+}
+
+.area-thread-item-daterange {
+    font-size: var(--fnt-xs);
 }
 
 /* _areaInfoPanel.scss */

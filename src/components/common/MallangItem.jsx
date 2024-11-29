@@ -4,18 +4,26 @@ const MallangItem = ({ mallangObject, isEditMode = false }) => {
     return (
         <div className="mallang-item">
             <div className="mallang-image-container">
-                <img
-                    className="mallang-image"
-                    src="/src/assets/images/placeholder-paw.png"
-                    alt="사용자의 대표 말랑이 이미지가 존재하지 않습니다."
-                />
+                {mallangObject.petImage ? (
+                    <img
+                        className="mallang-image"
+                        src={mallangObject.petImage}
+                        alt="말랑이 사진"
+                    />
+                ) : (
+                    <img
+                        className="mallang-image non-exist"
+                        src="/src/assets/images/placeholder-paw.png"
+                        alt="말랑이 사진이 존재하지 않습니다."
+                    />
+                )}
             </div>
 
             <dl className="mallang-descriptions">
                 <dt>
                     {mallangObject.isMain && (
                         <p className="mallang-main-indicator">
-                            {mallangObject.isMain && '메인'}
+                            {mallangObject.isMain && '대표'}
                         </p>
                     )}
 

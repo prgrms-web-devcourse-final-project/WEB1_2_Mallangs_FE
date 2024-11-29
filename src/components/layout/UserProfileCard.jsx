@@ -1,11 +1,11 @@
 import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
 
-const UserProfileCard = () => {
+const UserProfileCard = ({ isActive, onShow }) => {
     const tempPet = {
         // 임시 대표 말랑이 객체
         userID: 123,
-        petImage: null,
+        petImage: 'https://picsum.photos/36/36?random=1',
         petName: '정신차려이각박한세상속에서',
         petType: '고양이',
         petAge: 4,
@@ -14,15 +14,23 @@ const UserProfileCard = () => {
     };
 
     return (
-        <aside id="user-profile-card">
+        <aside id="user-profile-card" className={isActive ? 'on' : null}>
             <div className="profile-card-title-bar">
                 <Remix iconName={'user-fill'} />
                 <p>대표 말랑이</p>
+
+                <button
+                    type="button"
+                    id="button-profile-card-close"
+                    onClick={() => onShow(0)}
+                >
+                    <Remix iconName={'close-line'} iconSize={1} />
+                </button>
             </div>
 
             <hr />
 
-            <MallangItem mallangObject={tempPet} isEditMode={true} />
+            <MallangItem mallangObject={tempPet} />
 
             <hr />
 
