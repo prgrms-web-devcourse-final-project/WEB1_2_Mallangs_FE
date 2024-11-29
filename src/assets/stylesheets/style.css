@@ -1842,22 +1842,53 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 /* _dropDownSelector.scss */
-.star-container {
+/* _starRating.scss */
+.star-point-wrapper {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
-.star-container-rating {
-  display: flex;
-  align-items: center;
-}
-.star-container-rating-element {
-  cursor: pointer;
-}
-.star-container-score {
-  color: rgb(var(--clr-text));
+.star-point-wrapper.unclickable {
+  pointer-events: none;
 }
 
+.star-point-container {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.star-point-item {
+  --star-size: 0.8rem;
+  --star-outline: var(--clr-gray);
+  --star-color: var(--clr-text) / 0.15;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: var(--star-size);
+  height: var(--star-size);
+  color: rgb(var(--star-color));
+  cursor: pointer;
+}
+.star-point-item > svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 2px;
+  stroke: rgb(var(--star-outline));
+}
+.star-point-item.on {
+  --star-outline: var(--clr-if-100);
+  --star-color: var(--clr-if-40);
+}
+
+.star-point-score {
+  font-size: var(--fnt-sm);
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+/* _starRating.scss */
 /* _nameTag.scss */
 .nametag-content {
   flex-shrink: 0;
@@ -2872,6 +2903,9 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 .review-item-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: var(--fnt-sm);
 }
 

@@ -1,5 +1,7 @@
-import NameTag from './NameTag';
 import Remix from './Remix';
+import NameTag from './NameTag';
+import StarRating from './StarRating';
+import dateFormat from '../../utils/dateFormat';
 
 const ReviewItem = ({
     index = 0,
@@ -35,9 +37,9 @@ const ReviewItem = ({
                 <hr />
 
                 <dd className="review-item-summary">
-                    <div>
-                        {starPoint}, {writtenDate}
-                    </div>
+                    <StarRating currentPoint={starPoint} isClickable={false} />
+
+                    {dateFormat(writtenDate)}
                 </dd>
             </dl>
         </article>

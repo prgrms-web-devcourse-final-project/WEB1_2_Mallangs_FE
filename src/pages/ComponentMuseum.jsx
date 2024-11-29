@@ -7,6 +7,7 @@ import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import ModalDateSeparator from '../components/common/ModalDateSeparator';
 import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
+import StarRating from '../components/common/StarRating';
 
 const ComponentMuseum = () => {
     return (
@@ -19,6 +20,9 @@ const ComponentMuseum = () => {
             <p style={{ marginBlock: '4rem' }}>
                 이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...
             </p>
+
+            <StarRating />
+            <StarRating currentPoint={5} isClickable={false} />
 
             <ModalFormInput />
             <ModalDateSeparator />
@@ -62,6 +66,8 @@ const ComponentMuseum = () => {
                             userName: '정발산기슭곰발냄새타령부인사잘해',
                         }}
                         reviewContent={'인사자뢔'}
+                        starPoint={4.2}
+                        writtenDate="2024-12-24 21:31"
                     />
                     <ArticleItem index={1} />
                     <ArticleItem index={2} isEditMode={true} />
