@@ -313,6 +313,7 @@ body {
   font-size: var(--fnt-md);
   word-break: keep-all;
   transition: background-color 0.25s;
+  cursor: url("/images/cursor.png") 8 8, auto;
   overflow: overlay;
 }
 body.prevent-scroll {
@@ -2235,7 +2236,7 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   display: grid;
   place-items: center;
   position: fixed;
-  inset-block-start: 4.8rem;
+  inset-block-start: 5.2rem;
   inset-inline-start: 15.6rem;
   width: 2.4rem;
   height: 2.4rem;
@@ -2243,11 +2244,11 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   background-color: rgb(var(--clr-text));
   box-shadow: var(--shd-100);
   color: rgb(var(--clr-text-on-tint));
-  transition: inset-block-start 0.25s 0.2s, inset-inline-start 0.25s 0.1s, background-color 0.25s;
+  transition: inset-block-start 0.25s 0.25s, inset-inline-start 0.25s, background-color 0.25s;
   z-index: 501;
 }
 #button-toggle-area-info > .remix {
-  rotate: -180deg;
+  rotate: 180deg;
   transition: rotate 0.5s 0.1s;
 }
 #button-toggle-area-info.on {

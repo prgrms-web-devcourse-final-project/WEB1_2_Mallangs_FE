@@ -92,13 +92,13 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
     const unReadReplies = tempReplies.filter((item) => !item.isRead); // 읽지 않은 댓글 알림
     const unReadMessages = tempMessages.filter((item) => item.unReadCount > 0); // 읽지 않은 메시지 알림
 
-    const something = useRef(null);
+    const bgElement = useRef(null);
+
     const handleMouseHover = (e) => {
-        console.log(e.nativeEvent.layerX);
         const trueX = e.nativeEvent.layerX;
         const trueY = e.nativeEvent.layerY;
 
-        something.current.style.cssText = `--object-x: ${trueX}px; --object-y: ${trueY}px;`;
+        bgElement.current.style.cssText = `--object-x: ${trueX}px; --object-y: ${trueY}px;`;
     };
 
     if (unReadReplies.length > 0 || unReadMessages.length > 0)
@@ -153,7 +153,7 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
 
             <div
                 className="notification-clear-button-wrapper"
-                ref={something}
+                ref={bgElement}
                 onMouseMove={handleMouseHover}
             >
                 <button

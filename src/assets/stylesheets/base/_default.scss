@@ -69,6 +69,9 @@ body {
     font-size: var(--fnt-md);
     word-break: keep-all;
     transition: background-color 0.25s;
+    cursor:
+        url('/images/cursor.png') 8 8,
+        auto;
 
     &.prevent-scroll {
         // 모달 등을 사용할 때 <body>에 클래스를 부여하여 스크롤 방지
