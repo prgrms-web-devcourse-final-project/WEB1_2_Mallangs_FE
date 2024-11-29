@@ -1,0 +1,291 @@
+.setting-mallangs {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+
+    .add-mallang-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0.8rem;
+        width: 100%;
+    }
+
+    // Large Text Input
+    .large-text-input {
+        display: flex;
+        align-items: center;
+        height: 2.4rem;
+        width: 100%;
+        border-bottom: 0.1rem solid rgba(47, 40, 36, 0.15);
+        padding: 0 0.4rem;
+
+        .name-input {
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-title-sm);
+            opacity: 0.5;
+            width: 100%;
+            text-align: center;
+            font-weight: 900;
+        }
+    }
+
+    .large-text-input input:focus {
+        outline: none;
+    }
+
+    // 말랑이 종류
+    .mallang-select-container {
+        width: 100%;
+
+        .label-type {
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-sm);
+            opacity: 0.5;
+            margin-bottom: 0.4rem;
+        }
+
+        .mallang-type-selector {
+            display: flex;
+            gap: 0.4rem;
+
+            .filter-label-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 1.6rem;
+                padding: 0 0.8rem;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                border-radius: var(--rad-full);
+                background-color: rgb(var(--clr-white));
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &.active {
+                    background-color: rgb(var(--clr-black));
+
+                    > div {
+                        color: rgb(var(--clr-white));
+                    }
+                }
+
+                > div {
+                    color: rgb(var(--clr-text));
+                    font-size: var(--fnt-sm);
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    // 라벨 텍스트
+    .block-label {
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-sm);
+        font-weight: 200;
+        opacity: 0.5;
+        margin-bottom: 0.2rem;
+    }
+
+    // 생년월일
+    .birthday-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 1.6rem;
+        border: 1px solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+        padding: 0 0.4rem;
+
+        .birthday-wrapper {
+            flex-grow: 1;
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            opacity: 0.5;
+        }
+
+        .birthday-selector {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    // 몸무게
+    .killogram {
+        display: flex;
+        align-items: center;
+        height: 1.6rem;
+        border: 0.05rem solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+        padding: 0 0.4rem;
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .killogram-input {
+            flex-grow: 1;
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            opacity: 0.5;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .killogram-kg {
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            opacity: 0.5;
+            margin-left: 0.2rem;
+        }
+    }
+
+    // 성별
+    .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .frame {
+                align-items: center;
+                background-color: rgb(var(--clr-white));
+                border-radius: var(--rad-full);
+                display: flex;
+                flex-direction: column;
+                height: 1.6rem;
+                justify-content: center;
+                overflow: hidden;
+                position: relative;
+                width: 1.6rem;
+                border: 0.05rem solid rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+
+                svg {
+                    height: 0.8rem;
+                    width: 0.8rem;
+                    opacity: 0.5;
+                }
+            }
+
+            &.active .frame {
+                background-color: rgb(var(--clr-if-0));
+
+                svg {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .checkbox-group-label {
+            color: rgb(var(--clr-black));
+            font-size: var(--fnt-sm);
+            font-weight: 700;
+            margin-left: 0.2rem;
+        }
+    }
+
+    // 토글
+    .toggle-div {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        .toggle-container {
+            width: 1.2rem;
+            height: 0.8rem;
+            border: 0.05rem solid #2f282426;
+            border-radius: var(--rad-full);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0.1rem;
+            position: relative;
+            transition: all 0.3s ease;
+
+            // default : 토글 off
+            align-items: flex-start;
+            background-color: rgb(var(--clr-background));
+
+            &.on {
+                // 토글 on
+                align-items: flex-end;
+                background-color: rgb(var(--clr-clear));
+            }
+
+            .toggle-button {
+                width: 0.6rem;
+                height: 0.6rem;
+                border-radius: var(--rad-full);
+                background-color: rgb(var(--clr-white));
+                border: 0.05rem solid rgba(47, 40, 36, 0.15);
+                box-shadow: 0px 0.05rem 0px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease;
+            }
+        }
+
+        .toggle-label {
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-sm);
+            font-weight: 700;
+        }
+    }
+
+    // 칩 내장번호
+    .chip-number-div {
+        display: flex;
+        align-items: center;
+        height: 1.6rem;
+        border: 0.05rem solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+        padding: 0 0.4rem;
+
+        .chip-number {
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            opacity: 0.5;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    }
+
+    // information
+    .info {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin-top: 0.2rem;
+
+        .info-icon {
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+
+        .help-text {
+            color: var(--clr-info);
+            font-size: var(--fnt-sm);
+            font-weight: 200;
+            white-space: nowrap;
+        }
+    }
+}
