@@ -10,6 +10,12 @@
             outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
         }
     }
+
+    &:not(:has(input:checked)):hover {
+        > .article-item-descriptions {
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+        }
+    }
 }
 
 .article-item-checkbox-wrapper {
@@ -26,7 +32,6 @@
     flex: 1;
     padding: 0.8rem;
     border-radius: var(--rad-lg);
-    background-color: rgb(var(--clr-tint-100) / 0.05);
 }
 
 @mixin sub-descriptions {

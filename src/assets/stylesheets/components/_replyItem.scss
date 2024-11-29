@@ -10,6 +10,12 @@
             outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
         }
     }
+
+    &:not(:has(input:checked)):hover {
+        > .reply-item-body {
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+        }
+    }
 }
 
 .reply-item-checkbox-wrapper {

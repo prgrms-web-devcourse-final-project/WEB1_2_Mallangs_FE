@@ -105,7 +105,9 @@
     }
 
     &:not(.unread):hover {
-        background-color: rgb(var(--clr-text) / 0.1);
+        border-color: rgb(var(--clr-info) / 0.5);
+        background-color: rgb(var(--clr-tint-20) / 0.05);
+        outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
     }
 
     &.unread {
@@ -144,7 +146,9 @@
 
     &:not(.unread):hover {
         > .notification-message-descriptions {
-            background-color: rgb(var(--clr-text) / 0.1);
+            border-color: rgb(var(--clr-info) / 0.5);
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
         }
     }
 

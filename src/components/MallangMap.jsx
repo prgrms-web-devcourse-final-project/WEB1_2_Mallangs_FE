@@ -1,13 +1,11 @@
-import { useKakaoLoader, Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import MarkerCategory from './layout/MarkerCategory';
 
 const MallangMap = () => {
-    useKakaoLoader({
-        appkey: import.meta.env.VITE_KAKAO_APP_KEY,
-        libraries: ['drawing'],
-    });
-
     return (
         <div id="mallang-map-container">
+            <MarkerCategory />
+
             <Map
                 id="mallang-map"
                 center={{ lat: 35.183749, lng: 129.042256 }}

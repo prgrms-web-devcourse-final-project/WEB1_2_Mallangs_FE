@@ -1,0 +1,41 @@
+/* _markerCategory */
+
+#marker-category-container {
+    display: flex;
+    gap: 0.4rem;
+    position: fixed;
+    inset-block: 4rem;
+    inset-inline: 0;
+    margin-inline: auto;
+    width: fit-content;
+    height: fit-content;
+    color: rgb(var(--clr-tint-100));
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+    z-index: 2;
+}
+
+.marker-category-item {
+    display: grid;
+    place-items: center;
+    height: 1.8rem;
+    padding-inline: 0.8rem;
+    border: 0.1rem solid rgb(var(--clr-white) / 0.9);
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-white) / 0.75);
+    backdrop-filter: blur(1.8rem);
+    box-shadow:
+        inset 0 0.6rem 1.2rem -0.4rem rgb(var(--clr-tint-0) / 0.1),
+        var(--shd-100);
+    transition: background-color 0.15s;
+    cursor: pointer;
+
+    &.on {
+        border-color: rgb(var(--clr-if-40));
+        background-color: rgb(var(--clr-theme));
+        color: rgb(var(--clr-text));
+        font-weight: 900;
+    }
+}
+
+/* _markerCategory */
