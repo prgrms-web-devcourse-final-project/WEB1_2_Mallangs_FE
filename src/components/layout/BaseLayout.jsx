@@ -5,6 +5,7 @@ import NotificationCard from './NotificationCard';
 import UserProfileCard from './UserProfileCard';
 import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
+import TotalSearch from './TotalSearch';
 
 const BaseLayout = () => {
     const [currentPanelID, setCurrentPanel] = useState(3);
@@ -40,6 +41,8 @@ const BaseLayout = () => {
             <Outlet />
 
             <Footer />
+
+            {/* <TotalSearch /> */}
         </>
     );
 };

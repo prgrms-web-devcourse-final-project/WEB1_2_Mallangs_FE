@@ -1,0 +1,49 @@
+/* _reviewItem.scss */
+
+.review-item {
+    display: flex;
+    gap: 0.8rem;
+
+    &:has(input:checked) {
+        > .review-item-descriptions {
+            background-color: rgb(var(--clr-alert) / 0.05);
+            outline: 0.2rem solid rgb(var(--clr-alert) / 0.25);
+        }
+    }
+}
+
+.review-item-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 2.8rem;
+}
+
+.review-item-descriptions {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.4rem;
+    padding: 0.8rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-tint-100) / 0.05);
+}
+
+.review-item-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > div:first-child {
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: var(--rad-full);
+        background-color: rgb(var(--clr-gray));
+    }
+}
+
+.review-item-summary {
+    font-size: var(--fnt-sm);
+}
+
+/* _reviewItem.scss */

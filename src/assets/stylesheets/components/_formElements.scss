@@ -4,33 +4,31 @@
     // 입력 요소 공통사항
     padding-inline: 0.4rem;
     height: 1.6rem;
-    border: 1px solid rgb(var(--clr-theme) / 0.25);
-    border-radius: 0.2rem;
-    background-color: rgb(var(--clr-min) / 0.25);
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--clr-white) / 0.25);
     backdrop-filter: blur(0.4rem);
     color: rgb(var(--clr-text));
     transition: 0.25s;
 
     &:hover {
-        border-color: rgb(var(--clr-theme) / 0.6);
-        background-color: rgb(var(--clr-min) / 0.5);
+        border-color: rgb(var(--clr-text) / 0.5);
+        background-color: rgb(var(--clr-white) / 0.5);
+        outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
     }
 
     &:focus {
-        border-color: rgb(var(--clr-theme) / 0.75);
-        background-color: rgb(var(--clr-min));
-        outline: 0.2rem solid rgb(var(--clr-tint-0) / 0.25);
+        border-color: rgb(var(--clr-text) / 0.75);
+        background-color: rgb(var(--clr-white));
+        outline: 0.2rem solid rgb(var(--clr-info) / 0.5);
     }
 
-    &.need-recognize:valid {
-        // 특정 형식의 입력 요소에서 입력 값이 올바를 때의 조건
-        // 일반 입력 요소에 모두 통일되어 적용되므로, 반드시 필요한 경우에만 .need-recognize 클래스를 붙여 사용한다.
-
+    &.need-recognized:user-valid {
         border-color: rgb(var(--clr-clear) / 0.75);
-        background-color: rgb(var(--clr-clear) / 0.5);
+        outline: 0.2rem solid rgb(var(--clr-clear) / 0.25);
     }
 
-    &:invalid {
+    &.need-recognized:user-invalid {
         border-color: rgb(var(--clr-alert));
         outline: 0.2rem solid rgb(var(--clr-alert) / 0.25);
     }
@@ -107,25 +105,25 @@ select:not(.exclude) {
         > .toggles-indicator {
             display: grid;
             place-items: center;
-            width: 1rem;
-            height: 1rem;
-            border: 1px solid rgb(var(--clr-theme) / 0.25);
-            background-color: rgb(var(--clr-min) / 0.25);
+            width: 0.8rem;
+            height: 0.8rem;
+            border: 1px solid rgb(var(--clr-text) / 0.15);
+            background-color: rgb(var(--clr-white) / 0.25);
             backdrop-filter: blur(0.4rem);
             color: rgb(var(--clr-text));
         }
 
         > .toggles-label {
             font-weight: 200;
-            opacity: 0.75;
+            opacity: 0.5;
         }
     }
 
     &:checked + label {
         > .toggles-indicator {
-            border: 1px solid rgb(var(--clr-theme));
-            background-color: rgb(var(--clr-tint-0) / 0.15);
-            color: rgb(var(--clr-tint-100));
+            border: 1px solid rgb(var(--clr-text) / 0.5);
+            background-color: rgb(var(--clr-text));
+            color: rgb(var(--clr-text-on-tint));
         }
 
         > .toggles-label {
@@ -135,27 +133,33 @@ select:not(.exclude) {
 
     & + label:hover {
         > .toggles-indicator {
-            border-color: rgb(var(--clr-theme) / 0.6);
-            background-color: rgb(var(--clr-min) / 0.5);
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
+        }
+    }
+
+    &:not(:checked) + label:hover {
+        > .toggles-indicator {
+            border-color: rgb(var(--clr-text) / 0.5);
+            background-color: rgb(var(--clr-background) / 0.25);
         }
     }
 
     &:focus + label {
         > .toggles-indicator {
-            border-color: rgb(var(--clr-theme) / 0.75);
-            background-color: rgb(var(--clr-min));
-            outline: 0.2rem solid rgb(var(--clr-tint-0) / 0.25);
+            border-color: rgb(var(--clr-text) / 0.75);
+            background-color: rgb(var(--clr-background));
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.5);
         }
     }
 
     &:disabled + label {
-        color: rgb(var(--clr-surface-60));
+        color: rgb(var(--clr-text-disable));
         text-shadow: 1px 1px 0 rgb(255 255 255 / 0.25);
         cursor: no-drop;
 
         > .toggles-indicator {
-            border-color: rgb(var(--clr-surface-60));
-            background-color: rgb(var(--clr-surface-0));
+            border-color: rgb(var(--clr-black) / 0.15);
+            background-color: rgb(var(--clr-gray));
         }
     }
 }
@@ -176,7 +180,7 @@ input[type='radio'] {
 
     & + label {
         > .toggles-indicator {
-            border-radius: 25rem;
+            border-radius: var(--rad-full);
 
             &::before {
                 display: block;
@@ -219,11 +223,9 @@ input[type='checkbox']:not([data-checkbox-type='toggle']) {
 
     & + label {
         > .toggles-indicator {
-            border-radius: 0.2rem;
+            border-radius: var(--rad-sm);
 
             .remix {
-                width: 0.8rem;
-                height: 0.8rem;
                 opacity: 0;
             }
         }

@@ -19,8 +19,8 @@ const MallangItem = ({ mallangObject, isEditMode = false }) => {
                 )}
             </div>
 
-            <dl className="mallang-descriptions">
-                <dt>
+            <dl className="mallang-item-descriptions">
+                <dt className="mallang-item-name-container">
                     {mallangObject.isMain && (
                         <p className="mallang-main-indicator">
                             {mallangObject.isMain && '대표'}
@@ -29,7 +29,7 @@ const MallangItem = ({ mallangObject, isEditMode = false }) => {
 
                     <h5 className="mallang-name">
                         <marquee>
-                            <span>{mallangObject.petName}</span>
+                            <span>{mallangObject.petName ?? '이름 없음'}</span>
                         </marquee>
                     </h5>
 
@@ -40,13 +40,13 @@ const MallangItem = ({ mallangObject, isEditMode = false }) => {
                     )}
                 </dt>
 
-                <dd>
+                <dd className="mallang-item-summary">
                     <Remix iconName={'search-eye-line'} />
-                    <p>{mallangObject.petType}</p>
+                    <p>{mallangObject.petType ?? '알 수 없음'}</p>
                     <span>·</span>
-                    <p>{mallangObject.petAge}세</p>
+                    <p>{mallangObject.petAge ?? 0}세</p>
                     <span>·</span>
-                    <p>{mallangObject.petGender}</p>
+                    <p>{mallangObject.petGender ?? '알 수 없음'}</p>
                 </dd>
             </dl>
         </div>

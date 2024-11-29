@@ -115,7 +115,7 @@ const Header = ({ notiCount, onShow }) => {
             </nav>
 
             <div id="head-controls">
-                <div id="total-search">
+                <div id="total-search-toggler">
                     <span>키워드 검색</span>
 
                     <Remix iconName={'search-2-line'} iconSize={0.8} />

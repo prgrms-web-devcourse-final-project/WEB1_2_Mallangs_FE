@@ -32,6 +32,12 @@ const MainModalCover = () => {
                 </button>
             </div>
 
+            <div className="cover-signature-image-container">
+                <div id="main-modal-signature-image">
+                    <div></div>
+                </div>
+            </div>
+
             <div className="cover-descriptions-container">
                 <dl className="cover-descriptions">
                     <dt className="thread-title-container">
