@@ -2,8 +2,7 @@
 
 .mallang-item {
     display: flex;
-    align-items: center;
-    gap: 0.6rem;
+    gap: 0.8rem;
     padding: 0.8rem;
 }
 
@@ -28,9 +27,11 @@
         width: 100%;
         height: 100%;
 
-        &.not-exist {
+        &.non-exist {
             width: 2rem;
+            height: auto;
             rotate: -15deg;
+            opacity: 0.5;
         }
     }
 }

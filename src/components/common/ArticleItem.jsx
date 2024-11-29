@@ -15,11 +15,7 @@ const ArticleItem = ({
         <article className="article-item">
             {isEditMode && (
                 <div className="article-item-checkbox-wrapper">
-                    <input
-                        type="checkbox"
-                        name="check-something"
-                        id={`chkArticleItem${index}`}
-                    />
+                    <input type="checkbox" id={`chkArticleItem${index}`} />
 
                     <label htmlFor={`chkArticleItem${index}`}>
                         <div className="toggles-indicator">

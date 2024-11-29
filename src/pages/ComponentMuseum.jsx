@@ -6,8 +6,7 @@ import ReviewTotalScore from '../components/common/ReviewTotalScore';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import ModalDateSeparator from '../components/common/ModalDateSeparator';
 import ModalFormInput from '../components/common/ModalFormInput';
-import SendChatItem from '../components/common/SendChatItem';
-import ReceiveChatItem from '../components/common/ReceiveChatItem';
+import ReplyItem from '../components/common/ReplyItem';
 
 const ComponentMuseum = () => {
     return (
@@ -17,11 +16,10 @@ const ComponentMuseum = () => {
                 marginBlockStart: '6.4rem',
             }}
         >
-            이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...
-            <div>
-                <SendChatItem />
-                <ReceiveChatItem />
-            </div>
+            <p style={{ marginBlock: '4rem' }}>
+                이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...
+            </p>
+
             <ModalFormInput />
             <ModalDateSeparator />
             <ModalSectionTitle />
@@ -39,9 +37,18 @@ const ComponentMuseum = () => {
                     }}
                 >
                     <ModalInstruction
+                        index={0}
                         instEmoji="⚠️"
                         instHeadline="앗!"
                         instContent="무언가 신묘한 기분이 든다"
+                    />
+                    <ReplyItem />
+                    <ReplyItem
+                        index={1}
+                        replyContent="이것이 나의 진심 댓글이다"
+                        writtenDateTime="2024-12-24 21:31"
+                        isMyReply={true}
+                        isEditMode={true}
                     />
                     <MallangItem />
                     <MallangItem isEditMode={true} />

@@ -6,8 +6,8 @@
 
     &:has(input:checked) {
         > .review-item-descriptions {
-            background-color: rgb(var(--clr-alert) / 0.05);
-            outline: 0.2rem solid rgb(var(--clr-alert) / 0.25);
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
         }
     }
 }
