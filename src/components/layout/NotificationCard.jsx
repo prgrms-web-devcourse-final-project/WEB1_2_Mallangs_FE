@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Remix from '../common/Remix';
 import EmptyList from '../common/EmptyList';
 import tempReplies from '../../datas/temp-notification-replies.json'; // 임시 댓글 데이터
@@ -92,6 +92,15 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
     const unReadReplies = tempReplies.filter((item) => !item.isRead); // 읽지 않은 댓글 알림
     const unReadMessages = tempMessages.filter((item) => item.unReadCount > 0); // 읽지 않은 메시지 알림
 
+    const something = useRef(null);
+    const handleMouseHover = (e) => {
+        console.log(e.nativeEvent.layerX);
+        const trueX = e.nativeEvent.layerX;
+        const trueY = e.nativeEvent.layerY;
+
+        something.current.style.cssText = `--object-x: ${trueX}px; --object-y: ${trueY}px;`;
+    };
+
     if (unReadReplies.length > 0 || unReadMessages.length > 0)
         onAlarm(unReadReplies.length + unReadMessages.length); // 읽지 않은 알림이 1개 이상이면 상위 요소인 BaseLayout으로 해당 내용을 올려보냄
 
@@ -142,7 +151,11 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
 
             <hr />
 
-            <div className="notification-clear-button-wrapper">
+            <div
+                className="notification-clear-button-wrapper"
+                ref={something}
+                onMouseMove={handleMouseHover}
+            >
                 <button
                     type="button"
                     id="button-clear-notifications"

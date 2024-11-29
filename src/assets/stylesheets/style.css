@@ -2115,19 +2115,24 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 .notification-clear-button-wrapper {
   position: relative;
   width: 100%;
+  transition: background-color 0.5s;
   overflow: clip;
 }
 .notification-clear-button-wrapper::before {
   position: absolute;
-  inset: 0;
-  margin: auto;
+  top: var(--object-y);
+  left: var(--object-x);
   width: 4.8rem;
   height: 4.8rem;
   border-radius: var(--rad-full);
-  background-color: rgb(var(--clr-if-100));
+  background-color: rgb(var(--clr-white));
   opacity: 0;
-  transition: opacity 0.25s;
+  translate: -50% -50%;
+  transition: opacity 0.5s;
   content: "";
+}
+.notification-clear-button-wrapper:hover {
+  background-color: rgb(var(--clr-alert));
 }
 .notification-clear-button-wrapper:hover::before {
   opacity: 1;
@@ -2146,6 +2151,9 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
           backdrop-filter: blur(1.8rem);
   font-size: var(--fnt-sm);
   font-weight: 700;
+}
+#button-clear-notifications:hover {
+  color: rgb(var(--clr-alert));
 }
 
 /* _notificationCard.scss */
