@@ -1,4 +1,5 @@
 import BaseLayout from './src/components/layout/BaseLayout';
+import ComponentMuseum from './src/pages/ComponentMuseum';
 import MainPage from './src/pages/MainPage';
 
 export const routesConfig = [
@@ -17,6 +18,10 @@ export const routesConfig = [
             {
                 path: '/missing',
                 element: <>Oh No</>,
+            },
+            {
+                path: '/museum',
+                element: <ComponentMuseum />,
             },
         ],
     },

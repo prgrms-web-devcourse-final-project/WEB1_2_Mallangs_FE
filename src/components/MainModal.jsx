@@ -1,17 +1,9 @@
 import { useRef, useState } from 'react';
 import MainModalCover from './common/MainModalCover';
 import Remix from './common/Remix';
-import ReviewItem from './common/ReviewItem';
-import MallangItem from './common/MallangItem';
-import ArticleItem from './common/ArticleItem';
-import ModalInstruction from './common/ModalInstruction';
-import ReviewTotalScore from './common/ReviewTotalScore';
-import ModalSectionTitle from './common/ModalSectionTitle';
-import ModalDateSeparator from './common/ModalDateSeparator';
-import ModalFormInput from './common/ModalFormInput';
 
-const MainModal = ({ children }) => {
-    const [modalStatus, setModalStatus] = useState({ isOpened: true });
+const MainModal = ({ isActive, onShow, modalMode, children }) => {
+    const [modalStatus, setModalStatus] = useState({ isOpened: false });
     const modalBackdrop = useRef(null);
 
     if (modalStatus.isOpened)
@@ -25,7 +17,9 @@ const MainModal = ({ children }) => {
                 }}
             >
                 <div id="main-modal">
-                    <MainModalCover />
+                    <MainModalCover
+                        onClose={() => setModalStatus({ isOpened: false })}
+                    />
 
                     <section id="main-modal-body">
                         <div id="main-modal-sidebar">
@@ -65,35 +59,7 @@ const MainModal = ({ children }) => {
                                 </ul>
                             </nav>
 
-                            <div id="main-modal-content">
-                                {children}
-
-                                <ModalFormInput />
-
-                                <ModalDateSeparator />
-
-                                <ModalSectionTitle />
-
-                                <ReviewTotalScore />
-
-                                <div>
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            flexFlow: 'column nowrap',
-                                            gap: '.8rem',
-                                            padding: '.8rem',
-                                        }}
-                                    >
-                                        <ModalInstruction />
-                                        <ArticleItem />
-                                        <MallangItem mallangObject={{}} />
-                                        <ReviewItem index={1} />
-                                        <ReviewItem index={2} />
-                                        <ReviewItem index={3} />
-                                    </div>
-                                </div>
-                            </div>
+                            <div id="main-modal-content">{children}</div>
                         </div>
                     </section>
                 </div>

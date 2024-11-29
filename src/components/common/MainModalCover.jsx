@@ -2,7 +2,7 @@ import Remix from './Remix';
 import DropdownSelector from './DropdownSelector';
 import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
-const MainModalCover = () => {
+const MainModalCover = ({ onClose }) => {
     return (
         <section id="main-modal-cover">
             <div className="cover-controls">
@@ -27,7 +27,12 @@ const MainModalCover = () => {
                     </button>
                 </div>
 
-                <button type="button" id="button-close-modal">
+                <button
+                    type="button"
+                    id="button-close-modal"
+                    title="창 닫기"
+                    onClick={onClose}
+                >
                     <Remix iconName={'close-line'} />
                 </button>
             </div>

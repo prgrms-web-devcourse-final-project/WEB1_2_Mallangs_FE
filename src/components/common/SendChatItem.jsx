@@ -1,5 +1,3 @@
-import ProfileImage from '../../assets/images/icon-user.svg?react';
-
 const SendChatItem = ({
     message = '그렇구나 이것은 답변',
     time = '12:34:58',

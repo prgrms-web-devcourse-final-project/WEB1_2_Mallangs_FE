@@ -1,10 +1,10 @@
 import dateFormat from '../../utils/dateFormat';
 
-const ModalDateSeparator = () => {
+const ModalDateSeparator = ({ dateString = '1970-01-01' }) => {
     return (
         <div className="modal-date-separator">
             <hr />
-            <span>{dateFormat('2024-01-01')}</span>
+            <span>{dateFormat(dateString)}</span>
             <hr />
         </div>
     );

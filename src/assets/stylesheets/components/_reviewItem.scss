@@ -33,13 +33,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    > div:first-child {
-        width: 1.2rem;
-        height: 1.2rem;
-        border-radius: var(--rad-full);
-        background-color: rgb(var(--clr-gray));
-    }
 }
 
 .review-item-summary {

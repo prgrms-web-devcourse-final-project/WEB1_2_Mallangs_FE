@@ -1,10 +1,18 @@
-const ReviewTotalScore = () => {
+import Remix from './Remix';
+
+const ReviewTotalScore = ({
+    reviewTarget = '리뷰 대상',
+    reviewScoreEverage = null,
+    reviewCount = 0,
+    reviewSummary = '아직 요약할 수 있는 리뷰가 작성되지 않았어요.',
+    areYouSure = false,
+}) => {
     return (
         <section id="review-total-score">
             <div className="review-score-wrapper">
                 <p className="review-score-target">
                     <span className="review-score-target-name">
-                        {'리뷰 대상'}
+                        {reviewTarget}
                     </span>
 
                     <span>평점</span>
@@ -25,7 +33,9 @@ const ReviewTotalScore = () => {
                     </svg>
 
                     <h5 className="review-score-label">
-                        <span className="review-score-label-text">{'-'}</span>
+                        <span className="review-score-label-text">
+                            {reviewScoreEverage ?? '-'}
+                        </span>
 
                         <span> 점</span>
                     </h5>
@@ -34,13 +44,23 @@ const ReviewTotalScore = () => {
                 <p className="review-score-total-count">
                     <span>총</span>
 
-                    <span>{0}</span>
+                    <span>{reviewCount.toLocaleString('ko-KR')}</span>
 
                     <span>개의 리뷰</span>
                 </p>
             </div>
 
-            <hr />
+            {areYouSure && (
+                <div className="review-ai-summary">
+                    <p className="ai-summary-title">
+                        <Remix iconName={'bard-fill'} iconSize={0.6} />
+
+                        <span>A.I 리뷰 요약</span>
+                    </p>
+
+                    <p className="ai-summary-content">{reviewSummary}</p>
+                </div>
+            )}
         </section>
     );
 };

@@ -194,8 +194,11 @@
 /* 리뷰 종합 섹션 */
 
 #review-total-score {
+    display: flex;
+    gap: 1.2rem;
     position: sticky;
     inset-block: 0;
+    border-block-end: 1px solid rgb(var(--clr-text) / 0.15);
     background-color: rgb(var(--clr-white));
     z-index: 2;
 }
@@ -243,6 +246,41 @@
 
 .review-ai-summary {
     // 몰래 넣어놔야지 히히
+    flex: 1;
+    margin: 0.8rem;
+    padding: 0.8rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-info) / 0.05);
+    font-size: var(--fnt-sm);
+}
+
+.ai-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-block-end: 0.6rem;
+    width: fit-content;
+    background-image: linear-gradient(to right, blue, red, gold);
+    color: transparent;
+    font-weight: 900;
+    background-clip: text;
+
+    > .remix {
+        color: slateblue;
+    }
+}
+
+.ai-summary-content {
+    line-height: 1.4;
+    word-break: break-all;
+
+    &::before {
+        content: '“';
+    }
+
+    &::after {
+        content: '”';
+    }
 }
 
 /* _mainModal.scss */

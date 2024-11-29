@@ -17,6 +17,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
         <aside id="user-profile-card" className={isActive ? 'on' : null}>
             <div className="profile-card-title-bar">
                 <Remix iconName={'user-fill'} />
+
                 <p>대표 말랑이</p>
 
                 <button
@@ -41,8 +42,10 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     className="profile-card-buttons"
                 >
                     <Remix iconName={'information-2-fill'} />
+
                     <span>프로필</span>
                 </button>
+
                 <button
                     type="button"
                     id="button-edit-profile"

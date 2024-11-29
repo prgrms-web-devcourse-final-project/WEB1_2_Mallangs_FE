@@ -1,5 +1,4 @@
 import { useKakaoLoader, Map, MapMarker } from 'react-kakao-maps-sdk';
-import MainModal from './MainModal';
 
 const MallangMap = () => {
     useKakaoLoader({
@@ -18,8 +17,6 @@ const MallangMap = () => {
                     <div className="temp-marker">안에 사람들이 있잖아</div>
                 </MapMarker>
             </Map>
-
-            <MainModal />
         </div>
     );
 };

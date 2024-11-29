@@ -43,11 +43,12 @@
 
 // 7. Components
 @import 'components/buttons', 'components/formElements', 'components/spinLoader',
-    'components/customAlert', 'components/emptyList', 'components/dropdown',
-    'components/starRating', 'components/nametag', 'components/notificationCard',
-    'components/userProfileCard', 'components/areaInfoPanel',
-    'components/mainModalCover', 'components/mainModal',
-    'components/mallangsItem', 'components/reviewItem', 'components/articleItem',
-    'components/modalFormInput', 'components/receiveChat', 'components/sendChat',
+    'components/customAlert', 'components/emptyList',
+    'components/dropDownSelector', 'components/starRating', 'components/nameTag',
+    'components/notificationCard', 'components/userProfileCard',
+    'components/areaInfoPanel', 'components/mainModalCover',
+    'components/mainModal', 'components/mallangsItem', 'components/reviewItem',
+    'components/articleItem', 'components/modalFormInput',
+    'components/receiveChat', 'components/sendChat',
     'components/settingMallangs', 'components/searchUserLocation',
     'components/userLocationMap', 'components/totalSearch';

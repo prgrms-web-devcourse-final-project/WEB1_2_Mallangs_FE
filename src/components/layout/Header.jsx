@@ -107,8 +107,14 @@ const Header = ({ notiCount, onShow }) => {
                     </li>
 
                     <li className="nav-item primary">
-                        <NavLink to="missing">
+                        <NavLink to="/missing">
                             <span>실종신고</span>
+                        </NavLink>
+                    </li>
+
+                    <li className="nav-item primary">
+                        <NavLink to="/museum">
+                            <span>컴포넌트 박물관</span>
                         </NavLink>
                     </li>
                 </ul>

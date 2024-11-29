@@ -245,6 +245,8 @@
     height: 2.4rem;
     background-color: rgb(var(--clr-white) / 0.75);
     backdrop-filter: blur(1.8rem);
+    font-size: var(--fnt-sm);
+    font-weight: 700;
 }
 
 /* _notificationCard.scss */
