@@ -1,0 +1,224 @@
+.thread-rescue {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    box-sizing: border-box;
+    width: 27rem;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.form-animal-rescue {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 0.45rem;
+    position: relative;
+    padding: 0.8rem;
+}
+.required-input-guide {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 0.2rem;
+    position: relative;
+    width: auto;
+
+    > .remix {
+        color: rgb(var(--clr-alert));
+    }
+}
+
+.address {
+    align-self: stretch;
+    position: relative;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        .address-region,
+        .address-building {
+            width: 100%;
+            height: 1.6rem;
+            padding: 0.4rem;
+            border: 0.05rem solid rgba(47, 40, 36, 0.15);
+            border-radius: var(--rad-xs);
+
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            font-weight: 400;
+            line-height: 0.85rem;
+            text-align: left;
+
+            &::placeholder {
+                color: rgba(47, 40, 36, 0.5);
+            }
+        }
+    }
+}
+
+.date-time-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 1.6rem;
+    border: 0.05rem solid rgba(47, 40, 36, 0.15);
+    border-radius: var(--rad-xs);
+    padding: 0 0.4rem;
+    width: 100%;
+    background-color: rgb(var(--clr-white));
+
+    .date-time-input {
+        flex-grow: 1;
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-md);
+        opacity: 0.5;
+    }
+    > .remix {
+        display: flex;
+        align-items: center;
+    }
+}
+
+// 말랑이 종류
+.mallang-select-container {
+    width: 100%;
+
+    .label-type {
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-sm);
+        opacity: 0.5;
+        margin-bottom: 0.4rem;
+    }
+
+    .mallang-type-selector {
+        display: flex;
+        gap: 0.4rem;
+
+        .filter-label-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1.6rem;
+            padding: 0 0.8rem;
+            border: 0.05rem solid rgba(0, 0, 0, 0.15);
+            border-radius: var(--rad-full);
+            background-color: rgb(var(--clr-white));
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+                background-color: rgb(var(--clr-black));
+
+                > div {
+                    color: rgb(var(--clr-white));
+                }
+            }
+
+            > div {
+                color: rgb(var(--clr-text));
+                font-size: var(--fnt-sm);
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.section-title {
+    position: relative;
+    color: rgb(var(--clr-text));
+    font-size: var(--fnt-sm);
+    font-weight: 700;
+    text-align: left;
+}
+
+.discovery-situation-container {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    background: rgb(var(--clr-white));
+    border: 0.05rem solid rgba(47, 40, 36, 0.15);
+    border-radius: var(--rad-xs);
+    overflow-y: auto;
+
+    &-input {
+        width: 100%;
+        height: 3rem;
+        position: relative;
+        font-size: var(--fnt-md);
+        // padding: 0.8rem;
+    }
+}
+
+.emergency-contact {
+    width: 100%;
+    &-input {
+        width: 100%;
+        height: 1.6rem;
+        padding: 0.4rem;
+        border: 0.05rem solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-md);
+        font-weight: 400;
+        line-height: 0.85rem;
+        text-align: left;
+    }
+}
+
+.button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    gap: 0.4rem;
+    position: relative;
+    padding: 0.8rem;
+
+    .button-selection-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: stretch;
+        flex-shrink: 0;
+        gap: 0.4rem;
+        position: relative;
+        height: 2.4rem;
+        padding: 0 1.2rem 0 1.2rem;
+        cursor: pointer;
+        background: rgb(var(--clr-if-0));
+        border: none;
+        border-radius: var(--rad-lg);
+    }
+
+    .icon-check {
+        flex-shrink: 0;
+        position: relative;
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+
+    .button-label {
+        flex-shrink: 0;
+        flex-basis: auto;
+        position: relative;
+        height: 0.75rem;
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-sm);
+        font-weight: 700;
+        line-height: 0.75rem;
+        text-align: left;
+    }
+}
