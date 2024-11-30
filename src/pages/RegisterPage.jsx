@@ -72,7 +72,10 @@ const RegisterPage = () => {
                                 '--current-register-screen': currentStep,
                             }}
                         >
-                            <div id={1}>
+                            <div
+                                className={`state-container ${currentStep && 'show'}`}
+                                data-index={1}
+                            >
                                 <div id="terms-of-service">
                                     <h2>제1장 총 칙</h2>
 
@@ -1395,18 +1398,22 @@ const RegisterPage = () => {
                                 ㅇㅇ 동의
                             </div>
 
-                            <div id={2}>
+                            <div className="state-container" data-index={2}>
                                 계정, 비밀번호, 비밀번호 확인, 이름, 기타 등등
                             </div>
 
-                            <div id={3}>내가 사는 동네 찾기</div>
+                            <div className="state-container" data-index={3}>
+                                내가 사는 동네 찾기
+                            </div>
 
-                            <div id={4}>
+                            <div className="state-container" data-index={4}>
                                 말랑이 추가하기 / 대표 말랑이 설정 (선택
                                 입력사항)
                             </div>
 
-                            <div id={5}>회원 가입 완료</div>
+                            <div className="state-container" data-index={5}>
+                                회원 가입 완료
+                            </div>
                         </aside>
                     </form>
                 </div>
