@@ -1,6 +1,7 @@
 /* _keyframes.scss */
 
-@keyframes rotate-conic { // 회전하는 conic-gradient
+@keyframes rotate-conic {
+    // 회전하는 conic-gradient
     from {
         --conic-range: 0deg;
     }
@@ -10,7 +11,8 @@
     }
 }
 
-@keyframes blink { // 순서대로 깜빡이는 말줄임표
+@keyframes blink {
+    // 순서대로 깜빡이는 말줄임표
     from {
         opacity: 0;
     }
@@ -20,9 +22,10 @@
     }
 }
 
-@keyframes burger-toggle { // 햄버거 버튼
+@keyframes burger-toggle {
+    // 햄부기 버튼
     40% {
-        height: .1rem;
+        height: 0.1rem;
         inset-inline-start: var(--burger-self-start);
         inset-inline-end: var(--burger-self-end);
     }
@@ -45,8 +48,39 @@
     100% {
         inset-inline-start: 0;
         inset-inline-end: 0;
-        height: .8rem;
+        height: 0.8rem;
         rotate: var(--burger-self-rotate) 0 0;
+    }
+}
+
+@keyframes pop-up-message {
+    // 파핑 메시지
+    from {
+        scale: 0;
+    }
+
+    45% {
+        scale: 1.2;
+    }
+
+    55% {
+        scale: 0.75;
+    }
+
+    70% {
+        scale: 1.1;
+    }
+
+    90% {
+        scale: 0.9;
+    }
+
+    95% {
+        scale: 1.05;
+    }
+
+    to {
+        scale: 1;
     }
 }
 

@@ -4,10 +4,15 @@
     display: flex;
     gap: 0.4rem;
 
+    .chat-content-container {
+        animation: pop-up-message 0.25s ease-in forwards 1;
+    }
+
     &.opposite {
         .chat-content-container {
             border-top-left-radius: 0;
             background-color: rgb(var(--clr-surface-100));
+            transform-origin: top left;
         }
 
         .chat-datetime-container {
@@ -23,6 +28,7 @@
             border-bottom-right-radius: 0;
             background-color: rgb(var(--clr-info));
             color: rgb(var(--clr-text-on-tint));
+            transform-origin: bottom right;
         }
     }
 }
@@ -67,7 +73,7 @@
 
 .chat-content-container {
     padding: 0.4rem 0.6rem;
-    max-width: 16rem;
+    max-width: 14rem;
     border-radius: var(--rad-lg);
     line-height: 1.4;
 }

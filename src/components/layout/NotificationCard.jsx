@@ -108,6 +108,7 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
         <aside id="notification-card" className={isActive ? 'on' : null}>
             <div className="notification-tab-container">
                 <button
+                    type="button"
                     className={`notification-tab-button replies ${currentTabID === 0 && 'on'}`}
                     title={`${unReadReplies.length}개의 새 댓글이 있어요.`}
                     onClick={() => setCurrentTab(0)}
@@ -125,6 +126,7 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
                 </button>
 
                 <button
+                    type="button"
                     className={`notification-tab-button messages ${currentTabID === 1 && 'on'}`}
                     title={`${unReadMessages.length}개의 새 메시지가 있어요.`}
                     onClick={() => setCurrentTab(1)}
@@ -164,6 +166,15 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
                     <Remix iconName={'delete-bin-6-line'} />
 
                     <span>확인한 알림 모두 지우기</span>
+                </button>
+
+                <button
+                    type="button"
+                    id="button-notification-card-close"
+                    title="알림 창 닫기"
+                    onClick={() => onShow(0)}
+                >
+                    <Remix iconName={'close-line'} iconSize={1} />
                 </button>
             </div>
         </aside>

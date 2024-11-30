@@ -77,6 +77,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                         onClick={callSwalDemo}
                     >
                         <Remix iconName={'home-heart-fill'} />
+
                         <span>지역 커뮤니티 보기</span>
                     </button>
                 </div>
@@ -88,8 +89,11 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
 
                     <dd className="area-city-province-name">
                         <Remix iconName={'map-pin-range-fill'} iconSize={0.6} />
+
                         <p>{tempTown.townCity}</p>
+
                         <span>·</span>
+
                         <p>{tempTown.townProvince}</p>
                     </dd>
 
@@ -122,6 +126,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                                           'ko-KR',
                                       )}
                             </span>
+
                             <span>마리의 말랑이들이 있어요.</span>
                         </p>
                     </dd>
@@ -130,6 +135,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                 <div>
                     <div className="area-section-title">
                         <Remix iconName={'chat-thread-fill'} />
+
                         <p>현재 지역에서 진행 중인 글타래</p>
                     </div>
 

@@ -19,22 +19,31 @@
         gap: 0.4rem;
         font-size: var(--fnt-sm);
 
-        &::before {
-            display: grid;
-            place-items: center;
+        > .modal-form-upload-button {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
             padding-inline: 0.6rem;
             height: 1.6rem;
             border-radius: var(--rad-sm);
             background-color: rgb(var(--clr-text));
             color: rgb(var(--clr-text-on-tint));
             font-weight: 700;
-            content: '이미지 업로드';
+            transition: background-color 0.15s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(var(--clr-theme));
+                color: rgb(var(--clr-text));
+            }
         }
 
         > span {
             flex: 1;
             display: block;
             opacity: 0.5;
+            user-select: none;
+            pointer-events: none;
         }
     }
 }

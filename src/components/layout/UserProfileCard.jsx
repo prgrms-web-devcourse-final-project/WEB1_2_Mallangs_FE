@@ -23,6 +23,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
                 <button
                     type="button"
                     id="button-profile-card-close"
+                    title="대표 말랑이 창 닫기"
                     onClick={() => onShow(0)}
                 >
                     <Remix iconName={'close-line'} iconSize={1} />
@@ -40,6 +41,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-show-profile"
                     className="profile-card-buttons"
+                    onClick={() => onShow(99)}
                 >
                     <Remix iconName={'information-2-fill'} />
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Remix from './Remix';
 
 const ModalFormInput = ({
     isIncludeImage = true,
@@ -34,6 +35,12 @@ const ModalFormInput = ({
                     />
 
                     <label htmlFor="modal-form-file">
+                        <div className="modal-form-upload-button">
+                            <Remix iconName={'share-2-line'} />
+
+                            <span>이미지 업로드</span>
+                        </div>
+
                         <span>
                             {uploadImage ? uploadImage : '선택된 파일 없음'}
                         </span>

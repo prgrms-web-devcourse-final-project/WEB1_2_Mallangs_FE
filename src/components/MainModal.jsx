@@ -2,24 +2,21 @@ import { useRef, useState } from 'react';
 import MainModalCover from './common/MainModalCover';
 import Remix from './common/Remix';
 
-const MainModal = ({ isActive, onShow, modalMode, children }) => {
-    const [modalStatus, setModalStatus] = useState({ isOpened: false });
+const MainModal = ({ isActive, onShow, children }) => {
+    const [modalStatus, setModalStatus] = useState(false);
     const modalBackdrop = useRef(null);
 
-    if (modalStatus.isOpened)
+    if (isActive)
         return (
             <div
                 id="main-modal-backdrop"
                 ref={modalBackdrop}
                 onClick={(e) => {
-                    if (e.target === modalBackdrop.current)
-                        setModalStatus(false);
+                    if (e.target === modalBackdrop.current) onShow(0);
                 }}
             >
                 <div id="main-modal">
-                    <MainModalCover
-                        onClose={() => setModalStatus({ isOpened: false })}
-                    />
+                    <MainModalCover onClose={() => onShow(0)} />
 
                     <section id="main-modal-body">
                         <div id="main-modal-sidebar">

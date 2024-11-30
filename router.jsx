@@ -1,6 +1,9 @@
 import BaseLayout from './src/components/layout/BaseLayout';
-import ComponentMuseum from './src/pages/ComponentMuseum';
 import MainPage from './src/pages/MainPage';
+import ErrorPage from './src/pages/ErrorPage';
+import LoginPage from './src/pages/LoginPage';
+import RegisterPage from './src/pages/RegisterPage';
+import ComponentMuseum from './src/pages/ComponentMuseum';
 
 export const routesConfig = [
     {
@@ -24,5 +27,17 @@ export const routesConfig = [
                 element: <ComponentMuseum />,
             },
         ],
+    },
+    {
+        path: '/login',
+        element: <LoginPage />,
+    },
+    {
+        path: '/register',
+        element: <RegisterPage />,
+    },
+    {
+        path: '/*',
+        element: <ErrorPage />,
     },
 ];

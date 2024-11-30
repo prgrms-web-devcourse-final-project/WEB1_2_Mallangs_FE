@@ -9,7 +9,6 @@
     background-color: rgb(var(--clr-white) / 0.25);
     backdrop-filter: blur(0.4rem);
     color: rgb(var(--clr-text));
-    transition: 0.25s;
 
     &:hover {
         border-color: rgb(var(--clr-text) / 0.5);
@@ -100,6 +99,7 @@ select:not(.exclude) {
         align-items: center;
         gap: 0.4rem;
         position: relative;
+
         cursor: pointer;
 
         > .toggles-indicator {
@@ -114,7 +114,7 @@ select:not(.exclude) {
         }
 
         > .toggles-label {
-            font-weight: 200;
+            font-size: var(--fnt-sm);
             opacity: 0.5;
         }
     }
@@ -127,7 +127,8 @@ select:not(.exclude) {
         }
 
         > .toggles-label {
-            font-weight: 900;
+            font-weight: 700;
+            opacity: 1;
         }
     }
 
