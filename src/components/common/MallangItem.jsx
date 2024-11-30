@@ -1,6 +1,16 @@
 import Remix from './Remix';
 
-const MallangItem = ({ mallangObject, isEditMode = false }) => {
+const MallangItem = ({
+    mallangObject = {
+        petImage: null,
+        isMain: false,
+        petName: '이름 없음',
+        petType: '알 수 없음',
+        petAge: 0,
+        petGender: '알 수 없음',
+    },
+    isEditMode = false,
+}) => {
     return (
         <div className="mallang-item">
             <div className="mallang-image-container">
@@ -19,8 +29,8 @@ const MallangItem = ({ mallangObject, isEditMode = false }) => {
                 )}
             </div>
 
-            <dl className="mallang-descriptions">
-                <dt>
+            <dl className="mallang-item-descriptions">
+                <dt className="mallang-item-name-container">
                     {mallangObject.isMain && (
                         <p className="mallang-main-indicator">
                             {mallangObject.isMain && '대표'}
@@ -40,7 +50,7 @@ const MallangItem = ({ mallangObject, isEditMode = false }) => {
                     )}
                 </dt>
 
-                <dd>
+                <dd className="mallang-item-summary">
                     <Remix iconName={'search-eye-line'} />
                     <p>{mallangObject.petType}</p>
                     <span>·</span>

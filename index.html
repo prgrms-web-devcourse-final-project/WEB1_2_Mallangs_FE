@@ -5,7 +5,10 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <!-- 나중에 로고 만들면 파비콘도 변경해야 함 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
 
         <title>말랑플레이스</title>
         <meta name="title" content="말랑플레이스" />
@@ -57,7 +60,7 @@
 
         <script
             type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%VITE_KAKAO_API_KEY%"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%VITE_KAKAO_API_KEY%&libraries=services,drawing,clusterer"
         ></script>
     </head>
 

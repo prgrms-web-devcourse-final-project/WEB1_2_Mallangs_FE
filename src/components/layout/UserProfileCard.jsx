@@ -17,11 +17,13 @@ const UserProfileCard = ({ isActive, onShow }) => {
         <aside id="user-profile-card" className={isActive ? 'on' : null}>
             <div className="profile-card-title-bar">
                 <Remix iconName={'user-fill'} />
+
                 <p>대표 말랑이</p>
 
                 <button
                     type="button"
                     id="button-profile-card-close"
+                    title="대표 말랑이 창 닫기"
                     onClick={() => onShow(0)}
                 >
                     <Remix iconName={'close-line'} iconSize={1} />
@@ -39,10 +41,13 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-show-profile"
                     className="profile-card-buttons"
+                    onClick={() => onShow(99)}
                 >
                     <Remix iconName={'information-2-fill'} />
+
                     <span>프로필</span>
                 </button>
+
                 <button
                     type="button"
                     id="button-edit-profile"

@@ -1,0 +1,30 @@
+/* _totalSearch.scss */
+
+#total-search-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(var(--clr-background) / 0.75);
+    z-index: 50001;
+
+    > .inner-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        position: absolute;
+        inset: 0;
+        margin-block: auto;
+        height: fit-content;
+    }
+}
+
+.total-search-input-container {
+    display: flex;
+    align-items: center;
+    height: 3.2rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-white) / 0.75);
+    backdrop-filter: blur(1.8rem);
+    box-shadow: inset 0 -0.2rem 0.2rem rgb(var(--clr-text) / 0.1);
+    outline: 0.2rem solid rgb(var(--clr-if-0) / 0.5);
+}
+
+/* _totalSearch.scss */

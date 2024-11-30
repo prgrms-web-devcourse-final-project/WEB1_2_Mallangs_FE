@@ -1,38 +1,62 @@
 import { useRef, useState } from 'react';
 import MainModalCover from './common/MainModalCover';
+import Remix from './common/Remix';
 
-const MainModal = () => {
-    const [modalStatus, setModalStatus] = useState({ isOpened: true });
+const MainModal = ({ isActive, onShow, children }) => {
+    const [modalStatus, setModalStatus] = useState(false);
     const modalBackdrop = useRef(null);
 
-    if (modalStatus.isOpened)
+    if (isActive)
         return (
             <div
                 id="main-modal-backdrop"
                 ref={modalBackdrop}
                 onClick={(e) => {
-                    if (e.target === modalBackdrop.current)
-                        setModalStatus(false);
+                    if (e.target === modalBackdrop.current) onShow(0);
                 }}
             >
                 <div id="main-modal">
-                    <MainModalCover />
+                    <MainModalCover onClose={() => onShow(0)} />
 
                     <section id="main-modal-body">
                         <div id="main-modal-sidebar">
-                            <div id="main-modal-signature-image">
-                                <div></div>
-                            </div>
+                            <ul id="main-modal-side-menu">
+                                <li className="side-menu-item">
+                                    <Remix iconName={'subtract-line'} />
 
-                            <ul>
-                                <li>멘유</li>
+                                    <span>오늘 아침 메뉴</span>
+                                </li>
+
+                                <li className="side-menu-item">
+                                    <Remix iconName={'subtract-line'} />
+
+                                    <span>오늘 점심 메뉴</span>
+                                </li>
+
+                                <li className="side-menu-item on">
+                                    <Remix iconName={'arrow-right-s-line'} />
+
+                                    <span>오늘 저녁 메뉴</span>
+                                </li>
                             </ul>
                         </div>
 
                         <div id="main-modal-content-container">
-                            <nav id="main-modal-navigation"></nav>
+                            <nav id="main-modal-navigation">
+                                <ul>
+                                    <li className="modal-tab-navigation-item">
+                                        <span>메뉴명</span>
+                                    </li>
 
-                            <div id="main-modal-content"></div>
+                                    <li className="modal-tab-navigation-item on">
+                                        <span>메뉴명</span>
+
+                                        <span>(2)</span>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div id="main-modal-content">{children}</div>
                         </div>
                     </section>
                 </div>

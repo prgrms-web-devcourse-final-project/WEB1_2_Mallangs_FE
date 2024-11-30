@@ -3,7 +3,7 @@
 #notification-card {
     position: fixed;
     inset-block-start: 4rem;
-    inset-inline-end: 0.8rem;
+    inset-inline-end: 3.2rem;
     margin: auto;
     width: 16rem;
     height: fit-content;
@@ -105,7 +105,9 @@
     }
 
     &:not(.unread):hover {
-        background-color: rgb(var(--clr-text) / 0.1);
+        border-color: rgb(var(--clr-info) / 0.5);
+        background-color: rgb(var(--clr-tint-20) / 0.05);
+        outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
     }
 
     &.unread {
@@ -144,7 +146,9 @@
 
     &:not(.unread):hover {
         > .notification-message-descriptions {
-            background-color: rgb(var(--clr-text) / 0.1);
+            border-color: rgb(var(--clr-info) / 0.5);
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
         }
     }
 
@@ -211,24 +215,30 @@
 }
 
 .notification-clear-button-wrapper {
+    display: flex;
+    align-items: center;
     position: relative;
     width: 100%;
+    transition: background-color 0.5s;
     overflow: clip;
 
     &::before {
         position: absolute;
-        inset: 0;
-        margin: auto;
+        top: var(--object-y);
+        left: var(--object-x);
         width: 4.8rem;
         height: 4.8rem;
         border-radius: var(--rad-full);
         background-color: rgb(var(--clr-if-100));
         opacity: 0;
-        transition: opacity 0.25s;
+        translate: -50% -50%;
+        transition: opacity 0.5s;
         content: '';
     }
 
     &:hover {
+        background-color: rgb(var(--clr-alert));
+
         &::before {
             opacity: 1;
         }
@@ -243,8 +253,26 @@
     padding-inline: 0.8rem;
     width: 100%;
     height: 2.4rem;
-    background-color: rgb(var(--clr-white) / 0.75);
+    background-color: rgb(var(--clr-white) / 0.5);
     backdrop-filter: blur(1.8rem);
+    color: rgb(var(--clr-alert));
+    font-size: var(--fnt-sm);
+    font-weight: 700;
+}
+
+#button-notification-card-close {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    height: 2.4rem;
+    aspect-ratio: 1 / 1;
+    background-color: rgb(var(--clr-white) / 0.5);
+    backdrop-filter: blur(1.8rem);
+
+    &:hover {
+        background-color: rgb(var(--clr-alert));
+        color: rgb(var(--clr-white));
+    }
 }
 
 /* _notificationCard.scss */

@@ -107,15 +107,21 @@ const Header = ({ notiCount, onShow }) => {
                     </li>
 
                     <li className="nav-item primary">
-                        <NavLink to="missing">
+                        <NavLink to="/missing">
                             <span>실종신고</span>
+                        </NavLink>
+                    </li>
+
+                    <li className="nav-item primary">
+                        <NavLink to="/museum">
+                            <span>컴포넌트 박물관</span>
                         </NavLink>
                     </li>
                 </ul>
             </nav>
 
             <div id="head-controls">
-                <div id="total-search">
+                <div id="total-search-toggler">
                     <span>키워드 검색</span>
 
                     <Remix iconName={'search-2-line'} iconSize={0.8} />

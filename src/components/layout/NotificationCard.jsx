@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Remix from '../common/Remix';
 import EmptyList from '../common/EmptyList';
 import tempReplies from '../../datas/temp-notification-replies.json'; // 임시 댓글 데이터
@@ -92,6 +92,15 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
     const unReadReplies = tempReplies.filter((item) => !item.isRead); // 읽지 않은 댓글 알림
     const unReadMessages = tempMessages.filter((item) => item.unReadCount > 0); // 읽지 않은 메시지 알림
 
+    const bgElement = useRef(null);
+
+    const handleMouseHover = (e) => {
+        const trueX = e.nativeEvent.layerX;
+        const trueY = e.nativeEvent.layerY;
+
+        bgElement.current.style.cssText = `--object-x: ${trueX}px; --object-y: ${trueY}px;`;
+    };
+
     if (unReadReplies.length > 0 || unReadMessages.length > 0)
         onAlarm(unReadReplies.length + unReadMessages.length); // 읽지 않은 알림이 1개 이상이면 상위 요소인 BaseLayout으로 해당 내용을 올려보냄
 
@@ -99,6 +108,7 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
         <aside id="notification-card" className={isActive ? 'on' : null}>
             <div className="notification-tab-container">
                 <button
+                    type="button"
                     className={`notification-tab-button replies ${currentTabID === 0 && 'on'}`}
                     title={`${unReadReplies.length}개의 새 댓글이 있어요.`}
                     onClick={() => setCurrentTab(0)}
@@ -116,6 +126,7 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
                 </button>
 
                 <button
+                    type="button"
                     className={`notification-tab-button messages ${currentTabID === 1 && 'on'}`}
                     title={`${unReadMessages.length}개의 새 메시지가 있어요.`}
                     onClick={() => setCurrentTab(1)}
@@ -142,7 +153,11 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
 
             <hr />
 
-            <div className="notification-clear-button-wrapper">
+            <div
+                className="notification-clear-button-wrapper"
+                ref={bgElement}
+                onMouseMove={handleMouseHover}
+            >
                 <button
                     type="button"
                     id="button-clear-notifications"
@@ -151,6 +166,15 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
                     <Remix iconName={'delete-bin-6-line'} />
 
                     <span>확인한 알림 모두 지우기</span>
+                </button>
+
+                <button
+                    type="button"
+                    id="button-notification-card-close"
+                    title="알림 창 닫기"
+                    onClick={() => onShow(0)}
+                >
+                    <Remix iconName={'close-line'} iconSize={1} />
                 </button>
             </div>
         </aside>

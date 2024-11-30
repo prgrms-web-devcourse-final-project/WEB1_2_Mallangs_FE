@@ -5,9 +5,11 @@ import NotificationCard from './NotificationCard';
 import UserProfileCard from './UserProfileCard';
 import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
+import MainModal from '../MainModal';
+import TotalSearch from './TotalSearch';
 
 const BaseLayout = () => {
-    const [currentPanelID, setCurrentPanel] = useState(3);
+    const [currentPanelID, setCurrentPanel] = useState(0);
     const [notiStatus, setNotiStatus] = useState(0);
     const location = useLocation();
 
@@ -40,6 +42,17 @@ const BaseLayout = () => {
             <Outlet />
 
             <Footer />
+
+            {/* <TotalSearch /> */}
+
+            <MainModal
+                isActive={currentPanelID === 99}
+                onShow={setCurrentPanel}
+            >
+                <div style={{ padding: '.8rem' }}>
+                    그렇다... 내용을 슬롯으로 집어넣는 것이다
+                </div>
+            </MainModal>
         </>
     );
 };

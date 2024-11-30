@@ -1,0 +1,69 @@
+/* _articleItem.scss */
+
+.article-item {
+    display: flex;
+    gap: 0.8rem;
+
+    &:has(input:checked) {
+        > .article-item-descriptions {
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
+        }
+    }
+
+    &:not(:has(input:checked)):hover {
+        > .article-item-descriptions {
+            background-color: rgb(var(--clr-tint-20) / 0.05);
+        }
+    }
+}
+
+.article-item-checkbox-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: 2.4rem;
+}
+
+.article-item-descriptions {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.4rem;
+    flex: 1;
+    padding: 0.8rem;
+    border-radius: var(--rad-lg);
+}
+
+@mixin sub-descriptions {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+}
+
+.article-item-title {
+    @include sub-descriptions();
+}
+
+.article-item-title-text {
+    font-size: var(--fnt-md);
+    font-weight: 900;
+}
+
+.article-replies-counter {
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+.article-item-category {
+    @include sub-descriptions();
+}
+
+.article-item-datetime {
+    @include sub-descriptions();
+
+    opacity: 0.5;
+}
+
+/* _articleItem.scss */
