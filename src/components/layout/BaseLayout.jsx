@@ -7,6 +7,7 @@ import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
 import MainModal from '../MainModal';
 import TotalSearch from './TotalSearch';
+import SettingMallangs from '../common/SettingMallangs';
 
 const BaseLayout = () => {
     const [currentPanelID, setCurrentPanel] = useState(0);
@@ -50,7 +51,7 @@ const BaseLayout = () => {
                 onShow={setCurrentPanel}
             >
                 <div style={{ padding: '.8rem' }}>
-                    그렇다... 내용을 슬롯으로 집어넣는 것이다
+                    <SettingMallangs />
                 </div>
             </MainModal>
         </>

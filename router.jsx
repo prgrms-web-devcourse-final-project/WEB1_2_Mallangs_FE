@@ -4,6 +4,7 @@ import ErrorPage from './src/pages/ErrorPage';
 import LoginPage from './src/pages/LoginPage';
 import RegisterPage from './src/pages/RegisterPage';
 import ComponentMuseum from './src/pages/ComponentMuseum';
+import FindAccountPage from './src/pages/FindAccountPage';
 
 export const routesConfig = [
     {
@@ -35,6 +36,10 @@ export const routesConfig = [
     {
         path: '/register',
         element: <RegisterPage />,
+    },
+    {
+        path: '/find-account',
+        element: <FindAccountPage />,
     },
     {
         path: '/*',

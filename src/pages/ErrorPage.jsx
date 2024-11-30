@@ -9,18 +9,13 @@ const ErrorPage = ({
     return (
         <section id="full-page-wrapper">
             <div className="service-container-wrapper">
-                <h1
-                    style={{
-                        fontFamily: 'var(--ff-dingbat)',
-                        fontSize: 'var(--fnt-title-xl)',
-                    }}
-                >
-                    {errorCode} ♤ ♧ † £ ¢
-                </h1>
+                <div id="error-message-container">
+                    <h1>¢ {errorCode} ♧</h1>
 
-                <p>{errorMessage}</p>
+                    <p>{errorMessage}</p>
 
-                <button onClick={() => navigate(-1)}>돌아가기</button>
+                    <button onClick={() => navigate(-1)}>돌아가기</button>
+                </div>
             </div>
         </section>
     );
