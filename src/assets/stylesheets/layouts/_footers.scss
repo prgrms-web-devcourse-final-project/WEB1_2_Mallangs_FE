@@ -33,6 +33,7 @@
     align-items: center;
     gap: 0.4rem;
     height: 1.8rem;
+    font-family: var(--ff-dingbat);
     font-size: var(--fnt-lg);
     font-weight: 700;
 }
@@ -61,6 +62,7 @@
 .footer-table-disclaimer {
     padding-block: 0.6rem;
     color: rgb(var(--clr-tint-40) / 0.5);
+    line-height: 1.4;
 
     &::before {
         content: '* ';

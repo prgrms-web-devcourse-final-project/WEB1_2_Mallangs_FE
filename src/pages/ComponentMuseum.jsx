@@ -8,6 +8,7 @@ import ModalDateSeparator from '../components/common/ModalDateSeparator';
 import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
 import StarRating from '../components/common/StarRating';
+import ChatItem from '../components/common/ChatItem';
 
 const ComponentMuseum = () => {
     return (
@@ -20,6 +21,20 @@ const ComponentMuseum = () => {
             <p style={{ marginBlock: '4rem' }}>
                 이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...
             </p>
+
+            <div
+                style={{
+                    display: 'flex',
+                    flexFlow: 'column nowrap',
+                    gap: '.8rem',
+                }}
+            >
+                <ChatItem />
+                <ChatItem
+                    chatFrom="opposite"
+                    chatContent="요즘 drowning 이라는 노래를 하루에 10000번 듣고 있음. 그거랑 이호광의 롤라,, 마약이야 진짜,, 롤~~~라~~~~ ㅋㅋㅋㅋㅋㅋ 개웃김 진짜ㅠㅠ"
+                />
+            </div>
 
             <StarRating />
             <StarRating currentPoint={5} isClickable={false} />

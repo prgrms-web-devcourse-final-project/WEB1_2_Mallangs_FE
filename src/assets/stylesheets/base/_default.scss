@@ -10,6 +10,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Ownglyph_PDH';
+    src:
+        local('온글잎 박다현체'),
+        url('/fonts/Ownglyph-PDH.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     font-family: 'SUIT', sans-serif;
     font-size: clamp(12px, 5vmin, 20px); // Reactive REM
@@ -35,7 +45,7 @@
     --ff-serif-kr: 'MaruBuri', serif;
     --ff-serif-en: '';
     --ff-cursive: '';
-
+    --ff-dingbat: 'Ownglyph_PDH', sans-serif;
     --rad-full: 25rem;
     --rad-xl: 0.8rem;
     --rad-lg: 0.4rem;
