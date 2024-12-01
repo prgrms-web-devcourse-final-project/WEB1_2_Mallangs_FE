@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import ModalInstruction from './common/ModalInstruction';
+import ModalSectionTitle from './common/ModalSectionTitle';
 import Remix from './common/Remix';
 
 const ThreadRescueModal = () => {
@@ -13,14 +15,17 @@ const ThreadRescueModal = () => {
     return (
         <div className="thread-rescue">
             <div className="instruction">
-                <span>
-                    직접 구조하는 것보다 전문가의 도움을 청하는 편이 효과적일 수
-                    있습니다.
-                </span>
+                <ModalInstruction
+                    index={0}
+                    instEmoji="🚨"
+                    instHeadline="잠깐!"
+                    instContent="직접 구조하는 것보다 전문가의 도움을 청하는 편이 효과적일 수
+                    있습니다."
+                />
             </div>
 
             <div className="title-bar">
-                <p>구조 요청 동물 정보 입력</p>
+                <ModalSectionTitle sectionTitle="동물 구조 요청 정보 입력" />
             </div>
 
             <div className="form-animal-rescue">
@@ -84,7 +89,7 @@ const ThreadRescueModal = () => {
                 <div className="emergency-contact">
                     <input
                         className="emergency-contact-input"
-                        placeholder="010-0000-0000"
+                        placeholder="긴급한 상황의 경우 가까운 동물병원이나 구조단체에 먼저 연락해주세요."
                     ></input>
                 </div>
             </div>
