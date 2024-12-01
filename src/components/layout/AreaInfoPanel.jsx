@@ -71,6 +71,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                         />
                     </div>
 
+                    {/**
                     <button
                         type="button"
                         id="button-goto-community"
@@ -80,6 +81,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
 
                         <span>지역 커뮤니티 보기</span>
                     </button>
+                     */}
                 </div>
 
                 <dl className="area-descriptions">

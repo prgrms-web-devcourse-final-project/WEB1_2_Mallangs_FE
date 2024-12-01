@@ -36,22 +36,22 @@ const ChatItem = ({
                     <span>{chatContent}</span>
                 </dt>
 
-                <dd className="chat-datetime-container">
-                    <span>{dateFormat(dateTime)}</span>
+                <dd className="datetime-row chat-datetime-container">
+                    <p>{dateFormat(dateTime)}</p>
 
                     <span>·</span>
 
-                    <span>{hourFormat(dateTime)}</span>
+                    <p>{hourFormat(dateTime)}</p>
 
                     {chatFrom === 'my' && (
                         <>
                             <span>·</span>
 
                             {isRead ? (
-                                <span>읽음</span>
+                                <p>읽음</p>
                             ) : (
                                 <>
-                                    <span>읽지 않음</span>
+                                    <p>읽지 않음</p>
 
                                     <span
                                         style={{

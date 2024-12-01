@@ -1,8 +1,18 @@
-const SignatureImage = ({ signMode, existData }) => {
+const SignatureImage = ({ signMode = 'profile', existData }) => {
     return (
         <div className="cover-signature-image-container">
             <div id="main-modal-signature-image">
-                <div>플레이스홀더</div>
+                {signMode === 'edit' ? (
+                    <div className="signature-image-wrapper">
+                        허ㅐㅔㅁㅈ거헤ㅐㄱ덤햐ㅐㅔㅓㅁㄷ걓
+                    </div>
+                ) : signMode === 'places' ? (
+                    <div className="signature-image-wrapper"></div>
+                ) : signMode === 'profile' ? (
+                    <div className="signature-image-wrapper"></div>
+                ) : (
+                    <div className="signature-image-wrapper"></div>
+                )}
             </div>
         </div>
     );

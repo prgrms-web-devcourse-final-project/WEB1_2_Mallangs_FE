@@ -45,9 +45,65 @@
 
 .remix {
     // Remix Icon 기본값 설정
+    flex-shrink: 0;
     width: var(--icon-size, 0.8rem);
     aspect-ratio: 1 / 1;
     fill: currentColor;
+}
+
+.datetime-row {
+    // 날짜 / 시간 문자열
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+    opacity: 0.5;
+}
+
+.user-profile-image-container {
+    // 사용자 프로필 이미지
+    flex-shrink: 0;
+    position: relative;
+    width: var(--user-image-size, 1.2rem);
+    height: var(--user-image-size, 1.2rem);
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-gray));
+    color: rgb(var(--clr-white));
+    overflow: clip;
+
+    > .remix,
+    > .user-profile-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    > .remix {
+        margin-block-start: 22%;
+        opacity: 0.5;
+    }
+}
+
+.user-nametag {
+    // 사용자 네임태그
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+
+    > .nametag-username {
+        max-width: 8rem;
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-md);
+        font-weight: 700;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }
 
 /* 로그인, 회원가입, 오류 페이지 등의 공통 레이아웃 요소 */

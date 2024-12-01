@@ -43,7 +43,9 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-show-profile"
                     className="profile-card-buttons"
-                    onClick={() => toggleModal(true)}
+                    onClick={() => {
+                        toggleModal(true);
+                    }}
                 >
                     <Remix iconName={'information-2-fill'} />
 

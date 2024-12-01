@@ -5,6 +5,7 @@ import LoginPage from './src/pages/LoginPage';
 import RegisterPage from './src/pages/RegisterPage';
 import ComponentMuseum from './src/pages/ComponentMuseum';
 import FindAccountPage from './src/pages/FindAccountPage';
+import MainModal from './src/components/MainModal';
 
 export const routesConfig = [
     {

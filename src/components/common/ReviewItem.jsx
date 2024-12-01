@@ -39,7 +39,7 @@ const ReviewItem = ({
                 <dd className="review-item-summary">
                     <StarRating currentPoint={starPoint} isClickable={false} />
 
-                    {dateFormat(writtenDate)}
+                    <p className="datetime-row">{dateFormat(writtenDate)}</p>
                 </dd>
             </dl>
         </article>

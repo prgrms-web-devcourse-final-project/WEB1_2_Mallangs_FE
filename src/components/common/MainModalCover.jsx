@@ -1,19 +1,19 @@
 import { useModalStore } from '../../stores/modalStatus';
 import Remix from './Remix';
 import DropdownSelector from './DropdownSelector';
-import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 import SignatureImage from './SignatureImage';
+import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
 const MainModalCover = () => {
     const modalStatus = useModalStore((state) => state.modalStatus);
-    const modalData = modalStatus.modalData;
     const toggleModal = useModalStore((state) => state.toggleModal);
+    const modalData = modalStatus.modalData;
 
     return (
-        <section id="main-modal-cover">
+        <section id="main-modal-cover" className={`${modalStatus.threadType}`}>
             <div className="cover-controls">
                 {modalStatus.isThisMine &&
-                    modalStatus.modalMode !== 'profile' && (
+                    modalStatus.threadType !== 'profile' && (
                         <div className="cover-controls-author">
                             <DropdownSelector
                                 optionList={tempOptionList}
@@ -52,16 +52,19 @@ const MainModalCover = () => {
                 </button>
             </div>
 
-            <SignatureImage />
+            {modalStatus.threadType === 'profile' && <SignatureImage />}
+            {modalStatus.threadType === 'places' && <SignatureImage />}
 
             <div className="cover-descriptions-container">
                 <dl className="cover-descriptions">
                     <dt className="thread-title-container">
                         <h5 className="thread-title">
-                            <Remix
-                                iconName={'shield-check-fill'}
-                                iconSize={1}
-                            />
+                            {modalStatus.threadUser.isAuthenticated && (
+                                <Remix
+                                    iconName={'shield-check-fill'}
+                                    iconSize={1}
+                                />
+                            )}
 
                             <span className="thread-title-content">
                                 {modalData.threadTitle}
@@ -70,21 +73,21 @@ const MainModalCover = () => {
                     </dt>
 
                     <dd className="thread-category-container">
-                        <Remix iconName={'search-eye-line'} />
+                        <Remix iconName={'search-eye-line'} iconSize={0.6} />
 
-                        <span>{modalData.mainCategory}</span>
-
-                        <span>·</span>
-
-                        <span>{modalData.subCategory1}</span>
+                        <p>{modalData.mainCategory}</p>
 
                         <span>·</span>
 
-                        <span>{modalData.subCategory2}</span>
+                        <p>{modalData.subCategory1}</p>
 
                         <span>·</span>
 
-                        <span>{modalData.subCategory3}</span>
+                        <p>{modalData.subCategory2}</p>
+
+                        <span>·</span>
+
+                        <p>{modalData.subCategory3}</p>
                     </dd>
                 </dl>
             </div>

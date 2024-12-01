@@ -1,0 +1,47 @@
+/* _userProfile.scss */
+
+#user-basic-informations {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0.8rem;
+
+    > h5 {
+        font-weight: 900;
+    }
+
+    > p {
+        font-size: var(--fnt-xl);
+        font-weight: 200;
+        opacity: 0.5;
+    }
+}
+
+.user-informations-introduce {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.8rem;
+
+    > .remix {
+        opacity: 0.5;
+
+        &:first-child {
+            align-self: flex-start;
+        }
+
+        &:last-child {
+            align-self: flex-end;
+        }
+    }
+
+    > p {
+        min-width: 12rem;
+        text-align: center;
+        line-height: 1.4;
+    }
+}
+
+/* _userProfile.scss */

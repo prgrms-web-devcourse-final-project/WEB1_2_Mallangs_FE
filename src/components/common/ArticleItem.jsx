@@ -26,7 +26,7 @@ const ArticleItem = ({
             )}
 
             <dl className="article-item-descriptions">
-                <dt className="article-item-title">
+                <dt className="datetime-row article-item-title">
                     <span className="article-item-title-text">
                         {articleTitle}
                     </span>
@@ -36,20 +36,20 @@ const ArticleItem = ({
                     </span>
                 </dt>
 
-                <dd className="article-item-category">
-                    <span>{boardFrom}</span>
+                <dd className="datetime-row article-item-category">
+                    <p>{boardFrom}</p>
 
                     <span>·</span>
 
-                    <span>{categoryFrom}</span>
+                    <p>{categoryFrom}</p>
                 </dd>
 
-                <dd className="article-item-datetime">
-                    <span>{dateFormat(writtenDate)}</span>
+                <dd className="datetime-row article-item-datetime">
+                    <p>{dateFormat(writtenDate)}</p>
 
                     <span>·</span>
 
-                    <span>{hourFormat(writtenDate)}</span>
+                    <p>{hourFormat(writtenDate)}</p>
                 </dd>
             </dl>
         </article>

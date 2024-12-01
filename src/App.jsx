@@ -2,7 +2,7 @@ import { Router } from 'react-router-dom';
 
 function App() {
     return (
-        <div>
+        <div id="japrg">
             <Router />
         </div>
     );

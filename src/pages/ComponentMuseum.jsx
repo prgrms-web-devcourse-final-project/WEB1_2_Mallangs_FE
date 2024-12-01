@@ -10,6 +10,7 @@ import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
 import StarRating from '../components/common/StarRating';
 import ChatItem from '../components/common/ChatItem';
+import ThreadItem from '../components/common/ThreadItem';
 
 const ComponentMuseum = () => {
     const tempListContainer = {
@@ -70,6 +71,12 @@ const ComponentMuseum = () => {
 
             <StarRating />
             <StarRating currentPoint={5} isClickable={false} />
+
+            <div style={tempListContainer}>
+                <h5>글타래 컴포넌트</h5>
+
+                <ThreadItem />
+            </div>
 
             <div style={tempListContainer}>
                 <h5>내 게시물 컴포넌트</h5>
