@@ -10,14 +10,8 @@ import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
 import StarRating from '../components/common/StarRating';
 import ChatItem from '../components/common/ChatItem';
-import UserLocationMap from '../components/common/UserLocationMap';
 
 const ComponentMuseum = () => {
-    // 위치 선택 시 실행될 핸들러 함수
-    const handleLocationSelect = (locationInfo) => {
-        console.log('선택된 위치:', locationInfo);
-    };
-
     return (
         <aside
             className="inner-wrapper"
@@ -106,14 +100,6 @@ const ComponentMuseum = () => {
                     <ArticleItem index={1} />
                     <ArticleItem index={2} isEditMode={true} />
                 </div>
-            </div>
-            <div>
-                <UserLocationMap
-                    locationType="address"
-                    // 주소 정보를 원할 때 address (도로명주소, 지번주소 표시)
-                    // 행정동 정보를 원할 때 administrativeDong는
-                    onLocationSelect={handleLocationSelect}
-                />
             </div>
         </aside>
     );
