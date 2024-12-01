@@ -97,7 +97,7 @@ const ThreadRescueModal = () => {
             <div className="button-content">
                 <button className="button-selection-submit">
                     <div className="icon-check">
-                        <Remix iconName={'check'} />
+                        <Remix iconName={'check-line'} />
                     </div>
                     <span className="button-label">작성완료</span>
                 </button>
