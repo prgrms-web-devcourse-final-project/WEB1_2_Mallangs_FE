@@ -4,9 +4,9 @@
     display: flex;
     gap: 0.4rem;
     position: fixed;
-    inset-block: 4rem;
+    inset-block: 4rem auto;
     inset-inline: 0;
-    margin-inline: auto;
+    margin: auto;
     width: fit-content;
     height: fit-content;
     color: rgb(var(--clr-tint-100));
@@ -35,6 +35,14 @@
         background-color: rgb(var(--clr-theme));
         color: rgb(var(--clr-text));
         font-weight: 900;
+    }
+}
+
+/* 반응형 쿼리 */
+
+@container main-container (max-width: 960px) {
+    #marker-category-container {
+        inset-block: auto 2rem;
     }
 }
 

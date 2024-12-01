@@ -11,19 +11,17 @@ import SettingMallangs from '../common/SettingMallangs';
 
 const BaseLayout = () => {
     const [currentPanelID, setCurrentPanel] = useState(0);
-    const [notiStatus, setNotiStatus] = useState(0);
     const location = useLocation();
 
-    const handleNotifications = (notiValues) => {
-        setNotiStatus(notiValues);
-    };
+    if (location.pathname === '/') {
+        document.body.classList.add('prevent-scroll');
+    }
 
     return (
         <>
             <NotificationCard
                 isActive={currentPanelID === 1}
                 onShow={setCurrentPanel}
-                onAlarm={handleNotifications}
             />
 
             <UserProfileCard
@@ -38,18 +36,15 @@ const BaseLayout = () => {
                 />
             )}
 
-            <Header notiCount={notiStatus} onShow={setCurrentPanel} />
+            <Header onShow={setCurrentPanel} />
 
             <Outlet />
 
-            <Footer />
+            {location.pathname !== '/' && <Footer />}
 
             {/* <TotalSearch /> */}
 
-            <MainModal
-                isActive={currentPanelID === 99}
-                onShow={setCurrentPanel}
-            >
+            <MainModal>
                 <div style={{ padding: '.8rem' }}>
                     <SettingMallangs />
                 </div>

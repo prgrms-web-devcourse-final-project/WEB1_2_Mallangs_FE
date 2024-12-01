@@ -1,7 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import Remix from '../common/Remix';
+import { useNotificationStore } from '../../stores/notificationStatus';
 
-const Header = ({ notiCount, onShow }) => {
+const Header = ({ onShow }) => {
+    const alarms = useNotificationStore((state) => state.notifications);
+    const unReadNotifications = () => {
+        return Number(
+            alarms.replies.filter((item) => !item.isRead).length +
+                alarms.messages.filter((item) => item.unReadCount > 0).length,
+        );
+    };
+
     return (
         <header id="head-primary">
             <h1 id="logo-primary" title="말랑플레이스 로고">
@@ -129,9 +138,9 @@ const Header = ({ notiCount, onShow }) => {
 
                 <button
                     id="button-notify"
-                    className={notiCount > 0 ? 'on' : null}
-                    data-item-count={notiCount}
-                    title={`현재 ${notiCount.toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
+                    className={unReadNotifications() > 0 ? 'on' : null}
+                    data-item-count={1}
+                    title={`현재 ${unReadNotifications().toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
                     onClick={() => onShow(1)}
                 >
                     <Remix iconName={'notification-2-fill'} iconSize={1.2} />

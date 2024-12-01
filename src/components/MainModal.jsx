@@ -1,67 +1,77 @@
 import { useRef, useState } from 'react';
-import MainModalCover from './common/MainModalCover';
+import { useModalStore } from '../stores/modalStatus';
 import Remix from './common/Remix';
+import MainModalCover from './common/MainModalCover';
 
-const MainModal = ({ isActive, onShow, children }) => {
-    const [modalStatus, setModalStatus] = useState(false);
-    const modalBackdrop = useRef(null);
+const MainModal = ({ children }) => {
+    const modalDialog = useRef(null);
+    const isItOn = useModalStore((state) => state.isModalShowing);
+    const modalStatus = useModalStore((state) => state.modalStatus);
+    const modalData = modalStatus.modalData;
+    const [currentTabIndex, setTabIndex] = useState(0);
+    const [currentSlaveIndex, setSlaveIndex] = useState(0);
 
-    if (isActive)
+    if (isItOn) {
+        document.body.classList.add('prevent-scroll');
+
         return (
-            <div
-                id="main-modal-backdrop"
-                ref={modalBackdrop}
-                onClick={(e) => {
-                    if (e.target === modalBackdrop.current) onShow(0);
-                }}
-            >
-                <div id="main-modal">
-                    <MainModalCover onClose={() => onShow(0)} />
+            <aside id="main-modal" ref={modalDialog}>
+                <MainModalCover />
 
-                    <section id="main-modal-body">
-                        <div id="main-modal-sidebar">
-                            <ul id="main-modal-side-menu">
-                                <li className="side-menu-item">
-                                    <Remix iconName={'subtract-line'} />
+                <section id="main-modal-body">
+                    <div id="main-modal-sidebar">
+                        <ul id="main-modal-side-menu">
+                            {modalData.masterNavigations[
+                                currentTabIndex
+                            ].slaveNavigations.map((menuItem, index) => {
+                                return (
+                                    <li
+                                        className={`side-menu-item ${index === currentSlaveIndex && 'on'}`}
+                                        key={index}
+                                        onClick={() => setSlaveIndex(index)}
+                                    >
+                                        <Remix iconName={'subtract-line'} />
 
-                                    <span>오늘 아침 메뉴</span>
-                                </li>
+                                        <span>{menuItem.label}</span>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
 
-                                <li className="side-menu-item">
-                                    <Remix iconName={'subtract-line'} />
+                    <div id="main-modal-content-container">
+                        <nav id="main-modal-navigation">
+                            <ul>
+                                {modalData.masterNavigations.map(
+                                    (menuItem, index) => {
+                                        return (
+                                            <li
+                                                className={`modal-tab-navigation-item ${index === currentTabIndex && 'on'}`}
+                                                key={index}
+                                                onClick={() => {
+                                                    setTabIndex(index);
+                                                    setSlaveIndex(0);
+                                                }}
+                                            >
+                                                <span>{menuItem.label}</span>
 
-                                    <span>오늘 점심 메뉴</span>
-                                </li>
-
-                                <li className="side-menu-item on">
-                                    <Remix iconName={'arrow-right-s-line'} />
-
-                                    <span>오늘 저녁 메뉴</span>
-                                </li>
+                                                {menuItem.count !== null &&
+                                                    `(${menuItem.count})`}
+                                            </li>
+                                        );
+                                    },
+                                )}
                             </ul>
-                        </div>
+                        </nav>
 
-                        <div id="main-modal-content-container">
-                            <nav id="main-modal-navigation">
-                                <ul>
-                                    <li className="modal-tab-navigation-item">
-                                        <span>메뉴명</span>
-                                    </li>
-
-                                    <li className="modal-tab-navigation-item on">
-                                        <span>메뉴명</span>
-
-                                        <span>(2)</span>
-                                    </li>
-                                </ul>
-                            </nav>
-
-                            <div id="main-modal-content">{children}</div>
-                        </div>
-                    </section>
-                </div>
-            </div>
+                        <div id="main-modal-content">{children}</div>
+                    </div>
+                </section>
+            </aside>
         );
+    } else {
+        document.body.classList.remove('prevent-scroll');
+    }
 };
 
 export default MainModal;

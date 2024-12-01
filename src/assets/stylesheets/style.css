@@ -2825,25 +2825,21 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 
 /* _mainModalCover.scss */
 /* _mainModal.scss */
-#main-modal-backdrop {
-  display: grid;
-  place-items: center;
-  position: fixed;
-  inset: 0;
-  background-color: rgb(var(--clr-black)/0.5);
-  z-index: 50001;
-}
-
 #main-modal {
   flex-shrink: 0;
   display: flex;
   flex-flow: column nowrap;
+  position: fixed;
+  inset: 0;
+  margin: auto;
   width: min(100% - 1.6rem, 36rem);
   height: min(100% - 3.2rem, 42rem);
+  border: 0;
   border-radius: var(--rad-lg);
   background-color: rgb(var(--clr-white));
-  box-shadow: var(--shd-100);
+  box-shadow: var(--shd-100), 0 0 0 200vmax rgb(var(--clr-black)/0.75);
   overflow: hidden;
+  z-index: 50001;
 }
 #main-modal:has(.cover-signature-image-container) #main-modal-side-menu {
   margin-block-start: 2.8rem;
@@ -3497,9 +3493,9 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   display: flex;
   gap: 0.4rem;
   position: fixed;
-  inset-block: 4rem;
+  inset-block: 4rem auto;
   inset-inline: 0;
-  margin-inline: auto;
+  margin: auto;
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
@@ -3531,6 +3527,12 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   font-weight: 900;
 }
 
+/* 반응형 쿼리 */
+@container main-container (max-width: 960px) {
+  #marker-category-container {
+    inset-block: auto 2rem;
+  }
+}
 /* _markerCategory */
 .receive-chat-item {
   display: flex;

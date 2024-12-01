@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
+import { useNotificationStore } from '../../stores/notificationStatus';
 import Remix from '../common/Remix';
 import EmptyList from '../common/EmptyList';
-import tempReplies from '../../datas/temp-notification-replies.json'; // 임시 댓글 데이터
-import tempMessages from '../../datas/temp-notification-messages.json'; // 임시 메시지 데이터
 
 const NotiReplyItem = ({ replyObject }) => {
     // 댓글 알림 아이템
@@ -66,31 +65,27 @@ const NotiMessageItem = ({ messageObject }) => {
     );
 };
 
-const NotificationCard = ({ isActive, onShow, onAlarm }) => {
-    /**
-     * 기능 구현시 참고사항 메모
-     *
-     * tempReplies: 임시 댓글 데이터 배열
-     * tempMessages: 임시 메시지 데이터 배열
-     *
-     * fetch한 실 데이터의 배열을 대입하여 데이터 형식만 맞추면 출력은 바로 해결됨
-     * 댓글과 메시지 모두 갱신일자가 최신인 것을 먼저 가지고 와야 한다. (DB 단에서 먼저 처리하는 편이 퍼포먼스가 높다.)
-     */
-
+const NotificationCard = ({ isActive, onShow }) => {
+    const alarms = useNotificationStore((state) => state.notifications);
+    const clearReadAlarms = useNotificationStore(
+        (state) => state.clearReadAlarms,
+    );
     const [currentTabID, setCurrentTab] = useState(0);
 
-    const replyNotiList = tempReplies.map((item, index) => {
+    const replyNotiList = alarms.replies.map((item, index) => {
         // 출력 리스트의 빠른 전환을 위한 맵 처리
         return <NotiReplyItem replyObject={item} key={index} />;
     });
 
-    const messageNotiList = tempMessages.map((item, index) => {
+    const messageNotiList = alarms.messages.map((item, index) => {
         // 출력 리스트의 빠른 전환을 위한 맵 처리
         return <NotiMessageItem messageObject={item} key={index} />;
     });
 
-    const unReadReplies = tempReplies.filter((item) => !item.isRead); // 읽지 않은 댓글 알림
-    const unReadMessages = tempMessages.filter((item) => item.unReadCount > 0); // 읽지 않은 메시지 알림
+    const unReadReplies = alarms.replies.filter((item) => !item.isRead); // 읽지 않은 댓글 알림
+    const unReadMessages = alarms.messages.filter(
+        (item) => item.unReadCount > 0,
+    ); // 읽지 않은 메시지 알림
 
     const bgElement = useRef(null);
 
@@ -100,9 +95,6 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
 
         bgElement.current.style.cssText = `--object-x: ${trueX}px; --object-y: ${trueY}px;`;
     };
-
-    if (unReadReplies.length > 0 || unReadMessages.length > 0)
-        onAlarm(unReadReplies.length + unReadMessages.length); // 읽지 않은 알림이 1개 이상이면 상위 요소인 BaseLayout으로 해당 내용을 올려보냄
 
     return (
         <aside id="notification-card" className={isActive ? 'on' : null}>
@@ -147,8 +139,17 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
             <hr />
 
             <ul className="notification-list">
-                {(currentTabID === 0 ? replyNotiList : messageNotiList) ??
-                    EmptyList}
+                {currentTabID === 0 ? (
+                    replyNotiList.length > 0 ? (
+                        replyNotiList
+                    ) : (
+                        <EmptyList placeHolderText="아직 받은 댓글이 없어요." />
+                    )
+                ) : messageNotiList.length > 0 ? (
+                    messageNotiList
+                ) : (
+                    <EmptyList placeHolderText="아직 받은 메시지가 없어요." />
+                )}
             </ul>
 
             <hr />
@@ -162,6 +163,7 @@ const NotificationCard = ({ isActive, onShow, onAlarm }) => {
                     type="button"
                     id="button-clear-notifications"
                     title="확인한 알림 모두 지우기"
+                    onClick={clearReadAlarms}
                 >
                     <Remix iconName={'delete-bin-6-line'} />
 
