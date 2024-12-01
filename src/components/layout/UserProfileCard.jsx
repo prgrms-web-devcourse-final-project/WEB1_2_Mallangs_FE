@@ -32,7 +32,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
 
             <hr />
 
-            <MallangItem mallangObject={tempPet} />
+            <MallangItem mallangObject={tempPet} isEditMode={true} />
 
             <hr />
 

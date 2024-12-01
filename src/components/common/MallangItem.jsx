@@ -38,9 +38,7 @@ const MallangItem = ({
                     )}
 
                     <h5 className="mallang-name">
-                        <marquee>
-                            <span>{mallangObject.petName}</span>
-                        </marquee>
+                        <span>{mallangObject.petName}</span>
                     </h5>
 
                     {isEditMode && (

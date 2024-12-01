@@ -39,15 +39,17 @@
 
 .mallang-item-descriptions {
     flex: 1;
-    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+    overflow: hidden;
 }
 
 .mallang-item-name-container {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    margin-block-end: 0.2rem;
-    width: 100%;
 
     > .mallang-main-indicator {
         flex-shrink: 0;
@@ -59,12 +61,15 @@
     }
 
     > .mallang-name {
-        flex: 1;
         font-weight: 900;
         word-break: break-all;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+    }
+
+    > .button-mallang-config {
+        flex-shrink: 0;
     }
 }
 
