@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ModalInstruction from './common/ModalInstruction';
 import ModalSectionTitle from './common/ModalSectionTitle';
 import Remix from './common/Remix';
+import CompleteButton from './common/CompleteButton';
 
 const ThreadRescueModal = () => {
     const [isSelectedType, setIsSelectedType] = useState(null);
@@ -93,14 +94,8 @@ const ThreadRescueModal = () => {
                     ></input>
                 </div>
             </div>
-
             <div className="button-content">
-                <button className="button-selection-submit">
-                    <div className="icon-check">
-                        <Remix iconName={'check-line'} />
-                    </div>
-                    <span className="button-label">작성완료</span>
-                </button>
+                <CompleteButton />
             </div>
         </div>
     );
