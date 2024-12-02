@@ -34,16 +34,8 @@
     border-radius: var(--rad-lg);
 }
 
-@mixin sub-descriptions {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-    font-size: var(--fnt-sm);
-    font-weight: 200;
-}
-
 .article-item-title {
-    @include sub-descriptions();
+    opacity: 1;
 }
 
 .article-item-title-text {
@@ -57,13 +49,10 @@
 }
 
 .article-item-category {
-    @include sub-descriptions();
+    opacity: 1;
 }
 
 .article-item-datetime {
-    @include sub-descriptions();
-
-    opacity: 0.5;
 }
 
 /* _articleItem.scss */

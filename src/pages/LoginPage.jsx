@@ -10,9 +10,25 @@ const LoginlPage = () => {
             <div className="service-container-wrapper">
                 <div id="login-form-container" className="service-container">
                     <div className="service-logo-container">
-                        <button onClick={() => navigate(-1)}>뒤로</button>
+                        <button
+                            type="button"
+                            id="button-service-go-back"
+                            title="돌아가기"
+                            onClick={() => navigate(-1)}
+                        >
+                            <Remix
+                                iconName={'corner-up-left-line'}
+                                iconSize={1}
+                            />
+                        </button>
 
-                        <p>대충 로고</p>
+                        <h1>
+                            ♤£¢
+                            <br />
+                            말랑플레이스
+                            <br />
+                            (로고 만들거임)
+                        </h1>
                     </div>
 
                     <form id="form-login">
@@ -46,10 +62,24 @@ const LoginlPage = () => {
                     </form>
                 </div>
 
-                <div>
-                    <button>회원가입</button>
+                <div className="service-controls login-state-controls">
+                    <button
+                        type="button"
+                        className="button-service-control"
+                        title="회원가입"
+                        onClick={() => navigate('/register')}
+                    >
+                        회원가입
+                    </button>
 
-                    <button>ID / 비밀번호 찾기</button>
+                    <button
+                        type="button"
+                        className="button-service-control"
+                        title="ID / 비밀번호 찾기"
+                        onClick={() => navigate('/find-account')}
+                    >
+                        ID / 비밀번호 찾기
+                    </button>
                 </div>
 
                 <div className="service-copyright">

@@ -71,6 +71,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                         />
                     </div>
 
+                    {/**
                     <button
                         type="button"
                         id="button-goto-community"
@@ -80,6 +81,7 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
 
                         <span>지역 커뮤니티 보기</span>
                     </button>
+                     */}
                 </div>
 
                 <dl className="area-descriptions">
@@ -132,28 +134,26 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                     </dd>
                 </dl>
 
-                <div>
-                    <div className="area-section-title">
-                        <Remix iconName={'chat-thread-fill'} />
+                <div className="area-section-title">
+                    <Remix iconName={'chat-thread-fill'} />
 
-                        <p>현재 지역에서 진행 중인 글타래</p>
-                    </div>
-
-                    <ul className="area-threads-list">
-                        {tempTown.currentThreads.length > 0 ? (
-                            tempTown.currentThreads.map((item, index) => {
-                                return (
-                                    <AreaThreadArticle
-                                        articleObject={item}
-                                        key={index}
-                                    />
-                                );
-                            })
-                        ) : (
-                            <EmptyList placeHolderText="아직 이 지역에서 작성된 글타래가 없어요. 첫 글타래를 작성해 보는 건 어떨까요?" />
-                        )}
-                    </ul>
+                    <p>현재 지역에서 진행 중인 글타래</p>
                 </div>
+
+                <ul className="area-threads-list">
+                    {tempTown.currentThreads.length > 0 ? (
+                        tempTown.currentThreads.map((item, index) => {
+                            return (
+                                <AreaThreadArticle
+                                    articleObject={item}
+                                    key={index}
+                                />
+                            );
+                        })
+                    ) : (
+                        <EmptyList placeHolderText="아직 이 지역에서 작성된 글타래가 없어요. 첫 글타래를 작성해 보는 건 어떨까요?" />
+                    )}
+                </ul>
             </aside>
         </>
     );

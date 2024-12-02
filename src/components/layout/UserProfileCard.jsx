@@ -1,7 +1,9 @@
+import { useModalStore } from '../../stores/modalStatus';
 import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
 
 const UserProfileCard = ({ isActive, onShow }) => {
+    const toggleModal = useModalStore((state) => state.toggleModal);
     const tempPet = {
         // 임시 대표 말랑이 객체
         userID: 123,
@@ -32,7 +34,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
 
             <hr />
 
-            <MallangItem mallangObject={tempPet} />
+            <MallangItem mallangObject={tempPet} isEditMode={true} />
 
             <hr />
 
@@ -41,7 +43,9 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-show-profile"
                     className="profile-card-buttons"
-                    onClick={() => onShow(99)}
+                    onClick={() => {
+                        toggleModal(true);
+                    }}
                 >
                     <Remix iconName={'information-2-fill'} />
 

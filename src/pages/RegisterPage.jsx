@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Remix from '../components/common/Remix';
 
 const RegisterPage = () => {
     const [currentStep, setStep] = useState(1); // 회원 가입 현재 단계
     const navigate = useNavigate();
+    const thisYear = new Date().getFullYear();
     const MAX_STEPS = [
         // 회원 가입 최대 단계
         { step: 1, label: '이용약관' },
         { step: 2, label: '기본정보' },
         { step: 3, label: '동네 설정' },
         { step: 4, label: '말랑이 설정' },
-        { step: 5, label: '가입완료' },
     ];
-    const thisYear = new Date().getFullYear();
 
     const handleRegisterState = (stateMover) => {
         // 회원 가입 단계 이동 - 이후 무결성 검사시 form data 객체를 여기서 단계별로 검사한다.
@@ -34,9 +34,35 @@ const RegisterPage = () => {
             >
                 <div id="register-form-container" className="service-container">
                     <div className="service-logo-container">
-                        <button onClick={() => navigate(-1)}>뒤로</button>
+                        <button
+                            type="button"
+                            id="button-service-go-back"
+                            title="돌아가기"
+                            onClick={() =>
+                                Swal.fire({
+                                    icon: 'question',
+                                    title: '지금까지의 진행상황이 모두 삭제돼요!',
+                                    showCancelButton: true,
+                                    cancelButtonText: '아랏서 가입할게',
+                                    confirmButtonText: '그냥',
+                                }).then((result) => {
+                                    if (result.isConfirmed) navigate(-1);
+                                })
+                            }
+                        >
+                            <Remix
+                                iconName={'corner-up-left-line'}
+                                iconSize={1}
+                            />
+                        </button>
 
-                        <p>대충 로고</p>
+                        <h1>
+                            ♤£¢
+                            <br />
+                            말랑플레이스
+                            <br />
+                            (로고 만들거임)
+                        </h1>
                     </div>
 
                     <form
@@ -44,6 +70,8 @@ const RegisterPage = () => {
                         style={{ '--total-register-steps': MAX_STEPS.length }}
                     >
                         {/** 회원 가입 단계에 따라 form 내부 컨테이너를 이동시킨다. */}
+
+                        <hr />
 
                         <ul
                             className="current-register-state"
@@ -66,6 +94,8 @@ const RegisterPage = () => {
                             })}
                         </ul>
 
+                        <hr />
+
                         <aside
                             id="register-state-wrapper"
                             style={{
@@ -73,8 +103,8 @@ const RegisterPage = () => {
                             }}
                         >
                             <div
-                                className={`state-container ${currentStep && 'show'}`}
-                                data-index={1}
+                                className={`register-state-container`}
+                                data-state-index={1}
                             >
                                 <div id="terms-of-service">
                                     <h2>제1장 총 칙</h2>
@@ -1394,41 +1424,49 @@ const RegisterPage = () => {
                                         종전의 약관은 이 약관으로 대체합니다.
                                     </p>
                                 </div>
-                                이용 약관이 이렇고 저렇고 어쩌고 저쩌고 동의함?
-                                ㅇㅇ 동의
+
+                                <div id="check-terms-confirmed">
+                                    이용 약관이 이렇고 저렇고 어쩌고 저쩌고
+                                    동의함? ㅇㅇ 동의
+                                </div>
                             </div>
 
-                            <div className="state-container" data-index={2}>
+                            <div
+                                className={`register-state-container`}
+                                data-state-index={2}
+                            >
                                 계정, 비밀번호, 비밀번호 확인, 이름, 기타 등등
                             </div>
 
-                            <div className="state-container" data-index={3}>
+                            <div
+                                className={`register-state-container`}
+                                data-state-index={3}
+                            >
                                 내가 사는 동네 찾기
                             </div>
 
-                            <div className="state-container" data-index={4}>
+                            <div
+                                className={`register-state-container`}
+                                data-state-index={4}
+                            >
                                 말랑이 추가하기 / 대표 말랑이 설정 (선택
                                 입력사항)
-                            </div>
-
-                            <div className="state-container" data-index={5}>
-                                회원 가입 완료
                             </div>
                         </aside>
                     </form>
                 </div>
 
-                <div className="register-state-controls">
+                <div className="service-controls register-state-controls">
                     {currentStep !== 1 ? (
                         <button
-                            className="buttons"
+                            className="button-service-control"
                             onClick={() => handleRegisterState(-1)}
                         >
                             <span>이전</span>
                         </button>
                     ) : (
                         <button
-                            className="buttons"
+                            className={`button-service-control drop-progress`}
                             onClick={() =>
                                 Swal.fire({
                                     icon: 'question',
@@ -1447,14 +1485,14 @@ const RegisterPage = () => {
 
                     {currentStep !== MAX_STEPS.length ? (
                         <button
-                            className="buttons"
+                            className="button-service-control"
                             onClick={() => handleRegisterState(1)}
                         >
                             <span>다음</span>
                         </button>
                     ) : (
                         <button
-                            className="buttons"
+                            className={`button-service-control done`}
                             onClick={() =>
                                 Swal.fire({
                                     icon: 'success',

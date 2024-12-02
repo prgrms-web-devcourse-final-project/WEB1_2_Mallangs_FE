@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: flex-end;
     gap: 0.2rem;
+    padding-block: 1.2rem;
     padding-inline: 0.8rem;
 }
 
@@ -59,15 +60,12 @@
     transition: margin-inline-start 0.3s;
 
     > div {
-        padding: 1.2rem 0.8rem;
         width: 100%;
     }
 }
 
-.register-state-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.register-state-container {
+    padding: 0.8rem;
 }
 
 #terms-of-service {
@@ -118,6 +116,12 @@
             }
         }
     }
+}
+
+#check-terms-confirmed {
+    display: flex;
+    justify-content: center;
+    margin-block-start: 0.8rem;
 }
 
 /* _registerPage.scss */

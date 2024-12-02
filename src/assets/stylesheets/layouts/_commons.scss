@@ -45,12 +45,90 @@
 
 .remix {
     // Remix Icon 기본값 설정
+    flex-shrink: 0;
     width: var(--icon-size, 0.8rem);
     aspect-ratio: 1 / 1;
     fill: currentColor;
 }
 
-/* 로그인, 회원가입 공통 레이아웃 요소 */
+.datetime-row {
+    // 날짜 / 시간 문자열
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+    opacity: 0.5;
+}
+
+.user-profile-image-container {
+    // 사용자 프로필 이미지
+    flex-shrink: 0;
+    position: relative;
+    width: var(--user-image-size, 1.2rem);
+    height: var(--user-image-size, 1.2rem);
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-gray));
+    color: rgb(var(--clr-white));
+    overflow: clip;
+
+    > .remix,
+    > .user-profile-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    > .remix {
+        margin-block-start: 22%;
+        opacity: 0.5;
+    }
+}
+
+.user-nametag {
+    // 사용자 네임태그
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: relative;
+
+    > .nametag-username {
+        max-width: 8rem;
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-md);
+        font-weight: 700;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+/* 로그인, 회원가입, 오류 페이지 등의 공통 레이아웃 요소 */
+
+#error-message-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-block: auto;
+    text-align: center;
+
+    > h1 {
+        font-family: var(--ff-dingbat);
+        font-size: var(--fnt-title-xl);
+    }
+
+    > p {
+        font-family: var(--ff-dingbat);
+        font-size: var(--fnt-title-md);
+    }
+}
 
 .service-container-wrapper {
     display: flex;
@@ -63,6 +141,7 @@
 }
 
 .service-container {
+    flex-shrink: 0;
     border-radius: 0 0 var(--rad-xl) var(--rad-xl);
     background-color: rgb(var(--clr-white));
     box-shadow: 0 -2.4rem 4.8rem 0.8rem rgb(var(--clr-alert) / 0.25);
@@ -70,7 +149,61 @@
 }
 
 .service-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     height: 12rem;
+    background-color: pink;
+    color: rgb(var(--clr-white));
+
+    > h1 {
+        font-family: var(--ff-dingbat);
+        font-size: var(--fnt-title-lg);
+        text-align: center;
+    }
+}
+
+#button-service-go-back {
+    position: absolute;
+    inset-block-start: 0.8rem;
+    inset-inline-start: 0.8rem;
+    padding: 0.6rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-text) / 0.75);
+    mix-blend-mode: overlay;
+
+    &:hover {
+        background-color: rgb(var(--clr-text));
+    }
+}
+
+.service-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-service-control {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-white) / 0.5);
+    backdrop-filter: blur(0.4rem);
+    color: rgb(var(--clr-text) / 0.5);
+    font-size: var(--fnt-sm);
+    font-weight: 700;
+
+    &:hover {
+        border-color: rgb(var(--clr-alert) / 0.25);
+        background-color: rgb(var(--clr-alert) / 0.1);
+        color: rgb(var(--clr-alert) / 0.5);
+    }
+
+    &.drop-progress {
+        background-color: rgb(var(--clr-black));
+        color: rgb(vaR(--clr-text-on-tint));
+    }
 }
 
 .service-copyright {

@@ -38,6 +38,7 @@
     position: fixed;
     inset-block-start: 4rem;
     inset-inline-start: 0.8rem;
+    margin-block-end: auto;
     width: 16rem;
     border-radius: var(--rad-lg);
     background-color: rgb(var(--clr-white));
@@ -53,8 +54,9 @@
 }
 
 .area-picture-carousel {
+    flex-shrink: 0;
     position: relative;
-    height: 12rem;
+    height: 9.6rem;
     overflow: hidden;
     user-select: none;
 
@@ -160,7 +162,13 @@
     }
 }
 
+.area-threads-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 .area-section-title {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     gap: 0.2rem;
@@ -171,7 +179,7 @@
 
 .area-threads-list {
     padding: 0.8rem;
-    max-height: 16rem;
+    max-height: 12rem;
     overflow-y: auto;
 }
 
@@ -226,6 +234,12 @@
 
 .area-thread-item-daterange {
     font-size: var(--fnt-xs);
+}
+
+@media screen and (height < 600px) {
+    .area-picture-carousel {
+        display: none;
+    }
 }
 
 /* _areaInfoPanel.scss */
