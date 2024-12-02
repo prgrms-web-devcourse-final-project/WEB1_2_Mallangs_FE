@@ -1,0 +1,22 @@
+// information
+.info {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-top: 0.2rem;
+
+    &-icon {
+        width: 0.8rem;
+        height: 0.8rem;
+        > .remix {
+            color: rgb(var(--clr-info));
+        }
+    }
+
+    &-text {
+        color: rgb(var(--clr-info));
+        font-size: var(--fnt-sm);
+        font-weight: 200;
+        white-space: nowrap;
+    }
+}
