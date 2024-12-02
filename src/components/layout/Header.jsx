@@ -143,7 +143,7 @@ const Header = ({ onShow }) => {
                     title={`현재 ${unReadNotifications().toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
                     onClick={() => onShow(1)}
                 >
-                    <Remix iconName={'notification-2-fill'} iconSize={1.2} />
+                    <Remix iconName={'notification-2-fill'} iconSize={0.8} />
                 </button>
 
                 <button id="button-user-profile" onClick={() => onShow(2)}>

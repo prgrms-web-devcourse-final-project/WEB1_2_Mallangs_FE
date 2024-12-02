@@ -2,7 +2,7 @@
 
 #notification-card {
     position: fixed;
-    inset-block-start: 4rem;
+    inset-block-start: -120%;
     inset-inline-end: 3.2rem;
     margin: auto;
     width: 16rem;
@@ -10,16 +10,15 @@
     border-radius: var(--rad-lg);
     background-color: rgb(var(--clr-white));
     box-shadow: var(--shd-100);
-    translate: 0 -8rem;
     opacity: 0;
     transition:
-        translate 0.25s,
-        opacity 0.15s;
+        inset-block-start 0.25s,
+        opacity 0.5s;
     overflow: clip;
     z-index: 500;
 
     &.on {
-        translate: 0;
+        inset-block-start: 4rem;
         opacity: 1;
     }
 }

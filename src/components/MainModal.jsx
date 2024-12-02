@@ -1,15 +1,50 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useModalStore } from '../stores/modalStatus';
 import Remix from './common/Remix';
 import MainModalCover from './common/MainModalCover';
+
+// ↓ 사용자 모달 컴포넌트
+
 import MallangProfile from '../pages/MallangProfile';
 import UserProfile from '../pages/UserProfile';
+import UserThreads from '../pages/UserThreads';
+import UserArticles from '../pages/UserArticles';
+import UserReplies from '../pages/UserReplies';
+import UserReviews from '../pages/UserReviews';
+import UserChatList from '../pages/UserChatList';
+import UserChatRoom from '../pages/UserChatRoom';
 
-const MainModal = ({ children }) => {
+// ↓ 글타래 보기 컴포넌트
+
+// ↓ 글타래 작성 컴포넌트
+
+const MainModal = ({ routeName }) => {
     const modalStatus = useModalStore((state) => state.modalStatus);
     const modalData = modalStatus.modalData;
     const [currentTabIndex, setTabIndex] = useState(0);
     const [currentSlaveIndex, setSlaveIndex] = useState(0);
+
+    // 자 이제 시작이야 컴포넌트를 향한 여행
+
+    const currentRoute =
+        modalData.masterNavigations[currentTabIndex].slaveNavigations[
+            currentSlaveIndex
+        ];
+
+    const modalRouteMatcher = {
+        'mallangs-info': <MallangProfile />,
+        'user-info': <UserProfile />,
+        'user-threads': <UserThreads />,
+        'user-articles': <UserArticles />,
+        'user-replies': <UserReplies />,
+        'user-reviews': <UserReviews />,
+        'user-chat-list': <UserChatList />,
+        'user-chat-room': <UserChatRoom />,
+    };
+
+    useEffect(() => {
+        console.log(currentRoute.value);
+    }, [currentRoute]);
 
     return (
         <aside id="main-modal">
@@ -68,9 +103,7 @@ const MainModal = ({ children }) => {
                     </nav>
 
                     <div id="main-modal-content">
-                        {children}
-
-                        <UserProfile />
+                        {modalRouteMatcher[currentRoute.value]}
                     </div>
                 </div>
             </section>

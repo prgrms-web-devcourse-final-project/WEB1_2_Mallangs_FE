@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useModalStore } from '../../stores/modalStatus';
 import Header from './Header';
 import NotificationCard from './NotificationCard';
 import UserProfileCard from './UserProfileCard';
 import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
 import MainModal from '../MainModal';
-import { useModalStore } from '../../stores/modalStatus';
 
 const BaseLayout = () => {
     const [currentPanelID, setCurrentPanel] = useState(0);
@@ -34,7 +34,7 @@ const BaseLayout = () => {
 
             <Header onShow={setCurrentPanel} />
 
-            <Outlet />
+            <Outlet name="main" />
 
             {location.pathname !== '/' && <Footer />}
         </>

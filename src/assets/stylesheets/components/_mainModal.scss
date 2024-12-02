@@ -54,6 +54,7 @@
     height: 1.8rem;
     font-size: var(--fnt-sm);
     font-weight: 200;
+    cursor: pointer;
 
     > .remix {
         opacity: 0.5;
@@ -110,6 +111,11 @@
     );
     font-size: var(--fnt-sm);
     font-weight: 200;
+    cursor: pointer;
+
+    &:not(.on):hover {
+        font-weight: 400;
+    }
 
     &.on {
         --selected: 0.2rem;

@@ -81,14 +81,14 @@
     display: grid;
     place-items: center;
     position: relative;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: var(--rad-full);
-    scale: 0.75;
     opacity: 0.25;
     transition: 0.15s;
 
     &.on {
+        background-color: rgb(var(--clr-white) / 0.5);
         opacity: 1;
 
         &:hover {
@@ -97,7 +97,7 @@
 
         &:focus {
             background-color: rgb(var(--clr-white));
-            color: rgb(var(--clr-if-100));
+            color: rgb(var(--clr-mid-tone));
         }
 
         &::after {

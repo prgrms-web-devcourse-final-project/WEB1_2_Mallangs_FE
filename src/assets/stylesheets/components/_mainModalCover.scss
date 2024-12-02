@@ -7,11 +7,17 @@
     justify-content: flex-end;
     position: relative;
     height: 12rem;
-    background-image: linear-gradient(
-        to top,
-        rgb(var(--clr-if-40)),
-        rgb(var(--clr-theme))
-    );
+    background: linear-gradient(
+        var(--conic-range),
+        rgb(var(--clr-theme)),
+        rgb(var(--clr-mid-tone)),
+        rgb(var(--clr-point)),
+        rgb(var(--clr-clear))
+    ); // 임시 색상
+    background-size: 400% 400%;
+    animation:
+        moving-gradient 15s ease infinite,
+        rotate-conic 30s linear infinite;
     color: rgb(var(--clr-white));
 
     &::before {

@@ -40,6 +40,38 @@
     align-items: center;
 }
 
+.review-item-content {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.8rem;
+}
+
+.review-item-image-container {
+    padding: 0.2rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-white));
+    box-shadow: 0 0.2rem 0.2rem rgb(var(--clr-text) / 0.1);
+
+    &:hover {
+        outline: 0.2rem solid rgb(var(--clr-tint-100) / 0.15);
+    }
+}
+
+.review-item-image {
+    max-width: 8rem;
+    border-radius: var(--rad-sm);
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}
+
+.review-item-text {
+    padding-block: 0.4rem;
+    line-height: 1.4;
+}
+
 .review-item-summary {
     display: flex;
     justify-content: space-between;

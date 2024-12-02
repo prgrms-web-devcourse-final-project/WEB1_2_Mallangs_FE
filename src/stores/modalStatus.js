@@ -6,14 +6,7 @@ export const useModalStore = create((set) => ({
     isModalShowing: false,
     modalStatus: {
         isThisMine: true,
-        writeMode: {
-            isWriteOn: false,
-            writeType: 'places',
-        },
-        editMode: {
-            isEditOn: false,
-            editType: 'places',
-        },
+        editMode: false,
         threadType: 'profile',
         threadUser: {
             userID: 0,
@@ -27,7 +20,7 @@ export const useModalStore = create((set) => ({
             // 글타래 데이터 전달 방식
             latitude: 0.0,
             longtitude: 0.0,
-            threadTitle: '이것은 Zustand가 가지고 있는 제목',
+            threadTitle: 'Zustand 상태값',
             mainCategory: '주 분류',
             subCategory1: '서브 분류 1',
             subCategory2: '서브 분류 2',

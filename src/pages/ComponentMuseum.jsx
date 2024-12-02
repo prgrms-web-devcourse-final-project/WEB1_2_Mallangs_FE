@@ -76,6 +76,17 @@ const ComponentMuseum = () => {
                 <h5>글타래 컴포넌트</h5>
 
                 <ThreadItem />
+                <ThreadItem
+                    index={1}
+                    threadType="rescue"
+                    threadState="expired"
+                />
+                <ThreadItem index={2} threadType="missing" threadState="done" />
+                <ThreadItem
+                    index={3}
+                    threadType="others"
+                    threadState="hidden"
+                />
             </div>
 
             <div style={tempListContainer}>
@@ -118,6 +129,7 @@ const ComponentMuseum = () => {
                             userImage: 'https://picsum.photos/24/24?random=1',
                             userName: '정발산기슭곰발냄새타령부인사잘해',
                         }}
+                        reviewImage={'https://picsum.photos/1920/1080'}
                         reviewContent={'인사자뢔'}
                         starPoint={4.2}
                         writtenDate="2024-12-24 21:31"

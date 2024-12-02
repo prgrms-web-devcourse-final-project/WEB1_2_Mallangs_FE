@@ -6,6 +6,7 @@ import dateFormat from '../../utils/dateFormat';
 const ReviewItem = ({
     index = 0,
     userObject = { userID: 0, userImage: null, userName: '홍길동' },
+    reviewImage = null,
     reviewContent = '내용 없음',
     starPoint = 0,
     writtenDate = '1970-01-01',
@@ -31,7 +32,17 @@ const ReviewItem = ({
                 </dt>
 
                 <dd className="review-item-content">
-                    <div>{reviewContent}</div>
+                    {reviewImage && (
+                        <div className="review-item-image-container">
+                            <img
+                                className="review-item-image"
+                                src={reviewImage}
+                                alt="리뷰 이미지"
+                            />
+                        </div>
+                    )}
+
+                    <div className="review-item-text">{reviewContent}</div>
                 </dd>
 
                 <hr />

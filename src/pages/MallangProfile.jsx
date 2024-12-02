@@ -19,7 +19,7 @@ const MallangProfile = () => {
                 />
             </div>
 
-            <ModalSectionTitle sectionTitle="다른 말랑이들 말랑이" />
+            <ModalSectionTitle sectionTitle="다른 말랑이들" />
 
             <div>
                 <MallangItem
