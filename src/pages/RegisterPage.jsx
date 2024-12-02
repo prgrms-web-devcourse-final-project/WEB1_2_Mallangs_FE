@@ -44,7 +44,7 @@ const RegisterPage = () => {
                                     title: '지금까지의 진행상황이 모두 삭제돼요!',
                                     showCancelButton: true,
                                     cancelButtonText: '아랏서 가입할게',
-                                    confirmButtonText: '그냥',
+                                    confirmButtonText: '어쩔',
                                 }).then((result) => {
                                     if (result.isConfirmed) navigate(-1);
                                 })

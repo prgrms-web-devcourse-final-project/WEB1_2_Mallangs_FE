@@ -203,13 +203,13 @@
 .notification-message-count {
     margin-inline-start: auto;
     margin-block-start: 0.2rem;
-    padding: 0.2rem 0.6rem;
+    padding: 0.2rem 0.4rem;
     width: fit-content;
     border-radius: var(--rad-full);
     background-color: rgb(var(--clr-notify));
     color: rgb(var(--clr-text-on-tint));
     font-size: var(--fnt-xs);
-    font-weight: 700;
+    font-weight: 900;
     line-height: 1;
 }
 
