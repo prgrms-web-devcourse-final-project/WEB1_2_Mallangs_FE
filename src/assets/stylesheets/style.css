@@ -604,6 +604,93 @@ a, a:visited {
   opacity: 0.5;
 }
 
+.floating-tooltip {
+  --bubble-color: var(--clr-black);
+  position: absolute;
+  padding: 0.4rem;
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: var(--rad-sm);
+  background-color: rgb(var(--bubble-color));
+  color: rgb(var(--clr-text-on-tint));
+  font-size: var(--fnt-xs);
+  font-weight: 700;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+.floating-tooltip::before {
+  display: block;
+  position: absolute;
+  width: 0.4rem;
+  height: 0.6rem;
+  border-block-start: 0.3rem solid transparent;
+  border-block-end: 0.3rem solid transparent;
+  border-inline-start: 0.2rem solid transparent;
+  border-inline-end: 0.2rem solid transparent;
+  pointer-events: none;
+  content: "";
+}
+.floating-tooltip.top {
+  inset-inline: 0;
+  inset-block-start: calc(100% + 0.2rem);
+  margin-inline: auto;
+  transform-origin: top;
+}
+.floating-tooltip.top::before {
+  margin-inline: auto;
+  inset-inline: 0;
+  border-block-end: 0.3rem solid rgb(var(--bubble-color));
+  bottom: 100%;
+}
+.floating-tooltip.bottom {
+  inset-inline: 0;
+  inset-block-end: calc(100% + 0.2rem);
+  margin-inline: auto;
+  transform-origin: bottom;
+}
+.floating-tooltip.bottom::before {
+  margin-inline: auto;
+  inset-inline: 0;
+  border-block-start: 0.3rem solid rgb(var(--bubble-color));
+  inset-block-start: 100%;
+}
+.floating-tooltip.left {
+  inset-block: 0;
+  inset-inline-end: calc(100% + 0.2rem);
+  margin-block: auto;
+  transform-origin: left;
+}
+.floating-tooltip.left::before {
+  margin-block: auto;
+  width: 0.6rem;
+  height: 0.4rem;
+  border-block-start: 0.2rem solid transparent;
+  border-block-end: 0.2rem solid transparent;
+  border-inline-start: 0.3rem solid transparent;
+  border-inline-end: 0.3rem solid rgb(var(--bubble-color));
+  inset-inline-end: 100%;
+}
+.floating-tooltip.right {
+  inset-block: 0;
+  inset-inline-start: calc(100% + 0.2rem);
+  margin-block: auto;
+  transform-origin: right;
+}
+.floating-tooltip.right::before {
+  margin-block: auto;
+  width: 0.6rem;
+  height: 0.4rem;
+  border-block-start: 0.2rem solid transparent;
+  border-block-end: 0.2rem solid transparent;
+  border-inline-start: 0.3rem solid rgb(var(--bubble-color));
+  border-inline-end: 0.3rem solid transparent;
+  inset-inline-start: 100%;
+}
+
 .user-profile-image-container {
   flex-shrink: 0;
   position: relative;
@@ -2922,6 +3009,13 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   overflow-y: auto;
 }
 
+.user-common-item-list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.8rem;
+  padding: 0.8rem;
+}
+
 /* 모달 외부에서 사용할 확률이 적은 컴포넌트들 */
 /* 모달 섹션 타이틀 */
 .modal-section-title {
@@ -3063,6 +3157,39 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 .ai-summary-content::after {
   content: "”";
+}
+
+/* 글타래 상태 분류 */
+#user-threads-category {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  position: sticky;
+  inset-block-start: 0;
+  padding: 0.8rem 0.8rem 0;
+  background-image: linear-gradient(to bottom, rgb(var(--clr-white)) 25%, transparent);
+  z-index: 2;
+}
+
+.user-threads-category-item {
+  display: grid;
+  place-items: center;
+  padding-inline: 0.8rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 1.6rem;
+  border: 1px solid rgb(var(--clr-text)/0.15);
+  border-radius: var(--rad-full);
+  background-color: rgb(var(--clr-white)/0.75);
+  -webkit-backdrop-filter: blur(1.8rem);
+          backdrop-filter: blur(1.8rem);
+  font-size: var(--fnt-sm);
+  font-weight: 200;
+}
+.user-threads-category-item.current {
+  background-color: rgb(var(--clr-text));
+  color: rgb(var(--clr-text-on-tint));
+  font-weight: 700;
 }
 
 /* _mainModal.scss */

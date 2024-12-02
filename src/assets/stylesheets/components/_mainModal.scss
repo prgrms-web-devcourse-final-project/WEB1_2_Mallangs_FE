@@ -129,6 +129,13 @@
     overflow-y: auto;
 }
 
+.user-common-item-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.8rem;
+    padding: 0.8rem;
+}
+
 /* 모달 외부에서 사용할 확률이 적은 컴포넌트들 */
 
 /* 모달 섹션 타이틀 */
@@ -284,6 +291,43 @@
 
     &::after {
         content: '”';
+    }
+}
+
+/* 글타래 상태 분류 */
+
+#user-threads-category {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    position: sticky;
+    inset-block-start: 0;
+    padding: 0.8rem 0.8rem 0;
+    background-image: linear-gradient(
+        to bottom,
+        rgb(var(--clr-white)) 25%,
+        transparent
+    );
+    z-index: 2;
+}
+
+.user-threads-category-item {
+    display: grid;
+    place-items: center;
+    padding-inline: 0.8rem;
+    width: fit-content;
+    height: 1.6rem;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-white) / 0.75);
+    backdrop-filter: blur(1.8rem);
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+
+    &.current {
+        background-color: rgb(var(--clr-text));
+        color: rgb(var(--clr-text-on-tint));
+        font-weight: 700;
     }
 }
 

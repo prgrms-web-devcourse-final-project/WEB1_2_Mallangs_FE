@@ -1,6 +1,6 @@
-const ToolTip = ({ altMessage }) => {
+const ToolTip = ({ altMessage = '툴팁 메시지', direction = 'bottom' }) => {
     return (
-        <aside className="floating-tooltip">
+        <aside className={`floating-tooltip ${direction}`}>
             <span>{altMessage}</span>
         </aside>
     );

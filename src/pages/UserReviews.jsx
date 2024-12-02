@@ -4,8 +4,23 @@ import ReviewItem from '../components/common/ReviewItem';
 const UserReviews = () => {
     return (
         <>
-            <div>
+            <div className="user-common-item-list">
                 <ReviewItem />
+
+                <ReviewItem />
+
+                <ReviewItem />
+
+                <ReviewItem />
+
+                <ReviewItem />
+
+                <ReviewItem />
+
+                <ReviewItem />
+
+                <ReviewItem />
+
                 <ReviewItem />
             </div>
         </>
