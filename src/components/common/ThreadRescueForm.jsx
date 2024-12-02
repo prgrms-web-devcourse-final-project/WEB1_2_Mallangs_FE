@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import ModalInstruction from './common/ModalInstruction';
-import ModalSectionTitle from './common/ModalSectionTitle';
-import Remix from './common/Remix';
-import CompleteButton from './common/CompleteButton';
+import ModalInstruction from './ModalInstruction';
+import ModalSectionTitle from './ModalSectionTitle';
+import Remix from './Remix';
+import CompleteButton from './CompleteButton';
 
 const ThreadRescueModal = () => {
     const [isSelectedType, setIsSelectedType] = useState(null);
@@ -86,13 +86,13 @@ const ThreadRescueModal = () => {
                     ></textarea>
                 </div>
 
-                <span className="section-title">긴급 연락망</span>
+                {/* <span className="section-title">긴급 연락망</span>
                 <div className="emergency-contact">
                     <input
                         className="emergency-contact-input"
                         placeholder="긴급한 상황의 경우 가까운 동물병원이나 구조단체에 먼저 연락해주세요."
                     ></input>
-                </div>
+                </div> */}
             </div>
             <div className="button-content">
                 <CompleteButton />
