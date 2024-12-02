@@ -1,0 +1,43 @@
+// 말랑이 종류
+.mallang-select-container {
+    width: 100%;
+
+    // .label-type {
+    //     color: rgb(var(--clr-text));
+    //     font-size: var(--fnt-sm);
+    //     opacity: 0.5;
+    //     margin-bottom: 0.4rem;
+    // }
+
+    .mallang-type-selector {
+        display: flex;
+        gap: 0.4rem;
+
+        .filter-label-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 1.6rem;
+            padding: 0 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: var(--rad-full);
+            background-color: rgb(var(--clr-white));
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+                background-color: rgb(var(--clr-black));
+
+                > div {
+                    color: rgb(var(--clr-white));
+                }
+            }
+
+            > div {
+                color: rgb(var(--clr-text));
+                font-size: var(--fnt-sm);
+                font-weight: 400;
+            }
+        }
+    }
+}
