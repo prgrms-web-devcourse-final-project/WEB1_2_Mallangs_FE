@@ -1,0 +1,57 @@
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .frame {
+            align-items: center;
+            background-color: rgb(var(--clr-white));
+            border-radius: var(--rad-full);
+            display: flex;
+            flex-direction: column;
+            height: 1.6rem;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            width: 1.6rem;
+            border: 0.05rem solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+
+            .remix {
+                height: 0.8rem;
+                width: 0.8rem;
+                opacity: 0.5;
+                color: rgb(var(--clr-black));
+            }
+        }
+
+        &.active .frame {
+            background-color: rgb(var(--clr-if-0));
+
+            .remix {
+                opacity: 1;
+            }
+        }
+    }
+
+    .checkbox-group-label {
+        color: rgb(var(--clr-black));
+        font-size: var(--fnt-sm);
+        font-weight: 700;
+        margin-left: 0.2rem;
+    }
+}
+
+// 라벨 텍스트
+.block-label {
+    color: rgb(var(--clr-text));
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+    opacity: 0.5;
+    margin-bottom: 0.2rem;
+}
