@@ -27,14 +27,27 @@
     box-shadow:
         inset 0 0.6rem 1.2rem -0.4rem rgb(var(--clr-tint-0) / 0.1),
         var(--shd-100);
-    transition: background-color 0.15s;
-    cursor: pointer;
+    transition:
+        background-color 0.15s,
+        box-shadow 0.15s;
+
+    &:not(.on) {
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(var(--clr-white));
+            box-shadow:
+                inset 0 0.6rem 1.2rem -0.4rem rgb(var(--clr-tint-0) / 0.2),
+                0 0 0.8rem rgb(var(--clr-white) / 0.5);
+            font-weight: 400;
+        }
+    }
 
     &.on {
         border-color: rgb(var(--clr-if-40));
         background-color: rgb(var(--clr-theme));
         color: rgb(var(--clr-text));
-        font-weight: 900;
+        font-weight: 400;
     }
 }
 

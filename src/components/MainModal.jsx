@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useModalStore } from '../stores/modalStatus';
 import Remix from './common/Remix';
 import MainModalCover from './common/MainModalCover';
@@ -41,10 +41,6 @@ const MainModal = ({ routeName }) => {
         'user-chat-list': <UserChatList />,
         'user-chat-room': <UserChatRoom />,
     };
-
-    useEffect(() => {
-        console.log(currentRoute.value);
-    }, [currentRoute]);
 
     return (
         <aside id="main-modal">

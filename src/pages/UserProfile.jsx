@@ -26,7 +26,7 @@ const UserProfile = () => {
             <ModalSectionTitle sectionTitle="상세정보" />
 
             <div className="user-common-item-list">
-                <div>사용자 뭐시기 상세 정보</div>
+                <div>사용자 상세 정보</div>
             </div>
         </>
     );

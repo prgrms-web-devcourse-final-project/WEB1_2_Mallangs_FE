@@ -301,11 +301,6 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0.8rem 0.8rem 0;
-    background-image: linear-gradient(
-        to bottom,
-        rgb(var(--clr-white)) 25%,
-        transparent
-    );
     z-index: 2;
 }
 
@@ -340,10 +335,6 @@
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 720px) {
-    #main-modal-cover {
-        height: 9rem;
-    }
-
     #main-modal-sidebar {
         width: 3.6rem;
     }

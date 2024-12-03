@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
-const MarkerCategory = () => {
+const MarkerCategory = ({ onNav }) => {
     const [currentCategory, setCategoryIndex] = useState(0);
-
     const categoryList = [
-        { label: '전체' },
-        { label: '시설 / 업체' },
-        { label: '실종신고' },
-        { label: '구조요청' },
+        { label: '전체', value: 'all' },
+        { label: '시설 / 업체', value: 'places' },
+        { label: '실종신고', value: 'missing' },
+        { label: '구조요청', value: 'rescue' },
     ];
 
     return (
@@ -17,7 +16,10 @@ const MarkerCategory = () => {
                     <li
                         className={`marker-category-item ${currentCategory === index && 'on'}`}
                         key={index}
-                        onClick={() => setCategoryIndex(index)}
+                        onClick={() => {
+                            setCategoryIndex(index);
+                            onNav(item.value);
+                        }}
                     >
                         <span>{item.label}</span>
                     </li>
