@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import GenderSelector from './GenderSelector';
 import ToggleButton from './ToggleButton';
-import Remix from './Remix';
 import InfoText from './InfoText';
 import TypeSelector from './TypeSelector';
+import BirthdaySelector from './BirthdaySelector';
 
 // import DatePicker from 'react-datepicker';
 
@@ -14,11 +14,7 @@ const SettingMallangs = () => {
     const handleTypeSelect = (typeId) => {
         setIsSelectedType(typeId);
     };
-    // const [selectedDate, setSelectedDate] = useState(new Date());
 
-    // const handleDateChange = (date) => {
-    //     setSelectedDate(date);
-    // };
     const mallangTypes = [
         { id: 'dog', label: '강아지' },
         { id: 'cat', label: '고양이' },
@@ -47,24 +43,7 @@ const SettingMallangs = () => {
                     />
                 </div>
 
-                <div className="form-birthday">
-                    <div className="block-label">생년월일</div>
-
-                    <div className="birthday-container">
-                        {/* <div className="birthday-wrapper">
-                            <DatePicker
-                                selected={selectedDate}
-                                onChange={handleDateChange}
-                                dateFormat="yyyy-MM-dd"
-                            />
-                        </div> */}
-
-                        <div className="birthday-wrapper">2024-07-15</div>
-                        <div className="birthday-selector">
-                            <Remix iconName={'calendar-event-line'} />
-                        </div>
-                    </div>
-                </div>
+                <BirthdaySelector />
 
                 <div className="form-killogram">
                     <div className="block-label">몸무게</div>

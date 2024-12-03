@@ -44,29 +44,6 @@
         margin-bottom: 0.4rem;
     }
 
-    // 생년월일
-    .birthday-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 1.6rem;
-        border: 1px solid rgba(47, 40, 36, 0.15);
-        border-radius: var(--rad-xs);
-        padding: 0 0.4rem;
-
-        .birthday-wrapper {
-            flex-grow: 1;
-            color: rgb(var(--clr-text));
-            font-size: var(--fnt-md);
-            opacity: 0.5;
-        }
-
-        .birthday-selector {
-            display: flex;
-            align-items: center;
-        }
-    }
-
     // 몸무게
     .killogram {
         display: flex;
