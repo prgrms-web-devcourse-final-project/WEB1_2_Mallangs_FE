@@ -19,10 +19,10 @@ import UserChatRoom from '../pages/UserChatRoom';
 // ↓ 글타래 작성 컴포넌트
 
 const MainModal = ({ routeName }) => {
-    const modalStatus = useModalStore((state) => state.modalStatus);
-    const modalData = modalStatus.modalData;
     const [currentTabIndex, setTabIndex] = useState(0);
     const [currentSlaveIndex, setSlaveIndex] = useState(0);
+    const modalStatus = useModalStore((state) => state.modalStatus);
+    const modalData = modalStatus.modalData;
 
     // 자 이제 시작이야 컴포넌트를 향한 여행
 

@@ -28,10 +28,12 @@ const BaseLayout = () => {
                 onShow={setCurrentPanel}
             />
 
-            <AreaInfoPanel
-                isActive={currentPanelID === 3}
-                onShow={setCurrentPanel}
-            />
+            {location.pathname === '/' && (
+                <AreaInfoPanel
+                    isActive={currentPanelID === 3}
+                    onShow={setCurrentPanel}
+                />
+            )}
 
             <Header onShow={setCurrentPanel} />
 

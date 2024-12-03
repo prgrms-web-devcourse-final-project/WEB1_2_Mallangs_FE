@@ -1,26 +1,23 @@
 import Remix from '../components/common/Remix';
 import UserProfileImage from '../components/common/UserProfileImage';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
+import { useModalStore } from '../stores/modalStatus';
 
 const UserProfile = () => {
+    const userData = useModalStore((state) => state.modalStatus.threadUser);
+
     return (
         <>
             <div id="user-basic-informations">
-                <UserProfileImage imageSize={9} />
+                <UserProfileImage imageSrc={userData.userImage} imageSize={9} />
 
-                <h5>김사용자</h5>
-                <p>kim_4yongjar</p>
+                <h5>{userData.userName}</h5>
+                <p>{userData.userAccount}</p>
 
                 <div className="user-informations-introduce">
                     <Remix iconName={'double-quotes-l'} iconSize={1.2} />
 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Dolores voluptatem pariatur fuga at eius quos quam modi
-                        quaerat dignissimos excepturi magni, tenetur quas
-                        temporibus sapiente minus saepe. Beatae, maiores
-                        laudantium!
-                    </p>
+                    <p>{userData.userDescription}</p>
 
                     <Remix iconName={'double-quotes-r'} iconSize={1.2} />
                 </div>

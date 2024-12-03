@@ -122,12 +122,12 @@ const Header = ({ onShow }) => {
 
             <nav
                 id="nav-primary"
-                className={mobileNavStatus ? 'mobile-on' : ''}
+                className={mobileNavStatus ? 'mobile-on' : undefined}
             >
                 <button
                     type="button"
                     id="button-burger"
-                    className={mobileNavStatus ? 'on' : ''}
+                    className={mobileNavStatus ? 'on' : undefined}
                     title="모바일 메뉴"
                     onClick={handleMobileNav}
                 >

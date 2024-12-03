@@ -1,0 +1,178 @@
+{
+    "profile": {
+        "masterNavigations": [
+            {
+                "label": "프로필",
+                "value": "profile",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "말랑이 정보",
+                        "value": "mallangs-info",
+                        "count": null
+                    },
+                    {
+                        "label": "사용자 정보",
+                        "value": "user-info",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "사용자 활동",
+                "value": "activities",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "작성 글타래",
+                        "value": "user-threads",
+                        "count": null
+                    },
+                    {
+                        "label": "작성 글",
+                        "value": "user-articles",
+                        "count": null
+                    },
+                    {
+                        "label": "작성 댓글",
+                        "value": "user-replies",
+                        "count": null
+                    },
+                    {
+                        "label": "작성 리뷰",
+                        "value": "user-reviews",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "메시지",
+                "value": "direct-message",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "1 : 1 대화 목록",
+                        "value": "user-chat-list",
+                        "count": null
+                    },
+                    {
+                        "label": "차단 유저 목록 (미확정)",
+                        "value": "user-ignores",
+                        "count": null
+                    }
+                ]
+            }
+        ]
+    },
+    "places": {
+        "masterNavigations": [
+            {
+                "label": "장소 정보",
+                "value": "place",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "시설 / 업체 소개",
+                        "value": "place-info",
+                        "count": null
+                    },
+                    {
+                        "label": "오류 정정 요청",
+                        "value": "error-report",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "리뷰",
+                "value": "review",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "리뷰 목록",
+                        "value": "review-list",
+                        "count": null
+                    },
+                    {
+                        "label": "나의 리뷰",
+                        "value": "review-write",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "댓글",
+                "value": "reply",
+                "count": 0,
+                "slaveNavigations": [
+                    {
+                        "label": "이 장소의 댓글",
+                        "value": "reply-list",
+                        "count": null
+                    }
+                ]
+            }
+        ]
+    },
+    "rescue": {
+        "masterNavigations": [
+            {
+                "label": "구조 요청",
+                "value": "rescue",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "상세 내용 보기",
+                        "value": "rescue-info",
+                        "count": null
+                    },
+                    {
+                        "label": "구조 유의사항 안내",
+                        "value": "rescue-disclaimer",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "댓글",
+                "value": "reply",
+                "count": 0,
+                "slaveNavigations": [
+                    {
+                        "label": "이 글타래의 댓글",
+                        "value": "reply-list",
+                        "count": null
+                    }
+                ]
+            }
+        ]
+    },
+    "missing": {
+        "masterNavigations": [
+            {
+                "label": "실종신고",
+                "value": "missing",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "상세 내용 보기",
+                        "value": "missing-info",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "댓글",
+                "value": "reply",
+                "count": 0,
+                "slaveNavigations": [
+                    {
+                        "label": "이 글타래의 댓글",
+                        "value": "reply-list",
+                        "count": null
+                    }
+                ]
+            }
+        ]
+    }
+}
