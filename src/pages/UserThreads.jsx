@@ -1,30 +1,30 @@
+import { useState } from 'react';
 import ThreadItem from '../components/common/ThreadItem';
 
 const UserThreads = () => {
-    const THREAD_CATEGORY = {};
+    const [currentCategory, setCategory] = useState(0);
+    const THREAD_CATEGORY = [
+        { label: '전체', value: 'all' },
+        { label: '게시 중', value: 'listed' },
+        { label: '게시 기간 만료', value: 'expired' },
+        { label: '완료', value: 'done' },
+        { label: '숨김', value: 'hidden' },
+    ];
 
     return (
         <>
             <ul id="user-threads-category">
-                <li className="user-threads-category-item current">
-                    <span>전체</span>
-                </li>
-
-                <li className="user-threads-category-item">
-                    <span>게시 중</span>
-                </li>
-
-                <li className="user-threads-category-item">
-                    <span>게시 기간 만료</span>
-                </li>
-
-                <li className="user-threads-category-item">
-                    <span>완료</span>
-                </li>
-
-                <li className="user-threads-category-item">
-                    <span>숨김</span>
-                </li>
+                {THREAD_CATEGORY.map((item, index) => {
+                    return (
+                        <li
+                            className={`user-threads-category-item ${currentCategory === index && 'current'}`}
+                            key={index}
+                            onClick={() => setCategory(index)}
+                        >
+                            <span>{item.label}</span>
+                        </li>
+                    );
+                })}
             </ul>
 
             <div className="user-common-item-list">

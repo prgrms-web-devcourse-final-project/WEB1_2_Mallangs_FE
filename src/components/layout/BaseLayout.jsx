@@ -7,6 +7,7 @@ import UserProfileCard from './UserProfileCard';
 import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
 import MainModal from '../MainModal';
+import TotalSearch from './TotalSearch';
 
 const BaseLayout = () => {
     const [currentPanelID, setCurrentPanel] = useState(0);
@@ -33,6 +34,11 @@ const BaseLayout = () => {
             />
 
             <Header onShow={setCurrentPanel} />
+
+            <TotalSearch
+                isActive={currentPanelID === 4}
+                onShow={setCurrentPanel}
+            />
 
             <Outlet name="main" />
 

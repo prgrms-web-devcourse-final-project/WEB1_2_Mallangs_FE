@@ -1,14 +1,33 @@
 import { NavLink } from 'react-router-dom';
 import { useNotificationStore } from '../../stores/notificationStatus';
 import Remix from '../common/Remix';
+import { useState } from 'react';
 
 const Header = ({ onShow }) => {
+    const [mobileNavStatus, setMobileNavStatus] = useState(false);
     const alarms = useNotificationStore((state) => state.notifications);
     const unReadNotifications = () => {
         return Number(
             alarms.replies.filter((item) => !item.isRead).length +
                 alarms.messages.filter((item) => item.unReadCount > 0).length,
         );
+    };
+
+    let timedSizing = null;
+
+    window.addEventListener('resize', () => {
+        // 화면 리사이즈시 모바일 네비게이션을 숨기기 위한 펑션
+        clearTimeout(timedSizing);
+
+        timedSizing = setTimeout(() => {
+            if (window.innerWidth > 720) {
+                setMobileNavStatus(false);
+            }
+        }, 250);
+    });
+
+    const handleMobileNav = () => {
+        setMobileNavStatus(!mobileNavStatus);
     };
 
     return (
@@ -101,7 +120,22 @@ const Header = ({ onShow }) => {
                 <span className="hidden-alt">말랑플레이스 로고</span>
             </h1>
 
-            <nav id="nav-primary">
+            <nav
+                id="nav-primary"
+                className={mobileNavStatus ? 'mobile-on' : ''}
+            >
+                <button
+                    type="button"
+                    id="button-burger"
+                    className={mobileNavStatus ? 'on' : ''}
+                    title="모바일 메뉴"
+                    onClick={handleMobileNav}
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
                 <ul>
                     <li className="nav-item primary">
                         <NavLink to="/">
@@ -130,13 +164,14 @@ const Header = ({ onShow }) => {
             </nav>
 
             <div id="head-controls">
-                <div id="total-search-toggler">
+                <div id="total-search-toggler" onClick={() => onShow(4)}>
                     <span>키워드 검색</span>
 
                     <Remix iconName={'search-2-line'} iconSize={0.8} />
                 </div>
 
                 <button
+                    type="button"
                     id="button-notify"
                     className={unReadNotifications() > 0 ? 'on' : null}
                     data-item-count={1}

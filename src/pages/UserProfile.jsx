@@ -1,6 +1,6 @@
-import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import Remix from '../components/common/Remix';
 import UserProfileImage from '../components/common/UserProfileImage';
+import ModalSectionTitle from '../components/common/ModalSectionTitle';
 
 const UserProfile = () => {
     return (
