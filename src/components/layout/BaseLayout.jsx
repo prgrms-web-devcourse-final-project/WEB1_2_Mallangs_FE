@@ -1,58 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useModalStore } from '../../stores/modalStatus';
 import Header from './Header';
 import NotificationCard from './NotificationCard';
 import UserProfileCard from './UserProfileCard';
-import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
 import MainModal from '../MainModal';
 import TotalSearch from './TotalSearch';
+import { useAreaInfoStatus } from '../../stores/AreaInfoStatus';
 
 const BaseLayout = () => {
-    const [currentPanelID, setCurrentPanel] = useState(0);
-    const [notiStatus, setNotiStatus] = useState(0);
+    const [currentPanel, setPanel] = useState(null);
     const location = useLocation();
-
-    const handleNotifications = (notiValues) => {
-        setNotiStatus(notiValues);
-    };
+    const isModalShowing = useModalStore((state) => state.isModalShowing);
+    const isAreaInfoShowing = useAreaInfoStatus(
+        (state) => state.isPanelShowing,
+    );
 
     return (
         <>
-            <NotificationCard
-                isActive={currentPanelID === 1}
-                onShow={setCurrentPanel}
-                onAlarm={handleNotifications}
-            />
+            {isModalShowing && <MainModal />}
 
-            <UserProfileCard
-                isActive={currentPanelID === 2}
-                onShow={setCurrentPanel}
-            />
+            <NotificationCard currentPanel={currentPanel} setPanel={setPanel} />
 
-            {location.pathname === '/' && (
-                <AreaInfoPanel
-                    isActive={currentPanelID === 3}
-                    onShow={setCurrentPanel}
-                />
-            )}
+            <UserProfileCard currentPanel={currentPanel} setPanel={setPanel} />
 
-            <Header notiCount={notiStatus} onShow={setCurrentPanel} />
+            <Header currentPanel={currentPanel} setPanel={setPanel} />
 
-            <Outlet />
+            <TotalSearch currentPanel={currentPanel} setPanel={setPanel} />
 
-            <Footer />
+            <Outlet name="main" />
 
-            {/* <TotalSearch /> */}
-
-            <MainModal
-                isActive={currentPanelID === 99}
-                onShow={setCurrentPanel}
-            >
-                <div style={{ padding: '.8rem' }}>
-                    그렇다... 내용을 슬롯으로 집어넣는 것이다
-                </div>
-            </MainModal>
+            {location.pathname !== '/' && <Footer />}
         </>
     );
 };

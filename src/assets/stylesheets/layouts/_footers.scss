@@ -90,4 +90,12 @@
     font-weight: 200;
 }
 
+/* 반응형 쿼리 */
+
+@container main-container (max-width: 640px) {
+    .footer-company-informations {
+        flex-flow: column nowrap;
+    }
+}
+
 /* _footers.scss */

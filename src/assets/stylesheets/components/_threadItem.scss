@@ -1,0 +1,98 @@
+/* _threadItem.scss */
+
+.thread-item {
+    display: flex;
+    gap: 0.8rem;
+
+    &:has(input:checked) {
+        .thread-item-state-indicator {
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
+        }
+    }
+
+    &:not(:has(input:checked)):hover {
+        .thread-item-state-indicator {
+            outline: 0.2rem solid rgb(var(--clr-info) / 0.25);
+        }
+    }
+
+    &.expired {
+        --state-border-color: var(--clr-black) / 0.15;
+        --state-background-color: var(--clr-gray);
+        --state-icon-color: var(--clr-black) / 0.15;
+        --state-label-color: var(--clr-alert);
+
+        .thread-item-title {
+            opacity: 0.5;
+        }
+    }
+
+    &.done {
+        --state-border-color: var(--clr-black) / 0.15;
+        --state-background-color: var(--clr-clear);
+        --state-icon-color: var(--clr-text-on-tint);
+        --state-label-color: var(--clr-clear);
+    }
+
+    &.hidden {
+        --state-border-color: var(--clr-black) / 0.15;
+        --state-background-color: var(--clr-gray);
+        --state-icon-color: var(--clr-black) / 0.15;
+        --state-label-color: var(--clr-warn);
+
+        .thread-item-title {
+            opacity: 0.5;
+        }
+    }
+}
+
+.thread-item-checkbox-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: 3.2rem;
+}
+
+.thread-item-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.thread-item-state-indicator {
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 0.2rem solid rgb(var(--state-border-color, var(--clr-surface-100)));
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--state-background-color, var(--clr-surface-80)));
+    color: rgb(var(--state-icon-color, var(--clr-mid-tone)));
+}
+
+.thread-item-descriptions {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+}
+
+.thread-item-title {
+    font-weight: 900;
+}
+
+.thread-item-summary {
+}
+
+.thread-item-state {
+    padding: 0.2rem 0.4rem;
+    width: fit-content;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--state-label-color, var(--clr-info)));
+    color: rgb(var(--clr-text-on-tint));
+    font-size: var(--fnt-xs);
+    font-weight: 700;
+}
+
+/* _threadItem.scss */

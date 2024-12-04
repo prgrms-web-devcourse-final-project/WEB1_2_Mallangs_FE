@@ -9,4 +9,50 @@
     height: 100vh;
 }
 
+.temp-marker {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+    padding: 0.2rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-text) / 0.75);
+    backdrop-filter: blur(1.8rem);
+    box-shadow: var(--shd-100);
+
+    &::before {
+        display: block;
+        position: absolute;
+        margin-inline: auto;
+        inset-inline: 0;
+        inset-block-start: 100%;
+        width: 0.4rem;
+        height: 0.6rem;
+        border: {
+            block-start: 0.3rem solid rgb(var(--clr-text) / 0.75);
+            block-end: 0.3rem solid transparent;
+            inline-start: 0.2rem solid transparent;
+            inline-end: 0.2rem solid transparent;
+        }
+        pointer-events: none;
+        content: '';
+    }
+}
+
+.marker-label {
+    padding: 0.4rem;
+    color: rgb(var(--clr-text-on-tint));
+}
+
+.marker-controls {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.button-marker-write {
+    padding-inline: 0.8rem;
+    height: 1.6rem;
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--clr-white));
+}
+
 /* _mallangMap.scss */

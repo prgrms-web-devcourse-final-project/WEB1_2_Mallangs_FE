@@ -31,9 +31,9 @@ const ReplyItem = ({
 
                     {isMyReply && (
                         <div className="reply-item-user-controls">
-                            <span>수정</span>
+                            <p>수정</p>
                             <span>·</span>
-                            <span>삭제</span>
+                            <p>삭제</p>
                         </div>
                     )}
                 </div>
@@ -44,10 +44,10 @@ const ReplyItem = ({
                     <div className="reply-content-container">
                         <div className="reply-content-text">{replyContent}</div>
 
-                        <div className="reply-item-datetime">
-                            <span>{dateFormat(writtenDateTime)}</span>
+                        <div className="datetime-row reply-item-datetime">
+                            <p>{dateFormat(writtenDateTime)}</p>
                             <span>·</span>
-                            <span>{hourFormat(writtenDateTime)}</span>
+                            <p>{hourFormat(writtenDateTime)}</p>
                         </div>
                     </div>
                 </div>

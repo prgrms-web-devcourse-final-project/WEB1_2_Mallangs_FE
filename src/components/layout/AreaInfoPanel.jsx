@@ -1,6 +1,5 @@
-import Swal from 'sweetalert2';
-import EmptyList from '../common/EmptyList';
 import Remix from '../common/Remix';
+import EmptyList from '../common/EmptyList';
 import dateFormat from '../../utils/dateFormat';
 import tempTown from '../../datas/temp-area-information.json'; // 임시 지역 데이터
 
@@ -18,10 +17,12 @@ const AreaThreadArticle = ({ articleObject }) => {
                     <div></div>
                 )}
             </div>
+
             <dl className="area-thread-item-descriptions">
                 <dt className="area-thread-item-title">
                     {articleObject.title}
                 </dt>
+
                 <dd className="area-thread-item-daterange">
                     <span>{dateFormat(articleObject.dateBegin)}</span>~
                     <span>{dateFormat(articleObject.dateEnds)}</span>
@@ -31,7 +32,7 @@ const AreaThreadArticle = ({ articleObject }) => {
     );
 };
 
-const AreaInfoPanel = ({ isActive, onShow }) => {
+const AreaInfoPanel = ({ isAreaInfoShowing, setPanel, currentLocation }) => {
     const randomColor = () => {
         // 사용자 아이콘 배경에 랜덤 색상 부여
         let R = Math.floor(Math.random() * 205 + 50);
@@ -40,28 +41,27 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
         return `${R} ${G} ${B}`;
     };
 
-    const callSwalDemo = () => {
-        Swal.fire({
-            title: 'SweetAlert2 데모',
-            text: '우리 동네 보기',
-            icon: 'info',
-        });
-    };
-
     return (
         <>
             <button
                 type="button"
                 id="button-toggle-area-info"
-                className={isActive ? null : 'on'}
+                className={isAreaInfoShowing ? undefined : 'on'}
                 onClick={() => {
-                    if (isActive ? onShow(0) : onShow(3));
+                    if (isAreaInfoShowing) {
+                        setPanel(false);
+                    } else {
+                        setPanel(true);
+                    }
                 }}
             >
                 <Remix iconName={'arrow-right-s-line'} iconSize={1.2} />
             </button>
 
-            <aside id="panel-area-info" className={isActive ? 'on' : null}>
+            <aside
+                id="panel-area-info"
+                className={isAreaInfoShowing ? 'on' : undefined}
+            >
                 <div className="area-picture-carousel">
                     <div className="picture-carousel-wrapper">
                         <img
@@ -70,16 +70,6 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                             alt=""
                         />
                     </div>
-
-                    <button
-                        type="button"
-                        id="button-goto-community"
-                        onClick={callSwalDemo}
-                    >
-                        <Remix iconName={'home-heart-fill'} />
-
-                        <span>지역 커뮤니티 보기</span>
-                    </button>
                 </div>
 
                 <dl className="area-descriptions">
@@ -132,28 +122,26 @@ const AreaInfoPanel = ({ isActive, onShow }) => {
                     </dd>
                 </dl>
 
-                <div>
-                    <div className="area-section-title">
-                        <Remix iconName={'chat-thread-fill'} />
+                <div className="area-section-title">
+                    <Remix iconName={'chat-thread-fill'} />
 
-                        <p>현재 지역에서 진행 중인 글타래</p>
-                    </div>
-
-                    <ul className="area-threads-list">
-                        {tempTown.currentThreads.length > 0 ? (
-                            tempTown.currentThreads.map((item, index) => {
-                                return (
-                                    <AreaThreadArticle
-                                        articleObject={item}
-                                        key={index}
-                                    />
-                                );
-                            })
-                        ) : (
-                            <EmptyList placeHolderText="아직 이 지역에서 작성된 글타래가 없어요. 첫 글타래를 작성해 보는 건 어떨까요?" />
-                        )}
-                    </ul>
+                    <p>현재 지역에서 진행 중인 글타래</p>
                 </div>
+
+                <ul className="area-threads-list">
+                    {tempTown.currentThreads.length > 0 ? (
+                        tempTown.currentThreads.map((item, index) => {
+                            return (
+                                <AreaThreadArticle
+                                    articleObject={item}
+                                    key={index}
+                                />
+                            );
+                        })
+                    ) : (
+                        <EmptyList placeHolderText="아직 이 지역에서 작성된 글타래가 없어요. 첫 글타래를 작성해 보는 건 어떨까요?" />
+                    )}
+                </ul>
             </aside>
         </>
     );

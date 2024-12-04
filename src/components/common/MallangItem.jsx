@@ -38,9 +38,7 @@ const MallangItem = ({
                     )}
 
                     <h5 className="mallang-name">
-                        <marquee>
-                            <span>{mallangObject.petName}</span>
-                        </marquee>
+                        <span>{mallangObject.petName}</span>
                     </h5>
 
                     {isEditMode && (
@@ -51,11 +49,16 @@ const MallangItem = ({
                 </dt>
 
                 <dd className="mallang-item-summary">
-                    <Remix iconName={'search-eye-line'} />
+                    <Remix iconName={'search-eye-line'} iconSize={0.6} />
+
                     <p>{mallangObject.petType}</p>
+
                     <span>·</span>
+
                     <p>{mallangObject.petAge}세</p>
+
                     <span>·</span>
+
                     <p>{mallangObject.petGender}</p>
                 </dd>
             </dl>

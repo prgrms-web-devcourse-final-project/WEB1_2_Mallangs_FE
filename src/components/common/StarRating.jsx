@@ -41,7 +41,7 @@ const StarRating = ({
                 })}
             </div>
 
-            <p className="star-point-score">{selectedStar.toFixed(1)}점</p>
+            <p className="star-point-score">{selectedStar}점</p>
         </div>
     );
 };

@@ -1,7 +1,35 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useNotificationStore } from '../../stores/notificationStatus';
 import Remix from '../common/Remix';
 
-const Header = ({ notiCount, onShow }) => {
+const Header = ({ setPanel }) => {
+    const [mobileNavStatus, setMobileNavStatus] = useState(false);
+    const alarms = useNotificationStore((state) => state.notifications);
+    const unReadNotifications = () => {
+        return Number(
+            alarms.replies.filter((item) => !item.isRead).length +
+                alarms.messages.filter((item) => item.unReadCount > 0).length,
+        );
+    };
+
+    let timedSizing = null;
+
+    window.addEventListener('resize', () => {
+        // 화면 리사이즈시 모바일 네비게이션을 숨기기 위한 펑션
+        clearTimeout(timedSizing);
+
+        timedSizing = setTimeout(() => {
+            if (window.innerWidth > 720) {
+                setMobileNavStatus(false);
+            }
+        }, 250);
+    });
+
+    const handleMobileNav = () => {
+        setMobileNavStatus(!mobileNavStatus);
+    };
+
     return (
         <header id="head-primary">
             <h1 id="logo-primary" title="말랑플레이스 로고">
@@ -92,7 +120,22 @@ const Header = ({ notiCount, onShow }) => {
                 <span className="hidden-alt">말랑플레이스 로고</span>
             </h1>
 
-            <nav id="nav-primary">
+            <nav
+                id="nav-primary"
+                className={mobileNavStatus ? 'mobile-on' : undefined}
+            >
+                <button
+                    type="button"
+                    id="button-burger"
+                    className={mobileNavStatus ? 'on' : undefined}
+                    title="모바일 메뉴"
+                    onClick={handleMobileNav}
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
                 <ul>
                     <li className="nav-item primary">
                         <NavLink to="/">
@@ -121,23 +164,30 @@ const Header = ({ notiCount, onShow }) => {
             </nav>
 
             <div id="head-controls">
-                <div id="total-search-toggler">
+                <div
+                    id="total-search-toggler"
+                    onClick={() => setPanel('total-search')}
+                >
                     <span>키워드 검색</span>
 
                     <Remix iconName={'search-2-line'} iconSize={0.8} />
                 </div>
 
                 <button
+                    type="button"
                     id="button-notify"
-                    className={notiCount > 0 ? 'on' : null}
-                    data-item-count={notiCount}
-                    title={`현재 ${notiCount.toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
-                    onClick={() => onShow(1)}
+                    className={unReadNotifications() > 0 ? 'on' : null}
+                    data-item-count={1}
+                    title={`현재 ${unReadNotifications().toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
+                    onClick={() => setPanel('notifications')}
                 >
-                    <Remix iconName={'notification-2-fill'} iconSize={1.2} />
+                    <Remix iconName={'notification-2-fill'} iconSize={0.8} />
                 </button>
 
-                <button id="button-user-profile" onClick={() => onShow(2)}>
+                <button
+                    id="button-user-profile"
+                    onClick={() => setPanel('user-profile')}
+                >
                     <Remix iconName={'user-fill'} iconSize={1.6} />
 
                     <img

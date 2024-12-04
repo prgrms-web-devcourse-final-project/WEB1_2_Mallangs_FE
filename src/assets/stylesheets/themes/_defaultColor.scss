@@ -8,6 +8,7 @@
     --clr-black: 0 0 0; // 그냥 검은색이 필요한 경우
     --clr-gray: 128 128 128; // 중간 회색
     --clr-point: 220 186 245; // 포인트 색상
+    --clr-mid-tone: 255 163 163; // 중간 톤 색상
     --clr-notify: 246 74 0; // 알림 색상
 
     --clr-theme: var(--clr-if-0); // 메인 컬러
@@ -45,8 +46,8 @@
     --clr-info: 89 96 232; // 정보
     --clr-warn: 247 179 43; // 경고
     --clr-alert: 190 30 20; // 에러
-    --clr-unable: ; // 불가능
-    --clr-normal: ; // 일반적인 상황
+    --clr-unable: 219 239 255; // 불가능
+    --clr-normal: 247 255 204; // 일반적인 상황
 }
 
 /* _defaultColor.scss */
