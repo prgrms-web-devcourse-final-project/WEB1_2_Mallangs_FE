@@ -77,17 +77,29 @@ const MainModalCover = () => {
 
                         <p>{modalData.mainCategory}</p>
 
-                        <span>·</span>
+                        {modalData.subCategory1 && (
+                            <>
+                                <span>·</span>
 
-                        <p>{modalData.subCategory1}</p>
+                                <p>{modalData.subCategory1}</p>
+                            </>
+                        )}
 
-                        <span>·</span>
+                        {modalData.subCategory2 && (
+                            <>
+                                <span>·</span>
 
-                        <p>{modalData.subCategory2}</p>
+                                <p>{modalData.subCategory2}</p>
+                            </>
+                        )}
 
-                        <span>·</span>
+                        {modalData.subCategory3 && (
+                            <>
+                                <span>·</span>
 
-                        <p>{modalData.subCategory3}</p>
+                                <p>{modalData.subCategory3}</p>
+                            </>
+                        )}
                     </dd>
                 </dl>
             </div>

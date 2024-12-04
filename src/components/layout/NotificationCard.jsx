@@ -65,7 +65,7 @@ const NotiMessageItem = ({ messageObject }) => {
     );
 };
 
-const NotificationCard = ({ isActive, onShow }) => {
+const NotificationCard = ({ currentPanel, setPanel }) => {
     const alarms = useNotificationStore((state) => state.notifications);
     const clearReadAlarms = useNotificationStore(
         (state) => state.clearReadAlarms,
@@ -97,7 +97,10 @@ const NotificationCard = ({ isActive, onShow }) => {
     };
 
     return (
-        <aside id="notification-card" className={isActive ? 'on' : null}>
+        <aside
+            id="notification-card"
+            className={currentPanel === 'notifications' ? 'on' : null}
+        >
             <div className="notification-tab-container">
                 <button
                     type="button"
@@ -174,7 +177,7 @@ const NotificationCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-notification-card-close"
                     title="알림 창 닫기"
-                    onClick={() => onShow(0)}
+                    onClick={() => setPanel(null)}
                 >
                     <Remix iconName={'close-line'} iconSize={1} />
                 </button>

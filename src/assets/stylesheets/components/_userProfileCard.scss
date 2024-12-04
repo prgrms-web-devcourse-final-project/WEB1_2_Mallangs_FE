@@ -61,18 +61,19 @@
     flex: 1;
     padding-inline: 0.8rem;
     font-size: var(--fnt-sm);
+    transition: background-color 0.15s;
 
     > span {
         margin-inline: auto;
     }
 
-    &:hover {
-        background-color: rgb(var(--clr-if-60));
+    &#button-show-profile {
+        background-color: rgb(var(--clr-theme));
     }
-}
 
-#button-show-profile {
-    background-color: rgb(var(--clr-theme));
+    &:hover {
+        background-color: rgb(var(--clr-if-60)) !important;
+    }
 }
 
 /* _userProfileCard.scss */

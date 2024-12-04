@@ -68,6 +68,11 @@
     background-color: rgb(var(--clr-black) / 0.15);
     backdrop-filter: blur(1.8rem);
     color: rgb(var(--clr-text-on-tint));
+    transition: background-color 0.15s;
+
+    &:hover {
+        background-color: rgb(var(--clr-alert) / 0.5);
+    }
 }
 
 .cover-descriptions-container {
@@ -103,6 +108,14 @@
     gap: 0.2rem;
     font-size: var(--fnt-sm);
     opacity: 0.75;
+}
+
+/* 반응형 쿼리 */
+
+@container main-container (max-width: 720px) {
+    #main-modal-cover {
+        height: 7.2rem;
+    }
 }
 
 /* _mainModalCover.scss */

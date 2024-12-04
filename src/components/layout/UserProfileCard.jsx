@@ -2,13 +2,16 @@ import { useModalStore } from '../../stores/modalStatus';
 import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
 
-const UserProfileCard = ({ isActive, onShow }) => {
+const UserProfileCard = ({ currentPanel, setPanel }) => {
     const toggleModal = useModalStore((state) => state.toggleModal);
+    const setModalType = useModalStore((state) => state.setModalType);
+    const setModalData = useModalStore((state) => state.setModalData);
     const tempPet = {
         // 임시 대표 말랑이 객체
         userID: 123,
+        userName: '김사용자',
         petImage: 'https://picsum.photos/36/36?random=1',
-        petName: '정신차려이각박한세상속에서',
+        petName: '김땅콩',
         petType: '고양이',
         petAge: 4,
         petGender: '수컷',
@@ -16,7 +19,10 @@ const UserProfileCard = ({ isActive, onShow }) => {
     };
 
     return (
-        <aside id="user-profile-card" className={isActive ? 'on' : null}>
+        <aside
+            id="user-profile-card"
+            className={currentPanel === 'user-profile' ? 'on' : null}
+        >
             <div className="profile-card-title-bar">
                 <Remix iconName={'user-fill'} />
 
@@ -26,7 +32,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-profile-card-close"
                     title="대표 말랑이 창 닫기"
-                    onClick={() => onShow(0)}
+                    onClick={() => setPanel(null)}
                 >
                     <Remix iconName={'close-line'} iconSize={1} />
                 </button>
@@ -45,6 +51,16 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     className="profile-card-buttons"
                     onClick={() => {
                         toggleModal(true);
+                        setModalType('profile');
+                        setModalData({
+                            latitude: 0.0,
+                            longitude: 0.0,
+                            threadTitle: tempPet.userName,
+                            mainCategory: tempPet.petType,
+                            subCategory1: tempPet.petAge + '세',
+                            subCategory2: tempPet.petGender,
+                            subCategory3: null,
+                        });
                     }}
                 >
                     <Remix iconName={'information-2-fill'} />

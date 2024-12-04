@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useModalStore } from '../stores/modalStatus';
 import ReviewItem from '../components/common/ReviewItem';
 import MallangItem from '../components/common/MallangItem';
 import ArticleItem from '../components/common/ArticleItem';
@@ -13,6 +14,9 @@ import ChatItem from '../components/common/ChatItem';
 import ThreadItem from '../components/common/ThreadItem';
 
 const ComponentMuseum = () => {
+    const toggleModal = useModalStore((state) => state.toggleModal);
+    const setModalType = useModalStore((state) => state.setModalType);
+    const setModalData = useModalStore((state) => state.setModalData);
     const tempListContainer = {
         display: 'flex',
         flexFlow: 'column nowrap',
@@ -47,6 +51,82 @@ const ComponentMuseum = () => {
                         에러 테스트 페이지
                     </Link>
                 </p>
+
+                <button
+                    onClick={() => {
+                        toggleModal(true); // 모달 열기
+                        setModalType('places'); // 모달의 navigation 상태
+                        setModalData({
+                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
+                            latitude: 0.0, // 모달이 가지고 있는 위도
+                            longitude: 0.0, // 모달이 가지고 있는 경도
+                            threadTitle: '모달', // 모달 제목
+                            mainCategory: '',
+                            subCategory1: '',
+                            subCategory2: '',
+                            subCategory3: '',
+                        });
+                    }}
+                >
+                    장소 모달 보기
+                </button>
+
+                <button
+                    onClick={() => {
+                        toggleModal(true); // 모달 열기
+                        setModalType('writeMode'); // 모달의 navigation 상태
+                        setModalData({
+                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
+                            latitude: 0.0, // 모달이 가지고 있는 위도
+                            longitude: 0.0, // 모달이 가지고 있는 경도
+                            threadTitle: '모달', // 모달 제목
+                            mainCategory: '',
+                            subCategory1: '',
+                            subCategory2: '',
+                            subCategory3: '',
+                        });
+                    }}
+                >
+                    글 작성 모달 보기
+                </button>
+
+                <button
+                    onClick={() => {
+                        toggleModal(true); // 모달 열기
+                        setModalType('missing'); // 모달의 navigation 상태
+                        setModalData({
+                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
+                            latitude: 0.0, // 모달이 가지고 있는 위도
+                            longitude: 0.0, // 모달이 가지고 있는 경도
+                            threadTitle: '모달', // 모달 제목
+                            mainCategory: '',
+                            subCategory1: '',
+                            subCategory2: '',
+                            subCategory3: '',
+                        });
+                    }}
+                >
+                    실종신고 모달 보기
+                </button>
+
+                <button
+                    onClick={() => {
+                        toggleModal(true); // 모달 열기
+                        setModalType('rescue'); // 모달의 navigation 상태
+                        setModalData({
+                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
+                            latitude: 0.0, // 모달이 가지고 있는 위도
+                            longitude: 0.0, // 모달이 가지고 있는 경도
+                            threadTitle: '모달', // 모달 제목
+                            mainCategory: '',
+                            subCategory1: '',
+                            subCategory2: '',
+                            subCategory3: '',
+                        });
+                    }}
+                >
+                    구조요청 모달 보기
+                </button>
             </div>
 
             <div>
