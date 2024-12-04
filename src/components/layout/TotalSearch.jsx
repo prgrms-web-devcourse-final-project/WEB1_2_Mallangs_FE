@@ -7,7 +7,7 @@ import ReplyItem from '../common/ReplyItem';
 import axios from 'axios';
 import EmptyList from '../common/EmptyList';
 
-const TotalSearch = ({ isActive, onShow }) => {
+const TotalSearch = ({ currentPanel, setPanel }) => {
     const searchInput = useRef(null);
     const [searchResult, getSearchResult] = useState([]);
 
@@ -28,13 +28,13 @@ const TotalSearch = ({ isActive, onShow }) => {
         }
     };
 
-    if (isActive) {
+    if (currentPanel === 'total-search') {
         // 마운팅시 추가 액션 필요
         return (
             <div
                 id="total-search-backdrop"
                 onKeyDown={(e) => {
-                    if (e.key === 'Escape') onShow(0);
+                    if (e.key === 'Escape') setPanel(null);
                 }}
             >
                 <div
@@ -48,7 +48,7 @@ const TotalSearch = ({ isActive, onShow }) => {
                             type="button"
                             id="button-close-total-search"
                             title="종합 검색 닫기"
-                            onClick={() => onShow(0)}
+                            onClick={() => setPanel(null)}
                         >
                             <span></span>
                             <span></span>
@@ -64,7 +64,7 @@ const TotalSearch = ({ isActive, onShow }) => {
                             ref={searchInput}
                             autoFocus
                             onKeyUp={(e) => {
-                                if (e.key === 'Escape') onShow(0);
+                                if (e.key === 'Escape') setPanel(null);
 
                                 if (e.key === 'Enter') handleSearchAction();
                             }}

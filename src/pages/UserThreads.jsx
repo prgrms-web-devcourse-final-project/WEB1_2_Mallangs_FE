@@ -3,7 +3,7 @@ import ThreadItem from '../components/common/ThreadItem';
 
 const UserThreads = () => {
     const [currentCategory, setCategory] = useState(0);
-    const THREAD_CATEGORY = [
+    const threadCategory = [
         { label: '전체', value: 'all' },
         { label: '게시 중', value: 'listed' },
         { label: '게시 기간 만료', value: 'expired' },
@@ -14,7 +14,7 @@ const UserThreads = () => {
     return (
         <>
             <ul id="user-threads-category">
-                {THREAD_CATEGORY.map((item, index) => {
+                {threadCategory.map((item, index) => {
                     return (
                         <li
                             className={`user-threads-category-item ${currentCategory === index && 'current'}`}

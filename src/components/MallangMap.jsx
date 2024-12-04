@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk';
+import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
 
 const MallangMap = () => {
-    const [currentCategory, setCategory] = useState('all');
     const [currentLocation, setLocation] = useState({ lat: 0, lng: 0 });
+    const [currentCategory, setCategory] = useState('all');
+    const [isMarkerOpen, setMarkerStatus] = useState(false);
+    const [isAreaInfoShowing, setPanel] = useState(false);
 
     const handleCategoryChange = (data) => {
         setCategory(data);
@@ -34,6 +37,11 @@ const MallangMap = () => {
 
     return (
         <div id="mallang-map-container">
+            <AreaInfoPanel
+                isAreaInfoShowing={isAreaInfoShowing}
+                setPanel={setPanel}
+            />
+
             <Map
                 id="mallang-map"
                 center={convertLocation()}
@@ -52,20 +60,54 @@ const MallangMap = () => {
                     localStorage.setItem('mallangMapLatestLocation', coords);
                 }}
             >
-                <MarkerCategory onNav={handleCategoryChange} />
+                <MarkerCategory
+                    isAreaInfoShowing={isAreaInfoShowing}
+                    onNav={handleCategoryChange}
+                />
 
                 {currentLocation.lat === 0 &&
                 currentLocation.lng === 0 ? null : (
-                    <MapMarker
+                    <CustomOverlayMap
                         position={currentLocation}
-                        onClick={() => setLocation(convertLocation())}
+                        xAnchor={0.5}
+                        yAnchor={1}
+                        clickable={true}
                     >
-                        <div className="temp-marker">
-                            꽃을 사랑하는 예쁜 소녀 루루 아름다운 꽃의 나라
-                            천사가 되어 행복을 준다는 몰래 피어있는 신비의
-                            무지개꽃을 찾아다닌다
-                        </div>
-                    </MapMarker>
+                        <button onMouseOver={() => setMarkerStatus(true)}>
+                            여는 버튼
+                        </button>
+
+                        {isMarkerOpen && (
+                            <div className="temp-marker">
+                                <div className="marker-label">
+                                    여기에 만들고 싶은 글타래
+                                </div>
+
+                                <div className="marker-controls">
+                                    <button
+                                        type="button"
+                                        className="button-marker-write"
+                                    >
+                                        시설 / 업체
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className="button-marker-write"
+                                    >
+                                        실종신고
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        className="button-marker-write"
+                                    >
+                                        구조요청
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </CustomOverlayMap>
                 )}
             </Map>
         </div>

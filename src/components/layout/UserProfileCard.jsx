@@ -2,7 +2,7 @@ import { useModalStore } from '../../stores/modalStatus';
 import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
 
-const UserProfileCard = ({ isActive, onShow }) => {
+const UserProfileCard = ({ currentPanel, setPanel }) => {
     const toggleModal = useModalStore((state) => state.toggleModal);
     const setModalType = useModalStore((state) => state.setModalType);
     const setModalData = useModalStore((state) => state.setModalData);
@@ -19,7 +19,10 @@ const UserProfileCard = ({ isActive, onShow }) => {
     };
 
     return (
-        <aside id="user-profile-card" className={isActive ? 'on' : null}>
+        <aside
+            id="user-profile-card"
+            className={currentPanel === 'user-profile' ? 'on' : null}
+        >
             <div className="profile-card-title-bar">
                 <Remix iconName={'user-fill'} />
 
@@ -29,7 +32,7 @@ const UserProfileCard = ({ isActive, onShow }) => {
                     type="button"
                     id="button-profile-card-close"
                     title="대표 말랑이 창 닫기"
-                    onClick={() => onShow(0)}
+                    onClick={() => setPanel(null)}
                 >
                     <Remix iconName={'close-line'} iconSize={1} />
                 </button>

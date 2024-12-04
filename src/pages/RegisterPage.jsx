@@ -1473,7 +1473,7 @@ const RegisterPage = () => {
                                     title: '아외',
                                     showCancelButton: true,
                                     cancelButtonText: '아랏서 가입할게',
-                                    confirmButtonText: '그냥',
+                                    confirmButtonText: '어쩔',
                                 }).then((result) => {
                                     if (result.isConfirmed) navigate(-1);
                                 })

@@ -267,6 +267,7 @@
     aspect-ratio: 1 / 1;
     background-color: rgb(var(--clr-white) / 0.5);
     backdrop-filter: blur(1.8rem);
+    color: rgb(var(--clr-alert));
 
     &:hover {
         background-color: rgb(var(--clr-alert));

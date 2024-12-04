@@ -1,4 +1,3 @@
-import ReplyItem from '../components/common/ReplyItem';
 import ReviewItem from '../components/common/ReviewItem';
 
 const UserReviews = () => {

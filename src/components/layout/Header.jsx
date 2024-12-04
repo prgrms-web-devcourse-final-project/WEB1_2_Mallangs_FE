@@ -1,9 +1,9 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useNotificationStore } from '../../stores/notificationStatus';
 import Remix from '../common/Remix';
-import { useState } from 'react';
 
-const Header = ({ onShow }) => {
+const Header = ({ setPanel }) => {
     const [mobileNavStatus, setMobileNavStatus] = useState(false);
     const alarms = useNotificationStore((state) => state.notifications);
     const unReadNotifications = () => {
@@ -164,7 +164,10 @@ const Header = ({ onShow }) => {
             </nav>
 
             <div id="head-controls">
-                <div id="total-search-toggler" onClick={() => onShow(4)}>
+                <div
+                    id="total-search-toggler"
+                    onClick={() => setPanel('total-search')}
+                >
                     <span>키워드 검색</span>
 
                     <Remix iconName={'search-2-line'} iconSize={0.8} />
@@ -176,12 +179,15 @@ const Header = ({ onShow }) => {
                     className={unReadNotifications() > 0 ? 'on' : null}
                     data-item-count={1}
                     title={`현재 ${unReadNotifications().toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
-                    onClick={() => onShow(1)}
+                    onClick={() => setPanel('notifications')}
                 >
                     <Remix iconName={'notification-2-fill'} iconSize={0.8} />
                 </button>
 
-                <button id="button-user-profile" onClick={() => onShow(2)}>
+                <button
+                    id="button-user-profile"
+                    onClick={() => setPanel('user-profile')}
+                >
                     <Remix iconName={'user-fill'} iconSize={1.6} />
 
                     <img

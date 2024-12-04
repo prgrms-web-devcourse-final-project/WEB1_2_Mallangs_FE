@@ -8,9 +8,6 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import FindAccountPage from './pages/FindAccountPage';
 import ErrorPage from './pages/ErrorPage';
-import MainModal from './components/MainModal';
-import MallangProfile from './pages/MallangProfile';
-import UserProfile from './pages/UserProfile';
 import CommunityPage from './pages/CommunityPage';
 
 const mallangPlace = createRoot(document.getElementById('root'));
