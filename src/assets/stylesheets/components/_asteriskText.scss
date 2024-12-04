@@ -1,21 +1,23 @@
-.asterisk-text-guide {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-shrink: 0;
-    gap: 0.2rem;
-    position: relative;
-    width: auto;
+.asterisk-text {
+    &-guide {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+        gap: 0.2rem;
+        position: relative;
+        width: auto;
 
-    > .remix {
-        color: rgb(var(--clr-alert));
+        > .remix {
+            color: rgb(var(--clr-alert));
+        }
     }
-}
 
-.section-title {
-    position: relative;
-    color: rgb(var(--clr-text));
-    font-size: var(--fnt-sm);
-    font-weight: 700;
-    text-align: left;
+    .section-title {
+        position: relative;
+        color: rgb(var(--clr-text));
+        font-size: var(--fnt-sm);
+        font-weight: 700;
+        text-align: left;
+    }
 }
