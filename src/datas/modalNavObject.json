@@ -78,7 +78,7 @@
                     },
                     {
                         "label": "오류 정정 요청",
-                        "value": "error-report",
+                        "value": "place-error-report",
                         "count": null
                     }
                 ]
@@ -90,12 +90,12 @@
                 "slaveNavigations": [
                     {
                         "label": "리뷰 목록",
-                        "value": "review-list",
+                        "value": "place-review-list",
                         "count": null
                     },
                     {
                         "label": "나의 리뷰",
-                        "value": "review-write",
+                        "value": "place-review-write",
                         "count": null
                     }
                 ]
@@ -107,7 +107,35 @@
                 "slaveNavigations": [
                     {
                         "label": "이 장소의 댓글",
-                        "value": "reply-list",
+                        "value": "place-reply-list",
+                        "count": null
+                    }
+                ]
+            }
+        ]
+    },
+    "missing": {
+        "masterNavigations": [
+            {
+                "label": "실종신고",
+                "value": "missing",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "상세 내용 보기",
+                        "value": "missing-info",
+                        "count": null
+                    }
+                ]
+            },
+            {
+                "label": "댓글",
+                "value": "reply",
+                "count": 0,
+                "slaveNavigations": [
+                    {
+                        "label": "이 글타래의 댓글",
+                        "value": "missing-reply-list",
                         "count": null
                     }
                 ]
@@ -140,35 +168,38 @@
                 "slaveNavigations": [
                     {
                         "label": "이 글타래의 댓글",
-                        "value": "reply-list",
+                        "value": "rescue-reply-list",
                         "count": null
                     }
                 ]
             }
         ]
     },
-    "missing": {
+    "writeMode": {
         "masterNavigations": [
             {
-                "label": "실종신고",
-                "value": "missing",
+                "label": "글 작성",
+                "value": "write-thread",
                 "count": null,
                 "slaveNavigations": [
                     {
-                        "label": "상세 내용 보기",
-                        "value": "missing-info",
+                        "label": "시설 / 업체",
+                        "value": "write-places",
                         "count": null
-                    }
-                ]
-            },
-            {
-                "label": "댓글",
-                "value": "reply",
-                "count": 0,
-                "slaveNavigations": [
+                    },
                     {
-                        "label": "이 글타래의 댓글",
-                        "value": "reply-list",
+                        "label": "실종신고",
+                        "value": "write-missing",
+                        "count": null
+                    },
+                    {
+                        "label": "구조요청",
+                        "value": "write-rescue",
+                        "count": null
+                    },
+                    {
+                        "label": "이스터에그 (?)",
+                        "value": "write-etcetera",
                         "count": null
                     }
                 ]
