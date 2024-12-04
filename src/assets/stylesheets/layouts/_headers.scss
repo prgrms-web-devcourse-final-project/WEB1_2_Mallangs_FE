@@ -139,13 +139,13 @@
 }
 
 #button-burger {
-    display: flex;
+    display: none;
     position: relative;
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid rgb(var(--clr-max) / 0.25);
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: var(--rad-full);
-    background-color: rgb(var(--clr-background));
+    background-color: rgb(var(--clr-if-100));
+    outline: 1px solid rgb(var(--clr-if-20));
 
     > span {
         display: block;
@@ -154,22 +154,23 @@
         margin: auto;
         width: 0.1rem;
         background-color: rgb(var(--clr-text));
+        transition: 0.5s;
 
         &:nth-child(1) {
             // 마지막
-            inset-inline-start: 0.5rem;
-            height: 0.6rem;
+            inset-inline-start: 0.4rem;
+            height: 0.5rem;
         }
 
         &:nth-child(2) {
             // 중간
-            height: 0.6rem;
+            height: 0.5rem;
         }
 
         &:nth-child(3) {
             // 처음
-            inset-inline-end: 0.5rem;
-            height: 0.6rem;
+            inset-inline-end: 0.4rem;
+            height: 0.5rem;
         }
     }
 
@@ -178,12 +179,11 @@
     }
 
     &.on {
-        border-color: transparent;
+        outline: 0;
         background-color: rgb(var(--clr-if-100));
-        transition: 0.5s;
 
         > span {
-            background-color: rgb(255 255 255);
+            background-color: rgb(var(--clr-white));
 
             &:nth-child(1) {
                 --burger-self-start: 0.4rem;
@@ -210,6 +210,62 @@
 /* 반응형 쿼리 */
 
 @container head-primary (max-width: 960px) {
+    #total-search-toggler {
+        justify-content: center;
+        padding-inline: 0;
+        width: 1.6rem;
+
+        > span {
+            display: none;
+        }
+    }
+}
+
+@container head-primary (max-width: 720px) {
+    #logo-primary {
+        order: 2;
+    }
+
+    #nav-primary {
+        order: 1;
+
+        > ul {
+            display: flex;
+            position: absolute;
+            inset-block-start: 3.2rem;
+            inset-inline: 0;
+            height: 0;
+            background-color: rgb(var(--clr-white));
+            box-shadow: var(--shd-100);
+            font-size: var(--fnt-lg);
+            opacity: 0;
+            transition:
+                height 0.25s,
+                opacity 0.5s;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .nav-item {
+            height: 2.4rem;
+        }
+
+        &.mobile-on {
+            > ul {
+                height: auto;
+                height: calc-size(auto);
+                opacity: 1;
+            }
+        }
+    }
+
+    #button-burger {
+        display: flex;
+    }
+
+    #head-controls {
+        order: 3;
+    }
 }
 
 @container head-primary (max-width: 640px) {

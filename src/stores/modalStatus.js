@@ -1,7 +1,9 @@
 import { create } from 'zustand';
+import navObjectSetup from '../datas/modalNavObject.json'; // 모달 네비게이션 셋업
 
 export const useModalStore = create((set) => ({
-    // writeType, editType: [ places, rescue, missing, other ]
+    // editMode: [ places, rescue, missing, other ]
+    // threadType: [ profile, places, rescue, missing ]
 
     isModalShowing: false,
     modalStatus: {
@@ -10,7 +12,8 @@ export const useModalStore = create((set) => ({
         threadType: 'profile',
         threadUser: {
             userID: 0,
-            userName: '김땅콩',
+            userAccount: 'kim_4yongjar',
+            userName: '김사용자',
             userImage: 'https://picsum.photos/128/128?random=2',
             userDescription: '어쩌고 저쩌고',
             isAuthenticated: false,
@@ -25,70 +28,37 @@ export const useModalStore = create((set) => ({
             subCategory1: '서브 분류 1',
             subCategory2: '서브 분류 2',
             subCategory3: '서브 분류 3',
-            masterNavigations: [
-                {
-                    label: '프로필',
-                    value: 'profile',
-                    count: null,
-                    slaveNavigations: [
-                        {
-                            label: '말랑이 정보',
-                            value: 'mallangs-info',
-                            count: null,
-                        },
-                        {
-                            label: '사용자 정보',
-                            value: 'user-info',
-                            count: null,
-                        },
-                    ],
-                },
-                {
-                    label: '사용자 활동',
-                    value: 'activities',
-                    count: null,
-                    slaveNavigations: [
-                        {
-                            label: '작성 글타래',
-                            value: 'user-threads',
-                            count: null,
-                        },
-                        {
-                            label: '작성 글',
-                            value: 'user-articles',
-                            count: null,
-                        },
-                        {
-                            label: '작성 댓글',
-                            value: 'user-replies',
-                            count: null,
-                        },
-                        {
-                            label: '작성 리뷰',
-                            value: 'user-reviews',
-                            count: null,
-                        },
-                    ],
-                },
-                {
-                    label: '메시지',
-                    value: 'direct-message',
-                    count: null,
-                    slaveNavigations: [
-                        {
-                            label: '1 : 1 대화 목록',
-                            value: 'user-chat-list',
-                            count: null,
-                        },
-                        {
-                            label: '차단 유저 목록 (미확정)',
-                            value: 'user-ignores',
-                            count: null,
-                        },
-                    ],
-                },
-            ],
+            masterNavigations: navObjectSetup.profile.masterNavigations, // 중간의 profile 부분을 모달 상태에 맞춰 가지고 오면 됨
         },
     },
     toggleModal: (setValue) => set({ isModalShowing: setValue }),
+    setModalType: (setValue) =>
+        set((state) => ({
+            // 모달 호출시 setValue 매개변수를 통해 모달 출력 형태를 변경한다. (상단의 threadType 참조)
+            modalStatus: {
+                ...state.modalStatus,
+                threadType: setValue,
+                modalData: {
+                    ...state.modalStatus.modalData,
+                    masterNavigations:
+                        navObjectSetup[setValue].masterNavigations,
+                },
+            },
+        })),
+    setModalData: (setObject) =>
+        set((state) => ({
+            modalStatus: {
+                ...state.modalStatus,
+                modalData: {
+                    ...state.modalStatus.modalData,
+                    latitude: setObject.latitude,
+                    longitude: setObject.longtitude,
+                    threadTitle: setObject.threadTitle,
+                    mainCategory: setObject.mainCategory,
+                    subCategory1: setObject.subCategory1,
+                    subCategory2: setObject.subCategory2,
+                    subCategory3: setObject.subCategory3,
+                },
+            },
+        })),
 }));

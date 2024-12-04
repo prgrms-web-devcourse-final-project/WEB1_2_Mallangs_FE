@@ -3,8 +3,23 @@ import ReplyItem from '../components/common/ReplyItem';
 const UserReplies = () => {
     return (
         <>
-            <div>
+            <div className="user-common-item-list">
                 <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
                 <ReplyItem />
             </div>
         </>

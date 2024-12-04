@@ -1,7 +1,27 @@
+import ChatRoomItem from '../components/common/ChatRoomItem';
+
 const UserChatList = () => {
     return (
         <>
-            <div>아 놔 채팅방 목록 컴포넌트 안만들었네</div>
+            <div className="user-common-item-list">
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+
+                <ChatRoomItem />
+            </div>
         </>
     );
 };

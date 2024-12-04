@@ -8,9 +8,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import FindAccountPage from './pages/FindAccountPage';
 import ErrorPage from './pages/ErrorPage';
-import MainModal from './components/MainModal';
-import MallangProfile from './pages/MallangProfile';
-import UserProfile from './pages/UserProfile';
+import CommunityPage from './pages/CommunityPage';
 
 const mallangPlace = createRoot(document.getElementById('root'));
 
@@ -21,10 +19,7 @@ mallangPlace.render(
                 <Route path="/" element={<BaseLayout />}>
                     <Route index element={<MainPage />}></Route>
 
-                    <Route
-                        path="community"
-                        element={<>이곳은 커뮤니티</>}
-                    ></Route>
+                    <Route path="community" element={<CommunityPage />}></Route>
 
                     <Route
                         path="missing"
