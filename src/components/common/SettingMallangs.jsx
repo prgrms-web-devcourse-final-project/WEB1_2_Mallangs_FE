@@ -43,7 +43,7 @@ const SettingMallangs = () => {
                     />
                 </div>
 
-                <BirthdaySelector />
+                <BirthdaySelector blockLabel={'생년월일'} />
 
                 <div className="form-killogram">
                     <div className="block-label">몸무게</div>
