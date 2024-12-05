@@ -29,10 +29,49 @@
     width: min(100% - 1.6rem, 36rem);
 }
 
-:where(#logoMain, #logoFooter) {
-    // 접근성을 위한 로고 내부의 숨김 alt 처리
-    position: relative;
-    overflow: hidden;
+a:has(#logo-primary) {
+    display: block;
+    height: 100%;
+}
+
+#logo-primary {
+    display: flex;
+    align-items: center;
+    padding-block: 0.4rem;
+    height: 100%;
+    user-select: none;
+
+    > img {
+        height: 100%;
+    }
+
+    > p {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0.2rem;
+        font-family: var(--ff-dingbat);
+        mix-blend-mode: hard-light;
+
+        > span:first-child {
+            font-size: var(--fnt-sm);
+            opacity: 0.5;
+        }
+
+        > span:last-child {
+            font-size: var(--fnt-title-sm);
+            font-weight: 900;
+            opacity: 0.75;
+        }
+    }
+}
+
+#logo-secondary {
+    height: 2.4rem;
+
+    > img {
+        height: 100%;
+        filter: drop-shadow(0 0.4rem 0.8rem rgb(var(--clr-mid-tone)));
+    }
 }
 
 .hidden-alt {
@@ -64,7 +103,7 @@
 
 .floating-tooltip {
     // 툴팁
-    --bubble-color: var(--clr-black);
+    --bubble-color: var(--clr-text);
 
     position: absolute;
     padding: 0.4rem;
@@ -211,6 +250,12 @@
 
 /* 로그인, 회원가입, 오류 페이지 등의 공통 레이아웃 요소 */
 
+#login-movie-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #error-message-container {
     display: flex;
     flex-flow: column nowrap;
@@ -333,6 +378,11 @@
 }
 
 @container main-container (max-width: 720px) {
+    #logo-primary {
+        > p {
+            display: none;
+        }
+    }
 }
 
 @container main-container (max-width: 640px) {
