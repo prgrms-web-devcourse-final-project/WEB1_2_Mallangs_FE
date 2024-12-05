@@ -12,6 +12,7 @@ import ReplyItem from '../components/common/ReplyItem';
 import StarRating from '../components/common/StarRating';
 import ChatItem from '../components/common/ChatItem';
 import ThreadItem from '../components/common/ThreadItem';
+import { logoutApi } from '../api/userApi';
 
 const ComponentMuseum = () => {
     const toggleModal = useModalStore((state) => state.toggleModal);
@@ -24,6 +25,21 @@ const ComponentMuseum = () => {
         padding: '.8rem',
         border: '1px solid rgb(var(--clr-text) / .15)',
         backgroundColor: 'rgb(var(--clr-white))',
+    };
+
+    const handleLogout = async () => {
+        try {
+            await logoutApi();
+            window.location.replace('/login');
+        } catch (error) {
+            console.error('로그아웃 실패:', error);
+            if (error.response?.status === 401) {
+                localStorage.clear();
+                window.location.replace('/login');
+            } else {
+                alert('로그아웃에 실패했습니다.');
+            }
+        }
     };
 
     return (
@@ -51,6 +67,14 @@ const ComponentMuseum = () => {
                         에러 테스트 페이지
                     </Link>
                 </p>
+
+                {/* 로그아웃 버튼 추가 */}
+                <button
+                    onClick={handleLogout}
+                    className="button-service-control"
+                >
+                    로그아웃
+                </button>
 
                 <button
                     onClick={() => {

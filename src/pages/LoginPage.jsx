@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Remix from '../components/common/Remix';
+import { loginApi } from '../api/userApi';
 import loginMovie from '../assets/miscs/login-movie-0.mp4';
 import loginBgImage from '../assets/images/login-background-image.png';
-import axios from 'axios';
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -16,12 +16,16 @@ const LoginPage = () => {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    useState(() => {
+    useEffect(() => {
         const savedUserId = localStorage.getItem('rememberedUserId');
         if (savedUserId) {
             setFormData((prev) => ({ ...prev, userId: savedUserId }));
             setRememberMe(true);
         }
+        return () => {
+            setFormData({ userId: '', password: '' });
+            setError('');
+        };
     }, []);
 
     const handleInputChange = (e) => {
@@ -38,19 +42,10 @@ const LoginPage = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_BASE_URL}/member/login`,
-                {
-                    userId: formData.userId,
-                    password: formData.password,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        accept: '*/*',
-                    },
-                },
-            );
+            await loginApi({
+                userId: formData.userId,
+                password: formData.password,
+            });
 
             if (rememberMe) {
                 localStorage.setItem('rememberedUserId', formData.userId);
@@ -81,7 +76,6 @@ const LoginPage = () => {
                 <source src={loginMovie} type="video/mp4" />
                 사용자의 브라우저가 내장 동영상 플레이어를 지원하지 않습니다.
             </video>
-
             <div className="service-container-wrapper">
                 <div id="login-form-container" className="service-container">
                     <div className="service-logo-container">
@@ -96,7 +90,6 @@ const LoginPage = () => {
                                 iconSize={1}
                             />
                         </button>
-
                         <h1>
                             ♤£¢
                             <br />
@@ -105,14 +98,12 @@ const LoginPage = () => {
                             (로고 만들거임)
                         </h1>
                     </div>
-
                     <form id="form-login" onSubmit={handleSubmit}>
                         {error && (
                             <div className="error-message text-red-500 mb-4">
                                 {error}
                             </div>
                         )}
-
                         <input
                             type="text"
                             id="input-login-account"
@@ -120,8 +111,8 @@ const LoginPage = () => {
                             value={formData.userId}
                             onChange={handleInputChange}
                             disabled={isLoading}
+                            autoComplete="username"
                         />
-
                         <input
                             type="password"
                             id="input-login-password"
@@ -129,8 +120,8 @@ const LoginPage = () => {
                             value={formData.password}
                             onChange={handleInputChange}
                             disabled={isLoading}
+                            autoComplete="current-password"
                         />
-
                         <input
                             type="checkbox"
                             name="check-something"
@@ -139,20 +130,17 @@ const LoginPage = () => {
                             onChange={(e) => setRememberMe(e.target.checked)}
                             disabled={isLoading}
                         />
-
                         <label htmlFor="checkbox-login-constant">
                             <div className="toggles-indicator">
                                 <Remix iconName={'check-line'} iconSize={0.6} />
                             </div>
                             <span className="toggles-label">ID 기억하기</span>
                         </label>
-
                         <button type="submit" disabled={isLoading}>
                             {isLoading ? '로그인 중...' : '로그인'}
                         </button>
                     </form>
                 </div>
-
                 <div className="service-controls login-state-controls">
                     <button
                         type="button"
@@ -162,7 +150,6 @@ const LoginPage = () => {
                     >
                         회원가입
                     </button>
-
                     <button
                         type="button"
                         className="button-service-control"
@@ -172,7 +159,6 @@ const LoginPage = () => {
                         ID / 비밀번호 찾기
                     </button>
                 </div>
-
                 <div className="service-copyright">
                     Copyright © {thisYear} MallangPlace Inc. All Rights
                     Reserved.
