@@ -100,4 +100,16 @@
     }
 }
 
+@keyframes pulse {
+    from {
+        outline: 0.1rem solid rgb(var(--clr-point) / 0.9);
+        outline-offset: -0.2rem;
+    }
+
+    to {
+        outline: 0.4rem solid transparent;
+        outline-offset: 1.2rem;
+    }
+}
+
 /* _keyframes.scss */

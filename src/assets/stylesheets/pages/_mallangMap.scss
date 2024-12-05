@@ -9,50 +9,151 @@
     height: 100vh;
 }
 
-.temp-marker {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.2rem;
-    padding: 0.2rem;
-    border-radius: var(--rad-lg);
-    background-color: rgb(var(--clr-text) / 0.75);
-    backdrop-filter: blur(1.8rem);
-    box-shadow: var(--shd-100);
+.marker-item {
+    position: relative;
+    width: 1.2rem;
+    height: 1.2rem;
+
+    > .floating-tooltip {
+        inset-block-start: calc(100% + 1.2rem);
+        inset-inline: 50%;
+        translate: -50% 0;
+        scale: 0;
+        transform-origin: top;
+        transition: scale 0.15s;
+    }
+
+    &:hover,
+    &:has(.on) {
+        > .floating-tooltip {
+            scale: 1;
+        }
+    }
+
+    &:has(.button-marker-write:hover) {
+        .floating-tooltip {
+            scale: 1.2;
+        }
+    }
+}
+
+.button-marker-selector-opener {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 0.15rem solid rgb(var(--clr-background));
+    border-radius: var(--rad-full);
+    border-bottom-left-radius: 0;
+    background-color: rgb(var(--clr-mid-tone));
+    box-shadow: -0.6rem 0.6rem 0.4rem rgb(var(--clr-text) / 0.25);
+    rotate: -45deg;
 
     &::before {
         display: block;
         position: absolute;
-        margin-inline: auto;
-        inset-inline: 0;
-        inset-block-start: 100%;
-        width: 0.4rem;
-        height: 0.6rem;
-        border: {
-            block-start: 0.3rem solid rgb(var(--clr-text) / 0.75);
-            block-end: 0.3rem solid transparent;
-            inline-start: 0.2rem solid transparent;
-            inline-end: 0.2rem solid transparent;
-        }
-        pointer-events: none;
+        inset: 0;
+        margin: auto;
+        width: 0.3rem;
+        height: 0.3rem;
+        border-radius: var(--rad-full);
+        background-color: rgb(var(--clr-background) / 0.5);
         content: '';
+    }
+
+    > span {
+        display: none;
+    }
+
+    &.on {
+        background-color: rgb(var(--clr-notify));
+        outline: 0.2rem solid
+            rgb(var(--pulse-color, var(--clr-point)) / var(--pulse-opaq, 0.9));
+        animation: pulse 1s ease-out infinite;
+    }
+}
+
+.marker-selector-container {
+    position: absolute;
+    inset-block-end: 30%;
+    inset-inline-start: 50%;
+    width: 10rem;
+    translate: -50% 0;
+
+    &.on {
+        .button-marker-write {
+            scale: 1;
+            opacity: 1;
+        }
     }
 }
 
 .marker-label {
     padding: 0.4rem;
-    color: rgb(var(--clr-text-on-tint));
 }
 
 .marker-controls {
-    display: flex;
-    gap: 0.2rem;
+    position: relative;
 }
 
 .button-marker-write {
-    padding-inline: 0.8rem;
-    height: 1.6rem;
-    border-radius: var(--rad-sm);
-    background-color: rgb(var(--clr-white));
+    position: absolute;
+    inset-block-end: 100%;
+    inset-inline: 0;
+    padding: 0.2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-text));
+    box-shadow: 0 0.4rem 0.8rem rgb(var(--clr-text) / 0.5);
+    color: rgb(var(--clr-text-on-tint));
+    scale: 0;
+    transition:
+        scale 0.15s,
+        opacity 0.15s;
+    opacity: 0;
+
+    .remix {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    > div {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        pointer-events: none;
+    }
+
+    &.missing {
+        margin-inline-end: auto;
+        transform-origin: right;
+    }
+
+    &.places {
+        margin-block-end: 1.8rem;
+        margin-inline: auto;
+        transform-origin: bottom;
+    }
+
+    &.rescue {
+        margin-inline-start: auto;
+        transform-origin: left;
+    }
+
+    &:hover {
+        background-color: rgb(var(--clr-surface-40));
+
+        .remix {
+            scale: 1.2;
+            opacity: 1;
+        }
+
+        > div {
+            background-color: rgb(var(--clr-background));
+            color: rgb(var(--clr-mid-tone));
+        }
+    }
 }
 
 /* _mallangMap.scss */

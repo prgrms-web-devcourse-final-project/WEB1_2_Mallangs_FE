@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Remix from '../components/common/Remix';
 
 const RegisterPage = () => {
+    const { terms, basics, town, pets } = useRef();
     const [currentStep, setStep] = useState(1); // 회원 가입 현재 단계
     const navigate = useNavigate();
     const thisYear = new Date().getFullYear();
@@ -105,6 +106,7 @@ const RegisterPage = () => {
                             <div
                                 className={`register-state-container`}
                                 data-state-index={1}
+                                ref={terms}
                             >
                                 <div id="terms-of-service">
                                     <h2>제1장 총 칙</h2>
@@ -129,9 +131,7 @@ const RegisterPage = () => {
 
                                     <ol className="big-numbs">
                                         <li>
-                                            “서비스” : 회사가 제공하는
-                                            수중레져(투어∙체험∙교육∙커뮤니티
-                                            등으로 이에 한정되지 않음) 관련
+                                            “서비스” : 회사가 제공하는 위치 기반
                                             상품∙용역∙서비스 등(이하
                                             “상품등”이라 합니다)에 대한
                                             예약∙구매∙정보제공∙추천 등을 위한
@@ -1434,6 +1434,7 @@ const RegisterPage = () => {
                             <div
                                 className={`register-state-container`}
                                 data-state-index={2}
+                                ref={basics}
                             >
                                 계정, 비밀번호, 비밀번호 확인, 이름, 기타 등등
                             </div>
@@ -1441,6 +1442,7 @@ const RegisterPage = () => {
                             <div
                                 className={`register-state-container`}
                                 data-state-index={3}
+                                ref={town}
                             >
                                 내가 사는 동네 찾기
                             </div>
@@ -1448,6 +1450,7 @@ const RegisterPage = () => {
                             <div
                                 className={`register-state-container`}
                                 data-state-index={4}
+                                ref={pets}
                             >
                                 말랑이 추가하기 / 대표 말랑이 설정 (선택
                                 입력사항)

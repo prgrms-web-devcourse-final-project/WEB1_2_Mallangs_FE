@@ -9,7 +9,7 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 1.8rem;
+    gap: 0.8rem;
     position: fixed;
     inset-block-start: 0;
     inset-inline: 0;
@@ -115,27 +115,15 @@
     }
 }
 
-#button-user-profile {
-    position: relative;
-    width: 1.8rem;
-    height: 1.8rem;
+#button-user-login {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-inline: 0.8rem;
+    height: 1.6rem;
     border-radius: var(--rad-full);
-    background-color: rgb(var(--clr-gray));
-    outline: 1px solid rgb(var(--clr-text) / 0.15);
-    color: rgb(var(--clr-white) / 0.5);
-    overflow: clip;
-
-    > .remix {
-        position: absolute;
-        inset: 0;
-        margin: 0.4rem auto auto;
-    }
-}
-
-.current-user-image {
-    position: absolute;
-    inset: 0;
-    margin: auto;
+    font-size: var(--fnt-sm);
+    font-weight: 700;
 }
 
 #button-burger {
@@ -265,6 +253,17 @@
 
     #head-controls {
         order: 3;
+    }
+
+    #button-user-login {
+        display: flex;
+        justify-content: center;
+        width: 1.6rem;
+        border-radius: var(--rad-full);
+
+        > span {
+            display: none;
+        }
     }
 }
 

@@ -3,12 +3,43 @@ import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
+import ToolTip from './common/ToolTip';
+import Remix from './common/Remix';
+import axios from 'axios';
 
 const MallangMap = () => {
     const [currentLocation, setLocation] = useState({ lat: 0, lng: 0 });
     const [currentCategory, setCategory] = useState('all');
     const [isMarkerOpen, setMarkerStatus] = useState(false);
     const [isAreaInfoShowing, setPanel] = useState(false);
+    const [toolTipLabel, setTooltipLabel] =
+        useState('이 위치에 글타래 작성하기');
+
+    const getMarkers = async (areaCoords, articleType) => {
+        // articleType => [null, 'place', 'lost', 'rescue', 'user']
+
+        try {
+            const response = await axios.get({
+                url:
+                    import.meta.env.VITE_API_BASE_URL +
+                    '/articles/public/articlesMarkers',
+                responseType: 'json',
+                headers: {},
+                data: {
+                    northEastLat: 0,
+                    northEastLon: 0, // Longitude 단축어로 lng 쓰는데 이것도 지 좃대로 해놨네 시발
+                    southWestLat: 0,
+                    southEastLon: 0,
+                },
+            });
+
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    console.log(getMarkers());
 
     const handleCategoryChange = (data) => {
         setCategory(data);
@@ -32,7 +63,12 @@ const MallangMap = () => {
 
         console.log('최종 위치 기준 바운더리:', bounds);
 
+        setMarkerStatus(false);
         localStorage.setItem('mallangMapLatestLocation', latlng);
+    };
+
+    const handleWriteMouseOver = (e) => {
+        setTooltipLabel(e.target.dataset.tooltipText);
     };
 
     return (
@@ -57,6 +93,7 @@ const MallangMap = () => {
                     console.log('클릭 바운더리:', curBounds);
 
                     setLocation({ lat: curLat, lng: curLng });
+                    if (isMarkerOpen) setMarkerStatus(false);
                     localStorage.setItem('mallangMapLatestLocation', coords);
                 }}
             >
@@ -73,40 +110,91 @@ const MallangMap = () => {
                         yAnchor={1}
                         clickable={true}
                     >
-                        <button onMouseOver={() => setMarkerStatus(true)}>
-                            여는 버튼
-                        </button>
+                        <div className="marker-item">
+                            <ToolTip
+                                altMessage={toolTipLabel}
+                                direction="top"
+                            />
 
-                        {isMarkerOpen && (
-                            <div className="temp-marker">
-                                <div className="marker-label">
-                                    여기에 만들고 싶은 글타래
-                                </div>
+                            <button
+                                className={`button-marker-selector-opener ${isMarkerOpen ? 'on' : undefined}`}
+                                onClick={() => setMarkerStatus(!isMarkerOpen)}
+                            >
+                                <span>글타래 작성하기</span>
+                            </button>
 
+                            <div
+                                className={`marker-selector-container ${isMarkerOpen ? 'on' : undefined}`}
+                            >
                                 <div className="marker-controls">
                                     <button
                                         type="button"
-                                        className="button-marker-write"
+                                        className="button-marker-write missing"
+                                        data-tooltip-text={'실종신고'}
+                                        onMouseOver={(e) =>
+                                            handleWriteMouseOver(e)
+                                        }
+                                        onMouseLeave={() =>
+                                            setTooltipLabel(
+                                                '이 위치에 글타래 작성하기',
+                                            )
+                                        }
+                                        onClick={() => console.log(111)}
                                     >
-                                        시설 / 업체
+                                        <div>
+                                            <Remix
+                                                iconName={'search-eye-line'}
+                                                iconSize={1.2}
+                                            />
+                                        </div>
                                     </button>
 
                                     <button
                                         type="button"
-                                        className="button-marker-write"
+                                        className="button-marker-write places"
+                                        data-tooltip-text={'시설 / 업체'}
+                                        onMouseOver={(e) =>
+                                            handleWriteMouseOver(e)
+                                        }
+                                        onMouseLeave={() =>
+                                            setTooltipLabel(
+                                                '이 위치에 글타래 작성하기',
+                                            )
+                                        }
+                                        onClick={() => console.log(222)}
                                     >
-                                        실종신고
+                                        <div>
+                                            <Remix
+                                                iconName={'map-pin-add-fill'}
+                                                iconSize={1.2}
+                                            />
+                                        </div>
                                     </button>
 
                                     <button
                                         type="button"
-                                        className="button-marker-write"
+                                        className="button-marker-write rescue"
+                                        data-tooltip-text={'구조요청'}
+                                        onMouseOver={(e) =>
+                                            handleWriteMouseOver(e)
+                                        }
+                                        onMouseLeave={() =>
+                                            setTooltipLabel(
+                                                '이 위치에 글타래 작성하기',
+                                            )
+                                        }
+                                        onClick={() => console.log(333)}
                                     >
-                                        구조요청
+                                        <div>
+                                            <Remix
+                                                iconName={'hand-heart-fill'}
+                                                iconSize={1.2}
+                                            />
+                                        </div>
                                     </button>
                                 </div>
                             </div>
-                        )}
+                        </div>
                     </CustomOverlayMap>
                 )}
             </Map>
