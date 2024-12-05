@@ -2,7 +2,7 @@ import { useModalStore } from '../../stores/modalStatus';
 import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
 
-const UserProfileCard = ({ currentPanel, setPanel }) => {
+const UserProfileCard = ({ currentPanel, setPanel, userObject = {} }) => {
     const toggleModal = useModalStore((state) => state.toggleModal);
     const setModalType = useModalStore((state) => state.setModalType);
     const setModalData = useModalStore((state) => state.setModalData);
@@ -41,6 +41,22 @@ const UserProfileCard = ({ currentPanel, setPanel }) => {
             <hr />
 
             <MallangItem mallangObject={tempPet} isEditMode={true} />
+
+            <hr />
+
+            <div className="profile-card-body">
+                <div className="datetime-row">
+                    <p>마지막 접속 시간</p>
+
+                    <span>·</span>
+
+                    <p>{'2024. 01. 01.'}</p>
+                </div>
+
+                <button>
+                    <span>로그아웃</span>
+                </button>
+            </div>
 
             <hr />
 

@@ -1,18 +1,17 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useNotificationStore } from '../../stores/notificationStatus';
 import Remix from '../common/Remix';
+import UserProfileImage from '../common/UserProfileImage';
 import logoImage from '../../assets/images/logo.png';
 
 const Header = ({ setPanel }) => {
     const [mobileNavStatus, setMobileNavStatus] = useState(false);
-    const alarms = useNotificationStore((state) => state.notifications);
-    const unReadNotifications = () => {
-        return Number(
-            alarms.replies.filter((item) => !item.isRead).length +
-                alarms.messages.filter((item) => item.unReadCount > 0).length,
-        );
-    };
+    const notificationArray = useNotificationStore(
+        (state) => state.notifications,
+    );
+    const [isLoggedIn, setLoginStatus] = useState(true);
+    const navigate = useNavigate();
 
     let timedSizing = null;
 
@@ -26,6 +25,15 @@ const Header = ({ setPanel }) => {
             }
         }, 250);
     });
+
+    const unReadNotifications = () => {
+        return Number(
+            notificationArray.replies.filter((item) => !item.isRead).length +
+                notificationArray.messages.filter(
+                    (item) => item.unReadCount > 0,
+                ).length,
+        );
+    };
 
     const handleMobileNav = () => {
         setMobileNavStatus(!mobileNavStatus);
@@ -98,29 +106,47 @@ const Header = ({ setPanel }) => {
                     <Remix iconName={'search-2-line'} iconSize={0.8} />
                 </div>
 
-                <button
-                    type="button"
-                    id="button-notify"
-                    className={unReadNotifications() > 0 ? 'on' : null}
-                    data-item-count={1}
-                    title={`현재 ${unReadNotifications().toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
-                    onClick={() => setPanel('notifications')}
-                >
-                    <Remix iconName={'notification-2-fill'} iconSize={0.8} />
-                </button>
+                {isLoggedIn ? (
+                    <>
+                        <button
+                            type="button"
+                            id="button-notify"
+                            className={unReadNotifications() > 0 ? 'on' : null}
+                            data-item-count={1}
+                            title={`현재 ${unReadNotifications().toLocaleString('ko-KR') ?? 0}개의 확인하지 않은 알림이 있습니다.`}
+                            onClick={() => setPanel('notifications')}
+                        >
+                            <Remix
+                                iconName={'notification-2-fill'}
+                                iconSize={0.8}
+                            />
+                        </button>
 
-                <button
-                    id="button-user-profile"
-                    onClick={() => setPanel('user-profile')}
-                >
-                    <Remix iconName={'user-fill'} iconSize={1.6} />
+                        <button
+                            type="button"
+                            id="button-user-profile"
+                            onClick={() => setPanel('user-profile')}
+                        >
+                            <UserProfileImage
+                                imageSrc={
+                                    'https://picsum.photos/36/36?random=1'
+                                }
+                                imageSize={1.8}
+                            />
+                        </button>
+                    </>
+                ) : (
+                    <button
+                        type="button"
+                        id="button-user-login"
+                        title="회원 로그인"
+                        onClick={() => navigate('/login')}
+                    >
+                        <Remix iconName={'key-line'} />
 
-                    <img
-                        className="current-user-image"
-                        src="https://picsum.photos/36/36?random=1"
-                        alt="사용자 프로필 이미지"
-                    />
-                </button>
+                        <span>로그인</span>
+                    </button>
+                )}
             </div>
         </header>
     );
