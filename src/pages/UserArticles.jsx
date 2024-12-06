@@ -3,10 +3,23 @@ import ArticleItem from '../components/common/ArticleItem';
 const UserArticles = () => {
     return (
         <>
-            <div></div>
-
-            <div>
+            <div className="user-common-item-list">
                 <ArticleItem />
+
+                <ArticleItem />
+
+                <ArticleItem />
+
+                <ArticleItem />
+
+                <ArticleItem />
+
+                <ArticleItem />
+
+                <ArticleItem />
+
+                <ArticleItem />
+
                 <ArticleItem />
             </div>
         </>

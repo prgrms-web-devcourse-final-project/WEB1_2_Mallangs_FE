@@ -32,6 +32,7 @@
     flex: 1;
     padding: 0.8rem;
     border-radius: var(--rad-lg);
+    overflow: hidden;
 }
 
 .article-item-title {
@@ -41,6 +42,9 @@
 .article-item-title-text {
     font-size: var(--fnt-md);
     font-weight: 900;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .article-replies-counter {

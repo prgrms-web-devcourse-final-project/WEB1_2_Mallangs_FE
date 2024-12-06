@@ -1,5 +1,5 @@
-import dateFormat from '../../utils/dateFormat';
 import Remix from './Remix';
+import dateFormat from '../../utils/dateFormat';
 
 const ThreadItem = ({
     index = 0,

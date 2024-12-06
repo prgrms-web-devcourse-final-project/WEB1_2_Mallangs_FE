@@ -9,11 +9,15 @@ export const useNotificationStore = create((set) => ({
         messages: [...tempMessages],
     },
     clearReadAlarms: () =>
-        // 읽은 알림만 지워야 하는데... 우선 보류. 실제 기능 구현시에는 API 요청을 보내야 한다.
-        set({
-            notifications: {
-                replies: [],
-                messages: [],
-            },
-        }),
+        set(
+            (state) =>
+                (state.notifications = {
+                    replies: state.notifications.replies.filter(
+                        (item) => !item.isRead,
+                    ),
+                    messages: state.notifications.messages.filter(
+                        (item) => item.unReadCount > 0,
+                    ),
+                }),
+        ),
 }));

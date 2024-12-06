@@ -1,38 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useModalStore } from '../../stores/modalStatus';
 import Header from './Header';
 import NotificationCard from './NotificationCard';
 import UserProfileCard from './UserProfileCard';
-import AreaInfoPanel from './AreaInfoPanel';
 import Footer from './Footer';
 import MainModal from '../MainModal';
+import TotalSearch from './TotalSearch';
+import { useAreaInfoStatus } from '../../stores/AreaInfoStatus';
 
 const BaseLayout = () => {
-    const [currentPanelID, setCurrentPanel] = useState(0);
+    const [currentPanel, setPanel] = useState(null);
     const location = useLocation();
     const isModalShowing = useModalStore((state) => state.isModalShowing);
+    const isAreaInfoShowing = useAreaInfoStatus(
+        (state) => state.isPanelShowing,
+    );
 
     return (
         <>
             {isModalShowing && <MainModal />}
 
-            <NotificationCard
-                isActive={currentPanelID === 1}
-                onShow={setCurrentPanel}
-            />
+            <NotificationCard currentPanel={currentPanel} setPanel={setPanel} />
 
-            <UserProfileCard
-                isActive={currentPanelID === 2}
-                onShow={setCurrentPanel}
-            />
+            <UserProfileCard currentPanel={currentPanel} setPanel={setPanel} />
 
-            <AreaInfoPanel
-                isActive={currentPanelID === 3}
-                onShow={setCurrentPanel}
-            />
+            <Header currentPanel={currentPanel} setPanel={setPanel} />
 
-            <Header onShow={setCurrentPanel} />
+            <TotalSearch currentPanel={currentPanel} setPanel={setPanel} />
 
             <Outlet name="main" />
 

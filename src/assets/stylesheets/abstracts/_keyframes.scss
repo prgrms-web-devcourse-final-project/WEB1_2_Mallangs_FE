@@ -42,14 +42,16 @@
     }
 
     75% {
-        rotate: var(--burger-self-rotate) 0 0;
+        transform: rotateZ(var(--burger-self-rotate));
+        // rotate: var(--burger-self-rotate) 0 0;
     }
 
     100% {
         inset-inline-start: 0;
         inset-inline-end: 0;
         height: 0.8rem;
-        rotate: var(--burger-self-rotate) 0 0;
+        transform: rotateZ(var(--burger-self-rotate));
+        // rotate: var(--burger-self-rotate) 0 0;
     }
 }
 
@@ -95,6 +97,18 @@
 
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse {
+    from {
+        outline: 0.1rem solid rgb(var(--clr-point) / 0.9);
+        outline-offset: -0.2rem;
+    }
+
+    to {
+        outline: 0.4rem solid transparent;
+        outline-offset: 1.2rem;
     }
 }
 

@@ -3,7 +3,7 @@
 #notification-card {
     position: fixed;
     inset-block-start: -120%;
-    inset-inline-end: 3.2rem;
+    inset-inline-end: 0.8rem;
     margin: auto;
     width: 16rem;
     height: fit-content;
@@ -203,13 +203,13 @@
 .notification-message-count {
     margin-inline-start: auto;
     margin-block-start: 0.2rem;
-    padding: 0.2rem 0.6rem;
+    padding: 0.2rem 0.4rem;
     width: fit-content;
     border-radius: var(--rad-full);
     background-color: rgb(var(--clr-notify));
     color: rgb(var(--clr-text-on-tint));
     font-size: var(--fnt-xs);
-    font-weight: 700;
+    font-weight: 900;
     line-height: 1;
 }
 
@@ -267,6 +267,7 @@
     aspect-ratio: 1 / 1;
     background-color: rgb(var(--clr-white) / 0.5);
     backdrop-filter: blur(1.8rem);
+    color: rgb(var(--clr-alert));
 
     &:hover {
         background-color: rgb(var(--clr-alert));

@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Remix from '../components/common/Remix';
+import loginMovie from '../assets/miscs/login-movie-0.mp4';
+import loginBgImage from '../assets/images/login-background-image.png';
 
 const LoginlPage = () => {
     const navigate = useNavigate();
@@ -7,6 +9,18 @@ const LoginlPage = () => {
 
     return (
         <section id="full-page-wrapper">
+            <video
+                id="login-movie-background"
+                poster={loginBgImage}
+                muted={true}
+                autoPlay={true}
+                loop={true}
+                playsInline
+            >
+                <source src={loginMovie} type="video/mp4" />
+                사용자의 브라우저가 내장 동영상 플레이어를 지원하지 않습니다.
+            </video>
+
             <div className="service-container-wrapper">
                 <div id="login-form-container" className="service-container">
                     <div className="service-logo-container">
