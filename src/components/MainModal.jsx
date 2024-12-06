@@ -13,7 +13,6 @@ import UserReplies from '../pages/UserReplies';
 import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
-import ThreadMissingReport from '../pages/Ts';
 
 // ↓ 글타래 보기 컴포넌트
 
@@ -95,8 +94,8 @@ const MainModal = ({ routeName }) => {
 
         // 글타래 작성 라우트 매치
         'write-places': <>글타래 작성 - 장소</>,
-        'write-missing': <ThreadMissingReport></ThreadMissingReport>,
-        'write-rescue': <ThreadRescue></ThreadRescue>,
+        'write-missing': <>실종신고</>,
+        'write-rescue': <>구조요청</>,
         'write-etcetera': <>글타래 작성 - 이스터에그</>,
     };
 
@@ -104,7 +103,7 @@ const MainModal = ({ routeName }) => {
         <aside id="main-modal">
             <MainModalCover />
 
-            <section id="main-modal-body">
+            <section id="main-modal-body" className={modalStatus.threadType}>
                 <div id="main-modal-sidebar">
                     <ul id="main-modal-side-menu">
                         {modalData.masterNavigations[

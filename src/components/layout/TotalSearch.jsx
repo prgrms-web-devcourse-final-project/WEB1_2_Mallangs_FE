@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
+import axios from 'axios';
 import Remix from '../common/Remix';
 import ModalSectionTitle from '../common/ModalSectionTitle';
 import ThreadItem from '../common/ThreadItem';
 import ArticleItem from '../common/ArticleItem';
 import ReplyItem from '../common/ReplyItem';
-import axios from 'axios';
-import EmptyList from '../common/EmptyList';
+import logoImage from '../../assets/images/logo.png';
 
 const TotalSearch = ({ currentPanel, setPanel }) => {
     const searchInput = useRef(null);
@@ -40,14 +40,17 @@ const TotalSearch = ({ currentPanel, setPanel }) => {
                 <div
                     className={`inner-wrapper ${searchResult.length > 0 && 'results'}`}
                 >
-                    <div id="temp-logo">
-                        <h1>♤£¢</h1>
-                        <p>로고 만들거임 종합검색</p>
+                    <div id="total-search-header">
+                        <div className="search-logo">
+                            <img src={logoImage} alt="말랑플레이스 로고" />
+                        </div>
+
+                        <h1>검색</h1>
 
                         <button
                             type="button"
                             id="button-close-total-search"
-                            title="종합 검색 닫기"
+                            title="검색창 닫기"
                             onClick={() => setPanel(null)}
                         >
                             <span></span>
@@ -60,7 +63,7 @@ const TotalSearch = ({ currentPanel, setPanel }) => {
                             type="text"
                             id="total-search-input"
                             className="exclude"
-                            placeholder="검색어 입력..."
+                            placeholder="키워드를 입력하세요..."
                             ref={searchInput}
                             autoFocus
                             onKeyUp={(e) => {

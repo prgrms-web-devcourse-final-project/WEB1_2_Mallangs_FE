@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk';
+import Remix from './common/Remix';
+import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
-import ToolTip from './common/ToolTip';
-import Remix from './common/Remix';
-import axios from 'axios';
 
 const MallangMap = () => {
     const [currentLocation, setLocation] = useState({ lat: 0, lng: 0 });
@@ -14,32 +13,6 @@ const MallangMap = () => {
     const [isAreaInfoShowing, setPanel] = useState(false);
     const [toolTipLabel, setTooltipLabel] =
         useState('이 위치에 글타래 작성하기');
-
-    const getMarkers = async (areaCoords, articleType) => {
-        // articleType => [null, 'place', 'lost', 'rescue', 'user']
-
-        try {
-            const response = await axios.get({
-                url:
-                    import.meta.env.VITE_API_BASE_URL +
-                    '/articles/public/articlesMarkers',
-                responseType: 'json',
-                headers: {},
-                data: {
-                    northEastLat: 0,
-                    northEastLon: 0, // Longitude 단축어로 lng 쓰는데 이것도 지 좃대로 해놨네 시발
-                    southWestLat: 0,
-                    southEastLon: 0,
-                },
-            });
-
-            return response.data;
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    console.log(getMarkers());
 
     const handleCategoryChange = (data) => {
         setCategory(data);

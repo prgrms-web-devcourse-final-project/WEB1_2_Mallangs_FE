@@ -1,0 +1,257 @@
+{
+    "users": [
+        {
+            "id": 0,
+            "userAccount": "kim_4yongjar",
+            "userPassword": "1Q2w3e4r@@",
+            "userName": "김사용자",
+            "userImage": null,
+            "userMail": "4yongjar@example.com",
+            "pets": [
+                {
+                    "id": 0,
+                    "petName": "김땅콩",
+                    "petType": "고양이",
+                    "petAge": 4,
+                    "petGender": "M",
+                    "isNeutered": false,
+                    "isGotChip": true,
+                    "chipNumber": "000000000000",
+                    "isMain": true
+                },
+                {
+                    "id": 1,
+                    "petName": "김별난",
+                    "petType": "고양이",
+                    "petAge": 2,
+                    "petGender": "M",
+                    "isNeutered": true,
+                    "isGotChip": true,
+                    "chipNumber": "000000000000",
+                    "isMain": false
+                }
+            ],
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 1,
+            "userAccount": "choi_man",
+            "userPassword": "1Q2w3e4r@@",
+            "userName": "최사용자",
+            "userImage": null,
+            "userMail": "choi8520@example.com",
+            "pets": [
+                {
+                    "id": 2,
+                    "petName": "최수한무거북이와두루미삼천갑자동방삭치치카포사리사리센타워리워리세브리깡므두셀라구름이허리케인에담벼락담벼락에서생원서생원에고양이고양이엔바둑이바둑이는돌돌이",
+                    "petType": "강아지",
+                    "petAge": 0,
+                    "petGender": "F",
+                    "isNeutered": true,
+                    "isGotChip": true,
+                    "chipNumber": "000000000000",
+                    "isMain": true
+                }
+            ],
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 2,
+            "userAccount": "lee_vice",
+            "userPassword": "1Q2w3e4r@@",
+            "userName": "리바이스",
+            "userImage": null,
+            "userMail": "lee_vice@example.com",
+            "pets": [
+                {
+                    "id": 2,
+                    "petName": "리복",
+                    "petType": "알락꼬리마도요",
+                    "petAge": 62373,
+                    "petGender": "U",
+                    "isNeutered": false,
+                    "isGotChip": false,
+                    "chipNumber": null,
+                    "isMain": true
+                }
+            ],
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        }
+    ],
+    "threads": [
+        {
+            "id": 0,
+            "threadType": "places",
+            "threadTitle": "글타래 제목",
+            "threadCoverImage": "https://www.naver.com",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "latitude": 30.0,
+            "longitude": 128.0,
+            "address1": "",
+            "address2": "",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "김사용자",
+                "userImage": ""
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://www.naver.com",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "어쩌고 저쩌고",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "시설 / 업체 소개 글",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": { "workBegin": "09:00", "workEnds": "18:00" },
+                    "weekEnds": { "workBegin": "09:00", "workEnds": "18:00" },
+                    "breakTime": { "workBegin": "09:00", "workEnds": "18:00" }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        }
+    ],
+    "reviews": [
+        {
+            "reviewAuthor": 0,
+            "reviewContent": "좋아요",
+            "starPoint": 5,
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "reviewAuthor": 1,
+            "reviewContent": "좋아요",
+            "starPoint": 4,
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "reviewAuthor": 2,
+            "reviewContent": "좋아요",
+            "starPoint": 5,
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        }
+    ],
+    "replies": [
+        {
+            "reviewAuthor": 2,
+            "reviewImages": [
+                {
+                    "imageID": 1,
+                    "imageURL": "https://www.naver.com",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                },
+                {
+                    "imageID": 2,
+                    "imageURL": "https://www.naver.com",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "reviewContent": "금방 찾으시기를",
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "reviewAuthor": 0,
+            "reviewContent": "오 개꿀잼 몰카인가",
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "reviewAuthor": 1,
+            "reviewContent": "우와 화이팅",
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        }
+    ],
+    "chatRooms": [
+        {
+            "id": 0,
+            "participants": [0, 1],
+            "session": [
+                {
+                    "chatFrom": 0,
+                    "chatContent": "대화내용",
+                    "sendedAt": "2024-01-01 20:30",
+                    "isRead": true
+                },
+                {
+                    "chatFrom": 1,
+                    "chatContent": "대화내용",
+                    "sendedAt": "2024-01-01 20:30",
+                    "isRead": false
+                }
+            ],
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        }
+    ]
+}

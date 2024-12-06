@@ -29,6 +29,12 @@
     flex: 1;
     display: flex;
     overflow: hidden;
+
+    &.missing {
+        #main-modal-sidebar {
+            display: none;
+        }
+    }
 }
 
 #main-modal-sidebar {

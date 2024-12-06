@@ -6,7 +6,7 @@
 
 #mallang-map {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 3.2rem);
 }
 
 .marker-item {
@@ -43,9 +43,12 @@
     border: 0.15rem solid rgb(var(--clr-background));
     border-radius: var(--rad-full);
     border-bottom-left-radius: 0;
-    background-color: rgb(var(--clr-mid-tone));
+    background-color: rgb(var(--clr-notify));
+    outline: 0.2rem solid
+        rgb(var(--pulse-color, var(--clr-point)) / var(--pulse-opaq, 0.9));
     box-shadow: -0.6rem 0.6rem 0.4rem rgb(var(--clr-text) / 0.25);
     rotate: -45deg;
+    animation: pulse 1s ease-out infinite;
 
     &::before {
         display: block;
@@ -55,7 +58,7 @@
         width: 0.3rem;
         height: 0.3rem;
         border-radius: var(--rad-full);
-        background-color: rgb(var(--clr-background) / 0.5);
+        background-color: rgb(var(--clr-background));
         content: '';
     }
 
@@ -64,10 +67,9 @@
     }
 
     &.on {
-        background-color: rgb(var(--clr-notify));
-        outline: 0.2rem solid
-            rgb(var(--pulse-color, var(--clr-point)) / var(--pulse-opaq, 0.9));
-        animation: pulse 1s ease-out infinite;
+        background-color: rgb(var(--clr-mid-tone));
+        outline: 0;
+        animation: none;
     }
 }
 

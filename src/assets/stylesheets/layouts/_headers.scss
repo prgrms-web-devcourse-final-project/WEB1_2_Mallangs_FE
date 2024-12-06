@@ -10,7 +10,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 0.8rem;
-    position: fixed;
+    position: sticky;
     inset-block-start: 0;
     inset-inline: 0;
     padding-inline: 0.8rem;
@@ -132,7 +132,6 @@
     width: 1.6rem;
     height: 1.6rem;
     border-radius: var(--rad-full);
-    background-color: rgb(var(--clr-if-100));
     outline: 1px solid rgb(var(--clr-if-20));
 
     > span {

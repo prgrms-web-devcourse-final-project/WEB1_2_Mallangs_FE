@@ -1,22 +1,31 @@
 import { useModalStore } from '../../stores/modalStatus';
-import MallangItem from '../common/MallangItem';
 import Remix from '../common/Remix';
+import MallangItem from '../common/MallangItem';
 
-const UserProfileCard = ({ currentPanel, setPanel, userObject = {} }) => {
+const UserProfileCard = ({
+    currentPanel,
+    setPanel,
+    userObject = {
+        userID: 0,
+        userName: '알 수 없음',
+        userProfileImage: null,
+        userPets: [
+            {
+                petID: null,
+                petName: '아직 설정한 말랑이가 없어요.',
+                petImage: null,
+                petType: '말랑이',
+                petAge: 0,
+                petGender: '알 수 없음',
+                isMain: true,
+            },
+        ],
+    },
+}) => {
     const toggleModal = useModalStore((state) => state.toggleModal);
     const setModalType = useModalStore((state) => state.setModalType);
     const setModalData = useModalStore((state) => state.setModalData);
-    const tempPet = {
-        // 임시 대표 말랑이 객체
-        userID: 123,
-        userName: '김사용자',
-        petImage: 'https://picsum.photos/36/36?random=1',
-        petName: '김땅콩',
-        petType: '고양이',
-        petAge: 4,
-        petGender: '수컷',
-        isMain: true,
-    };
+    const mainPet = userObject.userPets.find((pet) => pet.isMain === true);
 
     return (
         <aside
@@ -40,7 +49,7 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject = {} }) => {
 
             <hr />
 
-            <MallangItem mallangObject={tempPet} isEditMode={true} />
+            <MallangItem mallangObject={mainPet} isEditMode={true} />
 
             <hr />
 
@@ -53,7 +62,7 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject = {} }) => {
                     <p>{'2024. 01. 01.'}</p>
                 </div>
 
-                <button>
+                <button type="button" id="button-user-logout" title="로그아웃">
                     <span>로그아웃</span>
                 </button>
             </div>
@@ -71,10 +80,10 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject = {} }) => {
                         setModalData({
                             latitude: 0.0,
                             longitude: 0.0,
-                            threadTitle: tempPet.userName,
-                            mainCategory: tempPet.petType,
-                            subCategory1: tempPet.petAge + '세',
-                            subCategory2: tempPet.petGender,
+                            threadTitle: mainPet.petName,
+                            mainCategory: mainPet.petType,
+                            subCategory1: mainPet.petAge + '세',
+                            subCategory2: mainPet.petGender,
                             subCategory3: null,
                         });
                     }}

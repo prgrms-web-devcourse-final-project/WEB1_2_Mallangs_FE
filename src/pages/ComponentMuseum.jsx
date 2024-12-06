@@ -43,12 +43,7 @@ const ComponentMuseum = () => {
     };
 
     return (
-        <aside
-            className="inner-wrapper"
-            style={{
-                marginBlockStart: '6.4rem',
-            }}
-        >
+        <aside className="inner-wrapper">
             <div style={tempListContainer}>
                 <h5>
                     이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...

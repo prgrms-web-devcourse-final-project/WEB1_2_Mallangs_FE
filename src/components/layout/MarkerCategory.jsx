@@ -12,13 +12,13 @@ const MarkerCategory = ({ isAreaInfoShowing, onNav }) => {
             label: '시설 / 업체',
             value: 'places',
             children: [
-                { label: '동물병원', value: 'value-name' },
-                { label: '동물 약 취급 약국', value: 'value-name' },
-                { label: '반려동물 미용', value: 'value-name' },
-                { label: '동물 카페', value: 'value-name' },
-                { label: '반려동물 친화 시설', value: 'value-name' },
-                { label: '사용자 등록 장소', value: 'value-name' },
-                { label: '기타', value: 'value-name' },
+                { label: '동물병원', value: 'hospital' },
+                { label: '동물 약 취급 약국', value: 'pharmacy' },
+                { label: '반려동물 미용', value: 'salon' },
+                { label: '동물 카페', value: 'cafe' },
+                { label: '반려동물 친화 시설', value: 'facillity' },
+                { label: '사용자 등록 장소', value: 'user-custom' },
+                { label: '기타', value: 'others' },
             ],
         },
         { label: '실종신고', value: 'missing' },
@@ -34,7 +34,7 @@ const MarkerCategory = ({ isAreaInfoShowing, onNav }) => {
                 return (
                     <li
                         className={`marker-category-item ${currentCategory === index && 'on'}`}
-                        key={index}
+                        key={item.value}
                     >
                         <span
                             onClick={() => {
@@ -56,8 +56,9 @@ const MarkerCategory = ({ isAreaInfoShowing, onNav }) => {
                                     return (
                                         <li
                                             className={`marker-sub-category-item ${subIndex === currentSubCategory && 'on'}`}
-                                            key={`${index}-${subIndex}`}
+                                            key={subItem.value}
                                             onClick={() => {
+                                                onNav(subItem.value);
                                                 setSubCategoryIndex(subIndex);
                                             }}
                                         >

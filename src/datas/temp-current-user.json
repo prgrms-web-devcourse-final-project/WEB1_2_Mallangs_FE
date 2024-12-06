@@ -1,0 +1,26 @@
+{
+    "userID": 0,
+    "userAccount": "kim_4yongjar",
+    "userName": "김사용자",
+    "userProfileImage": null,
+    "userPets": [
+        {
+            "petID": 0,
+            "petName": "김땅콩",
+            "petImage": "https://picsum.photos/64/64?random=1",
+            "petType": "고양이",
+            "petAge": 4,
+            "petGender": "수컷",
+            "isMain": true
+        },
+        {
+            "petID": 1,
+            "petName": "김별난",
+            "petImage": "https://picsum.photos/64/64?random=2",
+            "petType": "고양이",
+            "petAge": 4,
+            "petGender": "수컷",
+            "isMain": false
+        }
+    ]
+}
