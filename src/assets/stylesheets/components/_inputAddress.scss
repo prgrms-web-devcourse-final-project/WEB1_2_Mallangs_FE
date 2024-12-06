@@ -1,0 +1,29 @@
+.address {
+    align-self: stretch;
+    position: relative;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
+        .address-region,
+        .address-building {
+            width: 100%;
+            height: 1.6rem;
+            padding: 0.4rem;
+            border: 0.05rem solid rgba(47, 40, 36, 0.15);
+            border-radius: var(--rad-xs);
+
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            font-weight: 400;
+            line-height: 0.85rem;
+            text-align: left;
+
+            &::placeholder {
+                color: rgba(47, 40, 36, 0.5);
+            }
+        }
+    }
+}

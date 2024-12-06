@@ -1,0 +1,29 @@
+.discovery-situation {
+    width: 100%;
+    height: 100%;
+
+    &-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: auto;
+        min-height: 3rem;
+        background: rgb(var(--clr-white));
+        border: 0.05rem solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+        overflow-y: auto;
+
+        &-input {
+            width: 100%;
+            min-height: 3rem;
+            height: auto;
+            position: relative;
+            font-size: var(--fnt-md);
+            padding: 0.8rem;
+            border: none;
+            resize: none;
+            outline: none;
+            background: transparent;
+        }
+    }
+}
