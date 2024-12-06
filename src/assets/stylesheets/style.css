@@ -3204,6 +3204,9 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   display: flex;
   overflow: hidden;
 }
+#main-modal-body.missing #main-modal-sidebar {
+  display: none;
+}
 
 #main-modal-sidebar {
   width: 9rem;

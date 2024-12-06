@@ -103,7 +103,7 @@ const MainModal = ({ routeName }) => {
         <aside id="main-modal">
             <MainModalCover />
 
-            <section id="main-modal-body">
+            <section id="main-modal-body" className={modalStatus.threadType}>
                 <div id="main-modal-sidebar">
                     <ul id="main-modal-side-menu">
                         {modalData.masterNavigations[

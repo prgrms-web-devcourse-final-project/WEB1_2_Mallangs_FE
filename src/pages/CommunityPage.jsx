@@ -15,13 +15,13 @@ const CommunityPage = () => {
         queryFn: () => getThreadList(),
     });
 
-    if (isPending) return 'Loading...';
+    if (isPending) return <>로딩중...</>;
 
     if (error) return 'An error has occurred: ' + error.message;
 
     return (
         <div className="inner-wrapper">
-            <Link to={`${currentData.categoryName} / ${currentData.articleID}`}>
+            <Link to={`${currentData.categoryName}/${currentData.articleID}`}>
                 {currentData.articleTitle}
             </Link>
 
@@ -29,7 +29,7 @@ const CommunityPage = () => {
                 data.map((item, index) => {
                     return (
                         <div key={index}>
-                            [{item.id}] {item.userName} / {item.userAccount}
+                            [{item.id}] {item.threadType} / {item.threadTitle}
                         </div>
                     );
                 })}

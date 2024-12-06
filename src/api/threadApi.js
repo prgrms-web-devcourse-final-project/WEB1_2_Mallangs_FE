@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_API_MOCK_URL;
+
 export const getThreadList = async () => {
     try {
         const response = await axios({
             method: 'get',
-            url: 'https://my-json-server.typicode.com/SoRaang/Mock-JSON-Server/users',
+            url: `${baseURL}/threads`,
         });
 
         return response.data;
