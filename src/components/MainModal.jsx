@@ -13,7 +13,6 @@ import UserReplies from '../pages/UserReplies';
 import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
-import ThreadMissingReport from '../pages/Ts';
 
 // ↓ 글타래 보기 컴포넌트
 
