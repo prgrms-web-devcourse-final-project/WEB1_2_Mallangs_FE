@@ -5,6 +5,7 @@ import StarRating from './StarRating';
 const ModalFormInput = ({
     isIncludeImage = true,
     isIncludeRating = false,
+    isHorizontal = false,
     placeHolder = '내용을 입력하세요.',
     maxLength = 200,
     onSendContent,
@@ -41,12 +42,19 @@ const ModalFormInput = ({
     };
 
     return (
-        <form id="modal-form-input-container">
+        <form
+            id="modal-form-input-container"
+            className={isHorizontal ? 'horizontal' : undefined}
+        >
             {isIncludeRating && (
-                <StarRating
-                    starSize={1.2}
-                    onSendPoint={(data) => setStarPoint(data)}
-                />
+                <div className="modal-form-star-rating">
+                    <p>이 장소에서의 경험은 어땠나요?</p>
+
+                    <StarRating
+                        starSize={1.2}
+                        onSendPoint={(data) => setStarPoint(data)}
+                    />
+                </div>
             )}
 
             {isIncludeImage && (
@@ -83,11 +91,17 @@ const ModalFormInput = ({
             ></textarea>
 
             <div className="modal-form-controls">
-                <p className={formText.length >= maxLength ? 'overflow' : ''}>
-                    <span>{formText.length}</span>
-                    <span> / </span>
-                    <span>{maxLength} 자</span>
-                </p>
+                {isHorizontal ?? (
+                    <p
+                        className={
+                            formText.length >= maxLength ? 'overflow' : ''
+                        }
+                    >
+                        <span>{formText.length}</span>
+                        <span> / </span>
+                        <span>{maxLength} 자</span>
+                    </p>
+                )}
 
                 <button
                     type="submit"

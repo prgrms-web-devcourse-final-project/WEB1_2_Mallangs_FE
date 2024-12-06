@@ -46,7 +46,10 @@ const MainModalCover = () => {
                     type="button"
                     id="button-close-modal"
                     title="창 닫기"
-                    onClick={() => toggleModal(false)}
+                    onClick={() => {
+                        document.body.classList.remove('prevent-scroll');
+                        toggleModal(false);
+                    }}
                 >
                     <Remix iconName={'close-line'} />
                 </button>

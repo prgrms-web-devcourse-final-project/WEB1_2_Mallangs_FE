@@ -15,24 +15,31 @@ const CommunityPage = () => {
         queryFn: () => getThreadList(),
     });
 
-    if (isPending) return <>로딩중...</>;
-
-    if (error) return 'An error has occurred: ' + error.message;
-
     return (
         <div className="inner-wrapper">
-            <Link to={`${currentData.categoryName}/${currentData.articleID}`}>
-                {currentData.articleTitle}
-            </Link>
+            {isPending ? (
+                <>로딩중...</>
+            ) : error ? (
+                <>오류: {error.message}</>
+            ) : (
+                <>
+                    <Link
+                        to={`${currentData.categoryName}/${currentData.articleID}`}
+                    >
+                        {currentData.articleTitle}
+                    </Link>
 
-            {data &&
-                data.map((item, index) => {
-                    return (
-                        <div key={index}>
-                            [{item.id}] {item.threadType} / {item.threadTitle}
-                        </div>
-                    );
-                })}
+                    {data &&
+                        data.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    [{item.id}] {item.threadType} /{' '}
+                                    {item.threadTitle}
+                                </div>
+                            );
+                        })}
+                </>
+            )}
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useModalStore } from '../stores/modalStatus';
 import Remix from './common/Remix';
 import MainModalCover from './common/MainModalCover';
@@ -28,7 +28,13 @@ const MainModal = ({ routeName }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
     const [currentSlaveIndex, setSlaveIndex] = useState(0);
     const modalStatus = useModalStore((state) => state.modalStatus);
+    const toggleModal = useModalStore((state) => state.toggleModal);
     const modalData = modalStatus.modalData;
+
+    useEffect(() => {
+        document.body.classList.add('prevent-scroll');
+    }, []);
+
     /**
      * 위의 useModalStore / threadType에서 현재 모달의 상태값을 가지고 온다.
      * 모달의 navigation은 아래에 정리되어 있으며, 각각 다음과 같은 이름을 가진다.
@@ -89,6 +95,7 @@ const MainModal = ({ routeName }) => {
         // 실종신고 글타래 라우트 매치
         'missing-info': <>상세 내용 보기</>,
         'missing-reply-list': <>댓글</>,
+        'missing-report-provide': <>목격 제보</>,
 
         // 구조요청 글타래 라우트 매치
         'rescue-info': <>상세 내용 보기</>,
@@ -106,67 +113,85 @@ const MainModal = ({ routeName }) => {
     };
 
     return (
-        <aside id="main-modal">
-            <MainModalCover />
+        <div
+            id="main-modal-backdrop"
+            onClick={(e) => {
+                if (e.target.id === 'main-modal-backdrop') toggleModal(false);
+            }}
+        >
+            <aside id="main-modal">
+                <MainModalCover />
 
-            <section id="main-modal-body" className={modalStatus.threadType}>
-                <div id="main-modal-sidebar">
-                    <ul id="main-modal-side-menu">
-                        {modalData.masterNavigations[
-                            currentTabIndex
-                        ].slaveNavigations.map((menuItem, index) => {
-                            return (
-                                <li
-                                    className={`side-menu-item ${index === currentSlaveIndex && 'on'}`}
-                                    key={index}
-                                    onClick={() => setSlaveIndex(index)}
-                                >
-                                    <Remix
-                                        iconName={
-                                            index === currentSlaveIndex
-                                                ? 'arrow-right-s-line'
-                                                : 'subtract-line'
-                                        }
-                                    />
+                <section
+                    id="main-modal-body"
+                    className={modalStatus.threadType}
+                >
+                    <div id="main-modal-sidebar">
+                        <ul id="main-modal-side-menu">
+                            {modalData.masterNavigations[
+                                currentTabIndex
+                            ].slaveNavigations.map((menuItem, index) => {
+                                return (
+                                    <li
+                                        className={`side-menu-item ${index === currentSlaveIndex && 'on'}`}
+                                        key={index}
+                                        onClick={() => {
+                                            if (index !== currentSlaveIndex)
+                                                setSlaveIndex(index);
+                                        }}
+                                    >
+                                        <Remix
+                                            iconName={
+                                                index === currentSlaveIndex
+                                                    ? 'arrow-right-s-line'
+                                                    : 'subtract-line'
+                                            }
+                                        />
 
-                                    <span>{menuItem.label}</span>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-
-                <div id="main-modal-content-container">
-                    <nav id="main-modal-navigation">
-                        <ul>
-                            {modalData.masterNavigations.map(
-                                (menuItem, index) => {
-                                    return (
-                                        <li
-                                            className={`modal-tab-navigation-item ${index === currentTabIndex && 'on'}`}
-                                            key={index}
-                                            onClick={() => {
-                                                setTabIndex(index);
-                                                setSlaveIndex(0);
-                                            }}
-                                        >
-                                            <span>{menuItem.label}</span>
-
-                                            {menuItem.count !== null &&
-                                                `(${menuItem.count})`}
-                                        </li>
-                                    );
-                                },
-                            )}
+                                        <span>{menuItem.label}</span>
+                                    </li>
+                                );
+                            })}
                         </ul>
-                    </nav>
-
-                    <div id="main-modal-content">
-                        {modalRouteMatcher[currentRoute.value]}
                     </div>
-                </div>
-            </section>
-        </aside>
+
+                    <div id="main-modal-content-container">
+                        <nav id="main-modal-navigation">
+                            <ul>
+                                {modalData.masterNavigations.map(
+                                    (menuItem, index) => {
+                                        return (
+                                            <li
+                                                className={`modal-tab-navigation-item ${index === currentTabIndex && 'on'}`}
+                                                key={index}
+                                                onClick={() => {
+                                                    if (
+                                                        index !==
+                                                        currentTabIndex
+                                                    ) {
+                                                        setTabIndex(index);
+                                                        setSlaveIndex(0);
+                                                    }
+                                                }}
+                                            >
+                                                <span>{menuItem.label}</span>
+
+                                                {menuItem.count !== null &&
+                                                    `(${menuItem.count})`}
+                                            </li>
+                                        );
+                                    },
+                                )}
+                            </ul>
+                        </nav>
+
+                        <div id="main-modal-content">
+                            {modalRouteMatcher[currentRoute.value]}
+                        </div>
+                    </div>
+                </section>
+            </aside>
+        </div>
     );
 };
 

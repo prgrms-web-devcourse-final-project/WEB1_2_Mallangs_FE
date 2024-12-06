@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import EmptyList from '../components/common/EmptyList';
 import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
-import EmptyList from '../components/common/EmptyList';
 
 const ReplyList = () => {
     const [replyArray, setNewReply] = useState([]);
@@ -41,6 +41,7 @@ const ReplyList = () => {
 
                 <ModalFormInput
                     isIncludeImage={false}
+                    isHorizontal={true}
                     placeHolder="댓글 내용을 입력하세요."
                     onSendContent={handleWriteReply}
                 />
