@@ -1,32 +1,19 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CommunityPage = () => {
-    const [currentData, setData] = useState('');
-    const something = async () => {
-        try {
-            const response = await axios({
-                method: 'post',
-                url: 'http://mallangplace.ap-northeast-2.elasticbeanstalk.com/api/v1/member/login',
-                headers: {},
-                data: {
-                    userId: 'dsc0320',
-                    password: '1Q2w3e4r@@',
-                },
-                withCredentials: true,
-            });
-
-            setData(response.data.RefreshToken);
-
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const [currentData, setData] = useState({
+        categoryName: 'freeboard',
+        articleID: 1234,
+        articleTitle: '이것이 글 제목임',
+    });
 
     return (
-        <div className="inner-wrapper" style={{ marginTop: '12rem' }}>
-            {currentData};
+        <div className="inner-wrapper">
+            <Link to={`${currentData.categoryName} / ${currentData.articleID}`}>
+                {currentData.articleTitle}
+            </Link>
         </div>
     );
 };

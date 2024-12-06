@@ -926,7 +926,7 @@ a:has(#logo-primary) {
   justify-content: flex-start;
   align-items: center;
   gap: 0.8rem;
-  position: fixed;
+  position: sticky;
   inset-block-start: 0;
   inset-inline: 0;
   padding-inline: 0.8rem;
@@ -1366,7 +1366,7 @@ a:has(#logo-primary) {
 
 #mallang-map {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 3.2rem);
 }
 
 .marker-item {
@@ -1395,7 +1395,9 @@ a:has(#logo-primary) {
   border: 0.15rem solid rgb(var(--clr-background));
   border-radius: var(--rad-full);
   border-bottom-left-radius: 0;
-  background-color: rgb(var(--clr-mid-tone));
+  background-color: rgb(var(--clr-notify));
+  outline: 0.2rem solid rgb(var(--pulse-color, var(--clr-point))/var(--pulse-opaq, 0.9));
+  animation: pulse 1s ease-out infinite;
   box-shadow: -0.6rem 0.6rem 0.4rem rgb(var(--clr-text)/0.25);
   rotate: -45deg;
 }
@@ -1414,9 +1416,9 @@ a:has(#logo-primary) {
   display: none;
 }
 .button-marker-selector-opener.on {
-  background-color: rgb(var(--clr-notify));
-  outline: 0.2rem solid rgb(var(--pulse-color, var(--clr-point))/var(--pulse-opaq, 0.9));
-  animation: pulse 1s ease-out infinite;
+  background-color: rgb(var(--clr-mid-tone));
+  outline: 0;
+  animation: none;
 }
 
 .marker-selector-container {

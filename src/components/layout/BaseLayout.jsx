@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import { useAreaInfoStatus } from '../../stores/AreaInfoStatus';
 import { useModalStore } from '../../stores/modalStatus';
 import Header from './Header';
 import NotificationCard from './NotificationCard';
@@ -7,7 +8,7 @@ import UserProfileCard from './UserProfileCard';
 import Footer from './Footer';
 import MainModal from '../MainModal';
 import TotalSearch from './TotalSearch';
-import { useAreaInfoStatus } from '../../stores/AreaInfoStatus';
+import tempCurrentUser from '../../datas/temp-current-user.json';
 
 const BaseLayout = () => {
     const [currentPanel, setPanel] = useState(null);
@@ -23,7 +24,11 @@ const BaseLayout = () => {
 
             <NotificationCard currentPanel={currentPanel} setPanel={setPanel} />
 
-            <UserProfileCard currentPanel={currentPanel} setPanel={setPanel} />
+            <UserProfileCard
+                currentPanel={currentPanel}
+                setPanel={setPanel}
+                userObject={tempCurrentUser}
+            />
 
             <Header currentPanel={currentPanel} setPanel={setPanel} />
 
