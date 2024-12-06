@@ -51,7 +51,7 @@ const SignatureImage = () => {
 
                 <button
                     type="button"
-                    className={`button-signature-information ${modalStatus.threadType === 'places' && 'info'}`}
+                    className={`button-signature-information ${modalStatus.threadType === 'places' && 'information'}`}
                     title={
                         modalStatus.threadType === 'places'
                             ? '장소 정보'

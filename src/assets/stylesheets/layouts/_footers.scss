@@ -93,6 +93,10 @@
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 640px) {
+    .footer-service-menu {
+        gap: 0.8rem;
+    }
+
     .footer-company-informations {
         flex-flow: column nowrap;
     }

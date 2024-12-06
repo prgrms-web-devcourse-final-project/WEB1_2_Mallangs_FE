@@ -55,6 +55,14 @@
     font-size: var(--fnt-sm);
 }
 
+#button-user-logout {
+    &:hover {
+        color: rgb(var(--clr-alert));
+        text-decoration: 1px underline dashed;
+        text-underline-offset: 0.1rem;
+    }
+}
+
 .profile-card-controls {
     display: flex;
     height: 2.4rem;

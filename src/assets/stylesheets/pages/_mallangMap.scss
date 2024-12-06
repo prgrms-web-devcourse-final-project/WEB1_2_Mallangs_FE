@@ -46,9 +46,9 @@
     background-color: rgb(var(--clr-notify));
     outline: 0.2rem solid
         rgb(var(--pulse-color, var(--clr-point)) / var(--pulse-opaq, 0.9));
-    animation: pulse 1s ease-out infinite;
     box-shadow: -0.6rem 0.6rem 0.4rem rgb(var(--clr-text) / 0.25);
     rotate: -45deg;
+    animation: pulse 1s ease-out infinite;
 
     &::before {
         display: block;
@@ -58,7 +58,7 @@
         width: 0.3rem;
         height: 0.3rem;
         border-radius: var(--rad-full);
-        background-color: rgb(var(--clr-background) / 0.5);
+        background-color: rgb(var(--clr-background));
         content: '';
     }
 

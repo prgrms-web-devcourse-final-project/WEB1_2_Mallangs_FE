@@ -4,7 +4,7 @@ const ArticleDetailsPage = () => {
     const { categoryName, articleID } = useParams();
 
     return (
-        <div className="inner-wrap">
+        <div className="inner-wrapper">
             {categoryName} / {articleID} 글
         </div>
     );

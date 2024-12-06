@@ -5,7 +5,6 @@ import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
-import axios from 'axios';
 
 const MallangMap = () => {
     const [currentLocation, setLocation] = useState({ lat: 0, lng: 0 });
