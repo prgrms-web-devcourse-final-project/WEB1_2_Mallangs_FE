@@ -11,6 +11,7 @@ const CommunityPage = () => {
     });
 
     const { isPending, error, data } = useQuery({
+        queryKey: [],
         queryFn: () => getThreadList(),
     });
 

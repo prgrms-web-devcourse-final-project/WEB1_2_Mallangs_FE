@@ -109,19 +109,19 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-    border-radius: 2px;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 0.1rem;
 }
 
 ::-webkit-scrollbar-track-piece {
-    border-radius: 2px;
-    background-color: rgb(var(--clr-min) / 0.3);
+    border-radius: 0.1rem;
+    background-color: rgb(var(--clr-text) / 0.15);
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background-color: rgb(var(--clr-max) / 0.25);
+    border-radius: 0.1rem;
+    background-color: rgb(var(--clr-text) / 0.5);
 }
 
 hr {

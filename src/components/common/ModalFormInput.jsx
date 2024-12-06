@@ -1,37 +1,62 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Remix from './Remix';
+import StarRating from './StarRating';
 
 const ModalFormInput = ({
     isIncludeImage = true,
+    isIncludeRating = false,
     placeHolder = '내용을 입력하세요.',
     maxLength = 200,
+    onSendContent,
 }) => {
+    const inputElement = useRef();
+    const imageElement = useRef();
     const [formText, setText] = useState('');
     const [uploadImage, setImage] = useState(null);
+    const [starPoint, setStarPoint] = useState(0);
 
-    const handleInputText = (e) => {
-        setText(e.target.value);
-    };
-
-    const handleInputFile = (e) => {
-        setImage(e.target.value);
-    };
-
-    const handleFormData = (e) => {
+    const handleInputDone = (e) => {
         e.preventDefault();
 
-        console.log({ formText, uploadImage });
+        if (formText.length < 10) {
+            console.log('메시지가 짧을 때 보여주는 텍스트');
+
+            return;
+        }
+
+        if (starPoint === 0) {
+            console.log('별점을 선택하지 않았을 때 보여주는 텍스트');
+
+            return;
+        }
+
+        onSendContent({ formText, uploadImage, starPoint });
+
+        inputElement.current.value = '';
+        imageElement.current.value = '';
+
+        setText('');
+        setImage(null);
+        setStarPoint(0);
     };
 
     return (
         <form id="modal-form-input-container">
+            {isIncludeRating && (
+                <StarRating
+                    starSize={1.2}
+                    onSendPoint={(data) => setStarPoint(data)}
+                />
+            )}
+
             {isIncludeImage && (
                 <div className="modal-form-file-uploader">
                     <input
                         type="file"
                         id="modal-form-file"
                         accept="image/jpg, image/png, image/gif"
-                        onChange={handleInputFile}
+                        ref={imageElement}
+                        onChange={(e) => setImage(e.target.value)}
                     />
 
                     <label htmlFor="modal-form-file">
@@ -53,7 +78,8 @@ const ModalFormInput = ({
                 minLength={10}
                 maxLength={maxLength}
                 placeholder={`${placeHolder} (최대 ${maxLength} 자)`}
-                onInput={handleInputText}
+                ref={inputElement}
+                onInput={(e) => setText(e.target.value)}
             ></textarea>
 
             <div className="modal-form-controls">
@@ -68,7 +94,9 @@ const ModalFormInput = ({
                     id="button-modal-form-submit"
                     className="buttons"
                     title="입력 내용 전송"
-                    onClick={handleFormData}
+                    onClick={(e) => {
+                        handleInputDone(e);
+                    }}
                 >
                     <span>전송</span>
                 </button>

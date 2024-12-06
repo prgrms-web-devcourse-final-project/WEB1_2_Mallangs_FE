@@ -16,6 +16,12 @@ import UserChatRoom from '../pages/UserChatRoom';
 
 // ↓ 글타래 보기 컴포넌트
 
+import PlaceInfo from '../pages/PlaceInfo';
+import PlaceMisinfoReport from '../pages/PlaceMisinfoReport';
+import PlaceReviewList from '../pages/PlaceReviewList';
+import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
+import ReplyList from '../pages/ReplyList';
+
 // ↓ 글타래 작성 컴포넌트
 
 const MainModal = ({ routeName }) => {
@@ -74,11 +80,11 @@ const MainModal = ({ routeName }) => {
         'user-chat-room': <UserChatRoom />,
 
         // 장소 글타래 라우트 매치
-        'place-info': <>시설 / 업체 소개</>,
-        'place-error-report': <>오류 정정 요청</>,
-        'place-review-list': <>장소 리뷰</>,
-        'place-review-write': <>리뷰 작성</>,
-        'place-reply-list': <>댓글</>,
+        'place-info': <PlaceInfo />,
+        'place-error-report': <PlaceMisinfoReport />,
+        'place-review-list': <PlaceReviewList />,
+        'place-review-write': <PlaceReviewWrtie />,
+        'place-reply-list': <ReplyList />,
 
         // 실종신고 글타래 라우트 매치
         'missing-info': <>상세 내용 보기</>,
