@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Remix from './Remix';
 
-const BirthdaySelector = () => {
+const BirthdaySelector = ({ blockLabel }) => {
     const [selectedYear, setSelectedYear] = useState('');
     const [selectedMonth, setSelectedMonth] = useState('');
     const [selectedDay, setSelectedDay] = useState('');
@@ -49,7 +49,7 @@ const BirthdaySelector = () => {
 
     return (
         <div className="form-birthday">
-            <div className="block-label">생년월일</div>
+            <div className="block-label">{blockLabel}</div>
             <div className="birthday-dropdown">
                 {/* 년 */}
                 <select

@@ -13,6 +13,7 @@ import UserReplies from '../pages/UserReplies';
 import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
+import ThreadMissingReport from '../pages/Ts';
 
 // ↓ 글타래 보기 컴포넌트
 
@@ -94,8 +95,8 @@ const MainModal = ({ routeName }) => {
 
         // 글타래 작성 라우트 매치
         'write-places': <>글타래 작성 - 장소</>,
-        'write-missing': <>글타래 작성 - 실종신고</>,
-        'write-rescue': <>글타래 작성 - 구조요청</>,
+        'write-missing': <ThreadMissingReport></ThreadMissingReport>,
+        'write-rescue': <ThreadRescue></ThreadRescue>,
         'write-etcetera': <>글타래 작성 - 이스터에그</>,
     };
 
