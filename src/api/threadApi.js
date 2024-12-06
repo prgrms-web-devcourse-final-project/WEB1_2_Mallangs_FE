@@ -7,6 +7,7 @@ export const getThreadList = async () => {
         const response = await axios({
             method: 'get',
             url: `${baseURL}/threads`,
+            withCredentials: true,
         });
 
         return response.data;

@@ -11,7 +11,6 @@ const CommunityPage = () => {
     });
 
     const { isPending, error, data } = useQuery({
-        queryKey: ['repoData'],
         queryFn: () => getThreadList(),
     });
 
