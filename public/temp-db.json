@@ -5,8 +5,9 @@
             "userAccount": "kim_4yongjar",
             "userPassword": "1Q2w3e4r@@",
             "userName": "김사용자",
-            "userImage": null,
+            "userImage": "https://picsum.phothos/128/128?id=1",
             "userMail": "4yongjar@example.com",
+            "userDescription": "사랑하는 사람들아 여기에 모여앉아 사랑을 노래하자",
             "pets": [
                 {
                     "id": 0,
@@ -39,8 +40,9 @@
             "userAccount": "choi_man",
             "userPassword": "1Q2w3e4r@@",
             "userName": "최사용자",
-            "userImage": null,
+            "userImage": "https://picsum.phothos/128/128?id=2",
             "userMail": "choi8520@example.com",
+            "userDescription": "사랑하는 사람들아 여기에 모여앉아 사랑을 노래하자",
             "pets": [
                 {
                     "id": 2,

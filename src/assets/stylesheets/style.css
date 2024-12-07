@@ -3185,6 +3185,7 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   inset: 0;
   background-image: linear-gradient(to top, rgb(var(--clr-black)/0.5), transparent);
   pointer-events: none;
+  z-index: 1;
   content: "";
 }
 #main-modal-cover.rescue, #main-modal-cover.missing {
@@ -3275,6 +3276,7 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   justify-content: flex-end;
   position: relative;
   width: 9rem;
+  z-index: 2;
 }
 
 #main-modal-signature-image {

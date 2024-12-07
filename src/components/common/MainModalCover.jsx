@@ -6,14 +6,32 @@ import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드�
 
 const MainModalCover = () => {
     const modalStatus = useModalStore((state) => state.modalStatus);
+    const modalData = useModalStore((state) => state.modalData);
     const toggleModal = useModalStore((state) => state.toggleModal);
-    const modalData = modalStatus.modalData;
 
     return (
-        <section id="main-modal-cover" className={`${modalStatus.threadType}`}>
+        <section id="main-modal-cover" className={`${modalData.threadType}`}>
+            {(modalData.threadType === 'profile' ||
+                modalData.threadType === 'places') && (
+                <img
+                    src={
+                        modalData.threadCoverImage ??
+                        modalData.threadImages[0].imageURL
+                    }
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                    }}
+                    alt="글타래 배경 이미지"
+                />
+            )}
+
             <div className="cover-controls">
                 {modalStatus.isThisMine &&
-                    modalStatus.threadType !== 'profile' && (
+                    modalData.threadType !== 'profile' && (
                         <div className="cover-controls-author">
                             <DropdownSelector
                                 optionList={tempOptionList}
@@ -55,14 +73,14 @@ const MainModalCover = () => {
                 </button>
             </div>
 
-            {modalStatus.threadType === 'profile' && <SignatureImage />}
-            {modalStatus.threadType === 'places' && <SignatureImage />}
+            {modalData.threadType === 'profile' && <SignatureImage />}
+            {modalData.threadType === 'places' && <SignatureImage />}
 
             <div className="cover-descriptions-container">
                 <dl className="cover-descriptions">
                     <dt className="thread-title-container">
                         <h5 className="thread-title">
-                            {modalStatus.threadUser.isAuthenticated && (
+                            {modalStatus.isAuthenticated && (
                                 <Remix
                                     iconName={'shield-check-fill'}
                                     iconSize={1}
@@ -78,29 +96,29 @@ const MainModalCover = () => {
                     <dd className="thread-category-container">
                         <Remix iconName={'search-eye-line'} iconSize={0.6} />
 
-                        <p>{modalData.mainCategory}</p>
+                        <p>{modalData.threadSubjects.mainSubject}</p>
 
-                        {modalData.subCategory1 && (
+                        {modalData.threadSubjects.subjectAlpha && (
                             <>
                                 <span>·</span>
 
-                                <p>{modalData.subCategory1}</p>
+                                <p>{modalData.threadSubjects.subjectAlpha}</p>
                             </>
                         )}
 
-                        {modalData.subCategory2 && (
+                        {modalData.threadSubjects.subjectBeta && (
                             <>
                                 <span>·</span>
 
-                                <p>{modalData.subCategory2}</p>
+                                <p>{modalData.threadSubjects.subjectBeta}</p>
                             </>
                         )}
 
-                        {modalData.subCategory3 && (
+                        {modalData.threadSubjects?.subjectGamma && (
                             <>
                                 <span>·</span>
 
-                                <p>{modalData.subCategory3}</p>
+                                <p>{modalData.threadSubjects.subjectGamma}</p>
                             </>
                         )}
                     </dd>

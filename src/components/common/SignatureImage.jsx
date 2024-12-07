@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useModalStore } from '../../stores/modalStatus';
 import Remix from './Remix';
+import tempDB from '../../datas/temp-db.json';
 
 const SignatureImage = () => {
     const modalStatus = useModalStore((state) => state.modalStatus);
+    const modalData = useModalStore((state) => state.modalData);
+
     const [selectorStatus, toggleSelector] = useState(false);
     const [currentMainCategory, setMainCategory] = useState(null);
+
     const mainCategoryList = [
         { label: '동물병원', value: 'hospital' },
         { label: '동물 약 취급 약국', value: 'pharmacy' },
@@ -15,6 +19,10 @@ const SignatureImage = () => {
         { label: '사용자 등록 장소', value: 'user' },
         { label: '기타', value: 'others' },
     ];
+
+    const currentUser = tempDB.users.find(
+        (user) => user.id === modalData.threadAuthor.userID,
+    );
 
     const handleImageUpload = () => {
         console.log(1);
@@ -30,17 +38,17 @@ const SignatureImage = () => {
         <div className="cover-signature-image-container">
             <div id="main-modal-signature-image">
                 <div className="signature-image-wrapper">
-                    {modalStatus.threadUser.userImage &&
-                    modalStatus.threadType === 'profile' ? (
+                    {currentUser.userImage &&
+                    modalData.threadType === 'profile' ? (
                         <img
                             className="signature-image"
-                            src={modalStatus.threadUser.userImage}
+                            src={currentUser.userImage}
                             alt="시그니처 이미지"
                         />
                     ) : null}
 
-                    {modalStatus.editMode &&
-                    modalStatus.threadType === 'profile' ? (
+                    {modalStatus.isEditMode &&
+                    modalData.threadType === 'profile' ? (
                         <button
                             type="button"
                             className="signature-image-controls"
@@ -50,8 +58,8 @@ const SignatureImage = () => {
 
                             <p>이미지 변경</p>
                         </button>
-                    ) : modalStatus.editMode &&
-                      modalStatus.threadType === 'places' ? (
+                    ) : modalStatus.isEditMode &&
+                      modalData.threadType === 'places' ? (
                         <button
                             type="button"
                             className="signature-image-controls"
@@ -66,16 +74,14 @@ const SignatureImage = () => {
 
                 <button
                     type="button"
-                    className={`button-signature-information ${modalStatus.threadType === 'places' && 'information'}`}
+                    className={`button-signature-information ${modalData.threadType === 'places' && 'information'}`}
                     title={
-                        modalStatus.threadType === 'places'
-                            ? '장소 정보'
-                            : '설정'
+                        modalData.threadType === 'places' ? '장소 정보' : '설정'
                     }
                 >
                     <Remix
                         iconName={
-                            modalStatus.threadType === 'places'
+                            modalData.threadType === 'places'
                                 ? 'information-2-fill'
                                 : 'settings-3-fill'
                         }

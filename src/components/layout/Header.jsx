@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useNotificationStore } from '../../stores/notificationStatus';
+import logoImage from '../../assets/images/logo.png';
 import Remix from '../common/Remix';
 import UserProfileImage from '../common/UserProfileImage';
-import logoImage from '../../assets/images/logo.png';
 
 const Header = ({ setPanel }) => {
     const [mobileNavStatus, setMobileNavStatus] = useState(false);
+    const [isLoggedIn, setLoginStatus] = useState(true);
+
+    const navigate = useNavigate();
+
     const notificationArray = useNotificationStore(
         (state) => state.notifications,
     );
-    const [isLoggedIn, setLoginStatus] = useState(true);
-    const navigate = useNavigate();
 
     let timedSizing = null;
 

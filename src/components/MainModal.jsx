@@ -39,9 +39,11 @@ import RescueDetails from '../pages/RescueDetails';
 const MainModal = ({ routeName }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
     const [currentSlaveIndex, setSlaveIndex] = useState(0);
+
     const modalStatus = useModalStore((state) => state.modalStatus);
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const modalData = modalStatus.modalData;
+    const modalData = useModalStore((state) => state.modalData);
+
+    console.log('뜨는 데이터:', modalData);
 
     useEffect(() => {
         document.body.classList.add('prevent-scroll');
@@ -82,7 +84,7 @@ const MainModal = ({ routeName }) => {
     // 자 이제 시작이야 컴포넌트를 향한 여행
 
     const currentRoute =
-        modalData.masterNavigations[currentTabIndex].slaveNavigations[
+        modalStatus.masterNavigations[currentTabIndex].slaveNavigations[
             currentSlaveIndex
         ];
 
@@ -129,13 +131,10 @@ const MainModal = ({ routeName }) => {
             <aside id="main-modal">
                 <MainModalCover />
 
-                <section
-                    id="main-modal-body"
-                    className={modalStatus.threadType}
-                >
+                <section id="main-modal-body" className={modalData.threadType}>
                     <div id="main-modal-sidebar">
                         <ul id="main-modal-side-menu">
-                            {modalData.masterNavigations[
+                            {modalStatus.masterNavigations[
                                 currentTabIndex
                             ].slaveNavigations.map((menuItem, index) => {
                                 return (
@@ -165,7 +164,7 @@ const MainModal = ({ routeName }) => {
                     <div id="main-modal-content-container">
                         <nav id="main-modal-navigation">
                             <ul>
-                                {modalData.masterNavigations.map(
+                                {modalStatus.masterNavigations.map(
                                     (menuItem, index) => {
                                         return (
                                             <li
