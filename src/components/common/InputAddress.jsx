@@ -25,7 +25,7 @@ const InputAddress = ({ value, onChange }) => {
                 ></input>
                 <input
                     className="address-building"
-                    placeholder="12동, 2415호 (240층)"
+                    placeholder="상세주소를 입력해주세요!"
                     value={building}
                     onChange={handleBuildingChange}
                 ></input>

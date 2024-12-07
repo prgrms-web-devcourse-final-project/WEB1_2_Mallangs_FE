@@ -9,12 +9,19 @@ import InputAddress from '../components/common/InputAddress';
 import TypeSelector from '../components/common/TypeSelector';
 import DateTime from '../components/common/DateTime';
 import DiscoverySituation from '../components/common/DiscoverySituation';
+import getLatestLocation from '../utils/getLatestLocation';
 
 const ThreadRescue = () => {
     // 유효성 검사
     // const [isLoggedIn, setIsLoggedIn] = useState(true); // 로그인 상태
+    const latestLocation = getLatestLocation();
     const [selectedType, setSelectedType] = useState('');
-    const [address, setAddress] = useState({ region: '', building: '' });
+    const [address, setAddress] = useState({
+        region: `${latestLocation.lat}, ${latestLocation.lng}`,
+        building: '',
+        // latitude: latestLocation.lat,
+        // longitude: latestLocation.lng,
+    });
     const [dateTime, setDateTime] = useState('');
     const [situation, setSituation] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
