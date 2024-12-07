@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import BaseLayout from './components/layout/BaseLayout';
+import MainModal from './components/MainModal';
 import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -13,7 +14,6 @@ import ArticleListPage from './pages/ArticleListPage';
 import ArticleDetailsPage from './pages/ArticleDetailsPage';
 import MissingListPage from './pages/MissingListPage';
 import MissingDetailsPage from './pages/MissingDetailsPage';
-import MainModal from './components/MainModal';
 import ComponentMuseum from './pages/ComponentMuseum';
 
 const mallangPlace = createRoot(document.getElementById('root'));

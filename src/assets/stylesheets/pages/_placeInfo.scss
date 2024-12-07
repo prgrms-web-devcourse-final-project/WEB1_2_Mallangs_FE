@@ -1,0 +1,40 @@
+/* _placeInfo.scss */
+
+/* (공통) 댓글 입력기 */
+
+#reply-input-container {
+    position: sticky;
+    inset-block-end: 0;
+    background-color: rgb(var(--clr-white));
+}
+
+/* 시설 / 업체 소개 */
+
+.place-info-main-text {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.8rem;
+
+    > .remix {
+        flex-shrink: 0;
+        opacity: 0.5;
+
+        &:first-child {
+            align-self: flex-start;
+        }
+
+        &:last-child {
+            align-self: flex-end;
+        }
+    }
+
+    > p {
+        text-align: center;
+        line-height: 1.4;
+    }
+}
+
+/* _placeInfo.scss */

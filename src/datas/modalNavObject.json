@@ -129,6 +129,18 @@
                 ]
             },
             {
+                "label": "목격 제보",
+                "value": "missing-report",
+                "count": null,
+                "slaveNavigations": [
+                    {
+                        "label": "목격 제보 제공",
+                        "value": "missing-sighting-report",
+                        "count": null
+                    }
+                ]
+            },
+            {
                 "label": "댓글",
                 "value": "reply",
                 "count": 0,
