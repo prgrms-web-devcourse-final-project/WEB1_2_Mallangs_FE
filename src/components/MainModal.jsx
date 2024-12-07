@@ -96,8 +96,8 @@ const MainModal = ({ routeName }) => {
 
         // 글타래 작성 라우트 매치
         'write-places': <>악</>,
-        'write-missing': <>실종신고</>,
-        'write-rescue': <>구조요청</>,
+        'write-missing': <ThreadMissingReport></ThreadMissingReport>,
+        'write-rescue': <ThreadRescue></ThreadRescue>,
         'write-etcetera': <>글타래 작성 - 이스터에그</>,
     };
 
