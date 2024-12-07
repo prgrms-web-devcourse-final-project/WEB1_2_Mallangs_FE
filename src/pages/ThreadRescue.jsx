@@ -52,10 +52,16 @@ const ThreadRescue = () => {
         }
 
         const formData = {
-            address: `${address.region} ${address.building}`,
-            dateTime,
-            type: selectedType,
-            situation,
+            articleStatus: 'HIDDEN', // 필요한 상태값
+            title: '서울에서 구조가 필요한 고양이', // 제목
+            latitude: `${latestLocation.lat}`, // 위도
+            longitude: `${latestLocation.lng}`, // 경도
+            description: situation, // 상황 설명
+            image: 'tempimage', // 이미지 URL
+            petType: selectedType, // 선택된 동물 종류
+            rescueStatus: 'UNSOLVED', // 구조 상태
+            rescueLocation: `${address.region} ${address.building}`, // 구조 위치
+            rescueDate: dateTime, // 구조 날짜/시간대
         };
 
         console.log('폼 데이터:', formData);
