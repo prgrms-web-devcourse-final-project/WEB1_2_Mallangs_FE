@@ -4,11 +4,14 @@ const StarRating = ({
     starSize = 0.8,
     currentPoint = 0,
     isClickable = true,
+    onSendPoint,
 }) => {
     const [selectedStar, setSelectedStar] = useState(currentPoint);
 
     const handleStarClick = (point) => {
         isClickable && setSelectedStar(point);
+
+        onSendPoint(point);
     };
 
     return (
@@ -22,7 +25,9 @@ const StarRating = ({
                             className={`star-point-item ${item <= selectedStar ? 'on' : ''}`}
                             style={{ '--star-size': starSize + 'rem' }}
                             key={index}
-                            onClick={() => handleStarClick(item)}
+                            onClick={() => {
+                                handleStarClick(item);
+                            }}
                         >
                             <svg
                                 width="32"

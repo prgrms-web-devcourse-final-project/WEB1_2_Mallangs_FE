@@ -86,7 +86,7 @@
             "id": 0,
             "threadType": "places",
             "threadTitle": "글타래 제목",
-            "threadCoverImage": "https://www.naver.com",
+            "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
                 "isExpiring": true,
                 "begin": "2024-01-01",
@@ -121,7 +121,7 @@
             "threadImages": [
                 {
                     "imageID": 0,
-                    "imageURL": "https://www.naver.com",
+                    "imageURL": "https://picsum.photos/640/480",
                     "originName": "image",
                     "originFileType": "jpg",
                     "imageWidth": 640,
@@ -198,7 +198,7 @@
             "reviewImages": [
                 {
                     "imageID": 1,
-                    "imageURL": "https://www.naver.com",
+                    "imageURL": "https://picsum.photos/640/480",
                     "originName": "image",
                     "originFileType": "jpg",
                     "imageWidth": 640,
@@ -207,7 +207,7 @@
                 },
                 {
                     "imageID": 2,
-                    "imageURL": "https://www.naver.com",
+                    "imageURL": "https://picsum.photos/640/480",
                     "originName": "image",
                     "originFileType": "jpg",
                     "imageWidth": 640,

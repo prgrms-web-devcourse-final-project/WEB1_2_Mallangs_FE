@@ -1,6 +1,8 @@
+import { useQuery } from '@tanstack/react-query';
 import Remix from '../common/Remix';
 import EmptyList from '../common/EmptyList';
 import dateFormat from '../../utils/dateFormat';
+import { getThreadList } from '../../api/threadApi';
 import tempTown from '../../datas/temp-area-information.json'; // 임시 지역 데이터
 
 const AreaThreadArticle = ({ articleObject }) => {
@@ -8,9 +10,9 @@ const AreaThreadArticle = ({ articleObject }) => {
     return (
         <li className="area-thread-item">
             <div className="area-thread-item-image-wrapper">
-                {articleObject.images ? (
+                {articleObject.threadImages.length > 0 ? (
                     <img
-                        src={articleObject.previewImage}
+                        src={articleObject.threadImages[0].imageSrc}
                         alt="글타래 이미지 미리보기"
                     />
                 ) : (
@@ -20,12 +22,17 @@ const AreaThreadArticle = ({ articleObject }) => {
 
             <dl className="area-thread-item-descriptions">
                 <dt className="area-thread-item-title">
-                    {articleObject.title}
+                    {articleObject.threadTitle}
                 </dt>
 
                 <dd className="area-thread-item-daterange">
-                    <span>{dateFormat(articleObject.dateBegin)}</span>~
-                    <span>{dateFormat(articleObject.dateEnds)}</span>
+                    <span>
+                        {dateFormat(articleObject.threadAliveRange.begin)}
+                    </span>
+                    ~
+                    <span>
+                        {dateFormat(articleObject.threadAliveRange.ends)}
+                    </span>
                 </dd>
             </dl>
         </li>
@@ -40,6 +47,11 @@ const AreaInfoPanel = ({ isAreaInfoShowing, setPanel, currentLocation }) => {
         let B = Math.floor(Math.random() * 205 + 50);
         return `${R} ${G} ${B}`;
     };
+
+    const { isPending, error, data } = useQuery({
+        queryKey: ['repoData'],
+        queryFn: () => getThreadList(),
+    });
 
     return (
         <>
@@ -129,8 +141,10 @@ const AreaInfoPanel = ({ isAreaInfoShowing, setPanel, currentLocation }) => {
                 </div>
 
                 <ul className="area-threads-list">
-                    {tempTown.currentThreads.length > 0 ? (
-                        tempTown.currentThreads.map((item, index) => {
+                    {isPending ? (
+                        <>로딩중...</>
+                    ) : data ? (
+                        data.map((item, index) => {
                             return (
                                 <AreaThreadArticle
                                     articleObject={item}

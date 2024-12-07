@@ -1,0 +1,153 @@
+/* _missingReport.scss */
+
+#missing-map {
+    height: 12.8rem;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-lg);
+}
+
+#button-goto-sighting-report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    height: 3.2rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-theme));
+    font-size: var(--fnt-lg);
+    font-weight: 700;
+
+    &:hover {
+        background-color: rgb(var(--clr-if-40));
+    }
+}
+
+.missing-basic-info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
+}
+
+.missing-basic-info-block {
+    padding: 0.8rem;
+    border-radius: var(--rad-lg);
+    background-color: rgb(var(--clr-tint-100) / 0.05);
+}
+
+.missing-info-block-title {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+
+    > .remix {
+        opacity: 0.5;
+    }
+}
+
+.missing-info-block-description {
+    margin-block-start: 0.4rem;
+    font-weight: 900;
+
+    > h6 {
+        line-height: 1.2;
+    }
+}
+
+.sighting-map-container {
+    position: relative;
+}
+
+#sighting-map {
+    height: 12.8rem;
+}
+
+.sighting-map-controls {
+    display: flex;
+    gap: 0.4rem;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    padding-inline: 0.8rem;
+    height: 0;
+    color: rgb(var(--clr-text-on-tint));
+    z-index: 2;
+
+    &::before {
+        position: absolute;
+        inset: 0;
+        height: 3.6rem;
+        background-image: linear-gradient(
+            to bottom,
+            rgb(var(--clr-text) / 0.5),
+            transparent
+        );
+        pointer-events: none;
+        z-index: -1;
+        content: '';
+    }
+}
+
+#button-go-back-to-thread {
+    display: grid;
+    place-items: center;
+    margin-block: 0.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: var(--rad-full);
+    background-color: rgb(var(--clr-text) / 0.75);
+
+    & + p {
+        display: flex;
+        align-items: center;
+        margin-block: 0.8rem;
+        height: 1.6rem;
+        font-size: var(--fnt-sm);
+        font-weight: 700;
+        text-shadow: 0 0.1rem 0.1rem rgb(var(--clr-text) / 0.5);
+    }
+}
+
+.sighting-marker {
+    display: grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: var(--rad-full);
+    border-bottom-left-radius: var(--rad-sm);
+    background-color: rgb(var(--clr-alert));
+    color: rgb(var(--clr-text-on-tint));
+    rotate: -45deg;
+
+    > .remix {
+        rotate: 45deg;
+    }
+}
+
+.sighting-instruction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.8rem;
+    background-color: rgb(var(--clr-background));
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+
+    > .remix {
+        color: rgb(var(--clr-notify));
+    }
+}
+
+#input-sighting-description {
+    min-height: 4.8rem;
+    resize: vertical;
+}
+
+#button-send-sighting-report {
+    justify-content: center;
+    height: 2.4rem;
+}
+
+/* _missingReport.scss */

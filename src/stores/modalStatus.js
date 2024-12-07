@@ -32,11 +32,12 @@ export const useModalStore = create((set) => ({
         },
     },
     toggleModal: (setValue) => set({ isModalShowing: setValue }),
-    setModalType: (setValue) =>
+    setModalType: (setValue, isEditMode) =>
         set((state) => ({
             // 모달 호출시 setValue 매개변수를 통해 모달 출력 형태를 변경한다. (상단의 threadType 참조)
             modalStatus: {
                 ...state.modalStatus,
+                editMode: isEditMode,
                 threadType: setValue,
                 modalData: {
                     ...state.modalStatus.modalData,
