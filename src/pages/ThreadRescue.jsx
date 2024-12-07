@@ -66,10 +66,15 @@ const ThreadRescue = () => {
 
         console.log('폼 데이터:', formData);
 
+        // const authToken = localStorage.getItem('authToken'); // 토큰 가져오기
+
+        const authToken =
+            'eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJyb2xlIjoiUk9MRV9VU0VSIiwibmlja25hbWUiOiLsoJXtlbTrn4kiLCJjYXRlZ29yeSI6IkFDQ0VTU19UT0tFTiIsInVzZXJJZCI6ImpocjEyMzQ1IiwiZW1haWwiOiIxMjMzMzNAbmF2ZXIuY29tIiwibWVtYmVySWQiOjc3LCJpYXQiOjE3MzM1NjgzNTIsImV4cCI6MTczMzU3MDE1Mn0.-9f_VUM25-S-N8hfeoYEIM77YVihm9RdKE9lLq4eSis';
         try {
             const response = await axios.post('/api/v1/articles', formData, {
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${authToken}`,
                 },
             });
 
