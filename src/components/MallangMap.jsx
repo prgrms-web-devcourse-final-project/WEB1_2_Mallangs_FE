@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useModalStore } from '../stores/modalStatus';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 import Remix from './common/Remix';
 import ToolTip from './common/ToolTip';
@@ -31,6 +32,10 @@ const MallangMap = () => {
 
         return currentLocation;
     };
+
+    const toggleModal = useModalStore((state) => state.toggleModal);
+    const setModalType = useModalStore((state) => state.setModalType);
+    const setModalData = useModalStore((state) => state.setModalData);
 
     const handleMapDrag = (map) => {
         // 지도 드래그로 중심점 이동시 핸들러
@@ -160,7 +165,20 @@ const MallangMap = () => {
                                                 '이 위치에 글타래 작성하기',
                                             )
                                         }
-                                        onClick={() => console.log(333)}
+                                        onClick={() => {
+                                            toggleModal(true); // 모달 열기
+                                            setModalType('writeMode'); // 모달의 navigation 상태
+                                            setModalData({
+                                                // 모달 기본 정보 - 이후 설정 가능값 추가 예정
+                                                latitude: 0.0, // 모달이 가지고 있는 위도
+                                                longitude: 0.0, // 모달이 가지고 있는 경도
+                                                threadTitle: '말랑이 구조 요청', // 모달 제목
+                                                mainCategory: '',
+                                                subCategory1: '',
+                                                subCategory2: '',
+                                                subCategory3: '',
+                                            });
+                                        }}
                                     >
                                         <div>
                                             <Remix

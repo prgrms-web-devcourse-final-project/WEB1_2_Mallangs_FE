@@ -1,19 +1,30 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
-import Remix from '../components/common/Remix';
 import CompleteButton from '../components/common/CompleteButton';
 import AsteriskTextGuide from '../components/common/AsteriskTextGuide';
 import InputAddress from '../components/common/InputAddress';
 import TypeSelector from '../components/common/TypeSelector';
+import DateTime from '../components/common/DateTime';
+import DiscoverySituation from '../components/common/DiscoverySituation';
+import getLatestLocation from '../utils/getLatestLocation';
 
 const ThreadRescue = () => {
-    const [isSelectedType, setIsSelectedType] = useState('');
-
-    const handleTypeSelect = (typeId) => {
-        setIsSelectedType(typeId);
-    };
+    // 유효성 검사
+    // const [isLoggedIn, setIsLoggedIn] = useState(true); // 로그인 상태
+    const latestLocation = getLatestLocation();
+    const [selectedType, setSelectedType] = useState('');
+    const [address, setAddress] = useState({
+        region: `${latestLocation.lat}, ${latestLocation.lng}`,
+        building: '',
+        // latitude: latestLocation.lat,
+        // longitude: latestLocation.lng,
+    });
+    const [dateTime, setDateTime] = useState('');
+    const [situation, setSituation] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const mallangTypes = [
         { id: 'dog', label: '강아지' },
@@ -21,6 +32,75 @@ const ThreadRescue = () => {
         { id: 'bird', label: '새' },
         { id: 'etc', label: '기타' },
     ];
+
+    const handleTypeSelect = (typeId) => {
+        setSelectedType(typeId);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        // console.log('주소:', address);
+        // console.log('날짜/시간:', dateTime);
+        // console.log('동물 종류:', selectedType);
+        // console.log('상황 설명:', situation);
+
+        if (!address || !dateTime || !selectedType || !situation) {
+            // console.log('뭐 빠졌니?');
+            setErrorMessage('4가지 중 필수 항목 빠짐');
+            return;
+        }
+
+        const formData = {
+            articleStatus: 'HIDDEN', // 필요한 상태값
+            title: '서울에서 구조가 필요한 고양이', // 제목
+            latitude: `${latestLocation.lat}`, // 위도
+            longitude: `${latestLocation.lng}`, // 경도
+            description: situation, // 상황 설명
+            image: 'tempimage', // 이미지 URL
+            petType: selectedType, // 선택된 동물 종류
+            rescueStatus: 'UNSOLVED', // 구조 상태
+            rescueLocation: `${address.region} ${address.building}`, // 구조 위치
+            rescueDate: dateTime, // 구조 날짜/시간대
+        };
+
+        console.log('폼 데이터:', formData);
+
+        // const authToken = localStorage.getItem('authToken'); // 토큰 가져오기
+
+        const authToken =
+            'eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJyb2xlIjoiUk9MRV9VU0VSIiwibmlja25hbWUiOiLsoJXtlbTrn4kiLCJjYXRlZ29yeSI6IkFDQ0VTU19UT0tFTiIsInVzZXJJZCI6ImpocjEyMzQ1IiwiZW1haWwiOiIxMjMzMzNAbmF2ZXIuY29tIiwibWVtYmVySWQiOjc3LCJpYXQiOjE3MzM1NjgzNTIsImV4cCI6MTczMzU3MDE1Mn0.-9f_VUM25-S-N8hfeoYEIM77YVihm9RdKE9lLq4eSis';
+        try {
+            const response = await axios.post('/api/v1/articles', formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${authToken}`,
+                },
+            });
+
+            console.log('응답 성공띠 : ', response.data);
+
+            setErrorMessage('');
+        } catch (error) {
+            // console.error('에러가 무엇잉교:', error);
+            if (error.response) {
+                // 응답 있을때
+                console.error('서버 응답 에러:', error.response.data);
+                setErrorMessage(
+                    error.response.data.message ||
+                        '데이터 전송 중 문제가 발생했습니다.',
+                );
+            } else if (error.request) {
+                // 요청했는디 응답 없을때
+                console.error('응답 없음:', error.request);
+                setErrorMessage('요청을 보냈는데 응답이 없습니다!');
+            } else {
+                console.error('요청 설정 에러:', error.message);
+                setErrorMessage('요청을 보내는 중 문제가 발생했습니다.');
+            }
+        }
+    };
+
     return (
         <div className="thread-rescue">
             <div className="instruction">
@@ -36,43 +116,41 @@ const ThreadRescue = () => {
             <div className="title-bar">
                 <ModalSectionTitle sectionTitle="동물 구조 요청 정보 입력" />
             </div>
+            <form
+                onSubmit={(e) => {
+                    handleSubmit(e);
+                }}
+            >
+                <div className="form-animal-rescue">
+                    <AsteriskTextGuide />
+                    <span className="section-title">
+                        주소는 지도에서 선택한 지점에 따라 자동으로 입력됩니다.
+                    </span>
+                    {/* 주소 */}
+                    <InputAddress value={address} onChange={setAddress} />
 
-            <div className="form-animal-rescue">
-                <AsteriskTextGuide />
-                <span className="section-title">
-                    주소는 지도에서 선택한 지점에 따라 자동으로 입력됩니다.
-                </span>
-                {/* 주소 */}
-                <InputAddress />
+                    <span className="section-title">발견일자 / 시간대</span>
 
-                <span className="section-title">발견일자 / 시간대</span>
-                <div className="date-time-container">
-                    <input
-                        className="date-time-input"
-                        placeholder="2024-01-01  18:35:11"
-                    ></input>
-                    <Remix iconName={'calendar-event-line'} />
+                    <DateTime value={dateTime} onChange={setDateTime} />
+
+                    <span className="section-title">구조 요청 동물 종류</span>
+
+                    <TypeSelector
+                        types={mallangTypes}
+                        onTypeSelect={handleTypeSelect}
+                        selectedType={selectedType} // 부모에서 관리하는 selectedType 전달
+                    />
+
+                    {/* 상황 설명 */}
+                    <DiscoverySituation
+                        value={situation}
+                        onChange={setSituation}
+                    />
                 </div>
-
-                <span className="section-title">구조 요청 동물 종류</span>
-
-                <TypeSelector
-                    types={mallangTypes}
-                    onTypeSelect={handleTypeSelect}
-                    defaultSelectedType="dog"
-                />
-
-                {/* <span className="section-title">긴급 연락망</span>
-                <div className="emergency-contact">
-                    <input
-                        className="emergency-contact-input"
-                        placeholder="긴급한 상황의 경우 가까운 동물병원이나 구조단체에 먼저 연락해주세요."
-                    ></input>
-                </div> */}
-            </div>
-            <div className="button-content">
-                <CompleteButton />
-            </div>
+                <div className="button-content">
+                    <CompleteButton type="submit" />
+                </div>
+            </form>
         </div>
     );
 };
