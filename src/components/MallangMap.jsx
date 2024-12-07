@@ -22,7 +22,7 @@ const MallangMap = () => {
     const handleCategoryChange = (data) => {
         setCategory(data);
 
-        console.log('현재 선택한 대분류:', currentCategory);
+        console.log('현재 선택한 대분류:', data);
     };
 
     const convertLocation = () => {

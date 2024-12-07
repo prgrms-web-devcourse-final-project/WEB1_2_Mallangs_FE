@@ -67,17 +67,11 @@ const MainModal = ({ routeName }) => {
         const setModalData = useModalStore((state) => state.setModalData);
 
         onClick={() =>
-            {toggleModal(true); // 모달 열기
-            setModalType('profile'); // 모달의 navigation 상태
-            setModalData({ // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                latitude: 0.0, // 모달이 가지고 있는 위도
-                longitude: 0.0, // 모달이 가지고 있는 경도
-                threadTitle: tempPet.userName, // 모달 제목
-                mainCategory: tempPet.petType,
-                subCategory1: tempPet.petAge + '세',
-                subCategory2: tempPet.petGender,
-                subCategory3: null,
-            });}
+            {
+                toggleModal(true); // 모달 열기
+                setModalType('profile'); // 모달의 navigation 상태
+                setModalData({ ... }); // 모달 데이터 셋팅 - 컴포넌트 박물관 참조
+            }
         }
      *
      * 컴포넌트 박물관 페이지에서 데모를 볼 수 있다.
@@ -118,20 +112,18 @@ const MainModal = ({ routeName }) => {
         'rescue-disclaimer': <RescueDisclaimer />,
         'rescue-reply-list': <ReplyList />,
 
-        // 이스터에그 (?)
-        'etcetera-info': <>글타래 - 이스터에그</>,
-
         // 글타래 작성 라우트 매치
         'write-places': <>악</>,
         'write-missing': <ThreadMissingReport></ThreadMissingReport>,
         'write-rescue': <ThreadRescue></ThreadRescue>,
-        'write-etcetera': <>글타래 작성 - 이스터에그</>,
     };
 
     return (
         <div id="main-modal-backdrop">
             <aside id="main-modal">
-                <MainModalCover />
+                <MainModalCover
+                    isPlaceEdit={currentRoute.value === 'write-places'}
+                />
 
                 <section id="main-modal-body" className={modalData.threadType}>
                     <div id="main-modal-sidebar">

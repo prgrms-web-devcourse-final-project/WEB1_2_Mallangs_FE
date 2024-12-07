@@ -4,7 +4,7 @@ import DropdownSelector from './DropdownSelector';
 import SignatureImage from './SignatureImage';
 import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
-const MainModalCover = () => {
+const MainModalCover = ({ isPlaceEdit = null }) => {
     const modalStatus = useModalStore((state) => state.modalStatus);
     const modalData = useModalStore((state) => state.modalData);
     const toggleModal = useModalStore((state) => state.toggleModal);
@@ -75,6 +75,9 @@ const MainModalCover = () => {
 
             {modalData.threadType === 'profile' && <SignatureImage />}
             {modalData.threadType === 'places' && <SignatureImage />}
+            {modalData.threadType === 'writeMode' && isPlaceEdit && (
+                <SignatureImage />
+            )}
 
             <div className="cover-descriptions-container">
                 <dl className="cover-descriptions">

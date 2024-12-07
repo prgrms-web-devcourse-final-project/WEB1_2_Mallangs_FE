@@ -208,11 +208,6 @@
                         "label": "구조요청",
                         "value": "write-rescue",
                         "count": null
-                    },
-                    {
-                        "label": "이스터에그 (?)",
-                        "value": "write-etcetera",
-                        "count": null
                     }
                 ]
             }

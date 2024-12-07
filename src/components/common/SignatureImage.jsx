@@ -4,11 +4,13 @@ import Remix from './Remix';
 import tempDB from '../../datas/temp-db.json';
 
 const SignatureImage = () => {
-    const modalStatus = useModalStore((state) => state.modalStatus);
-    const modalData = useModalStore((state) => state.modalData);
+    const { modalStatus, modalData } = useModalStore((state) => state);
 
     const [selectorStatus, toggleSelector] = useState(false);
-    const [currentMainCategory, setMainCategory] = useState(null);
+    const [currentMainCategory, setMainCategory] = useState({
+        label: '주 분류 선택',
+        value: null,
+    });
 
     const mainCategoryList = [
         { label: '동물병원', value: 'hospital' },
@@ -29,7 +31,8 @@ const SignatureImage = () => {
     };
 
     const handleCategorySelect = (categoryObject) => {
-        setMainCategory();
+        setMainCategory(categoryObject);
+        toggleSelector(false);
 
         console.log(categoryObject.value);
     };
@@ -39,16 +42,24 @@ const SignatureImage = () => {
             <div id="main-modal-signature-image">
                 <div className="signature-image-wrapper">
                     {currentUser.userImage &&
-                    modalData.threadType === 'profile' ? (
+                    modalData.threadType === 'profile' ? ( // 글타래 작성자가 존재하고 타입이 프로필일 때
                         <img
                             className="signature-image"
                             src={currentUser.userImage}
                             alt="시그니처 이미지"
                         />
-                    ) : null}
+                    ) : (
+                        currentMainCategory.value !== null && (
+                            <img
+                                className="signature-image category"
+                                src={`/images/${currentMainCategory.value}.png`}
+                                alt={currentMainCategory.label}
+                            />
+                        )
+                    )}
 
                     {modalStatus.isEditMode &&
-                    modalData.threadType === 'profile' ? (
+                    modalData.threadType === 'profile' ? ( // 작성 / 수정 모드이며 타입이 프로필일 때
                         <button
                             type="button"
                             className="signature-image-controls"
@@ -59,7 +70,7 @@ const SignatureImage = () => {
                             <p>이미지 변경</p>
                         </button>
                     ) : modalStatus.isEditMode &&
-                      modalData.threadType === 'places' ? (
+                      modalData.threadType === 'writeMode' ? ( // 작성 / 수정 모드이며 타입이 글타래일 때
                         <button
                             type="button"
                             className="signature-image-controls"
@@ -67,27 +78,31 @@ const SignatureImage = () => {
                         >
                             <Remix iconName={'add-line'} iconSize={1.8} />
 
-                            <p>{currentMainCategory ?? '주 분류 선택'}</p>
+                            <p>{currentMainCategory.label ?? '주 분류 선택'}</p>
                         </button>
                     ) : null}
                 </div>
 
-                <button
-                    type="button"
-                    className={`button-signature-information ${modalData.threadType === 'places' && 'information'}`}
-                    title={
-                        modalData.threadType === 'places' ? '장소 정보' : '설정'
-                    }
-                >
-                    <Remix
-                        iconName={
+                {modalStatus.isThisMine && (
+                    <button
+                        type="button"
+                        className={`button-signature-information ${modalData.threadType === 'places' && 'information'}`}
+                        title={
                             modalData.threadType === 'places'
-                                ? 'information-2-fill'
-                                : 'settings-3-fill'
+                                ? '장소 정보'
+                                : '설정'
                         }
-                        iconSize={1.2}
-                    />
-                </button>
+                    >
+                        <Remix
+                            iconName={
+                                modalData.threadType === 'places'
+                                    ? 'information-2-fill'
+                                    : 'settings-3-fill'
+                            }
+                            iconSize={1.2}
+                        />
+                    </button>
+                )}
             </div>
 
             {selectorStatus && (
