@@ -12,7 +12,7 @@ const PlaceReviewWrtie = () => {
 
             <div>
                 <ModalFormInput
-                    isIncludeRating="true"
+                    isIncludeRating={true}
                     placeHolder="이 장소에 대한 여러분의 경험을 작성해 주세요."
                     maxLength={500}
                     onSendContent={handleWriteReview}

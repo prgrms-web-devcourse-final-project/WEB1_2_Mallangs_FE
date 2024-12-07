@@ -149,6 +149,25 @@
     padding: 0.8rem;
 }
 
+.user-common-labeled-input {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.4rem;
+}
+
+.common-input-labels {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: var(--fnt-sm);
+    font-weight: 200;
+
+    > .remix {
+        opacity: 0.5;
+    }
+}
+
 /* 모달 외부에서 사용할 확률이 적은 컴포넌트들 */
 
 /* 모달 섹션 타이틀 */

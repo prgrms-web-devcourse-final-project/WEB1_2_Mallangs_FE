@@ -74,7 +74,7 @@ const ComponentMuseum = () => {
                 <button
                     onClick={() => {
                         toggleModal(true); // 모달 열기
-                        setModalType('places', true); // 모달의 navigation 상태
+                        setModalType('places'); // 모달의 navigation 상태
                         setModalData({
                             // 모달 기본 정보 - 이후 설정 가능값 추가 예정
                             latitude: 0.0, // 모달이 가지고 있는 위도
@@ -93,7 +93,7 @@ const ComponentMuseum = () => {
                 <button
                     onClick={() => {
                         toggleModal(true); // 모달 열기
-                        setModalType('writeMode'); // 모달의 navigation 상태
+                        setModalType('writeMode', true); // 모달의 navigation 상태
                         setModalData({
                             // 모달 기본 정보 - 이후 설정 가능값 추가 예정
                             latitude: 0.0, // 모달이 가지고 있는 위도

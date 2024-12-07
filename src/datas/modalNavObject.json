@@ -135,7 +135,7 @@
                 "slaveNavigations": [
                     {
                         "label": "목격 제보 제공",
-                        "value": "missing-report-provide",
+                        "value": "missing-sighting-report",
                         "count": null
                     }
                 ]

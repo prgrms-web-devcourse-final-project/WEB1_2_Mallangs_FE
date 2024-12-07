@@ -14,13 +14,23 @@ import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
 
-// ↓ 글타래 보기 컴포넌트
+// ↓ 글타래 보기 컴포넌트 / 공통
+
+import ReplyList from '../pages/ReplyList';
+
+// ↓ 글타래 보기 컴포넌트 / 장소 정보
 
 import PlaceInfo from '../pages/PlaceInfo';
 import PlaceMisinfoReport from '../pages/PlaceMisinfoReport';
 import PlaceReviewList from '../pages/PlaceReviewList';
 import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
-import ReplyList from '../pages/ReplyList';
+
+// ↓ 글타래 보기 컴포넌트 / 실종신고
+
+import MissingInfo from '../pages/MissingInfo';
+import MissingSightingReport from '../pages/MissingSightingReport';
+
+// ↓ 글타래 보기 컴포넌트 / 구조요청
 
 // ↓ 글타래 작성 컴포넌트
 
@@ -93,14 +103,14 @@ const MainModal = ({ routeName }) => {
         'place-reply-list': <ReplyList />,
 
         // 실종신고 글타래 라우트 매치
-        'missing-info': <>상세 내용 보기</>,
-        'missing-reply-list': <>댓글</>,
-        'missing-report-provide': <>목격 제보</>,
+        'missing-info': <MissingInfo />,
+        'missing-reply-list': <ReplyList />,
+        'missing-sighting-report': <MissingSightingReport />,
 
         // 구조요청 글타래 라우트 매치
         'rescue-info': <>상세 내용 보기</>,
         'rescue-disclaimer': <>구조 유의사항 안내</>,
-        'rescue-reply-list': <>댓글</>,
+        'rescue-reply-list': <ReplyList />,
 
         // 이스터에그 (?)
         'etcetera-info': <>글타래 - 이스터에그</>,
@@ -113,12 +123,7 @@ const MainModal = ({ routeName }) => {
     };
 
     return (
-        <div
-            id="main-modal-backdrop"
-            onClick={(e) => {
-                if (e.target.id === 'main-modal-backdrop') toggleModal(false);
-            }}
-        >
+        <div id="main-modal-backdrop">
             <aside id="main-modal">
                 <MainModalCover />
 

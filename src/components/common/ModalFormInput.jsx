@@ -25,7 +25,7 @@ const ModalFormInput = ({
             return;
         }
 
-        if (starPoint === 0) {
+        if (isIncludeRating && starPoint === 0) {
             console.log('별점을 선택하지 않았을 때 보여주는 텍스트');
 
             return;
@@ -34,11 +34,11 @@ const ModalFormInput = ({
         onSendContent({ formText, uploadImage, starPoint });
 
         inputElement.current.value = '';
-        imageElement.current.value = '';
+        if (isIncludeImage) imageElement.current.value = '';
 
         setText('');
-        setImage(null);
-        setStarPoint(0);
+        if (isIncludeImage) setImage(null);
+        if (isIncludeRating) setStarPoint(0);
     };
 
     return (
@@ -91,7 +91,7 @@ const ModalFormInput = ({
             ></textarea>
 
             <div className="modal-form-controls">
-                {isHorizontal ?? (
+                {isHorizontal ? null : (
                     <p
                         className={
                             formText.length >= maxLength ? 'overflow' : ''
