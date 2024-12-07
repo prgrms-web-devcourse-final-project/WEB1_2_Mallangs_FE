@@ -1,0 +1,22 @@
+.datetime {
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        height: 1.6rem;
+        border: 1px solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+        padding: 0 0.4rem;
+
+        &-input {
+            color: rgb(var(--clr-text));
+            font-size: var(--fnt-md);
+            opacity: 0.5;
+        }
+    }
+
+    #datetime-error-message {
+        margin-top: 0.2rem;
+        font-size: var(--fnt-xs);
+        color: rgb(var(--clr-alert));
+    }
+}

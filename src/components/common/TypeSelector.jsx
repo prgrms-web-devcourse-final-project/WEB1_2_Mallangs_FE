@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const MallangTypeSelector = ({ types, onTypeSelect, defaultSelectedType }) => {
-    const [isSelectedType, setIsSelectedType] = useState(
-        defaultSelectedType || '',
-    );
+const MallangTypeSelector = ({ types, onTypeSelect, selectedType }) => {
+    const [isSelectedType, setIsSelectedType] = useState(selectedType);
+
+    useEffect(() => {
+        setIsSelectedType(selectedType);
+    }, [selectedType]);
 
     const handleTypeSelect = (typeId) => {
         setIsSelectedType(typeId);

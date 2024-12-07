@@ -13,6 +13,8 @@ import UserReplies from '../pages/UserReplies';
 import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
+import ThreadMissingReport from '../pages/ThreadMissingReport';
+import ThreadRescue from '../pages/ThreadRescue';
 
 // ↓ 글타래 보기 컴포넌트 / 공통
 
@@ -116,9 +118,9 @@ const MainModal = ({ routeName }) => {
         'etcetera-info': <>글타래 - 이스터에그</>,
 
         // 글타래 작성 라우트 매치
-        'write-places': <>글타래 작성 - 장소</>,
-        'write-missing': <>실종신고</>,
-        'write-rescue': <>구조요청</>,
+        'write-places': <>악</>,
+        'write-missing': <ThreadMissingReport></ThreadMissingReport>,
+        'write-rescue': <ThreadRescue></ThreadRescue>,
         'write-etcetera': <>글타래 작성 - 이스터에그</>,
     };
 
