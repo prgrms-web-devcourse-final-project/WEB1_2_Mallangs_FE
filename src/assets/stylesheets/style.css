@@ -1711,6 +1711,25 @@ a:has(#logo-primary) {
 }
 
 /* _missingReport.scss */
+/* _rescueInfo.scss */
+.rescue-disclaimer-block {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.4rem;
+}
+.rescue-disclaimer-block h6 {
+  font-size: var(--fnt-xl);
+  font-weight: 700;
+}
+.rescue-disclaimer-block p {
+  font-weight: 200;
+  line-height: 1.4;
+}
+.rescue-disclaimer-block p + p {
+  margin-block-start: 0.2rem;
+}
+
+/* _rescueInfo.scss */
 /* _buttons.scss */
 button {
   padding: 0;
@@ -3254,6 +3273,7 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
+  position: relative;
   width: 9rem;
 }
 
@@ -3339,6 +3359,31 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 .button-signature-information.information:hover {
   --info-button-surface: var(--clr-white);
   --info-button-text: var(--clr-info);
+}
+
+.signature-main-category-selector {
+  position: absolute;
+  inset-block-start: calc(100% + 0.4rem);
+  inset-inline-start: calc(50% + 1.2rem);
+  margin-block: auto;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: var(--rad-sm);
+  background-color: rgb(var(--clr-white));
+  outline: 1px solid rgb(var(--clr-text)/0.15);
+  box-shadow: var(--shd-100);
+  color: rgb(var(--clr-text));
+  font-size: var(--fnt-sm);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.signature-category-selector-option {
+  padding: 0.4rem 0.8rem;
+  cursor: url("/images/cursor.png") 8 8, auto;
+}
+.signature-category-selector-option:hover {
+  background-color: rgb(var(--clr-theme));
 }
 
 @container main-container (max-width: 720px) {
@@ -3673,15 +3718,31 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 
 /* 반응형 쿼리 */
 @container main-container (max-width: 720px) {
+  #main-modal:has(.cover-signature-image-container) #main-modal-side-menu {
+    margin-block-start: 0;
+  }
+  #main-modal-body {
+    flex-flow: column nowrap;
+  }
   #main-modal-sidebar {
-    width: 3.6rem;
+    width: 100%;
+    background-color: rgb(var(--clr-background));
+  }
+  #main-modal-side-menu {
+    display: flex;
+    padding-block: 0;
+  }
+  .side-menu-item {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.2rem;
+    padding-inline: 0.4rem;
+  }
+  .side-menu-item > .remix {
+    opacity: 0.5;
   }
 }
-@container main-container (max-width: 640px) {
-  #main-modal-sidebar {
-    display: none;
-  }
-}
+@container main-container (max-width: 640px) {}
 /* _mainModal.scss */
 /* _mallangsItem.scss */
 .mallang-item {

@@ -1,0 +1,23 @@
+/* _rescueInfo.scss */
+
+.rescue-disclaimer-block {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.4rem;
+
+    h6 {
+        font-size: var(--fnt-xl);
+        font-weight: 700;
+    }
+
+    p {
+        font-weight: 200;
+        line-height: 1.4;
+
+        & + p {
+            margin-block-start: 0.2rem;
+        }
+    }
+}
+
+/* _rescueInfo.scss */

@@ -29,6 +29,8 @@ import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
 
 import MissingInfo from '../pages/MissingInfo';
 import MissingSightingReport from '../pages/MissingSightingReport';
+import RescueDisclaimer from '../pages/RescueDisclaimer';
+import RescueDetails from '../pages/RescueDetails';
 
 // ↓ 글타래 보기 컴포넌트 / 구조요청
 
@@ -108,8 +110,8 @@ const MainModal = ({ routeName }) => {
         'missing-sighting-report': <MissingSightingReport />,
 
         // 구조요청 글타래 라우트 매치
-        'rescue-info': <>상세 내용 보기</>,
-        'rescue-disclaimer': <>구조 유의사항 안내</>,
+        'rescue-info': <RescueDetails />,
+        'rescue-disclaimer': <RescueDisclaimer />,
         'rescue-reply-list': <ReplyList />,
 
         // 이스터에그 (?)

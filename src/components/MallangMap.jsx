@@ -1,13 +1,17 @@
 import { useState } from 'react';
-import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk';
+import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 import Remix from './common/Remix';
 import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
+import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
 const MallangMap = () => {
-    const [currentLocation, setLocation] = useState({ lat: 0, lng: 0 });
+    const [currentLocation, setLocation] = useState({
+        lat: 37.48796528597396,
+        lng: 126.98758475187806,
+    });
     const [currentCategory, setCategory] = useState('all');
     const [isMarkerOpen, setMarkerStatus] = useState(false);
     const [isAreaInfoShowing, setPanel] = useState(false);
@@ -170,6 +174,27 @@ const MallangMap = () => {
                         </div>
                     </CustomOverlayMap>
                 )}
+
+                {tempDB.threads.map((item, index) => {
+                    return (
+                        <MapMarker
+                            position={{
+                                lat: item.latitude,
+                                lng: item.longitude,
+                            }}
+                            image={{
+                                src: 'https://picsum.photos/64/64',
+                                size: {
+                                    width: 64,
+                                    height: 64,
+                                },
+                            }}
+                            title={item.threadTitle}
+                            key={index}
+                            onClick={() => console.log(item.threadType)}
+                        />
+                    );
+                })}
             </Map>
         </div>
     );

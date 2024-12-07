@@ -4,6 +4,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
+    position: relative;
     width: 9rem;
 }
 
@@ -97,6 +98,33 @@
             --info-button-surface: var(--clr-white);
             --info-button-text: var(--clr-info);
         }
+    }
+}
+
+.signature-main-category-selector {
+    position: absolute;
+    inset-block-start: calc(100% + 0.4rem);
+    inset-inline-start: calc(50% + 1.2rem);
+    margin-block: auto;
+    width: max-content;
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--clr-white));
+    outline: 1px solid rgb(var(--clr-text) / 0.15);
+    box-shadow: var(--shd-100);
+    color: rgb(var(--clr-text));
+    font-size: var(--fnt-sm);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.signature-category-selector-option {
+    padding: 0.4rem 0.8rem;
+    cursor:
+        url('/images/cursor.png') 8 8,
+        auto;
+
+    &:hover {
+        background-color: rgb(var(--clr-theme));
     }
 }
 

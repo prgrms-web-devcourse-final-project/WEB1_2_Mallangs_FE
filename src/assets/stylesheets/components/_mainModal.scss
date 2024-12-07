@@ -367,15 +367,47 @@
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 720px) {
+    #main-modal {
+        &:has(.cover-signature-image-container) {
+            #main-modal-side-menu {
+                margin-block-start: 0;
+            }
+        }
+    }
+
+    #main-modal-body {
+        flex-flow: column nowrap;
+    }
+
     #main-modal-sidebar {
-        width: 3.6rem;
+        width: 100%;
+        background-color: rgb(var(--clr-background));
+    }
+
+    #main-modal-side-menu {
+        display: flex;
+        padding-block: 0;
+    }
+
+    .side-menu-item {
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.2rem;
+        padding-inline: 0.4rem;
+
+        > .remix {
+            opacity: 0.5;
+        }
+    }
+
+    #main-modal-content-container {
     }
 }
 
 @container main-container (max-width: 640px) {
-    #main-modal-sidebar {
-        display: none;
-    }
+    // #main-modal-sidebar {
+    //     display: none;
+    // }
 }
 
 /* _mainModal.scss */

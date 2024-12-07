@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
-import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import Remix from '../components/common/Remix';
+import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import ModalInstruction from '../components/common/ModalInstruction';
 import dateFormat from '../utils/dateFormat';
 import hourFormat from '../utils/hourFormat';
