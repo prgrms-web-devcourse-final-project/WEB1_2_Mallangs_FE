@@ -45,8 +45,6 @@ const MainModal = ({ routeName }) => {
     const modalStatus = useModalStore((state) => state.modalStatus);
     const modalData = useModalStore((state) => state.modalData);
 
-    console.log('뜨는 데이터:', modalData);
-
     useEffect(() => {
         document.body.classList.add('prevent-scroll');
     }, []);

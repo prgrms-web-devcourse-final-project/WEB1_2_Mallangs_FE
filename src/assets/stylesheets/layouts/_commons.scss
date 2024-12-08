@@ -362,11 +362,18 @@ a:has(#logo-primary) {
     height: 12rem;
     background-color: pink;
     color: rgb(var(--clr-white));
+    overflow: hidden;
 
-    > h1 {
-        font-family: var(--ff-dingbat);
-        font-size: var(--fnt-title-lg);
-        text-align: center;
+    &::before {
+        display: block;
+        position: absolute;
+        inset-inline: -0.8rem;
+        inset-block-end: -1.2rem;
+        height: 2.4rem;
+        border-radius: 100%;
+        background-color: rgb(var(--clr-white));
+        z-index: 2;
+        content: '';
     }
 }
 

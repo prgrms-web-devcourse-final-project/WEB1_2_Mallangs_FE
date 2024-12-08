@@ -1,28 +1,29 @@
 import ArticleItem from '../components/common/ArticleItem';
+import ModalSectionTitle from '../components/common/ModalSectionTitle';
 
 const UserArticles = () => {
     return (
-        <>
-            <div className="user-common-item-list">
-                <ArticleItem />
+        <div>
+            <ModalSectionTitle sectionTitle="작성 게시물" />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
+            <ArticleItem />
 
-                <ArticleItem />
-            </div>
-        </>
+            <ArticleItem />
+
+            <ArticleItem />
+        </div>
     );
 };
 

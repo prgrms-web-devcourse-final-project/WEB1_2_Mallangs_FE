@@ -199,35 +199,35 @@ const MallangMap = () => {
 
                 {tempDB.threads.map((item, index) => {
                     return (
-                        <MapMarker
-                            position={{
-                                lat: item.latitude,
-                                lng: item.longitude,
-                            }}
-                            image={{
-                                src:
-                                    item.threadType === 'places'
-                                        ? markerImageAlpha
-                                        : item.threadType === 'missing'
-                                          ? markerImageBeta
-                                          : item.threadType === 'rescue'
-                                            ? markerImageGamma
-                                            : markerLogo,
-                                size: {
-                                    width: 64,
-                                    height: 64,
-                                },
-                            }}
-                            title={item.threadTitle}
-                            key={index}
-                            onClick={() => {
-                                setModalType(item.threadType);
-                                setTotalData(item);
-                                toggleModal(true);
-                            }}
-                        >
-                            <div>{item.threadTitle}</div>
-                        </MapMarker>
+                        <>
+                            <MapMarker
+                                position={{
+                                    lat: item.latitude,
+                                    lng: item.longitude,
+                                }}
+                                image={{
+                                    src:
+                                        item.threadType === 'places'
+                                            ? markerImageAlpha
+                                            : item.threadType === 'missing'
+                                              ? markerImageBeta
+                                              : item.threadType === 'rescue'
+                                                ? markerImageGamma
+                                                : markerLogo,
+                                    size: {
+                                        width: 48,
+                                        height: 48,
+                                    },
+                                }}
+                                title={item.threadTitle}
+                                key={index}
+                                onClick={() => {
+                                    setModalType(item.threadType);
+                                    setTotalData(item);
+                                    toggleModal(true);
+                                }}
+                            ></MapMarker>
+                        </>
                     );
                 })}
             </Map>

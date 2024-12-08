@@ -1,10 +1,76 @@
 /* _loginPage.scss */
 
+#login-service-name {
+    font-family: var(--ff-dingbat);
+    text-align: center;
+    text-shadow:
+        0 0 1.2rem rgb(var(--clr-point)),
+        0 0 0.4rem rgb(var(--clr-mid-tone));
+    z-index: 2;
+
+    > p {
+        font-size: var(--fnt-title-xs);
+    }
+
+    > h1 {
+        font-size: var(--fnt-title-xl);
+        font-weight: 700;
+    }
+}
+
+#login-logo-image {
+    position: absolute;
+    inset: 0;
+    margin-block-start: 5.4rem;
+    margin-inline: auto;
+    width: 12rem;
+    transform-origin: bottom;
+    user-select: none;
+    pointer-events: none;
+    animation: shake-paw alternate 3s ease-in-out forwards infinite;
+}
+
 #form-login {
     display: flex;
     flex-flow: column nowrap;
-    gap: 1.2rem;
+    gap: 0.8rem;
     padding: 1.2rem 0.8rem;
+
+    > input[type='text'],
+    > input[type='password'] {
+        height: 2.4rem;
+    }
+
+    > label {
+        width: fit-content;
+        height: 1.8rem;
+    }
+}
+
+.login-error-message {
+    padding: 0.6rem 0.4rem;
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--clr-alert) / 0.15);
+    color: rgb(var(--clr-alert));
+    font-size: var(--fnt-sm);
+    font-weight: 700;
+    text-align: center;
+}
+
+#button-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.4rem;
+    border-radius: var(--rad-sm);
+    background-color: rgb(var(--clr-theme));
+    font-size: var(--fnt-sm);
+    font-weight: 700;
+
+    &:hover {
+        background-color: rgb(var(--clr-if-40));
+    }
 }
 
 /* _loginPage.scss */

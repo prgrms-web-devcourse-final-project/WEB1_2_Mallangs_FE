@@ -112,4 +112,14 @@
     }
 }
 
+@keyframes shake-paw {
+    from {
+        rotate: -20deg;
+    }
+
+    to {
+        rotate: 20deg;
+    }
+}
+
 /* _keyframes.scss */

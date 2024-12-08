@@ -1,28 +1,29 @@
+import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import ReplyItem from '../components/common/ReplyItem';
 
 const UserReplies = () => {
     return (
-        <>
-            <div className="user-common-item-list">
-                <ReplyItem />
+        <div>
+            <ModalSectionTitle sectionTitle="작성 댓글" />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
+            <ReplyItem />
 
-                <ReplyItem />
-            </div>
-        </>
+            <ReplyItem />
+
+            <ReplyItem />
+        </div>
     );
 };
 
