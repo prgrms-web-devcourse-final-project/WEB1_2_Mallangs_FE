@@ -31,6 +31,7 @@ import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
 
 import MissingInfo from '../pages/MissingInfo';
 import MissingSightingReport from '../pages/MissingSightingReport';
+import ThreadPlace from '../pages/ThreadPlace';
 
 // ↓ 글타래 보기 컴포넌트 / 구조요청
 
@@ -118,7 +119,7 @@ const MainModal = ({ routeName }) => {
         'etcetera-info': <>글타래 - 이스터에그</>,
 
         // 글타래 작성 라우트 매치
-        'write-places': <>악</>,
+        'write-places': <ThreadPlace></ThreadPlace>,
         'write-missing': <ThreadMissingReport></ThreadMissingReport>,
         'write-rescue': <ThreadRescue></ThreadRescue>,
         'write-etcetera': <>글타래 작성 - 이스터에그</>,
