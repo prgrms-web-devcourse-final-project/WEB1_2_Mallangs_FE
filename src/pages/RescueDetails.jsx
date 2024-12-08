@@ -15,8 +15,6 @@ const RescueDetails = ({ threadID = 0 }) => {
         <>
             <div className="user-common-item-list">
                 <ImageGallery />
-
-                <div>이미지 슬라이더 들어갈 자리</div>
             </div>
 
             <ModalSectionTitle sectionTitle="요구조 동물 정보" />
@@ -44,6 +42,10 @@ const RescueDetails = ({ threadID = 0 }) => {
                     <span>/</span>
 
                     <span>{hourFormat(rescueInfo.foundAt)} 경</span>
+                </DataTableRow>
+
+                <DataTableRow tableHeader={'현재 상태'}>
+                    <span>{currentThread.threadStatus}</span>
                 </DataTableRow>
             </div>
         </>
