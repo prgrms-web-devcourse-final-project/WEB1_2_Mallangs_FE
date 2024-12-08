@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import ModalInstruction from '../components/common/ModalInstruction';
@@ -26,11 +26,15 @@ const ThreadRescue = () => {
     const [situation, setSituation] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    useEffect(() => {
+        console.log('dateTime 값:', dateTime);
+    }, [dateTime]);
+
     const mallangTypes = [
-        { id: 'dog', label: '강아지' },
-        { id: 'cat', label: '고양이' },
-        { id: 'bird', label: '새' },
-        { id: 'etc', label: '기타' },
+        { id: 'DOG', label: '강아지' },
+        { id: 'CAT', label: '고양이' },
+        { id: 'BIRD', label: '새' },
+        { id: 'ETC', label: '기타' },
     ];
 
     const handleTypeSelect = (typeId) => {
@@ -40,43 +44,48 @@ const ThreadRescue = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // console.log('주소:', address);
-        // console.log('날짜/시간:', dateTime);
-        // console.log('동물 종류:', selectedType);
-        // console.log('상황 설명:', situation);
-
         if (!address || !dateTime || !selectedType || !situation) {
             // console.log('뭐 빠졌니?');
             setErrorMessage('4가지 중 필수 항목 빠짐');
             return;
         }
 
+        console.log('dateTime raw value:', dateTime);
+        console.log('new Date(dateTime):', new Date(dateTime));
+
         const formData = {
-            articleStatus: 'HIDDEN', // 필요한 상태값
+            type: 'rescue',
+            articleStatus: 'PUBLISHED', // 필요한 상태값
             title: '서울에서 구조가 필요한 고양이', // 제목
-            latitude: `${latestLocation.lat}`, // 위도
-            longitude: `${latestLocation.lng}`, // 경도
+            latitude: latestLocation.lat || 0, // 위도
+            longitude: latestLocation.lng || 0, // 경도
             description: situation, // 상황 설명
             image: 'tempimage', // 이미지 URL
             petType: selectedType, // 선택된 동물 종류
             rescueStatus: 'UNSOLVED', // 구조 상태
-            rescueLocation: `${address.region} ${address.building}`, // 구조 위치
-            rescueDate: dateTime, // 구조 날짜/시간대
+            rescueLocation:
+                `${address.region || ''} ${address.building || ''}`.trim(), // 구조 위치
+            rescueDate: dateTime
+                ? new Date(
+                      `${dateTime.split(' ')[0]}T${dateTime.split(' ')[1].padStart(2, '0')}:00:00`,
+                  )
+                : null, // 구조 날짜/시간대
         };
 
         console.log('폼 데이터:', formData);
 
-        // const authToken = localStorage.getItem('authToken'); // 토큰 가져오기
-
-        const authToken =
-            'eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJyb2xlIjoiUk9MRV9VU0VSIiwibmlja25hbWUiOiLsoJXtlbTrn4kiLCJjYXRlZ29yeSI6IkFDQ0VTU19UT0tFTiIsInVzZXJJZCI6ImpocjEyMzQ1IiwiZW1haWwiOiIxMjMzMzNAbmF2ZXIuY29tIiwibWVtYmVySWQiOjc3LCJpYXQiOjE3MzM1NjgzNTIsImV4cCI6MTczMzU3MDE1Mn0.-9f_VUM25-S-N8hfeoYEIM77YVihm9RdKE9lLq4eSis';
         try {
-            const response = await axios.post('/api/v1/articles', formData, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${authToken}`,
+            const token = localStorage.getItem('accessToken'); // 인증 토큰 가져오기
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_BASE_URL}/articles`,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`, // 헤더에 토큰 추가
+                    },
                 },
-            });
+            );
 
             console.log('응답 성공띠 : ', response.data);
 
