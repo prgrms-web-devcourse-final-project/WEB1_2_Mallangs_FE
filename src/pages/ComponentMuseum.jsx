@@ -13,6 +13,7 @@ import StarRating from '../components/common/StarRating';
 import ChatItem from '../components/common/ChatItem';
 import ThreadItem from '../components/common/ThreadItem';
 import { logoutApi } from '../api/userApi';
+import ImageGallery from '../components/common/ImageGallery';
 
 const ComponentMuseum = () => {
     const {
@@ -141,6 +142,11 @@ const ComponentMuseum = () => {
                 >
                     구조요청 모달 보기
                 </button>
+            </div>
+
+            <div style={tempListContainer}>
+                <h5>이미지 갤러리 컴포넌트</h5>
+                <ImageGallery />
             </div>
 
             <div>
