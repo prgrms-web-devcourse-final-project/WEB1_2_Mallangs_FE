@@ -6,6 +6,10 @@ import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
+import markerLogo from '../assets/images/logo.png';
+import markerImageAlpha from '../assets/images/marker-alpha.png';
+import markerImageBeta from '../assets/images/marker-beta.png';
+import markerImageGamma from '../assets/images/marker-gamma.png';
 import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
 const MallangMap = () => {
@@ -33,9 +37,9 @@ const MallangMap = () => {
         return currentLocation;
     };
 
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const setModalType = useModalStore((state) => state.setModalType);
-    const setModalData = useModalStore((state) => state.setModalData);
+    const { toggleModal, setModalType, setTotalData } = useModalStore(
+        (state) => state,
+    );
 
     const handleMapDrag = (map) => {
         // 지도 드래그로 중심점 이동시 핸들러
@@ -201,7 +205,14 @@ const MallangMap = () => {
                                 lng: item.longitude,
                             }}
                             image={{
-                                src: 'https://picsum.photos/64/64',
+                                src:
+                                    item.threadType === 'places'
+                                        ? markerImageAlpha
+                                        : item.threadType === 'missing'
+                                          ? markerImageBeta
+                                          : item.threadType === 'rescue'
+                                            ? markerImageGamma
+                                            : markerLogo,
                                 size: {
                                     width: 64,
                                     height: 64,
@@ -209,8 +220,14 @@ const MallangMap = () => {
                             }}
                             title={item.threadTitle}
                             key={index}
-                            onClick={() => console.log(item.threadType)}
-                        />
+                            onClick={() => {
+                                setModalType(item.threadType);
+                                setTotalData(item);
+                                toggleModal(true);
+                            }}
+                        >
+                            <div>{item.threadTitle}</div>
+                        </MapMarker>
                     );
                 })}
             </Map>

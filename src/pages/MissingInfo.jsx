@@ -5,6 +5,7 @@ import ModalSectionTitle from '../components/common/ModalSectionTitle';
 import ModalInstruction from '../components/common/ModalInstruction';
 import dateFormat from '../utils/dateFormat';
 import hourFormat from '../utils/hourFormat';
+import ImageGallery from '../components/common/ImageGallery';
 
 const MissingBasicInfo = ({ iconName, blockTitle, blockDescription }) => {
     return (
@@ -33,7 +34,9 @@ const MissingInfo = () => {
 
     return (
         <div>
-            <div className="user-common-item-list">이미지 슬라이더</div>
+            <div className="user-common-item-list">
+                <ImageGallery />
+            </div>
 
             <ModalSectionTitle sectionTitle="실종된 말랑이 주요 특징" />
 
