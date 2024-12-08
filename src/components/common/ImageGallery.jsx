@@ -11,46 +11,58 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const ImageGallery = () => {
-    const images = [
-        {
-            src: Image1,
-            alt: '정신차려 갤러리 이미지 1',
-            width: 1200,
-            height: 800,
-        },
-        {
-            src: Image2,
-            alt: '정신차려 갤러리 이미지 2',
-            width: 800,
-            height: 600,
-        },
-        {
-            src: Image3,
-            alt: '정신차려 갤러리 이미지 3',
-            width: 1600,
-            height: 900,
-        },
-        {
-            src: Image4,
-            alt: '정신차려 갤러리 이미지 4',
-            width: 1024,
-            height: 768,
-        },
-        {
-            src: Image4,
-            alt: '정신차려 갤러리 이미지 4',
-            width: 1024,
-            height: 768,
-        },
-        {
-            src: Image4,
-            alt: '정신차려 갤러리 이미지 4',
-            width: 1024,
-            height: 768,
-        },
-    ];
+const images = [
+    {
+        src: Image1,
+        alt: '정신차려 갤러리 이미지 1',
+        width: 1200,
+        height: 800,
+    },
+    {
+        src: Image2,
+        alt: '정신차려 갤러리 이미지 2',
+        width: 800,
+        height: 600,
+    },
+    {
+        src: Image3,
+        alt: '정신차려 갤러리 이미지 3',
+        width: 1600,
+        height: 900,
+    },
+    {
+        src: Image4,
+        alt: '정신차려 갤러리 이미지 4',
+        width: 1024,
+        height: 768,
+    },
+    {
+        src: Image4,
+        alt: '정신차려 갤러리 이미지 4',
+        width: 1024,
+        height: 768,
+    },
+    {
+        src: Image4,
+        alt: '정신차려 갤러리 이미지 4',
+        width: 1024,
+        height: 768,
+    },
+];
 
+const ImageSlideItem = (imageObject, index) => {
+    <SwiperSlide key={`gallery-image-${index}`} className="gallery-slide">
+        <a
+            href={imageObject.src}
+            data-pswp-width={imageObject.width}
+            data-pswp-height={imageObject.height}
+        >
+            <img src={imageObject.src} alt={imageObject.alt} />
+        </a>
+    </SwiperSlide>;
+};
+
+const ImageGallery = () => {
     useEffect(() => {
         const lightbox = new PhotoSwipeLightbox({
             gallery: '#gallery--getting-started',

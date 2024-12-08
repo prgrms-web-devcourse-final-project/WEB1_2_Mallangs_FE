@@ -10,7 +10,37 @@ const RescueDisclaimer = () => {
                     instContent="직접 구조하는 것보다 전문가의 도움을 청하는 편이 효과적일 수 있습니다. 구조 활동에 나서기 전에 아래와 같은 동물 보호 단체들에 먼저 연락을 취해 보세요."
                 />
 
-                <p>어디어디 010-5555-5555</p>
+                <div className="list-animal-organizations">
+                    <dl className="user-common-labeled-row">
+                        <dt>
+                            <span>뭐시기 보호단체</span>
+                        </dt>
+
+                        <dd>
+                            <span>{'010-5555-5555'}</span>
+                        </dd>
+                    </dl>
+
+                    <dl className="user-common-labeled-row">
+                        <dt>
+                            <span>무슨무슨 보호소</span>
+                        </dt>
+
+                        <dd>
+                            <span>{'010-5555-5555'}</span>
+                        </dd>
+                    </dl>
+
+                    <dl className="user-common-labeled-row">
+                        <dt>
+                            <span>저시기 구출단</span>
+                        </dt>
+
+                        <dd>
+                            <span>{'010-5555-5555'}</span>
+                        </dd>
+                    </dl>
+                </div>
             </div>
 
             <ModalSectionTitle sectionTitle="🚨 동물 구조 활동시 유의사항" />

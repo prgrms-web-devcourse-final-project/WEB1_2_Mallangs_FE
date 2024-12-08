@@ -100,6 +100,41 @@ a:has(#logo-primary) {
     opacity: 0.5;
 }
 
+.user-common-table {
+    // 데이터 테이블
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1px;
+    padding-block: 1px;
+    background-color: rgb(var(--clr-text) / 0.15);
+}
+
+.user-common-table-row {
+    display: flex;
+    height: 1.8rem;
+    font-size: var(--fnt-sm);
+    background-color: rgb(var(--clr-white));
+}
+
+.user-common-table-row-header {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-inline: 0.8rem;
+    width: 6.4rem;
+    background-color: rgb(var(--clr-tint-100) / 0.05);
+    font-weight: 200;
+}
+
+.user-common-table-row-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8rem;
+    font-weight: 700;
+}
+
 .floating-tooltip {
     // 툴팁
     --bubble-color: var(--clr-text);

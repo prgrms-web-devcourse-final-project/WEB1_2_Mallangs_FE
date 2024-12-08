@@ -1,22 +1,65 @@
 /* _rescueInfo.scss */
 
+#rescue-found-situation {
+    font-weight: 700;
+    line-height: 1.4;
+}
+
 .rescue-disclaimer-block {
     display: flex;
     flex-flow: column nowrap;
     gap: 0.4rem;
 
     h6 {
-        font-size: var(--fnt-xl);
+        font-size: var(--fnt-lg);
         font-weight: 700;
     }
 
     p {
-        font-weight: 200;
         line-height: 1.4;
+        opacity: 0.5;
 
         & + p {
             margin-block-start: 0.2rem;
         }
+    }
+}
+
+.list-animal-organizations {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+}
+
+.user-common-labeled-row {
+    display: flex;
+    align-items: center;
+    height: 1.6rem;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    font-size: var(--fnt-sm);
+    overflow: clip;
+
+    > dt,
+    > dd {
+        display: flex;
+        align-items: center;
+        padding-inline: 0.8rem;
+        height: 100%;
+    }
+
+    > dt {
+        flex-shrink: 0;
+        justify-content: center;
+        width: 6.4rem;
+        background-color: rgb(var(--clr-info) / 0.05);
+        font-weight: 200;
+    }
+
+    > dd {
+        flex: 1;
+        border-inline-start: 1px solid rgb(var(--clr-text) / 0.15);
+        font-weight: 700;
     }
 }
 

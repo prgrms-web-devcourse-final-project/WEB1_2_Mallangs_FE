@@ -661,6 +661,40 @@ a:has(#logo-primary) {
   opacity: 0.5;
 }
 
+.user-common-table {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1px;
+  padding-block: 1px;
+  background-color: rgb(var(--clr-text)/0.15);
+}
+
+.user-common-table-row {
+  display: flex;
+  height: 1.8rem;
+  font-size: var(--fnt-sm);
+  background-color: rgb(var(--clr-white));
+}
+
+.user-common-table-row-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-inline: 0.8rem;
+  width: 6.4rem;
+  background-color: rgb(var(--clr-tint-100)/0.05);
+  font-weight: 200;
+}
+
+.user-common-table-row-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8rem;
+  font-weight: 700;
+}
+
 .floating-tooltip {
   --bubble-color: var(--clr-text);
   position: absolute;
@@ -1711,21 +1745,61 @@ a:has(#logo-primary) {
 
 /* _missingReport.scss */
 /* _rescueInfo.scss */
+#rescue-found-situation {
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .rescue-disclaimer-block {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.4rem;
 }
 .rescue-disclaimer-block h6 {
-  font-size: var(--fnt-xl);
+  font-size: var(--fnt-lg);
   font-weight: 700;
 }
 .rescue-disclaimer-block p {
-  font-weight: 200;
   line-height: 1.4;
+  opacity: 0.5;
 }
 .rescue-disclaimer-block p + p {
   margin-block-start: 0.2rem;
+}
+
+.list-animal-organizations {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.2rem;
+}
+
+.user-common-labeled-row {
+  display: flex;
+  align-items: center;
+  height: 1.6rem;
+  border: 1px solid rgb(var(--clr-text)/0.15);
+  border-radius: var(--rad-full);
+  font-size: var(--fnt-sm);
+  overflow: clip;
+}
+.user-common-labeled-row > dt,
+.user-common-labeled-row > dd {
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8rem;
+  height: 100%;
+}
+.user-common-labeled-row > dt {
+  flex-shrink: 0;
+  justify-content: center;
+  width: 6.4rem;
+  background-color: rgb(var(--clr-info)/0.05);
+  font-weight: 200;
+}
+.user-common-labeled-row > dd {
+  flex: 1;
+  border-inline-start: 1px solid rgb(var(--clr-text)/0.15);
+  font-weight: 700;
 }
 
 /* _rescueInfo.scss */
