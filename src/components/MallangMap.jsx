@@ -6,7 +6,10 @@ import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 import getLatestLocation from '../utils/getLatestLocation';
+import useLocationStore from '../stores/locationStore';
 import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
+
+const { kakao } = window;
 
 const MallangMap = () => {
     const [currentLocation, setLocation] = useState({
@@ -19,9 +22,13 @@ const MallangMap = () => {
     const [toolTipLabel, setTooltipLabel] =
         useState('이 위치에 글타래 작성하기');
 
+    const setLocationInfo = useLocationStore((state) => state.setLocation);
+    const toggleModal = useModalStore((state) => state.toggleModal);
+    const setModalType = useModalStore((state) => state.setModalType);
+    const setModalData = useModalStore((state) => state.setModalData);
+
     const handleCategoryChange = (data) => {
         setCategory(data);
-
         console.log('현재 선택한 대분류:', data);
     };
 
@@ -29,13 +36,8 @@ const MallangMap = () => {
         if (currentLocation.lat === 0 && currentLocation.lng === 0) {
             setLocation(getLatestLocation());
         }
-
         return currentLocation;
     };
-
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const setModalType = useModalStore((state) => state.setModalType);
-    const setModalData = useModalStore((state) => state.setModalData);
 
     const handleMapDrag = (map) => {
         // 지도 드래그로 중심점 이동시 핸들러
@@ -51,6 +53,49 @@ const MallangMap = () => {
 
     const handleWriteMouseOver = (e) => {
         setTooltipLabel(e.target.dataset.tooltipText);
+    };
+
+    const getAddressFromCoords = (latlng) => {
+        const geocoder = new kakao.maps.services.Geocoder();
+
+        geocoder.coord2Address(
+            latlng.getLng(),
+            latlng.getLat(),
+            (result, status) => {
+                if (status === kakao.maps.services.Status.OK) {
+                    geocoder.coord2RegionCode(
+                        latlng.getLng(),
+                        latlng.getLat(),
+                        (regionResult, regionStatus) => {
+                            if (
+                                regionStatus === kakao.maps.services.Status.OK
+                            ) {
+                                const region = regionResult.find(
+                                    (item) => item.region_type === 'H',
+                                );
+
+                                const locationData = {
+                                    coordinates: {
+                                        lat: latlng.getLat(),
+                                        lng: latlng.getLng(),
+                                    },
+                                    roadAddress: result[0].road_address
+                                        ? result[0].road_address.address_name
+                                        : '',
+                                    jibunAddress:
+                                        result[0].address.address_name,
+                                    administrativeDong: region
+                                        ? region.address_name
+                                        : '',
+                                };
+
+                                setLocationInfo(locationData);
+                            }
+                        },
+                    );
+                }
+            },
+        );
     };
 
     return (
@@ -76,7 +121,9 @@ const MallangMap = () => {
 
                     setLocation({ lat: curLat, lng: curLng });
                     if (isMarkerOpen) setMarkerStatus(false);
-                    localStorage.setItem('mallangMapLatestLocation', coords);
+
+                    // 클릭한 좌표의 주소 정보 가져오기
+                    getAddressFromCoords(coords);
                 }}
             >
                 <MarkerCategory
@@ -170,8 +217,8 @@ const MallangMap = () => {
                                             setModalType('writeMode'); // 모달의 navigation 상태
                                             setModalData({
                                                 // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                                                latitude: 0.0, // 모달이 가지고 있는 위도
-                                                longitude: 0.0, // 모달이 가지고 있는 경도
+                                                latitude: currentLocation.lat, // 모달이 가지고 있는 위도
+                                                longitude: currentLocation.lng, // 모달이 가지고 있는 경도
                                                 threadTitle: '말랑이 구조 요청', // 모달 제목
                                                 mainCategory: '',
                                                 subCategory1: '',
