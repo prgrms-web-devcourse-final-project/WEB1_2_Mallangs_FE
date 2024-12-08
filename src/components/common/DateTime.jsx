@@ -2,40 +2,25 @@ import { useState } from 'react';
 
 const DateTime = ({ value, onChange }) => {
     const [errorMessage, setErrorMessage] = useState('');
+    const [inputValue, setInputValue] = useState(value || '');
 
     const handleDateTimeChange = (event) => {
-        const inputValue = event.target.value;
-        onChange(inputValue);
+        const currentValue = event.target.value;
+        setInputValue(currentValue); // 입력값 상태 업데이트
 
+        // 날짜 형식 (YYYY-MM-DD) 및 24시간제 시간 검사 정규식
         const dateTimeRegex =
             /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])\s(0[0-9]|1[0-9]|2[0-3])$/;
 
-        if (!dateTimeRegex.test(inputValue)) {
+        if (!dateTimeRegex.test(currentValue)) {
             setErrorMessage(
                 '날짜와 시간 형식이 올바르지 않습니다. 예: 2024-12-07 15',
             );
             return;
         }
 
-        try {
-            const [datePart, timePart] = inputValue.split(' ');
-            const [year, month, day] = datePart.split('-').map(Number);
-            const [hour] = timePart.split(':').map(Number);
-            const convertDate = new Date(year, month - 1, day, hour);
-
-            if (
-                convertDate.getMonth() + 1 !== month ||
-                convertDate.getDate() !== day
-            ) {
-                setErrorMessage('유효하지 않은 날짜입니다. 다시 입력해주세요!');
-                return;
-            }
-
-            setErrorMessage('');
-        } catch (error) {
-            console.error('Error processing date:', error);
-            setErrorMessage('날짜와 시간 처리 중 문제가 발생했습니다!');
-        }
+        setErrorMessage('');
+        onChange(currentValue);
     };
 
     return (
@@ -46,7 +31,7 @@ const DateTime = ({ value, onChange }) => {
                     className="exclude"
                     type="text"
                     placeholder="예: 2024-12-07 15"
-                    value={value}
+                    value={inputValue}
                     onChange={handleDateTimeChange}
                 />
             </div>
