@@ -785,7 +785,6 @@ a:has(#logo-primary) {
 }
 .user-nametag > .nametag-username {
   max-width: 8rem;
-  color: rgb(var(--clr-text));
   font-size: var(--fnt-md);
   font-weight: 700;
   text-overflow: ellipsis;
@@ -3725,6 +3724,50 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   font-weight: 700;
 }
 
+/* 사용자 1:1 대화 */
+#user-chat-room-container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  overflow: hidden;
+}
+
+#user-chat-room-body {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+#user-chat-room-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  inset-block-start: 0;
+  padding-inline: 0.8rem;
+  height: 2.4rem;
+  background-color: rgb(var(--clr-text)/0.75);
+  -webkit-backdrop-filter: blur(1.8rem);
+          backdrop-filter: blur(1.8rem);
+  color: rgb(var(--clr-text-on-tint));
+  z-index: 2;
+}
+
+#user-chat-room-input-container {
+  flex-shrink: 0;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background-color: rgb(var(--clr-white));
+  background-image: linear-gradient(rgb(var(--clr-tint-100)/0.05), rgb(var(--clr-tint-100)/0.05));
+}
+
+#input-chat-text {
+  flex: 1;
+}
+
 /* 반응형 쿼리 */
 @container main-container (max-width: 720px) {
   #main-modal:has(.cover-signature-image-container) #main-modal-side-menu {
@@ -5483,4 +5526,33 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
   margin-top: 0.2rem;
   font-size: var(--fnt-xs);
   color: rgb(var(--clr-alert));
+}
+
+.gallery-swiper.swiper {
+  width: 100%;
+  height: 8rem;
+}
+.gallery-swiper.swiper .swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgb(var(--clr-white)/0.5);
+  border: 0.1rem solid rgb(var(--clr-gray));
+  opacity: 1;
+  transition: all 0.25s;
+}
+.gallery-swiper.swiper .swiper-pagination-bullet-active {
+  border-color: rgb(var(--clr-info));
+  background: rgb(var(--clr-white));
+  transform: scale(1.2);
+  opacity: 1;
+}
+.gallery-slide {
+  height: 100%;
+}
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: var(--rad-lg);
 }

@@ -127,11 +127,12 @@ const Header = ({ setPanel }) => {
                         <button
                             type="button"
                             id="button-user-profile"
+                            title="대표 말랑이 보기"
                             onClick={() => setPanel('user-profile')}
                         >
                             <UserProfileImage
                                 imageSrc={
-                                    'https://picsum.photos/36/36?random=1'
+                                    'https://picsum.photos/seed/kim/128/128'
                                 }
                                 imageSize={1.8}
                             />

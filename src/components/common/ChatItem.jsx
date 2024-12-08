@@ -3,7 +3,7 @@ import dateFormat from '../../utils/dateFormat';
 import hourFormat from '../../utils/hourFormat';
 
 const ChatItem = ({
-    chatFrom = 'my',
+    chatFrom = 'my', // my, opposite
     chatUser = { userID: 0, userImage: null, userName: '대화 상대' },
     chatContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas laboriosam, debitis veniam nobis eligendi sequi modi deleniti repellat harum aliquid possimus, repellendus, quisquam voluptatem! Exercitationem voluptas dolorem natus architecto laborum.',
     dateTime = '1970-01-01',

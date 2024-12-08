@@ -94,6 +94,7 @@ const MainModal = ({ routeName }) => {
         'user-reviews': <UserReviews />,
         'user-chat-list': <UserChatList />,
         'user-chat-room': <UserChatRoom />,
+        'user-ignores': <>차단한 유저 목록입니다.</>,
 
         // 장소 글타래 라우트 매치
         'place-info': <PlaceInfo />,

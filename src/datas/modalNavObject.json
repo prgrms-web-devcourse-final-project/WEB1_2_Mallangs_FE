@@ -56,6 +56,11 @@
                         "count": null
                     },
                     {
+                        "label": "1 : 1 대화 (임시)",
+                        "value": "user-chat-room",
+                        "count": null
+                    },
+                    {
                         "label": "차단 유저 목록 (미확정)",
                         "value": "user-ignores",
                         "count": null

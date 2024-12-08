@@ -365,6 +365,56 @@
     }
 }
 
+/* 사용자 1:1 대화 */
+
+#user-chat-room-container {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    overflow: hidden;
+}
+
+#user-chat-room-body {
+    flex: 1;
+    overflow-y: scroll;
+}
+
+#user-chat-room-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    inset-block-start: 0;
+    padding-inline: 0.8rem;
+    height: 2.4rem;
+    background-color: rgb(var(--clr-text) / 0.75);
+    backdrop-filter: blur(1.8rem);
+    color: rgb(var(--clr-text-on-tint));
+    z-index: 2;
+}
+
+#user-chat-room-stacks {
+}
+
+#user-chat-room-input-container {
+    flex-shrink: 0;
+}
+
+.chat-input-wrapper {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.4rem;
+    background-color: rgb(var(--clr-white));
+    background-image: linear-gradient(
+        rgb(var(--clr-tint-100) / 0.05),
+        rgb(var(--clr-tint-100) / 0.05)
+    );
+}
+
+#input-chat-text {
+    flex: 1;
+}
+
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 720px) {
