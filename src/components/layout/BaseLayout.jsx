@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { useAreaInfoStatus } from '../../stores/AreaInfoStatus';
 import { useModalStore } from '../../stores/modalStatus';
 import Header from './Header';
 import NotificationCard from './NotificationCard';
@@ -8,15 +7,16 @@ import UserProfileCard from './UserProfileCard';
 import Footer from './Footer';
 import MainModal from '../MainModal';
 import TotalSearch from './TotalSearch';
-import tempCurrentUser from '../../datas/temp-current-user.json';
+import tempDB from '../../datas/temp-db.json';
 
 const BaseLayout = () => {
     const [currentPanel, setPanel] = useState(null);
+
     const location = useLocation();
+
     const isModalShowing = useModalStore((state) => state.isModalShowing);
-    const isAreaInfoShowing = useAreaInfoStatus(
-        (state) => state.isPanelShowing,
-    );
+
+    const currentUser = tempDB.users.find((user) => user.id === 0);
 
     return (
         <>
@@ -27,7 +27,7 @@ const BaseLayout = () => {
             <UserProfileCard
                 currentPanel={currentPanel}
                 setPanel={setPanel}
-                userObject={tempCurrentUser}
+                userObject={currentUser}
             />
 
             <Header currentPanel={currentPanel} setPanel={setPanel} />

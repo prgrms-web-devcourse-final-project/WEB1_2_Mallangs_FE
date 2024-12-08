@@ -32,6 +32,8 @@ import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
 import MissingInfo from '../pages/MissingInfo';
 import MissingSightingReport from '../pages/MissingSightingReport';
 import ThreadPlace from '../pages/ThreadPlace';
+import RescueDisclaimer from '../pages/RescueDisclaimer';
+import RescueDetails from '../pages/RescueDetails';
 
 // ↓ 글타래 보기 컴포넌트 / 구조요청
 
@@ -40,9 +42,11 @@ import ThreadPlace from '../pages/ThreadPlace';
 const MainModal = ({ routeName }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
     const [currentSlaveIndex, setSlaveIndex] = useState(0);
+
     const modalStatus = useModalStore((state) => state.modalStatus);
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const modalData = modalStatus.modalData;
+    const modalData = useModalStore((state) => state.modalData);
+
+    console.log('뜨는 데이터:', modalData);
 
     useEffect(() => {
         document.body.classList.add('prevent-scroll');
@@ -64,17 +68,11 @@ const MainModal = ({ routeName }) => {
         const setModalData = useModalStore((state) => state.setModalData);
 
         onClick={() =>
-            {toggleModal(true); // 모달 열기
-            setModalType('profile'); // 모달의 navigation 상태
-            setModalData({ // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                latitude: 0.0, // 모달이 가지고 있는 위도
-                longitude: 0.0, // 모달이 가지고 있는 경도
-                threadTitle: tempPet.userName, // 모달 제목
-                mainCategory: tempPet.petType,
-                subCategory1: tempPet.petAge + '세',
-                subCategory2: tempPet.petGender,
-                subCategory3: null,
-            });}
+            {
+                toggleModal(true); // 모달 열기
+                setModalType('profile'); // 모달의 navigation 상태
+                setModalData({ ... }); // 모달 데이터 셋팅 - 컴포넌트 박물관 참조
+            }
         }
      *
      * 컴포넌트 박물관 페이지에서 데모를 볼 수 있다.
@@ -83,7 +81,7 @@ const MainModal = ({ routeName }) => {
     // 자 이제 시작이야 컴포넌트를 향한 여행
 
     const currentRoute =
-        modalData.masterNavigations[currentTabIndex].slaveNavigations[
+        modalStatus.masterNavigations[currentTabIndex].slaveNavigations[
             currentSlaveIndex
         ];
 
@@ -97,6 +95,7 @@ const MainModal = ({ routeName }) => {
         'user-reviews': <UserReviews />,
         'user-chat-list': <UserChatList />,
         'user-chat-room': <UserChatRoom />,
+        'user-ignores': <>차단한 유저 목록입니다.</>,
 
         // 장소 글타래 라우트 매치
         'place-info': <PlaceInfo />,
@@ -111,32 +110,27 @@ const MainModal = ({ routeName }) => {
         'missing-sighting-report': <MissingSightingReport />,
 
         // 구조요청 글타래 라우트 매치
-        'rescue-info': <>상세 내용 보기</>,
-        'rescue-disclaimer': <>구조 유의사항 안내</>,
+        'rescue-info': <RescueDetails />,
+        'rescue-disclaimer': <RescueDisclaimer />,
         'rescue-reply-list': <ReplyList />,
-
-        // 이스터에그 (?)
-        'etcetera-info': <>글타래 - 이스터에그</>,
 
         // 글타래 작성 라우트 매치
         'write-places': <ThreadPlace></ThreadPlace>,
         'write-missing': <ThreadMissingReport></ThreadMissingReport>,
         'write-rescue': <ThreadRescue></ThreadRescue>,
-        'write-etcetera': <>글타래 작성 - 이스터에그</>,
     };
 
     return (
         <div id="main-modal-backdrop">
             <aside id="main-modal">
-                <MainModalCover />
+                <MainModalCover
+                    isPlaceEdit={currentRoute.value === 'write-places'}
+                />
 
-                <section
-                    id="main-modal-body"
-                    className={modalStatus.threadType}
-                >
+                <section id="main-modal-body" className={modalData.threadType}>
                     <div id="main-modal-sidebar">
                         <ul id="main-modal-side-menu">
-                            {modalData.masterNavigations[
+                            {modalStatus.masterNavigations[
                                 currentTabIndex
                             ].slaveNavigations.map((menuItem, index) => {
                                 return (
@@ -166,7 +160,7 @@ const MainModal = ({ routeName }) => {
                     <div id="main-modal-content-container">
                         <nav id="main-modal-navigation">
                             <ul>
-                                {modalData.masterNavigations.map(
+                                {modalStatus.masterNavigations.map(
                                     (menuItem, index) => {
                                         return (
                                             <li

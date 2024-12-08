@@ -5,7 +5,7 @@
             "userAccount": "kim_4yongjar",
             "userPassword": "1Q2w3e4r@@",
             "userName": "김사용자",
-            "userImage": "https://picsum.photos/seed/kim/128/128",
+            "userImage": "https://picsum.phothos/128/128?id=1",
             "userMail": "4yongjar@example.com",
             "userDescription": "사랑하는 사람들아 여기에 모여앉아 사랑을 노래하자",
             "pets": [
@@ -40,7 +40,7 @@
             "userAccount": "choi_man",
             "userPassword": "1Q2w3e4r@@",
             "userName": "최사용자",
-            "userImage": "https://picsum.photos/seed/choi/128/128",
+            "userImage": "https://picsum.phothos/128/128?id=2",
             "userMail": "choi8520@example.com",
             "userDescription": "사랑하는 사람들아 여기에 모여앉아 사랑을 노래하자",
             "pets": [
@@ -94,7 +94,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 30.0,
             "longitude": 128.0,
             "address1": "",
@@ -106,7 +105,10 @@
                 "subjectGamma": "서브 분류 3"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "김사용자",
+                "userImage": ""
             },
             "relatedPet": {
                 "petID": 0,
@@ -178,7 +180,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.498,
             "longitude": 127.028,
             "address1": "서울특별시 강남구 테헤란로 101번길",
@@ -190,7 +191,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자1",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -249,7 +253,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.499,
             "longitude": 127.029,
             "address1": "서울특별시 강남구 테헤란로 102번길",
@@ -261,7 +264,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자2",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -320,7 +326,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.5,
             "longitude": 127.03,
             "address1": "서울특별시 강남구 테헤란로 103번길",
@@ -332,7 +337,10 @@
                 "subjectGamma": "서비스 제공"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "사용자3",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -391,7 +399,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.501,
             "longitude": 127.031,
             "address1": "서울특별시 강남구 테헤란로 104번길",
@@ -403,7 +410,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자4",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -462,7 +472,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.502,
             "longitude": 127.032,
             "address1": "서울특별시 강남구 테헤란로 105번길",
@@ -474,7 +483,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자5",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -533,7 +545,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.503,
             "longitude": 127.033,
             "address1": "서울특별시 강남구 테헤란로 106번길",
@@ -545,7 +556,10 @@
                 "subjectGamma": "서비스 제공"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "사용자6",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -604,7 +618,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.504,
             "longitude": 127.034,
             "address1": "서울특별시 강남구 테헤란로 107번길",
@@ -616,7 +629,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자7",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -675,7 +691,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.505,
             "longitude": 127.035,
             "address1": "서울특별시 강남구 테헤란로 108번길",
@@ -687,7 +702,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자8",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -746,7 +764,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.506,
             "longitude": 127.036,
             "address1": "서울특별시 강남구 테헤란로 109번길",
@@ -758,7 +775,10 @@
                 "subjectGamma": "서비스 제공"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "사용자9",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -817,7 +837,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.507,
             "longitude": 127.037,
             "address1": "서울특별시 강남구 테헤란로 110번길",
@@ -829,7 +848,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자10",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -888,7 +910,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.508,
             "longitude": 127.038,
             "address1": "서울특별시 강남구 테헤란로 111번길",
@@ -900,7 +921,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자11",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -959,7 +983,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.509,
             "longitude": 127.039,
             "address1": "서울특별시 강남구 테헤란로 112번길",
@@ -971,7 +994,10 @@
                 "subjectGamma": "서비스 제공"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "사용자12",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1030,7 +1056,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.51,
             "longitude": 127.04,
             "address1": "서울특별시 강남구 테헤란로 113번길",
@@ -1042,7 +1067,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자13",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1101,7 +1129,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.511,
             "longitude": 127.041,
             "address1": "서울특별시 강남구 테헤란로 114번길",
@@ -1113,7 +1140,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자14",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1172,7 +1202,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.512,
             "longitude": 127.042,
             "address1": "서울특별시 강남구 테헤란로 115번길",
@@ -1184,7 +1213,10 @@
                 "subjectGamma": "서비스 제공"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "사용자15",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1243,7 +1275,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.513,
             "longitude": 127.043,
             "address1": "서울특별시 강남구 테헤란로 116번길",
@@ -1255,7 +1286,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자16",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1314,7 +1348,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.514,
             "longitude": 127.044,
             "address1": "서울특별시 강남구 테헤란로 117번길",
@@ -1326,7 +1359,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자17",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1385,7 +1421,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.515,
             "longitude": 127.045,
             "address1": "서울특별시 강남구 테헤란로 118번길",
@@ -1397,7 +1432,10 @@
                 "subjectGamma": "서비스 제공"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 0,
+                "userName": "사용자18",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1456,7 +1494,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.516,
             "longitude": 127.046,
             "address1": "서울특별시 강남구 테헤란로 119번길",
@@ -1468,7 +1505,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 1,
+                "userName": "사용자19",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [
@@ -1527,7 +1567,6 @@
                 "begin": "2024-01-01",
                 "ends": "2024-12-31"
             },
-            "threadStatus": "on-board",
             "latitude": 37.517,
             "longitude": 127.047,
             "address1": "서울특별시 강남구 테헤란로 120번길",
@@ -1539,7 +1578,10 @@
                 "subjectGamma": "이벤트 진행"
             },
             "threadAuthor": {
-                "userID": 0
+                "isFromUser": true,
+                "userID": 2,
+                "userName": "사용자20",
+                "userImage": ""
             },
             "relatedPet": null,
             "threadImages": [

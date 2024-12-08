@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useNotificationStore } from '../../stores/notificationStatus';
+import logoImage from '../../assets/images/logo.png';
 import Remix from '../common/Remix';
 import UserProfileImage from '../common/UserProfileImage';
-import logoImage from '../../assets/images/logo.png';
 
 const Header = ({ setPanel }) => {
     const [mobileNavStatus, setMobileNavStatus] = useState(false);
+    const [isLoggedIn, setLoginStatus] = useState(true);
+
+    const navigate = useNavigate();
+
     const notificationArray = useNotificationStore(
         (state) => state.notifications,
     );
-    const [isLoggedIn, setLoginStatus] = useState(true);
-    const navigate = useNavigate();
 
     let timedSizing = null;
 
@@ -125,11 +127,12 @@ const Header = ({ setPanel }) => {
                         <button
                             type="button"
                             id="button-user-profile"
+                            title="대표 말랑이 보기"
                             onClick={() => setPanel('user-profile')}
                         >
                             <UserProfileImage
                                 imageSrc={
-                                    'https://picsum.photos/36/36?random=1'
+                                    'https://picsum.photos/seed/kim/128/128'
                                 }
                                 imageSize={1.8}
                             />

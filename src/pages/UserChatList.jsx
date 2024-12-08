@@ -9,18 +9,6 @@ const UserChatList = () => {
                 <ChatRoomItem />
 
                 <ChatRoomItem />
-
-                <ChatRoomItem />
-
-                <ChatRoomItem />
-
-                <ChatRoomItem />
-
-                <ChatRoomItem />
-
-                <ChatRoomItem />
-
-                <ChatRoomItem />
             </div>
         </>
     );

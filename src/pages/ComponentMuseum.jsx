@@ -16,9 +16,15 @@ import { logoutApi } from '../api/userApi';
 import ImageGallery from '../components/common/ImageGallery';
 
 const ComponentMuseum = () => {
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const setModalType = useModalStore((state) => state.setModalType);
-    const setModalData = useModalStore((state) => state.setModalData);
+    const {
+        toggleModal,
+        setEditMode,
+        setModalType,
+        setPlaceData,
+        setMissingData,
+        setRescueData,
+    } = useModalStore((state) => state);
+
     const tempListContainer = {
         display: 'flex',
         flexFlow: 'column nowrap',
@@ -74,18 +80,16 @@ const ComponentMuseum = () => {
 
                 <button
                     onClick={() => {
-                        toggleModal(true); // 모달 열기
                         setModalType('places'); // 모달의 navigation 상태
-                        setModalData({
-                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                            latitude: 0.0, // 모달이 가지고 있는 위도
-                            longitude: 0.0, // 모달이 가지고 있는 경도
-                            threadTitle: '모달', // 모달 제목
-                            mainCategory: '',
-                            subCategory1: '',
-                            subCategory2: '',
-                            subCategory3: '',
+                        setPlaceData({
+                            // thread의 placeData가 가지고 있는 양식을 전송한다. (일부 데이터 예시, stores/modalStatus.js 에서 나머지 양식 확인 가능)
+                            placeName: '다고쳐병원',
+                            mainCategory: '동물병원',
+                            subCategoryAlpha: '의약품',
+                            subCategoryBeta: '반려동물 친화 시설',
+                            subCategoryGamma: '기타',
                         });
+                        toggleModal(true); // 모달 열기
                     }}
                 >
                     장소 모달 보기
@@ -93,18 +97,9 @@ const ComponentMuseum = () => {
 
                 <button
                     onClick={() => {
+                        setModalType('writeMode'); // 모달의 navigation 상태
+                        setEditMode(true);
                         toggleModal(true); // 모달 열기
-                        setModalType('writeMode', true); // 모달의 navigation 상태
-                        setModalData({
-                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                            latitude: 0.0, // 모달이 가지고 있는 위도
-                            longitude: 0.0, // 모달이 가지고 있는 경도
-                            threadTitle: '모달', // 모달 제목
-                            mainCategory: '',
-                            subCategory1: '',
-                            subCategory2: '',
-                            subCategory3: '',
-                        });
                     }}
                 >
                     글 작성 모달 보기
@@ -112,18 +107,18 @@ const ComponentMuseum = () => {
 
                 <button
                     onClick={() => {
-                        toggleModal(true); // 모달 열기
                         setModalType('missing'); // 모달의 navigation 상태
-                        setModalData({
-                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                            latitude: 0.0, // 모달이 가지고 있는 위도
-                            longitude: 0.0, // 모달이 가지고 있는 경도
-                            threadTitle: '모달', // 모달 제목
-                            mainCategory: '',
-                            subCategory1: '',
-                            subCategory2: '',
-                            subCategory3: '',
+                        setMissingData({
+                            // thread의 missingData가 가지고 있는 양식을 전송한다. (일부 데이터 예시, stores/modalStatus.js 에서 나머지 양식 확인 가능)
+                            threadTitle: '집 나간 우리 문제아 찾아요',
+                            relatedPet: {
+                                petName: '윤똥개',
+                                petType: '인간',
+                                petAge: 24,
+                                isGotChip: true,
+                            },
                         });
+                        toggleModal(true); // 모달 열기
                     }}
                 >
                     실종신고 모달 보기
@@ -131,18 +126,18 @@ const ComponentMuseum = () => {
 
                 <button
                     onClick={() => {
-                        toggleModal(true); // 모달 열기
                         setModalType('rescue'); // 모달의 navigation 상태
-                        setModalData({
-                            // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                            latitude: 0.0, // 모달이 가지고 있는 위도
-                            longitude: 0.0, // 모달이 가지고 있는 경도
-                            threadTitle: '모달', // 모달 제목
-                            mainCategory: '',
-                            subCategory1: '',
-                            subCategory2: '',
-                            subCategory3: '',
+                        setRescueData({
+                            // thread의 rescueData가 가지고 있는 양식을 전송한다. (일부 데이터 예시, stores/modalStatus.js 에서 나머지 양식 확인 가능)
+                            threadTitle: '이 동물 좀 구해주세요',
+                            threadStatus: 'on-board',
+                            rescueInfo: {
+                                animalType: '드래곤으로 추정',
+                                foundAt: '2024-01-01 08:24:11',
+                                foundSituation: '그냥 자빠져 있었어요',
+                            },
                         });
+                        toggleModal(true); // 모달 열기
                     }}
                 >
                     구조요청 모달 보기
