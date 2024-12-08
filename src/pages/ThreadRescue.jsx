@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../api/axios';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
@@ -12,8 +12,6 @@ import DiscoverySituation from '../components/common/DiscoverySituation';
 import getLatestLocation from '../utils/getLatestLocation';
 
 const ThreadRescue = () => {
-    // 유효성 검사
-    // const [isLoggedIn, setIsLoggedIn] = useState(true); // 로그인 상태
     const latestLocation = getLatestLocation();
     const [selectedType, setSelectedType] = useState('');
     const [address, setAddress] = useState({
@@ -25,10 +23,6 @@ const ThreadRescue = () => {
     const [dateTime, setDateTime] = useState('');
     const [situation, setSituation] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
-    useEffect(() => {
-        console.log('dateTime 값:', dateTime);
-    }, [dateTime]);
 
     const mallangTypes = [
         { id: 'DOG', label: '강아지' },
@@ -75,14 +69,12 @@ const ThreadRescue = () => {
         console.log('폼 데이터:', formData);
 
         try {
-            const token = localStorage.getItem('accessToken'); // 인증 토큰 가져오기
-            const response = await axios.post(
+            const response = await axiosInstance.post(
                 `${import.meta.env.VITE_API_BASE_URL}/articles`,
                 formData,
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`, // 헤더에 토큰 추가
                     },
                 },
             );

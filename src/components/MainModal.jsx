@@ -31,6 +31,7 @@ import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
 
 import MissingInfo from '../pages/MissingInfo';
 import MissingSightingReport from '../pages/MissingSightingReport';
+import ThreadPlace from '../pages/ThreadPlace';
 import RescueDisclaimer from '../pages/RescueDisclaimer';
 import RescueDetails from '../pages/RescueDetails';
 
@@ -114,7 +115,7 @@ const MainModal = ({ routeName }) => {
         'rescue-reply-list': <ReplyList />,
 
         // 글타래 작성 라우트 매치
-        'write-places': <>악</>,
+        'write-places': <ThreadPlace></ThreadPlace>,
         'write-missing': <ThreadMissingReport></ThreadMissingReport>,
         'write-rescue': <ThreadRescue></ThreadRescue>,
     };
