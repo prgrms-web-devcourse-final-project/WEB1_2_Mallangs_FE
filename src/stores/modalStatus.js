@@ -1,64 +1,223 @@
 import { create } from 'zustand';
 import navObjectSetup from '../datas/modalNavObject.json'; // 모달 네비게이션 셋업
+import dateFormat from '../utils/dateFormat';
+import hourFormat from '../utils/hourFormat';
 
 export const useModalStore = create((set) => ({
-    // editMode: [ places, rescue, missing, other ]
     // threadType: [ profile, places, rescue, missing ]
 
     isModalShowing: false,
     modalStatus: {
-        isThisMine: true,
-        editMode: false,
+        isAuthenticated: false,
+        isThisMine: false,
+        isEditMode: false,
+        masterNavigations: navObjectSetup.profile.masterNavigations,
+    },
+    modalData: {
+        // 글타래 진짜 데이터 형식
+        id: 0,
         threadType: 'profile',
-        threadUser: {
+        threadTitle: '글타래 제목',
+        threadCoverImage: 'https://picsum.photos/640/480',
+        threadAliveRange: {
+            isExpiring: true,
+            begin: '2024-01-01',
+            ends: '2024-12-31',
+        },
+        latitude: 30.0,
+        longitude: 128.0,
+        address1: '',
+        address2: '',
+        threadSubjects: {
+            mainSubject: '주 분류',
+            subjectAlpha: '서브 분류 1',
+            subjectBeta: '서브 분류 2',
+            subjectGamma: '서브 분류 3',
+        },
+        threadAuthor: {
             userID: 0,
-            userAccount: 'kim_4yongjar',
-            userName: '김사용자',
-            userImage: 'https://picsum.photos/128/128?random=2',
-            userDescription: '어쩌고 저쩌고',
-            isAuthenticated: false,
         },
-        threadAnimal: {},
-        modalData: {
-            // 글타래 데이터 전달 방식
-            latitude: 0.0,
-            longtitude: 0.0,
-            threadTitle: 'Zustand 상태값',
-            mainCategory: '주 분류',
-            subCategory1: '서브 분류 1',
-            subCategory2: '서브 분류 2',
-            subCategory3: '서브 분류 3',
-            masterNavigations: navObjectSetup.profile.masterNavigations, // 중간의 profile 부분을 모달 상태에 맞춰 가지고 오면 됨
+        relatedPet: {
+            petID: 0,
+            petName: '김땅콩',
+            petType: '고양이',
+            petAge: 4,
+            petGender: 'M',
+            isNeutered: false,
+            isGotChip: true,
+            chipNumber: '000000000000',
         },
+        threadImages: [
+            {
+                imageID: 0,
+                imageURL: 'https://picsum.photos/640/480',
+                originName: 'image',
+                originFileType: 'jpg',
+                imageWidth: 640,
+                imageHeight: 480,
+                fileSize: 204817275,
+            },
+        ],
+        threadContent: '어쩌고 저쩌고',
+        threadReplies: [0, 1, 2],
+        placeInfo: {
+            placeDescription: '시설 / 업체 소개 글',
+            whatThisPlaceDoes: '시설 / 업체 제공 서비스',
+            dayOff: {
+                offType: 'weekly',
+                offDescription: '매주 수요일',
+            },
+            workTime: {
+                weekDays: { workBegin: '09:00', workEnds: '18:00' },
+                weekEnds: { workBegin: '09:00', workEnds: '18:00' },
+                breakTime: { workBegin: '09:00', workEnds: '18:00' },
+            },
+            placeContact: '010-5555-5555',
+            placeURL: 'https://www.naver.com',
+            placeReviews: {
+                reviewID: [0, 1, 2],
+                totalPointsEarned: 14,
+            },
+        },
+        missingInfo: {
+            missingAt: '2024-01-01 08:00',
+            petSpecifics: '설명 없음',
+            findingReward: '200000',
+            rewardMethod: '현금으로 사례',
+            contact: {
+                phone: '010-1111-1111',
+                timeRange: '12:00 ~ 22:00 사이',
+            },
+        },
+        rescueInfo: {
+            animalType: 'dragon',
+            foundAt: '2024-01-01 08:00',
+            foundSituation: '그냥 자빠라져있었슴 ㅇㅇ',
+        },
+        createdAt: '2024-01-01 20:30',
+        modifiedAt: '2024-01-01 20:31',
     },
     toggleModal: (setValue) => set({ isModalShowing: setValue }),
-    setModalType: (setValue, isEditMode) =>
+    setEditMode: (setValue) =>
         set((state) => ({
-            // 모달 호출시 setValue 매개변수를 통해 모달 출력 형태를 변경한다. (상단의 threadType 참조)
             modalStatus: {
                 ...state.modalStatus,
-                editMode: isEditMode,
-                threadType: setValue,
-                modalData: {
-                    ...state.modalStatus.modalData,
-                    masterNavigations:
-                        navObjectSetup[setValue].masterNavigations,
+                isEditMode: setValue,
+            },
+            modalData: {
+                ...state.modalData,
+                threadTitle: '글타래 제목',
+                threadSubjects: {
+                    mainSubject: '주 분류',
+                    subjectAlpha: '서브 분류 1',
+                    subjectBeta: '서브 분류 2',
+                    subjectGamma: '서브 분류 3',
                 },
             },
         })),
-    setModalData: (setObject) =>
+    setModalType: (setValue) =>
         set((state) => ({
             modalStatus: {
                 ...state.modalStatus,
-                modalData: {
-                    ...state.modalStatus.modalData,
-                    latitude: setObject.latitude,
-                    longitude: setObject.longtitude,
-                    threadTitle: setObject.threadTitle,
-                    mainCategory: setObject.mainCategory,
-                    subCategory1: setObject.subCategory1,
-                    subCategory2: setObject.subCategory2,
-                    subCategory3: setObject.subCategory3,
+                masterNavigations: navObjectSetup[setValue].masterNavigations,
+            },
+            modalData: {
+                ...state.modalData,
+                threadType: setValue,
+            },
+        })),
+    setProfileData: (setObject) =>
+        set((state) => ({
+            modalData: {
+                ...state.modalData,
+                threadTitle: setObject.userName,
+                threadSubjects: {
+                    mainSubject:
+                        setObject.pets.length > 0
+                            ? `${setObject.pets.length}마리의 말랑이와 같이 살아요. ❤️`
+                            : '아직은 말랑이가 없어요. 😹',
+                    subjectAlpha: null,
+                    subjectBeta: null,
+                    subjectGamma: null,
+                },
+            },
+        })),
+    setPlaceData: (setObject) =>
+        set((state) => ({
+            modalData: {
+                ...state.modalData,
+                threadTitle: setObject.placeName,
+                threadSubjects: {
+                    mainSubject: setObject.mainCategory,
+                    subjectAlpha: setObject.subCategoryAlpha,
+                    subjectBeta: setObject.subCategoryBeta,
+                    subjectGamma: setObject.subCategoryGamma,
+                },
+                placeInfo: {
+                    placeDescription: '시설 / 업체 소개 글',
+                    whatThisPlaceDoes: '시설 / 업체 제공 서비스',
+                    dayOff: {
+                        offType: 'weekly',
+                        offDescription: '매주 수요일',
+                    },
+                    workTime: {
+                        weekDays: { workBegin: '09:00', workEnds: '18:00' },
+                        weekEnds: { workBegin: '09:00', workEnds: '18:00' },
+                        breakTime: { workBegin: '09:00', workEnds: '18:00' },
+                    },
+                    placeContact: '010-5555-5555',
+                    placeURL: 'https://www.naver.com',
+                    placeReviews: {
+                        reviewID: [0, 1, 2],
+                        totalPointsEarned: 14,
+                    },
+                },
+            },
+        })),
+    setMissingData: (setObject) =>
+        set((state) => ({
+            modalData: {
+                ...state.modalData,
+                threadTitle: setObject.threadTitle,
+                threadSubjects: {
+                    mainSubject: setObject.relatedPet.petName,
+                    subjectAlpha: setObject.relatedPet.petType,
+                    subjectBeta: setObject.relatedPet.petAge + '세',
+                    subjectGamma: setObject.relatedPet.isGotChip
+                        ? '인식 칩 있음'
+                        : '칩 없음',
+                },
+                missingInfo: {
+                    missingAt: '2024-01-01 08:00',
+                    petSpecifics: '설명 없음',
+                    findingReward: '200000',
+                    rewardMethod: '현금으로 사례',
+                    contact: {
+                        phone: '010-1111-1111',
+                        timeRange: '12:00 ~ 22:00 사이',
+                    },
+                },
+            },
+        })),
+    setRescueData: (setObject) =>
+        set((state) => ({
+            modalData: {
+                ...state.modalData,
+                threadTitle: setObject.threadTitle,
+                threadSubjects: {
+                    mainSubject: setObject.rescueInfo.animalType,
+                    subjectAlpha: dateFormat(setObject.rescueInfo.foundAt),
+                    subjectBeta:
+                        hourFormat(setObject.rescueInfo.foundAt) + ' 경',
+                    subjectGamma:
+                        setObject.threadStatus === 'on-board'
+                            ? '구조 대기 중'
+                            : '완료',
+                },
+                rescueInfo: {
+                    animalType: 'dragon',
+                    foundAt: '2024-01-01 08:00',
+                    foundSituation: '그냥 자빠라져있었슴 ㅇㅇ',
                 },
             },
         })),

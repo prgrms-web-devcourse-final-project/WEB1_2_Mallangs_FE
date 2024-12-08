@@ -2,30 +2,12 @@ import { useModalStore } from '../../stores/modalStatus';
 import Remix from '../common/Remix';
 import MallangItem from '../common/MallangItem';
 
-const UserProfileCard = ({
-    currentPanel,
-    setPanel,
-    userObject = {
-        userID: 0,
-        userName: '알 수 없음',
-        userProfileImage: null,
-        userPets: [
-            {
-                petID: null,
-                petName: '아직 설정한 말랑이가 없어요.',
-                petImage: null,
-                petType: '말랑이',
-                petAge: 0,
-                petGender: '알 수 없음',
-                isMain: true,
-            },
-        ],
-    },
-}) => {
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const setModalType = useModalStore((state) => state.setModalType);
-    const setModalData = useModalStore((state) => state.setModalData);
-    const mainPet = userObject.userPets.find((pet) => pet.isMain === true);
+const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
+    const { toggleModal, setModalType, setProfileData } = useModalStore(
+        (state) => state,
+    );
+
+    const mainPet = userObject.pets.find((pet) => pet.isMain === true);
 
     return (
         <aside
@@ -75,17 +57,9 @@ const UserProfileCard = ({
                     id="button-show-profile"
                     className="profile-card-buttons"
                     onClick={() => {
-                        toggleModal(true);
                         setModalType('profile');
-                        setModalData({
-                            latitude: 0.0,
-                            longitude: 0.0,
-                            threadTitle: mainPet.petName,
-                            mainCategory: mainPet.petType,
-                            subCategory1: mainPet.petAge + '세',
-                            subCategory2: mainPet.petGender,
-                            subCategory3: null,
-                        });
+                        setProfileData(userObject);
+                        toggleModal(true);
                     }}
                 >
                     <Remix iconName={'information-2-fill'} />

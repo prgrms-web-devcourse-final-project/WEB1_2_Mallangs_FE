@@ -8,9 +8,19 @@ const ChatRoomItem = ({
     chatLatestMessage = '가장 최근에 주고받은 대화 내용',
     chatMessageStack = 0,
     chatLetestDateTime = '1970-01-01 16:36:45',
+    onNav,
 }) => {
     return (
-        <div className="chat-room-item">
+        <div
+            className="chat-room-item"
+            onClick={() =>
+                onNav({
+                    label: '1 : 1 대화',
+                    value: 'user-chat-room',
+                    count: 0,
+                })
+            }
+        >
             <UserProfileImage imageSize={1.8} />
 
             <dl className="chat-room-descriptions">

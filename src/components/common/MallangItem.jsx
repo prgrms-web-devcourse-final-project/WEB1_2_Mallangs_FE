@@ -59,7 +59,13 @@ const MallangItem = ({
 
                     <span>·</span>
 
-                    <p>{mallangObject.petGender}</p>
+                    <p>
+                        {mallangObject.petGender === 'M'
+                            ? '수컷'
+                            : mallangObject.petGender === 'F'
+                              ? '암컷'
+                              : '알 수 없음'}
+                    </p>
                 </dd>
             </dl>
         </div>

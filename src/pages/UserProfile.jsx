@@ -1,23 +1,31 @@
+import { useModalStore } from '../stores/modalStatus';
 import Remix from '../components/common/Remix';
 import UserProfileImage from '../components/common/UserProfileImage';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
-import { useModalStore } from '../stores/modalStatus';
+import tempDB from '../datas/temp-db.json';
 
 const UserProfile = () => {
-    const userData = useModalStore((state) => state.modalStatus.threadUser);
+    const modalData = useModalStore((state) => state.modalData);
+
+    const currentUser = tempDB.users.find(
+        (user) => user.id === modalData.threadAuthor.userID,
+    );
 
     return (
         <>
             <div id="user-basic-informations">
-                <UserProfileImage imageSrc={userData.userImage} imageSize={9} />
+                <UserProfileImage
+                    imageSrc={currentUser.userImage}
+                    imageSize={9}
+                />
 
-                <h5>{userData.userName}</h5>
-                <p>{userData.userAccount}</p>
+                <h5>{currentUser.userName}</h5>
+                <p>{currentUser.userAccount}</p>
 
                 <div className="user-informations-introduce">
                     <Remix iconName={'double-quotes-l'} iconSize={1.2} />
 
-                    <p>{userData.userDescription}</p>
+                    <p>{currentUser.userDescription}</p>
 
                     <Remix iconName={'double-quotes-r'} iconSize={1.2} />
                 </div>

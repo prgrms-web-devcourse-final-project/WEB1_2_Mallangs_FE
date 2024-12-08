@@ -55,6 +55,7 @@
 
 #main-modal-side-menu {
     padding-block: 0.8rem;
+    transition: margin-block-start 0.15s;
 }
 
 .side-menu-item {
@@ -90,6 +91,7 @@
     flex: 1;
     display: flex;
     flex-flow: column nowrap;
+    overflow: hidden;
 }
 
 #main-modal-navigation {
@@ -140,32 +142,6 @@
 #main-modal-content {
     flex: 1;
     overflow-y: auto;
-}
-
-.user-common-item-list {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.8rem;
-    padding: 0.8rem;
-}
-
-.user-common-labeled-input {
-    flex: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.4rem;
-}
-
-.common-input-labels {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
-    font-size: var(--fnt-sm);
-    font-weight: 200;
-
-    > .remix {
-        opacity: 0.5;
-    }
 }
 
 /* 모달 외부에서 사용할 확률이 적은 컴포넌트들 */
@@ -364,18 +340,100 @@
     }
 }
 
+/* 사용자 1:1 대화 */
+
+#user-chat-room-container {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    overflow: hidden;
+}
+
+#user-chat-room-body {
+    flex: 1;
+    overflow-y: scroll;
+}
+
+#user-chat-room-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    inset-block-start: 0;
+    padding-inline: 0.8rem;
+    height: 2.4rem;
+    background-color: rgb(var(--clr-text) / 0.75);
+    backdrop-filter: blur(1.8rem);
+    color: rgb(var(--clr-text-on-tint));
+    z-index: 2;
+}
+
+#user-chat-room-stacks {
+}
+
+#user-chat-room-input-container {
+    flex-shrink: 0;
+}
+
+.chat-input-wrapper {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.4rem;
+    background-color: rgb(var(--clr-white));
+    background-image: linear-gradient(
+        rgb(var(--clr-tint-100) / 0.05),
+        rgb(var(--clr-tint-100) / 0.05)
+    );
+}
+
+#input-chat-text {
+    flex: 1;
+}
+
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 720px) {
+    #main-modal {
+        &:has(.cover-signature-image-container) {
+            #main-modal-side-menu {
+                margin-block-start: 0;
+            }
+        }
+    }
+
+    #main-modal-body {
+        flex-flow: column nowrap;
+    }
+
     #main-modal-sidebar {
-        width: 3.6rem;
+        width: 100%;
+        background-color: rgb(var(--clr-background));
+    }
+
+    #main-modal-side-menu {
+        display: flex;
+        padding-block: 0;
+    }
+
+    .side-menu-item {
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.2rem;
+        padding-inline: 0.4rem;
+
+        > .remix {
+            opacity: 0.5;
+        }
+    }
+
+    #main-modal-content-container {
     }
 }
 
 @container main-container (max-width: 640px) {
-    #main-modal-sidebar {
-        display: none;
-    }
+    // #main-modal-sidebar {
+    //     display: none;
+    // }
 }
 
 /* _mainModal.scss */
