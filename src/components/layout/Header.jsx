@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useNotificationStore } from '../../stores/notificationStatus';
 import logoImage from '../../assets/images/logo.png';
@@ -7,13 +7,24 @@ import UserProfileImage from '../common/UserProfileImage';
 
 const Header = ({ setPanel }) => {
     const [mobileNavStatus, setMobileNavStatus] = useState(false);
-    const [isLoggedIn, setLoginStatus] = useState(true);
+    const [isLoggedIn, setLoginStatus] = useState(
+        !!localStorage.getItem('accessToken'),
+    );
 
     const navigate = useNavigate();
 
     const notificationArray = useNotificationStore(
         (state) => state.notifications,
     );
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setLoginStatus(!!localStorage.getItem('accessToken'));
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
 
     let timedSizing = null;
 
@@ -139,6 +150,7 @@ const Header = ({ setPanel }) => {
                                     'https://picsum.photos/seed/kim/128/128'
                                 }
                                 imageSize={1.8}
+                                setLoginStatus={setLoginStatus}
                             />
                         </button>
                     </>

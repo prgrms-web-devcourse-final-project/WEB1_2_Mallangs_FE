@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useModalStore } from '../../stores/modalStatus';
 
 import Remix from '../common/Remix';
@@ -7,7 +7,7 @@ import MallangItem from '../common/MallangItem';
 import { logoutApi } from '../../api/userApi';
 
 const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
-    const location = useLocation();
+    const navigate = useNavigate();
     const { toggleModal, setModalType, setProfileData } = useModalStore(
         (state) => state,
     );
@@ -17,18 +17,10 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
     const handleLogout = async () => {
         try {
             await logoutApi();
-
-            location('/login');
+            window.location.href = '/';
         } catch (error) {
             console.error('로그아웃 실패:', error);
-
-            if (error.response?.status === 401) {
-                localStorage.removeItem('accessToken');
-
-                location('/login');
-            } else {
-                alert('로그아웃에 실패했습니다.');
-            }
+            alert('로그아웃에 실패했습니다.');
         }
     };
 
