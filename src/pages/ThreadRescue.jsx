@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { createRescueArticle } from '../api/threadApi';
-import useLocationStore from '../stores/locationStore';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
@@ -12,9 +11,7 @@ import DateTime from '../components/common/DateTime';
 import DiscoverySituation from '../components/common/DiscoverySituation';
 
 const ThreadRescue = () => {
-    // locationStore에서 주소 관련 데이터 가져오기
-    const locationStatus = useLocationStore((state) => state.locationStatus);
-
+    const [addressInfo, setAddressInfo] = useState(null);
     const [selectedType, setSelectedType] = useState('');
     const [dateTime, setDateTime] = useState('');
     const [situation, setSituation] = useState('');
@@ -31,11 +28,20 @@ const ThreadRescue = () => {
         setSelectedType(typeId);
     };
 
+    const handleAddressChange = (info) => {
+        setAddressInfo(info);
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (!addressInfo) {
+            setErrorMessage('위치 정보가 필요합니다.');
+            return;
+        }
+
         const address =
-            `${locationStatus.roadAddress || locationStatus.jibunAddress} ${locationStatus.building}`.trim();
+            `${addressInfo.roadAddress || addressInfo.jibunAddress} ${addressInfo.building}`.trim();
 
         if (!address || !dateTime || !selectedType || !situation) {
             setErrorMessage('4가지 중 필수 항목이 누락되었습니다.');
@@ -49,8 +55,8 @@ const ThreadRescue = () => {
             type: 'rescue',
             articleStatus: 'PUBLISHED', // 필요한 상태값
             title: '꽁꽁 얼어붙은 한강 위로 고양이가 걸어다닙니다', // 제목
-            latitude: locationStatus.coordinates.lat.toString(), // 위도
-            longitude: locationStatus.coordinates.lng.toString(), // 경도
+            latitude: addressInfo.coordinates.lat.toString(), // 위도
+            longitude: addressInfo.coordinates.lng.toString(), // 경도
             description: situation, // 상황 설명
             image: 'tempimage', // 이미지 URL
             petType: selectedType, // 선택된 동물 종류
@@ -110,7 +116,7 @@ const ThreadRescue = () => {
                         주소는 지도에서 선택한 지점에 따라 자동으로 입력됩니다.
                     </span>
                     {/* 주소 */}
-                    <InputAddress />
+                    <InputAddress onAddressChange={handleAddressChange} />
 
                     <span className="section-title">발견일자 / 시간대</span>
 

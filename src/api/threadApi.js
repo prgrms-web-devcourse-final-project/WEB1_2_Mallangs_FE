@@ -31,3 +31,17 @@ export const createRescueArticle = async (formData) => {
         throw error;
     }
 };
+
+export const createMissingReportArticle = async (formData) => {
+    try {
+        const response = await axiosInstance({
+            method: 'post',
+            url: '/articles',
+            data: formData,
+        });
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};

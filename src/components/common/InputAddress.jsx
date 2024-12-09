@@ -1,34 +1,49 @@
-import { useState } from 'react';
-const InputAddress = ({ value, onChange }) => {
-    const [region, setRegion] = useState(value?.region || '');
-    const [building, setBuilding] = useState(value?.building || '');
+import { useEffect, useMemo } from 'react';
+import useLocationStore from '../../stores/locationStore';
 
-    const handleRegionChange = (e) => {
-        const newRegion = e.target.value;
-        setRegion(newRegion);
-        onChange({ region: newRegion, building });
-    };
+const InputAddress = ({ onAddressChange }) => {
+    const roadAddress = useLocationStore((state) => state.roadAddress);
+    const jibunAddress = useLocationStore((state) => state.jibunAddress);
+    const building = useLocationStore((state) => state.building);
+    const coordinates = useLocationStore((state) => state.coordinates);
+    const setBuilding = useLocationStore((state) => state.setBuilding);
 
     const handleBuildingChange = (e) => {
-        const newBuilding = e.target.value;
-        setBuilding(newBuilding);
-        onChange({ region, building: newBuilding });
+        setBuilding(e.target.value);
     };
+
+    const displayAddress = roadAddress || jibunAddress;
+
+    // 메모이제이션된 주소 정보 객체
+    const addressInfo = useMemo(
+        () => ({
+            roadAddress,
+            jibunAddress,
+            building,
+            coordinates,
+        }),
+        [roadAddress, jibunAddress, building, coordinates],
+    );
+
+    useEffect(() => {
+        onAddressChange?.(addressInfo);
+    }, [addressInfo, onAddressChange]);
+
     return (
         <div className="address">
             <div className="address-container">
                 <input
                     className="address-region"
                     placeholder="강원특별자치도 춘천시 공지로 어쩌고"
-                    value={region}
-                    onChange={handleRegionChange}
-                ></input>
+                    value={displayAddress || ''}
+                    readOnly
+                />
                 <input
                     className="address-building"
                     placeholder="상세주소를 입력해주세요!"
-                    value={building}
+                    value={building || ''}
                     onChange={handleBuildingChange}
-                ></input>
+                />
             </div>
         </div>
     );
