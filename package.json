@@ -18,6 +18,7 @@
         "react-dom": "^18.3.1",
         "react-kakao-maps-sdk": "^1.1.27",
         "react-router-dom": "^7.0.1",
+        "shortid": "^2.2.16",
         "sweetalert2": "^11.14.5",
         "sweetalert2-react-content": "^5.0.7",
         "swiper": "^11.1.15",
