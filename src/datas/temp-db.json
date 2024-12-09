@@ -97,8 +97,8 @@
             "threadStatus": "on-board",
             "latitude": 30.0,
             "longitude": 128.0,
-            "address1": "",
-            "address2": "",
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
             "threadSubjects": {
                 "mainSubject": "주 분류",
                 "subjectAlpha": "서브 분류 1",
@@ -106,7 +106,8 @@
                 "subjectGamma": "서브 분류 3"
             },
             "threadAuthor": {
-                "userID": 0
+                "userID": 0,
+                "userName": "생성된 사용자 50"
             },
             "relatedPet": {
                 "petID": 0,
@@ -132,16 +133,25 @@
             "threadContent": "어쩌고 저쩌고",
             "threadReplies": [0, 1, 2],
             "placeInfo": {
-                "placeDescription": "시설 / 업체 소개 글",
+                "placeDescription": "자동 생성된 장소 설명 50",
                 "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
                 "dayOff": {
                     "offType": "weekly",
                     "offDescription": "매주 수요일"
                 },
                 "workTime": {
-                    "weekDays": { "workBegin": "09:00", "workEnds": "18:00" },
-                    "weekEnds": { "workBegin": "09:00", "workEnds": "18:00" },
-                    "breakTime": { "workBegin": "09:00", "workEnds": "18:00" }
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
                 },
                 "placeContact": "010-5555-5555",
                 "placeURL": "https://www.naver.com",
@@ -170,7 +180,7 @@
         },
         {
             "id": 1,
-            "threadType": "places",
+            "threadType": "missing",
             "threadTitle": "강남 반려동물 장소 1호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -241,7 +251,7 @@
         },
         {
             "id": 2,
-            "threadType": "places",
+            "threadType": "rescue",
             "threadTitle": "강남 반려동물 장소 2호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -312,7 +322,7 @@
         },
         {
             "id": 3,
-            "threadType": "places",
+            "threadType": "rescue",
             "threadTitle": "강남 반려동물 장소 3호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -383,7 +393,7 @@
         },
         {
             "id": 4,
-            "threadType": "places",
+            "threadType": "missing",
             "threadTitle": "강남 반려동물 장소 4호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -525,7 +535,7 @@
         },
         {
             "id": 6,
-            "threadType": "places",
+            "threadType": "missing",
             "threadTitle": "강남 반려동물 장소 6호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -667,7 +677,7 @@
         },
         {
             "id": 8,
-            "threadType": "places",
+            "threadType": "rescue",
             "threadTitle": "강남 반려동물 장소 8호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -809,7 +819,7 @@
         },
         {
             "id": 10,
-            "threadType": "places",
+            "threadType": "rescue",
             "threadTitle": "강남 반려동물 장소 10호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -951,7 +961,7 @@
         },
         {
             "id": 12,
-            "threadType": "places",
+            "threadType": "missing",
             "threadTitle": "강남 반려동물 장소 12호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -1093,7 +1103,7 @@
         },
         {
             "id": 14,
-            "threadType": "places",
+            "threadType": "missing",
             "threadTitle": "강남 반려동물 장소 14호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -1164,7 +1174,7 @@
         },
         {
             "id": 15,
-            "threadType": "places",
+            "threadType": "other",
             "threadTitle": "강남 반려동물 장소 15호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -1235,7 +1245,7 @@
         },
         {
             "id": 16,
-            "threadType": "places",
+            "threadType": "missing",
             "threadTitle": "강남 반려동물 장소 16호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -1306,7 +1316,7 @@
         },
         {
             "id": 17,
-            "threadType": "places",
+            "threadType": "rescue",
             "threadTitle": "강남 반려동물 장소 17호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -1448,7 +1458,7 @@
         },
         {
             "id": 19,
-            "threadType": "places",
+            "threadType": "other",
             "threadTitle": "강남 반려동물 장소 19호점",
             "threadCoverImage": "https://picsum.photos/640/480",
             "threadAliveRange": {
@@ -1587,6 +1597,4706 @@
             "rescueInfo": null,
             "createdAt": "2024-12-07 12:30",
             "modifiedAt": "2024-12-07 12:31"
+        },
+        {
+            "id": 21,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 1",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.526478,
+            "longitude": 127.029081,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 21",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 22,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 2",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.446047,
+            "longitude": 127.235989,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 22",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 23,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 3",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.630838,
+            "longitude": 127.070534,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 23",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 24,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 4",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.597803,
+            "longitude": 127.061877,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 24",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 25,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 5",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.489948,
+            "longitude": 127.031336,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 25",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 26,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 6",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.408077,
+            "longitude": 126.983295,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 26",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 27,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 7",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.443468,
+            "longitude": 127.064302,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 27",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 28,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 8",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.408462,
+            "longitude": 126.894279,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 28",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 29,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 9",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.510356,
+            "longitude": 127.041497,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 29",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 30,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 10",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.623723,
+            "longitude": 127.007296,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 30",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 31,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 11",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.511727,
+            "longitude": 127.012508,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 31",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 32,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 12",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.495896,
+            "longitude": 127.094423,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 32",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 33,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 13",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.423014,
+            "longitude": 127.126498,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 33",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 34,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 14",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.502156,
+            "longitude": 127.044147,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 34",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 35,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 15",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.548293,
+            "longitude": 127.108527,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 35",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 36,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 16",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.599775,
+            "longitude": 127.021129,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 36",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 37,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 17",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.427117,
+            "longitude": 126.972515,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 37",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 38,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 18",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.580205,
+            "longitude": 127.085009,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 38",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 39,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 19",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.583271,
+            "longitude": 127.030701,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 39",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 40,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 20",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.358116,
+            "longitude": 127.005181,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 40",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 41,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 21",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.561182,
+            "longitude": 127.203596,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 41",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 42,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 22",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.520029,
+            "longitude": 127.055824,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 42",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 43,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 23",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.537898,
+            "longitude": 126.942185,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 43",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 44,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 24",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.502332,
+            "longitude": 127.015996,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 44",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 45,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 25",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.507697,
+            "longitude": 127.009339,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 45",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 46,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 26",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.394298,
+            "longitude": 126.949327,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 46",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 47,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 27",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.515479,
+            "longitude": 127.026826,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 47",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 48,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 28",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.572415,
+            "longitude": 126.987914,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 48",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 49,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 29",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.399981,
+            "longitude": 126.995451,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 49",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 50,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 30",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.564125,
+            "longitude": 127.124272,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 50",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 51,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 31",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.323043,
+            "longitude": 127.002927,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 51",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 52,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 32",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.483672,
+            "longitude": 127.042481,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 52",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 53,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 33",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.433645,
+            "longitude": 127.017505,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 53",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 54,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 34",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.59285,
+            "longitude": 127.013009,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 54",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 55,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 35",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.674883,
+            "longitude": 126.991256,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 55",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 56,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 36",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.619471,
+            "longitude": 126.88929,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 56",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 57,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 37",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.553403,
+            "longitude": 127.025818,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 57",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 58,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 38",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.467524,
+            "longitude": 127.111891,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 58",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 59,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 39",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.356797,
+            "longitude": 127.130714,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 59",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 60,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 40",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.412635,
+            "longitude": 127.204408,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 60",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 61,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 41",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.430465,
+            "longitude": 126.958606,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 61",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 62,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 42",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.48517,
+            "longitude": 127.015077,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 62",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 63,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 43",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.497466,
+            "longitude": 127.244508,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 63",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 64,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 44",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.485736,
+            "longitude": 127.029376,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 64",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 65,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 45",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.435411,
+            "longitude": 127.214718,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 65",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 66,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 46",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.500407,
+            "longitude": 127.084407,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 66",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 67,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 47",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.482642,
+            "longitude": 127.06791,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 67",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 68,
+            "threadType": "places",
+            "threadTitle": "랜덤 생성된 글타래 48",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.490548,
+            "longitude": 127.040937,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 68",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 69,
+            "threadType": "rescue",
+            "threadTitle": "랜덤 생성된 글타래 49",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.490184,
+            "longitude": 127.036882,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 69",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
+        },
+        {
+            "id": 70,
+            "threadType": "missing",
+            "threadTitle": "랜덤 생성된 글타래 50",
+            "threadCoverImage": "https://picsum.photos/640/480",
+            "threadAliveRange": {
+                "isExpiring": true,
+                "begin": "2024-01-01",
+                "ends": "2024-12-31"
+            },
+            "threadStatus": "on-board",
+            "latitude": 37.487795,
+            "longitude": 126.894617,
+            "address1": "부산광역시 부산진구",
+            "address2": "외곽에 위치한 뉴욕",
+            "threadSubjects": {
+                "mainSubject": "주 분류",
+                "subjectAlpha": "서브 분류 1",
+                "subjectBeta": "서브 분류 2",
+                "subjectGamma": "서브 분류 3"
+            },
+            "threadAuthor": {
+                "userID": 0,
+                "userName": "생성된 사용자 50"
+            },
+            "relatedPet": {
+                "petID": 0,
+                "petName": "김땅콩",
+                "petType": "고양이",
+                "petAge": 4,
+                "petGender": "M",
+                "isNeutered": false,
+                "isGotChip": true,
+                "chipNumber": "000000000000"
+            },
+            "threadImages": [
+                {
+                    "imageID": 0,
+                    "imageURL": "https://picsum.photos/640/480",
+                    "originName": "image",
+                    "originFileType": "jpg",
+                    "imageWidth": 640,
+                    "imageHeight": 480,
+                    "fileSize": 204817275
+                }
+            ],
+            "threadContent": "이 글은 자동 생성된 데이터입니다. 생성 ID: 70",
+            "threadReplies": [0, 1, 2],
+            "placeInfo": {
+                "placeDescription": "자동 생성된 장소 설명 50",
+                "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+                "dayOff": {
+                    "offType": "weekly",
+                    "offDescription": "매주 수요일"
+                },
+                "workTime": {
+                    "weekDays": {
+                        "workBegin": "09:00",
+                        "workEnds": "18:00"
+                    },
+                    "weekEnds": {
+                        "workBegin": "09:00",
+                        "workEnds": "16:00"
+                    },
+                    "breakTime": {
+                        "workBegin": "12:00",
+                        "workEnds": "13:00"
+                    }
+                },
+                "placeContact": "010-5555-5555",
+                "placeURL": "https://www.naver.com",
+                "placeReviews": {
+                    "reviewID": [0, 1, 2],
+                    "totalPointsEarned": 14
+                }
+            },
+            "missingInfo": {
+                "missingAt": "2024-01-01 08:00",
+                "petSpecifics": "설명 없음",
+                "findingReward": "200000",
+                "rewardMethod": "현금으로 사례",
+                "contact": {
+                    "phone": "010-1111-1111",
+                    "timeRange": "12:00 ~ 22:00 사이"
+                }
+            },
+            "rescueInfo": {
+                "animalType": "dragon",
+                "foundAt": "2024-01-01 08:00",
+                "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+            },
+            "createdAt": "2024-01-01 20:30",
+            "modifiedAt": "2024-01-01 20:31"
         }
     ],
     "reviews": [

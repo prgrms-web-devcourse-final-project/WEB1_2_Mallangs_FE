@@ -221,4 +221,11 @@ export const useModalStore = create((set) => ({
                 },
             },
         })),
+    setTotalData: (setObject) =>
+        set((state) => ({
+            modalData: {
+                ...state.modalData,
+                setObject,
+            },
+        })),
 }));

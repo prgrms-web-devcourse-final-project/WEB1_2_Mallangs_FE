@@ -1,0 +1,94 @@
+{
+    "id": 0,
+    "threadType": "places",
+    "threadTitle": "글타래 제목",
+    "threadCoverImage": "https://picsum.photos/640/480",
+    "threadAliveRange": {
+        "isExpiring": true,
+        "begin": "2024-01-01",
+        "ends": "2024-12-31"
+    },
+    "threadStatus": "on-board",
+    "latitude": 30.0,
+    "longitude": 128.0,
+    "address1": "부산광역시 부산진구",
+    "address2": "외곽에 위치한 뉴욕",
+    "threadSubjects": {
+        "mainSubject": "주 분류",
+        "subjectAlpha": "서브 분류 1",
+        "subjectBeta": "서브 분류 2",
+        "subjectGamma": "서브 분류 3"
+    },
+    "threadAuthor": {
+        "userID": 0,
+        "userName": "생성된 사용자 50"
+    },
+    "relatedPet": {
+        "petID": 0,
+        "petName": "김땅콩",
+        "petType": "고양이",
+        "petAge": 4,
+        "petGender": "M",
+        "isNeutered": false,
+        "isGotChip": true,
+        "chipNumber": "000000000000"
+    },
+    "threadImages": [
+        {
+            "imageID": 0,
+            "imageURL": "https://picsum.photos/640/480",
+            "originName": "image",
+            "originFileType": "jpg",
+            "imageWidth": 640,
+            "imageHeight": 480,
+            "fileSize": 204817275
+        }
+    ],
+    "threadContent": "어쩌고 저쩌고",
+    "threadReplies": [0, 1, 2],
+    "placeInfo": {
+        "placeDescription": "자동 생성된 장소 설명 50",
+        "whatThisPlaceDoes": "시설 / 업체 제공 서비스",
+        "dayOff": {
+            "offType": "weekly",
+            "offDescription": "매주 수요일"
+        },
+        "workTime": {
+            "weekDays": {
+                "workBegin": "09:00",
+                "workEnds": "18:00"
+            },
+            "weekEnds": {
+                "workBegin": "09:00",
+                "workEnds": "16:00"
+            },
+            "breakTime": {
+                "workBegin": "12:00",
+                "workEnds": "13:00"
+            }
+        },
+        "placeContact": "010-5555-5555",
+        "placeURL": "https://www.naver.com",
+        "placeReviews": {
+            "reviewID": [0, 1, 2],
+            "totalPointsEarned": 14
+        }
+    },
+    "missingInfo": {
+        "missingAt": "2024-01-01 08:00",
+        "petSpecifics": "설명 없음",
+        "findingReward": "200000",
+        "rewardMethod": "현금으로 사례",
+        "contact": {
+            "phone": "010-1111-1111",
+            "timeRange": "12:00 ~ 22:00 사이"
+        }
+    },
+    "rescueInfo": {
+        "animalType": "dragon",
+        "foundAt": "2024-01-01 08:00",
+        "foundSituation": "그냥 자빠라져있었슴 ㅇㅇ"
+    },
+    "createdAt": "2024-01-01 20:30",
+    "modifiedAt": "2024-01-01 20:31"
+}

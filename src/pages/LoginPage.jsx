@@ -1,9 +1,13 @@
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Remix from '../components/common/Remix';
+
 import { loginApi } from '../api/userApi';
+
 import loginMovie from '../assets/miscs/login-movie-0.mp4';
 import loginBgImage from '../assets/images/login-background-image.png';
+import logoImage from '../assets/images/logo.png';
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -30,6 +34,7 @@ const LoginPage = () => {
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
+
         setFormData((prev) => ({
             ...prev,
             [id === 'input-login-account' ? 'userId' : 'password']: value,
@@ -54,10 +59,8 @@ const LoginPage = () => {
             }
 
             navigate('/');
-        } catch (err) {
-            setError(
-                '로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.',
-            );
+        } catch (error) {
+            setError('ID 또는 비밀번호가 올바르지 않아요.');
         } finally {
             setIsLoading(false);
         }
@@ -74,8 +77,13 @@ const LoginPage = () => {
                 playsInline
             >
                 <source src={loginMovie} type="video/mp4" />
-                사용자의 브라우저가 내장 동영상 플레이어를 지원하지 않습니다.
+
+                <span>
+                    사용자의 브라우저가 내장 동영상 플레이어를 지원하지
+                    않습니다.
+                </span>
             </video>
+
             <div className="service-container-wrapper">
                 <div id="login-form-container" className="service-container">
                     <div className="service-logo-container">
@@ -90,20 +98,21 @@ const LoginPage = () => {
                                 iconSize={1}
                             />
                         </button>
-                        <h1>
-                            ♤£¢
-                            <br />
-                            말랑플레이스
-                            <br />
-                            (로고 만들거임)
-                        </h1>
+
+                        <div id="login-service-name">
+                            <p>말랑이와 함께하는 말랑한 세상</p>
+
+                            <h1>말랑플레이스</h1>
+                        </div>
+
+                        <img id="login-logo-image" src={logoImage} />
                     </div>
+
                     <form id="form-login" onSubmit={handleSubmit}>
                         {error && (
-                            <div className="error-message text-red-500 mb-4">
-                                {error}
-                            </div>
+                            <div className="login-error-message">{error}</div>
                         )}
+
                         <input
                             type="text"
                             id="input-login-account"
@@ -113,6 +122,7 @@ const LoginPage = () => {
                             disabled={isLoading}
                             autoComplete="username"
                         />
+
                         <input
                             type="password"
                             id="input-login-password"
@@ -122,6 +132,7 @@ const LoginPage = () => {
                             disabled={isLoading}
                             autoComplete="current-password"
                         />
+
                         <input
                             type="checkbox"
                             name="check-something"
@@ -130,17 +141,28 @@ const LoginPage = () => {
                             onChange={(e) => setRememberMe(e.target.checked)}
                             disabled={isLoading}
                         />
+
                         <label htmlFor="checkbox-login-constant">
                             <div className="toggles-indicator">
                                 <Remix iconName={'check-line'} iconSize={0.6} />
                             </div>
+
                             <span className="toggles-label">ID 기억하기</span>
                         </label>
-                        <button type="submit" disabled={isLoading}>
-                            {isLoading ? '로그인 중...' : '로그인'}
+
+                        <button
+                            type="submit"
+                            id="button-login"
+                            title={'로그인'}
+                            disabled={isLoading}
+                        >
+                            <Remix iconName={'key-fill'} />
+
+                            <span>{isLoading ? '로그인 중...' : '로그인'}</span>
                         </button>
                     </form>
                 </div>
+
                 <div className="service-controls login-state-controls">
                     <button
                         type="button"
@@ -148,17 +170,19 @@ const LoginPage = () => {
                         title="회원가입"
                         onClick={() => navigate('/register')}
                     >
-                        회원가입
+                        <span>회원가입</span>
                     </button>
+
                     <button
                         type="button"
                         className="button-service-control"
                         title="ID / 비밀번호 찾기"
                         onClick={() => navigate('/find-account')}
                     >
-                        ID / 비밀번호 찾기
+                        <span>ID / 비밀번호 찾기</span>
                     </button>
                 </div>
+
                 <div className="service-copyright">
                     Copyright © {thisYear} MallangPlace Inc. All Rights
                     Reserved.
