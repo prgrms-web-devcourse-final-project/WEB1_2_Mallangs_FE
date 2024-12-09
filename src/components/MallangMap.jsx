@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import debounce from 'lodash/debounce';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 
@@ -115,6 +115,23 @@ const MallangMap = () => {
             },
         );
     };
+
+    const filteredMarkers = useMemo(() => {
+        if (currentCategory === 'all') return markers;
+
+        return markers.filter((marker) => {
+            switch (currentCategory) {
+                case 'missing':
+                    return marker.type === 'LOST';
+                case 'rescue':
+                    return marker.type === 'RESCUE';
+                case 'place':
+                    return marker.type === 'PLACE';
+                default:
+                    return true;
+            }
+        });
+    }, [markers, currentCategory]);
 
     return (
         <div id="mallang-map-container">
@@ -248,7 +265,8 @@ const MallangMap = () => {
                     </CustomOverlayMap>
                 )}
 
-                {markers.map((item, index) => (
+                {/* {markers.map((item, index) => ( */}
+                {filteredMarkers.map((item, index) => (
                     <MapMarker
                         key={item.articleId || index}
                         position={{
@@ -271,6 +289,7 @@ const MallangMap = () => {
                         }}
                         title={item.title}
                         onClick={() => {
+                            console.log(`Marker ${index}:`, item);
                             setModalType(item.type.toLowerCase());
                             setTotalData(item);
                             toggleModal(true);
