@@ -1,0 +1,12 @@
+.single-input-container {
+    .single-input {
+        color: rgb(var(--clr-text));
+        height: 1.6rem;
+        padding: 0.4rem;
+        border: 0.05rem solid rgba(47, 40, 36, 0.15);
+        border-radius: var(--rad-xs);
+        &::placeholder {
+            color: rgb(var(--clr-gray));
+        }
+    }
+}

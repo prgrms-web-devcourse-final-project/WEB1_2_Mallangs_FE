@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
+import { createRescueArticle } from '../api/threadApi';
+import useLocationStore from '../stores/locationStore';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
@@ -9,26 +10,15 @@ import InputAddress from '../components/common/InputAddress';
 import TypeSelector from '../components/common/TypeSelector';
 import DateTime from '../components/common/DateTime';
 import DiscoverySituation from '../components/common/DiscoverySituation';
-import getLatestLocation from '../utils/getLatestLocation';
 
 const ThreadRescue = () => {
-    // 유효성 검사
-    // const [isLoggedIn, setIsLoggedIn] = useState(true); // 로그인 상태
-    const latestLocation = getLatestLocation();
+    // locationStore에서 주소 관련 데이터 가져오기
+    const locationStatus = useLocationStore((state) => state.locationStatus);
+
     const [selectedType, setSelectedType] = useState('');
-    const [address, setAddress] = useState({
-        region: `${latestLocation.lat}, ${latestLocation.lng}`,
-        building: '',
-        // latitude: latestLocation.lat,
-        // longitude: latestLocation.lng,
-    });
     const [dateTime, setDateTime] = useState('');
     const [situation, setSituation] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
-    useEffect(() => {
-        console.log('dateTime 값:', dateTime);
-    }, [dateTime]);
 
     const mallangTypes = [
         { id: 'DOG', label: '강아지' },
@@ -44,9 +34,11 @@ const ThreadRescue = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const address =
+            `${locationStatus.roadAddress || locationStatus.jibunAddress} ${locationStatus.building}`.trim();
+
         if (!address || !dateTime || !selectedType || !situation) {
-            // console.log('뭐 빠졌니?');
-            setErrorMessage('4가지 중 필수 항목 빠짐');
+            setErrorMessage('4가지 중 필수 항목이 누락되었습니다.');
             return;
         }
 
@@ -56,15 +48,14 @@ const ThreadRescue = () => {
         const formData = {
             type: 'rescue',
             articleStatus: 'PUBLISHED', // 필요한 상태값
-            title: '서울에서 구조가 필요한 고양이', // 제목
-            latitude: latestLocation.lat || 0, // 위도
-            longitude: latestLocation.lng || 0, // 경도
+            title: '꽁꽁 얼어붙은 한강 위로 고양이가 걸어다닙니다', // 제목
+            latitude: locationStatus.coordinates.lat.toString(), // 위도
+            longitude: locationStatus.coordinates.lng.toString(), // 경도
             description: situation, // 상황 설명
             image: 'tempimage', // 이미지 URL
             petType: selectedType, // 선택된 동물 종류
             rescueStatus: 'UNSOLVED', // 구조 상태
-            rescueLocation:
-                `${address.region || ''} ${address.building || ''}`.trim(), // 구조 위치
+            rescueLocation: address,
             rescueDate: dateTime
                 ? new Date(
                       `${dateTime.split(' ')[0]}T${dateTime.split(' ')[1].padStart(2, '0')}:00:00`,
@@ -75,20 +66,8 @@ const ThreadRescue = () => {
         console.log('폼 데이터:', formData);
 
         try {
-            const token = localStorage.getItem('accessToken'); // 인증 토큰 가져오기
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_BASE_URL}/articles`,
-                formData,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`, // 헤더에 토큰 추가
-                    },
-                },
-            );
-
+            const response = await createRescueArticle(formData);
             console.log('응답 성공띠 : ', response.data);
-
             setErrorMessage('');
         } catch (error) {
             // console.error('에러가 무엇잉교:', error);
@@ -102,7 +81,7 @@ const ThreadRescue = () => {
             } else if (error.request) {
                 // 요청했는디 응답 없을때
                 console.error('응답 없음:', error.request);
-                setErrorMessage('요청을 보냈는데 응답이 없습니다!');
+                setErrorMessage('서버로부터 응답이 없습니다!');
             } else {
                 console.error('요청 설정 에러:', error.message);
                 setErrorMessage('요청을 보내는 중 문제가 발생했습니다.');
@@ -117,26 +96,21 @@ const ThreadRescue = () => {
                     index={0}
                     instEmoji="🚨"
                     instHeadline="잠깐!"
-                    instContent="직접 구조하는 것보다 전문가의 도움을 청하는 편이 효과적일 수
-                    있습니다."
+                    instContent="직접 구조하는 것보다 전문가의 도움을 청하는 편이 효과적일 수 있습니다."
                 />
             </div>
 
             <div className="title-bar">
                 <ModalSectionTitle sectionTitle="동물 구조 요청 정보 입력" />
             </div>
-            <form
-                onSubmit={(e) => {
-                    handleSubmit(e);
-                }}
-            >
+            <form onSubmit={handleSubmit}>
                 <div className="form-animal-rescue">
                     <AsteriskTextGuide />
                     <span className="section-title">
                         주소는 지도에서 선택한 지점에 따라 자동으로 입력됩니다.
                     </span>
                     {/* 주소 */}
-                    <InputAddress value={address} onChange={setAddress} />
+                    <InputAddress />
 
                     <span className="section-title">발견일자 / 시간대</span>
 

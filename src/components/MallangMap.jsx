@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 
+import useLocationStore from '../stores/locationStore';
 import { useModalStore } from '../stores/modalStatus';
 
 import Remix from './common/Remix';
@@ -16,6 +17,8 @@ import markerImageBeta from '../assets/images/marker-beta.png';
 import markerImageGamma from '../assets/images/marker-gamma.png';
 import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
+const { kakao } = window;
+
 const MallangMap = () => {
     const [currentLocation, setLocation] = useState({
         lat: 37.48796528597396,
@@ -27,9 +30,12 @@ const MallangMap = () => {
     const [toolTipLabel, setTooltipLabel] =
         useState('이 위치에 글타래 작성하기');
 
+    const setLocationInfo = useLocationStore((state) => state.setLocation);
+    const { toggleModal, setEditMode, setModalType, setTotalData } =
+        useModalStore((state) => state);
+
     const handleCategoryChange = (data) => {
         setCategory(data);
-
         console.log('현재 선택한 대분류:', data);
     };
 
@@ -37,12 +43,8 @@ const MallangMap = () => {
         if (currentLocation.lat === 0 && currentLocation.lng === 0) {
             setLocation(getLatestLocation());
         }
-
         return currentLocation;
     };
-
-    const { toggleModal, setEditMode, setModalType, setTotalData } =
-        useModalStore((state) => state);
 
     const handleMapDrag = (map) => {
         // 지도 드래그로 중심점 이동시 핸들러
@@ -58,6 +60,49 @@ const MallangMap = () => {
 
     const handleWriteMouseOver = (e) => {
         setTooltipLabel(e.target.dataset.tooltipText);
+    };
+
+    const getAddressFromCoords = (latlng) => {
+        const geocoder = new kakao.maps.services.Geocoder();
+
+        geocoder.coord2Address(
+            latlng.getLng(),
+            latlng.getLat(),
+            (result, status) => {
+                if (status === kakao.maps.services.Status.OK) {
+                    geocoder.coord2RegionCode(
+                        latlng.getLng(),
+                        latlng.getLat(),
+                        (regionResult, regionStatus) => {
+                            if (
+                                regionStatus === kakao.maps.services.Status.OK
+                            ) {
+                                const region = regionResult.find(
+                                    (item) => item.region_type === 'H',
+                                );
+
+                                const locationData = {
+                                    coordinates: {
+                                        lat: latlng.getLat(),
+                                        lng: latlng.getLng(),
+                                    },
+                                    roadAddress: result[0].road_address
+                                        ? result[0].road_address.address_name
+                                        : '',
+                                    jibunAddress:
+                                        result[0].address.address_name,
+                                    administrativeDong: region
+                                        ? region.address_name
+                                        : '',
+                                };
+
+                                setLocationInfo(locationData);
+                            }
+                        },
+                    );
+                }
+            },
+        );
     };
 
     return (
@@ -83,7 +128,9 @@ const MallangMap = () => {
 
                     setLocation({ lat: curLat, lng: curLng });
                     if (isMarkerOpen) setMarkerStatus(false);
-                    localStorage.setItem('mallangMapLatestLocation', coords);
+
+                    // 클릭한 좌표의 주소 정보 가져오기
+                    getAddressFromCoords(coords);
                 }}
             >
                 <MarkerCategory
