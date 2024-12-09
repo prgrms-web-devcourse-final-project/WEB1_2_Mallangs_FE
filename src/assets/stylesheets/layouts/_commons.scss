@@ -406,11 +406,13 @@ a:has(#logo-primary) {
     color: rgb(var(--clr-text) / 0.5);
     font-size: var(--fnt-sm);
     font-weight: 700;
+    transition: 0.15s;
 
     &:hover {
-        border-color: rgb(var(--clr-alert) / 0.25);
-        background-color: rgb(var(--clr-alert) / 0.1);
-        color: rgb(var(--clr-alert) / 0.5);
+        border-color: rgb(var(--clr-point) / 0.5);
+        background-color: rgb(var(--clr-info) / 0.75);
+        color: rgb(var(--clr-text-on-tint) / 0.5);
+        font-weight: 900;
     }
 
     &.drop-progress {

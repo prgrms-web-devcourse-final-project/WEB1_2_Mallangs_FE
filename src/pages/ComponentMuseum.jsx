@@ -39,7 +39,7 @@ const ComponentMuseum = () => {
         <aside className="inner-wrapper">
             <div style={tempListContainer}>
                 <h5>
-                    이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...
+                    컴포넌트↗ 박물관에↘ 당도한 것을→ 환영하오↘ 낯↘선↗이여↘
                 </h5>
 
                 <p>
