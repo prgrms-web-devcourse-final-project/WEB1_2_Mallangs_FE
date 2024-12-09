@@ -18,8 +18,6 @@
 }
 
 #form-register {
-    --current-register-screen: 1;
-
     overflow: hidden;
 }
 
@@ -28,8 +26,7 @@
     justify-content: center;
     align-items: flex-end;
     gap: 0.2rem;
-    padding-block: 1.2rem;
-    padding-inline: 0.8rem;
+    padding: 0.8rem;
 }
 
 .register-state-item {
@@ -65,27 +62,15 @@
         box-shadow 0.15s;
 }
 
-#register-state-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    margin-inline-start: calc((var(--current-register-screen) * -100%) + 100%);
-    width: calc(100% * var(--total-register-steps));
-    height: var(--current-screen-height, auto);
-    transition:
-        margin-inline-start 0.3s,
-        height 0.25s;
-
-    > div {
-        width: 100%;
-    }
-}
-
 .register-state-container {
     padding: 0.8rem;
 }
 
+/* 이용약관 */
+
 #terms-of-service {
     // 이용약관 전용 스타일
+    flex: 1;
     display: flex;
     flex-flow: column nowrap;
     gap: 0.5em;
@@ -98,6 +83,10 @@
     line-height: 1.4;
     overflow-y: auto;
     user-select: text;
+
+    * {
+        line-height: inherit;
+    }
 
     h2 {
         font-size: var(--fnt-title-md);
@@ -139,5 +128,85 @@
     justify-content: center;
     margin-block-start: 0.8rem;
 }
+
+#input-check-agree-terms {
+    & + label {
+        margin-block: 0.4rem;
+        font-size: var(--fnt-sm);
+    }
+
+    &:checked + label {
+        font-weight: 700;
+
+        .check-round-indicator {
+            background-size: 500% 500%;
+            color: rgb(var(--clr-text-on-tint));
+        }
+    }
+}
+
+.check-round-indicator {
+    display: grid;
+    place-items: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid rgb(var(--clr-text) / 0.15);
+    border-radius: var(--rad-full);
+    background-image: radial-gradient(
+        circle at center,
+        rgb(var(--clr-info)),
+        transparent
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0 0;
+    transition: background-size 0.2s;
+}
+
+/* 이용약관 끝 */
+
+/* 기본정보 */
+
+.register-form-element-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.8rem;
+}
+
+.register-check-wrapper {
+    display: flex;
+    height: 1.6rem;
+
+    > label {
+        flex: 1;
+        user-select: none;
+    }
+
+    .toggles-label {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+    }
+}
+
+.register-check-quote {
+    &.must {
+        color: rgb(var(--clr-alert));
+    }
+
+    &.choice {
+        color: rgb(var(--clr-info));
+    }
+}
+
+/* 기본정보 끝 */
+
+/* 내 동네 설정 */
+
+/* 내 동네 설정 끝 */
+
+/* 말랑이 설정 */
+
+/* 말랑이 설정 */
 
 /* _registerPage.scss */

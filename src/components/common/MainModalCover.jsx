@@ -12,7 +12,7 @@ const MainModalCover = ({ isPlaceEdit = null }) => {
     return (
         <section id="main-modal-cover" className={`${modalData.threadType}`}>
             {(modalData.threadType === 'profile' ||
-                modalData.threadType === 'places') && (
+                modalData.threadType === 'place') && (
                 <img
                     src={
                         modalData.threadCoverImage ??
@@ -75,7 +75,7 @@ const MainModalCover = ({ isPlaceEdit = null }) => {
             </div>
 
             {modalData.threadType === 'profile' && <SignatureImage />}
-            {modalData.threadType === 'places' && <SignatureImage />}
+            {modalData.threadType === 'place' && <SignatureImage />}
             {modalData.threadType === 'writeMode' && isPlaceEdit && (
                 <SignatureImage />
             )}
@@ -117,23 +117,19 @@ const MainModalCover = ({ isPlaceEdit = null }) => {
 
                                 <p>{modalData.threadSubjects.subjectAlpha}</p>
                             </>
-                        ) : modalStatus.isEditMode ? (
-                            <>
-                                <span>·</span>
-
-                                <input
-                                    type="text"
-                                    id="input-subject-alpha"
-                                    className="input-thread-subject-edit"
-                                    placeholder="보조 분류 1 입력..."
-                                />
-                            </>
                         ) : (
-                            <>
-                                <span>·</span>
+                            modalStatus.isEditMode && (
+                                <>
+                                    <span>·</span>
 
-                                <p>보조 분류 1 없음</p>
-                            </>
+                                    <input
+                                        type="text"
+                                        id="input-subject-alpha"
+                                        className="input-thread-subject-edit"
+                                        placeholder="보조 분류 1 입력..."
+                                    />
+                                </>
+                            )
                         )}
 
                         {modalData.threadSubjects.subjectBeta &&
@@ -143,23 +139,19 @@ const MainModalCover = ({ isPlaceEdit = null }) => {
 
                                 <p>{modalData.threadSubjects.subjectBeta}</p>
                             </>
-                        ) : modalStatus.isEditMode ? (
-                            <>
-                                <span>·</span>
-
-                                <input
-                                    type="text"
-                                    id="input-subject-beta"
-                                    className="input-thread-subject-edit"
-                                    placeholder="보조 분류 2 입력..."
-                                />
-                            </>
                         ) : (
-                            <>
-                                <span>·</span>
+                            modalStatus.isEditMode && (
+                                <>
+                                    <span>·</span>
 
-                                <p>보조 분류 2 없음</p>
-                            </>
+                                    <input
+                                        type="text"
+                                        id="input-subject-beta"
+                                        className="input-thread-subject-edit"
+                                        placeholder="보조 분류 2 입력..."
+                                    />
+                                </>
+                            )
                         )}
 
                         {modalData.threadSubjects.subjectGamma &&
@@ -169,23 +161,19 @@ const MainModalCover = ({ isPlaceEdit = null }) => {
 
                                 <p>{modalData.threadSubjects.subjectGamma}</p>
                             </>
-                        ) : modalStatus.isEditMode ? (
-                            <>
-                                <span>·</span>
-
-                                <input
-                                    type="text"
-                                    id="input-subject-gamma"
-                                    className="input-thread-subject-edit"
-                                    placeholder="보조 분류 3 입력..."
-                                />
-                            </>
                         ) : (
-                            <>
-                                <span>·</span>
+                            modalStatus.isEditMode && (
+                                <>
+                                    <span>·</span>
 
-                                <p>보조 분류 3 없음</p>
-                            </>
+                                    <input
+                                        type="text"
+                                        id="input-subject-gamma"
+                                        className="input-thread-subject-edit"
+                                        placeholder="보조 분류 3 입력..."
+                                    />
+                                </>
+                            )
                         )}
                     </dd>
                 </dl>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useModalStore } from '../stores/modalStatus';
+
 import Remix from './common/Remix';
 import MainModalCover from './common/MainModalCover';
 
@@ -13,8 +14,7 @@ import UserReplies from '../pages/UserReplies';
 import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
-import ThreadMissingReport from '../pages/ThreadMissingReport';
-import ThreadRescue from '../pages/ThreadRescue';
+import UserIgnoreList from '../pages/UserIgnoreList';
 
 // ↓ 글타래 보기 컴포넌트 / 공통
 
@@ -26,7 +26,6 @@ import PlaceInfo from '../pages/PlaceInfo';
 import PlaceMisinfoReport from '../pages/PlaceMisinfoReport';
 import PlaceReviewList from '../pages/PlaceReviewList';
 import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
-import ThreadPlace from '../pages/ThreadPlace';
 
 // ↓ 글타래 보기 컴포넌트 / 실종신고
 
@@ -34,12 +33,16 @@ import MissingInfo from '../pages/MissingInfo';
 // import Test from '../pages/Test';
 import MissingSightingReport from '../pages/MissingSightingReport';
 
+// ↓ 글타래 보기 컴포넌트 / 구조요청
+
 import RescueDisclaimer from '../pages/RescueDisclaimer';
 import RescueDetails from '../pages/RescueDetails';
 
-// ↓ 글타래 보기 컴포넌트 / 구조요청
-
 // ↓ 글타래 작성 컴포넌트
+
+import ThreadPlace from '../pages/ThreadPlace';
+import ThreadMissingReport from '../pages/ThreadMissingReport';
+import ThreadRescue from '../pages/ThreadRescue';
 
 const MainModal = ({ routeName }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
@@ -56,8 +59,8 @@ const MainModal = ({ routeName }) => {
      * 위의 useModalStore / threadType에서 현재 모달의 상태값을 가지고 온다.
      * 모달의 navigation은 아래에 정리되어 있으며, 각각 다음과 같은 이름을 가진다.
      * 'profile': 사용자 프로필 보기 (나, 타인)
-     * 'places': 시설 / 업체 글타래 보기
-     * 'missing': 실종신고 글타래 보기
+     * 'place': 시설 / 업체 글타래 보기
+     * 'lost': 실종신고 글타래 보기
      * 'rescue': 구조요청 글타래 보기
      * 'writeMode': 글타래 작성 모드
      *
@@ -95,7 +98,7 @@ const MainModal = ({ routeName }) => {
         'user-reviews': <UserReviews />,
         'user-chat-list': <UserChatList />,
         'user-chat-room': <UserChatRoom />,
-        'user-ignores': <>차단한 유저 목록입니다.</>,
+        'user-ignores': <UserIgnoreList />,
 
         // 장소 글타래 라우트 매치
         'place-info': <PlaceInfo />,
