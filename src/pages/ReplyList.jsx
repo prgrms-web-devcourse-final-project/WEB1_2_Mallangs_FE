@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useModalStore } from '../stores/modalStatus';
+
 import EmptyList from '../components/common/EmptyList';
 import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
+
 import {
     getComments,
     postComment,
@@ -14,6 +16,7 @@ const ReplyList = () => {
     const [comments, setComments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
     const modalData = useModalStore((state) => state.modalData);
 
     useEffect(() => {
@@ -60,10 +63,6 @@ const ReplyList = () => {
         }
     };
 
-    if (loading) return <div>로딩 중...</div>;
-    if (error) return <div>{error}</div>;
-    if (!comments) return <div>댓글을 찾을 수 없습니다.</div>;
-
     const handleEditReply = async (commentId, content) => {
         try {
             const response = await updateComment(commentId, {
@@ -98,13 +97,18 @@ const ReplyList = () => {
         }
     };
 
+    if (loading) return <div>로딩 중...</div>;
+    if (error) return <div>{error}</div>;
+    if (!comments) return <div>댓글을 찾을 수 없습니다.</div>;
+
+    console.log(comments);
+
     return (
         <div>
-            <div id="reply-list" className="user-common-item-list">
+            <div id="reply-list">
                 {comments.content?.length > 0 ? (
                     comments.content.map((item, index) => (
                         <ReplyItem
-                            key={item.commentId}
                             index={index}
                             userObject={{
                                 userID: item.memberId,
@@ -114,6 +118,7 @@ const ReplyList = () => {
                             replyContent={item.content}
                             writtenDateTime={item.createdAt}
                             isMyReply={item.memberId === 1}
+                            key={item.commentId}
                             onEdit={(content) =>
                                 handleEditReply(item.commentId, content)
                             }
@@ -127,6 +132,7 @@ const ReplyList = () => {
 
             <div id="reply-input-container">
                 <hr />
+
                 <ModalFormInput
                     isIncludeImage={false}
                     isHorizontal={true}

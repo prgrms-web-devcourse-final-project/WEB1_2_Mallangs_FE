@@ -4246,6 +4246,7 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 .reply-content-container {
+  flex: 1;
   display: flex;
   flex-flow: column nowrap;
   gap: 0.4rem;
@@ -4253,6 +4254,12 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 
 .reply-content-text {
   line-height: 1.4;
+}
+
+.reply-content-edit {
+  width: 100%;
+  min-height: 3.2rem;
+  resize: vertical;
 }
 
 /* _replyItem.scss */

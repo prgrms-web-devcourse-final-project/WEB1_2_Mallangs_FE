@@ -68,6 +68,7 @@
 }
 
 .reply-content-container {
+    flex: 1;
     display: flex;
     flex-flow: column nowrap;
     gap: 0.4rem;
@@ -75,6 +76,12 @@
 
 .reply-content-text {
     line-height: 1.4;
+}
+
+.reply-content-edit {
+    width: 100%;
+    min-height: 3.2rem;
+    resize: vertical;
 }
 
 .reply-item-datetime {
