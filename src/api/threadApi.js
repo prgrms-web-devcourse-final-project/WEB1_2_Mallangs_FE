@@ -18,6 +18,7 @@ export const getThreadList = async () => {
     }
 };
 
+// 구조 글타래 작성
 export const createRescueArticle = async (formData) => {
     try {
         const response = await axiosInstance({
@@ -32,6 +33,7 @@ export const createRescueArticle = async (formData) => {
     }
 };
 
+// 실종 글타래 작성
 export const createMissingReportArticle = async (formData) => {
     try {
         const response = await axiosInstance({
@@ -46,6 +48,36 @@ export const createMissingReportArticle = async (formData) => {
     }
 };
 
+// 마커 데이터 조회
+export const getArticleMarkers = async (
+    bounds,
+    articleType = 'all',
+    placeCategory = null,
+) => {
+    try {
+        const response = await axiosInstance({
+            method: 'post',
+            url: '/articles/public/articlesMarkers',
+            params: {
+                articleType, // 'all'(대신 null값 가능), 'lost', 'rescue', 'place', 'user'
+                placeCategory, // 카테고리3 항목 (동물약국, 카페 등...)
+            },
+            data: {
+                northEastLat: bounds.getNorthEast().getLat(),
+                northEastLon: bounds.getNorthEast().getLng(),
+                southWestLat: bounds.getSouthWest().getLat(),
+                southWestLon: bounds.getSouthWest().getLng(),
+            },
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('마커 데이터 로드 실패:', error.message);
+        throw error;
+    }
+};
+
+// 장소 글타래 작성
 export const createPlaceArticle = async (formData) => {
     try {
         const response = await axiosInstance({
