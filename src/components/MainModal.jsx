@@ -54,8 +54,8 @@ const MainModal = ({ routeName }) => {
      * 위의 useModalStore / threadType에서 현재 모달의 상태값을 가지고 온다.
      * 모달의 navigation은 아래에 정리되어 있으며, 각각 다음과 같은 이름을 가진다.
      * 'profile': 사용자 프로필 보기 (나, 타인)
-     * 'places': 시설 / 업체 글타래 보기
-     * 'missing': 실종신고 글타래 보기
+     * 'place': 시설 / 업체 글타래 보기
+     * 'lost': 실종신고 글타래 보기
      * 'rescue': 구조요청 글타래 보기
      * 'writeMode': 글타래 작성 모드
      *
