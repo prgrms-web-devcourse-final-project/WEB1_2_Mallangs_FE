@@ -34,8 +34,10 @@
 ;
 
 // 6. Pages
-@import "pages/registerPage", "pages/loginPage", "pages/myPage", "pages/mallangMap", "pages/userProfile",
-    "pages/placeInfo", "pages/missingReport", "pages/rescueInfo", "pages/threadPlace";
+@import 'pages/registerPage', 'pages/loginPage', 'pages/myPage',
+    'pages/mallangMap', 'pages/userProfile', 'pages/placeInfo',
+    'pages/missingReport', 'pages/rescueInfo', 'pages/threadPlace',
+    'pages/threadMissingReport';
 
 // 7. Components
 @import 'components/buttons', 'components/formElements', 'components/spinLoader',
@@ -53,7 +55,6 @@
     'components/completeButton', 'components/genderSelector',
     'components/toggleButton', 'components/infoText', 'components/typeSelector',
     'components/birthdaySelector', 'components/asteriskText',
-    'components/threadMissingReport', 'components/inputAddress',
-    'components/discoverySituation', 'components/dateTime',
-    'components/imageGallery', 'components/singleInput',
+    'components/inputAddress', 'components/discoverySituation',
+    'components/dateTime', 'components/imageGallery', 'components/singleInput',
     'components/multipleImageUploader';
