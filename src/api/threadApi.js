@@ -121,3 +121,18 @@ export const getRescueDetail = async (articleId) => {
         throw error;
     }
 };
+
+// 실종 글타래 조회
+export const getMissingDetail = async (articleId) => {
+    try {
+        const response = await axiosInstance({
+            method: 'get',
+            url: `/articles/public/${articleId}`,
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('실종 글타래 불러오기 실패:', error.message);
+        throw error;
+    }
+};
