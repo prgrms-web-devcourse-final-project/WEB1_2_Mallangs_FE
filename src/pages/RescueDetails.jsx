@@ -1,55 +1,85 @@
-import DataTableRow from '../components/common/DataTableRow';
+import { useEffect, useState } from 'react';
+import Remix from '../components/common/Remix';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
-import dateFormat from '../utils/dateFormat';
-import hourFormat from '../utils/hourFormat';
-import tempDB from '../datas/temp-db.json';
+import ModalInstruction from '../components/common/ModalInstruction';
+import DataTableRow from '../components/common/DataTableRow';
 import ImageGallery from '../components/common/ImageGallery';
 
-const RescueDetails = ({ threadID = 0 }) => {
-    const currentThread = tempDB.threads[threadID];
-    const rescueInfo = currentThread.rescueInfo;
+import { useModalStore } from '../stores/modalStatus';
+import { getArticleDetail } from '../api/threadApi';
 
-    console.log(currentThread);
+const Test = () => {
+    const [rescueDetails, setRescueDetails] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const modalData = useModalStore((state) => state.modalData);
+
+    useEffect(() => {
+        const fetchRescueData = async () => {
+            if (!modalData?.setObject?.articleId) {
+                return;
+            }
+            try {
+                const data = await getArticleDetail(
+                    modalData.setObject.articleId,
+                );
+                setRescueDetails(data);
+            } catch (e) {
+                setError('구조 글타래 정보를 불러오는데 실패했습니다.');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchRescueData();
+    }, [modalData?.setObject?.articleId]);
+
+    if (loading) return <div>로딩 중...</div>;
+    if (error) return <div>{error}</div>;
+    if (!rescueDetails) return <div>장소 정보를 찾을 수 없습니다.</div>;
 
     return (
-        <>
+        <div>
             <div className="user-common-item-list">
-                <ImageGallery />
+                {rescueDetails.image && (
+                    <ImageGallery images={[rescueDetails.image]} />
+                )}
             </div>
 
-            <ModalSectionTitle sectionTitle="요구조 동물 정보" />
+            <div className="place-info-main-text">
+                <Remix iconName={'double-quotes-l'} iconSize={1.2} />
+                <p>{rescueDetails.description}</p>
+                <Remix iconName={'double-quotes-r'} iconSize={1.2} />
+            </div>
 
-            <div id="rescue-found-situation" className="user-common-item-list">
-                {rescueInfo.foundSituation}
+            <ModalSectionTitle sectionTitle="구조 요청 동물 정보" />
+
+            <div className="user-common-item-list">
+                <ModalInstruction
+                    instEmoji="🚨"
+                    instHeadline="잠깐!"
+                    instContent="직접 구조하는 것보다 전문가의 도움을 청하는 것이 효과적일 수도 있습니다. 아래와 같은 단체들에 연락하세요!"
+                />
             </div>
 
             <div className="user-common-table">
-                <DataTableRow tableHeader={'동물 종류 / 품종'}>
-                    <span>{rescueInfo.animalType}</span>
+                <DataTableRow tableHeader={'구조할 동물 종류'}>
+                    <span>{rescueDetails.petType}</span>
                 </DataTableRow>
 
-                <DataTableRow tableHeader={'위치'}>
-                    <span>
-                        {currentThread.address1
-                            ? currentThread.address1
-                            : '주소 없음'}
-                    </span>
+                <DataTableRow tableHeader={'발견 장소'}>
+                    <span>{rescueDetails.rescueLocation}</span>
                 </DataTableRow>
 
-                <DataTableRow tableHeader={'발견일시'}>
-                    <span>{dateFormat(rescueInfo.foundAt)}</span>
-
-                    <span>/</span>
-
-                    <span>{hourFormat(rescueInfo.foundAt)} 경</span>
+                <DataTableRow tableHeader={'발견 날짜/시간대'}>
+                    <span>{rescueDetails.rescueDate}</span>
                 </DataTableRow>
 
-                <DataTableRow tableHeader={'현재 상태'}>
-                    <span>{currentThread.threadStatus}</span>
+                <DataTableRow tableHeader={'상황설명'}>
+                    <span>{rescueDetails.description}</span>
                 </DataTableRow>
             </div>
-        </>
+        </div>
     );
 };
 
-export default RescueDetails;
+export default Test;
