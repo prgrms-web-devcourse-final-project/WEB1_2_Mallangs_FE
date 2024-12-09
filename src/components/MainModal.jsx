@@ -54,6 +54,10 @@ const MainModal = ({ routeName }) => {
 
     useEffect(() => {
         document.body.classList.add('prevent-scroll');
+
+        return () => {
+            setSlaveIndex(0);
+        };
     }, []);
 
     /**

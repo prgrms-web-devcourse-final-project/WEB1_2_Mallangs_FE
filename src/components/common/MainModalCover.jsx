@@ -5,9 +5,8 @@ import SignatureImage from './SignatureImage';
 import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
 const MainModalCover = ({ isPlaceEdit = null }) => {
-    const { modalStatus, modalData, toggleModal, setEditMode } = useModalStore(
-        (state) => state,
-    );
+    const { modalStatus, modalData, toggleModal, setEditMode, setSlaveIndex } =
+        useModalStore((state) => state);
 
     return (
         <section id="main-modal-cover" className={`${modalData.threadType}`}>
