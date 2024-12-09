@@ -77,8 +77,8 @@
 }
 
 .cover-descriptions-container {
-    display: flex;
     flex: 1;
+    display: flex;
     padding: 0.8rem;
     height: 100%;
     z-index: 2;
@@ -101,6 +101,19 @@
     > .remix {
         color: rgb(var(--clr-clear));
     }
+}
+
+#input-thread-title {
+    height: 1.8rem;
+    font-size: var(--fnt-title-xs);
+    font-weight: 700;
+}
+
+.input-thread-subject-edit {
+    padding-inline: 0.2rem !important;
+    width: 3.2rem;
+    height: 1.2rem !important;
+    font-size: var(--fnt-sm);
 }
 
 .thread-category-container {

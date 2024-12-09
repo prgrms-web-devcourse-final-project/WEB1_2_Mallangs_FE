@@ -55,25 +55,12 @@ const UserChatRoom = ({ sessionID = 0 }) => {
                             <ModalDateSeparator dateString="2024-01-01" />
 
                             <div className="user-common-item-list">
-                                <ChatItem />
+                                <ChatItem chatContent="안녕하세요" />
 
                                 <ChatItem
                                     chatFrom={'opposite'}
                                     chatUser={chatOppsite}
-                                />
-
-                                <ChatItem />
-
-                                <ChatItem
-                                    chatFrom={'opposite'}
-                                    chatUser={chatOppsite}
-                                />
-
-                                <ChatItem />
-
-                                <ChatItem
-                                    chatFrom={'opposite'}
-                                    chatUser={chatOppsite}
+                                    chatContent="아 네... 누추하신 분이 이 귀한 곳에는 어쩐 일로"
                                 />
                             </div>
                         </article>

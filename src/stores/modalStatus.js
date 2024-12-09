@@ -24,8 +24,8 @@ export const useModalStore = create((set) => ({
             begin: '2024-01-01',
             ends: '2024-12-31',
         },
-        latitude: 30.0,
-        longitude: 128.0,
+        latitude: 35.157818,
+        longitude: 129.059395,
         address1: '',
         address2: '',
         threadSubjects: {
@@ -81,7 +81,7 @@ export const useModalStore = create((set) => ({
         },
         missingInfo: {
             missingAt: '2024-01-01 08:00',
-            petSpecifics: '설명 없음',
+            petSpecifics: '아메리칸 숏헤어 / 삼색 / 3세 / 사람 잘 따름',
             findingReward: '200000',
             rewardMethod: '현금으로 사례',
             contact: {
