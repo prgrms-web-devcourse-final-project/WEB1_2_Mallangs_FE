@@ -26,12 +26,14 @@ import PlaceInfo from '../pages/PlaceInfo';
 import PlaceMisinfoReport from '../pages/PlaceMisinfoReport';
 import PlaceReviewList from '../pages/PlaceReviewList';
 import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
+import ThreadPlace from '../pages/ThreadPlace';
 
 // ↓ 글타래 보기 컴포넌트 / 실종신고
 
 import MissingInfo from '../pages/MissingInfo';
+// import Test from '../pages/Test';
 import MissingSightingReport from '../pages/MissingSightingReport';
-import ThreadPlace from '../pages/ThreadPlace';
+
 import RescueDisclaimer from '../pages/RescueDisclaimer';
 import RescueDetails from '../pages/RescueDetails';
 
@@ -104,6 +106,7 @@ const MainModal = ({ routeName }) => {
 
         // 실종신고 글타래 라우트 매치
         'missing-info': <MissingInfo />,
+        // 'missing-info': <Test />,
         'missing-reply-list': <ReplyList />,
         'missing-sighting-report': <MissingSightingReport />,
 
