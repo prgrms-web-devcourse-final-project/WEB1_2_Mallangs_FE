@@ -123,7 +123,7 @@
         "masterNavigations": [
             {
                 "label": "실종신고",
-                "value": "missing",
+                "value": "lost",
                 "count": null,
                 "slaveNavigations": [
                     {
