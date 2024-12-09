@@ -122,6 +122,7 @@ const MallangMap = () => {
     };
 
     const filteredMarkers = useMemo(() => {
+        console.log('현재 카테고리:', currentCategory); // 필터링 시점에서 카테고리 확인
         if (currentCategory === 'all') return markers;
 
         return markers.filter((marker) => {
@@ -130,7 +131,7 @@ const MallangMap = () => {
                     return marker.type === 'LOST';
                 case 'rescue':
                     return marker.type === 'RESCUE';
-                case 'place':
+                case 'places':
                     return marker.type === 'PLACE';
                 default:
                     return true;

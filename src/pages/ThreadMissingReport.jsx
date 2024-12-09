@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createMissingReportArticle } from '../api/threadApi';
+import { useThreadsTitleStore } from '../stores/titleStatus';
 
 import AsteriskTextGuide from '../components/common/AsteriskTextGuide';
 import ModalInstruction from '../components/common/ModalInstruction';
@@ -29,6 +30,7 @@ const ThreadMissingReport = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [isNeutered, setIsNeutered] = useState(false);
     const [hasChip, setHasChip] = useState(false);
+    const { threadsTitle } = useThreadsTitleStore();
 
     const handleTypeSelect = (typeId) => {
         setIsSelectedType(typeId);
@@ -79,7 +81,7 @@ const ThreadMissingReport = () => {
         const formData = {
             type: 'lost',
             articleStatus: 'PUBLISHED',
-            title: '타이틀받아와야하는데',
+            title: threadsTitle,
             latitude: missingAddress.coordinates.lat.toString(),
             longitude: missingAddress.coordinates.lng.toString(),
             description: detailExplanation,
