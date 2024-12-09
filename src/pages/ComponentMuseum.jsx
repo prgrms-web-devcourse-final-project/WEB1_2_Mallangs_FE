@@ -12,7 +12,6 @@ import ReplyItem from '../components/common/ReplyItem';
 import StarRating from '../components/common/StarRating';
 import ChatItem from '../components/common/ChatItem';
 import ThreadItem from '../components/common/ThreadItem';
-import { logoutApi } from '../api/userApi';
 import ImageGallery from '../components/common/ImageGallery';
 
 const ComponentMuseum = () => {
@@ -29,31 +28,18 @@ const ComponentMuseum = () => {
         display: 'flex',
         flexFlow: 'column nowrap',
         gap: '.8rem',
+        marginBlockStart: '1.2rem',
         padding: '.8rem',
         border: '1px solid rgb(var(--clr-text) / .15)',
+        borderRadius: 'var(--rad-lg)',
         backgroundColor: 'rgb(var(--clr-white))',
-    };
-
-    const handleLogout = async () => {
-        try {
-            await logoutApi();
-            window.location.replace('/login');
-        } catch (error) {
-            console.error('로그아웃 실패:', error);
-            if (error.response?.status === 401) {
-                localStorage.clear();
-                window.location.replace('/login');
-            } else {
-                alert('로그아웃에 실패했습니다.');
-            }
-        }
     };
 
     return (
         <aside className="inner-wrapper">
             <div style={tempListContainer}>
                 <h5>
-                    이곳은 공용 컴포넌트의 박물관... 원하는 것을 골라 쓰시오...
+                    컴포넌트↗ 박물관에↘ 당도한 것을→ 환영하오↘ 낯↘선↗이여↘
                 </h5>
 
                 <p>
@@ -69,119 +55,55 @@ const ComponentMuseum = () => {
                         에러 테스트 페이지
                     </Link>
                 </p>
-
-                {/* 로그아웃 버튼 추가 */}
-                <button
-                    onClick={handleLogout}
-                    className="button-service-control"
-                >
-                    로그아웃
-                </button>
-
-                <button
-                    onClick={() => {
-                        setModalType('places'); // 모달의 navigation 상태
-                        setPlaceData({
-                            // thread의 placeData가 가지고 있는 양식을 전송한다. (일부 데이터 예시, stores/modalStatus.js 에서 나머지 양식 확인 가능)
-                            placeName: '다고쳐병원',
-                            mainCategory: '동물병원',
-                            subCategoryAlpha: '의약품',
-                            subCategoryBeta: '반려동물 친화 시설',
-                            subCategoryGamma: '기타',
-                        });
-                        toggleModal(true); // 모달 열기
-                    }}
-                >
-                    장소 모달 보기
-                </button>
-
-                <button
-                    onClick={() => {
-                        setModalType('writeMode'); // 모달의 navigation 상태
-                        setEditMode(true);
-                        toggleModal(true); // 모달 열기
-                    }}
-                >
-                    글 작성 모달 보기
-                </button>
-
-                <button
-                    onClick={() => {
-                        setModalType('missing'); // 모달의 navigation 상태
-                        setMissingData({
-                            // thread의 missingData가 가지고 있는 양식을 전송한다. (일부 데이터 예시, stores/modalStatus.js 에서 나머지 양식 확인 가능)
-                            threadTitle: '집 나간 우리 문제아 찾아요',
-                            relatedPet: {
-                                petName: '윤똥개',
-                                petType: '인간',
-                                petAge: 24,
-                                isGotChip: true,
-                            },
-                        });
-                        toggleModal(true); // 모달 열기
-                    }}
-                >
-                    실종신고 모달 보기
-                </button>
-
-                <button
-                    onClick={() => {
-                        setModalType('rescue'); // 모달의 navigation 상태
-                        setRescueData({
-                            // thread의 rescueData가 가지고 있는 양식을 전송한다. (일부 데이터 예시, stores/modalStatus.js 에서 나머지 양식 확인 가능)
-                            threadTitle: '이 동물 좀 구해주세요',
-                            threadStatus: 'on-board',
-                            rescueInfo: {
-                                animalType: '드래곤으로 추정',
-                                foundAt: '2024-01-01 08:24:11',
-                                foundSituation: '그냥 자빠져 있었어요',
-                            },
-                        });
-                        toggleModal(true); // 모달 열기
-                    }}
-                >
-                    구조요청 모달 보기
-                </button>
             </div>
 
             <div style={tempListContainer}>
                 <h5>이미지 갤러리 컴포넌트</h5>
+
                 <ImageGallery />
             </div>
 
-            <div>
+            <div style={tempListContainer}>
                 <h5>채팅 컴포넌트</h5>
 
-                <div style={tempListContainer}>
-                    <ModalDateSeparator />
-                    <ChatItem chatContent="맘에 없는 그런 말하고 돌아서면 더 힘들지 그런 건 너무 가슴이 아파 아무 말도 할 수 없는 오늘은 길었던 하루가 다 지나도 뭘 했는지도 모르겠어 그래 이런 건 너무 마음이 아파 아무 것도 할 수 없는 오늘은 있잖아 내가 만약에 내가 너에게 가슴 아픈 말을 했다면 잊어줘 미안해 내가 그러려던 건 아니었는데 하고 전화를 할까 말까" />
-                    <ChatItem
-                        chatFrom="opposite"
-                        chatContent="요즘 drowning 이라는 노래를 하루에 10000번 듣고 있음. 그거랑 이호광의 롤라,, 마약이야 진짜,, 롤~~~라~~~~ ㅋㅋㅋㅋㅋㅋ 개웃김 진짜ㅠㅠ"
-                    />
-                </div>
+                <ModalDateSeparator />
+
+                <ChatItem chatContent="맘에 없는 그런 말하고 돌아서면 더 힘들지 그런 건 너무 가슴이 아파 아무 말도 할 수 없는 오늘은 길었던 하루가 다 지나도 뭘 했는지도 모르겠어 그래 이런 건 너무 마음이 아파 아무 것도 할 수 없는 오늘은 있잖아 내가 만약에 내가 너에게 가슴 아픈 말을 했다면 잊어줘 미안해 내가 그러려던 건 아니었는데 하고 전화를 할까 말까" />
+
+                <ChatItem
+                    chatFrom="opposite"
+                    chatContent="요즘 drowning 이라는 노래를 하루에 10000번 듣고 있음. 그거랑 이호광의 롤라,, 마약이야 진짜,, 롤~~~라~~~~ ㅋㅋㅋㅋㅋㅋ 개웃김 진짜ㅠㅠ"
+                />
             </div>
 
-            <ModalInstruction
-                index={0}
-                instEmoji="⚠️"
-                instHeadline="앗!"
-                instContent="무언가 신묘한 기분이 든다"
-            />
+            <div style={tempListContainer}>
+                <h5>기타 컴포넌트</h5>
 
-            <StarRating />
-            <StarRating currentPoint={5} isClickable={false} />
+                <ModalInstruction
+                    index={0}
+                    instEmoji="⚠️"
+                    instHeadline="앗!"
+                    instContent="무언가 신묘한 기분이 든다"
+                />
+
+                <StarRating />
+
+                <StarRating currentPoint={5} isClickable={false} />
+            </div>
 
             <div style={tempListContainer}>
                 <h5>글타래 컴포넌트</h5>
 
                 <ThreadItem />
+
                 <ThreadItem
                     index={1}
                     threadType="rescue"
                     threadState="expired"
                 />
+
                 <ThreadItem index={2} threadType="missing" threadState="done" />
+
                 <ThreadItem
                     index={3}
                     threadType="others"
@@ -193,22 +115,29 @@ const ComponentMuseum = () => {
                 <h5>내 게시물 컴포넌트</h5>
 
                 <ArticleItem index={1} />
+
                 <ArticleItem index={2} isEditMode={true} />
             </div>
 
-            <div>
+            <div style={tempListContainer}>
                 <h5>말랑이 컴포넌트</h5>
 
                 <ModalSectionTitle sectionTitle="대표 말랑이" />
+
                 <MallangItem />
+
                 <ModalSectionTitle sectionTitle="다른 말랑이들" />
+
                 <MallangItem />
+
                 <MallangItem />
+
                 <MallangItem />
+
                 <MallangItem isEditMode={true} />
             </div>
 
-            <div>
+            <div style={tempListContainer}>
                 <h5>리뷰 컴포넌트</h5>
 
                 <ReviewTotalScore
@@ -217,43 +146,45 @@ const ComponentMuseum = () => {
                     reviewCount={12345}
                 />
 
-                <div style={tempListContainer}>
-                    <ReviewItem index={1} />
-                    <ReviewItem index={2} />
-                    <ReviewItem index={3} />
-                    <ReviewItem
-                        index={4}
-                        isEditMode={true}
-                        userObject={{
-                            userID: 2,
-                            userImage: 'https://picsum.photos/24/24?random=1',
-                            userName: '정발산기슭곰발냄새타령부인사잘해',
-                        }}
-                        reviewImage={'https://picsum.photos/1920/1080'}
-                        reviewContent={'인사자뢔'}
-                        starPoint={4.2}
-                        writtenDate="2024-12-24 21:31"
-                    />
-                </div>
+                <ReviewItem index={1} />
+
+                <ReviewItem index={2} />
+
+                <ReviewItem index={3} />
+
+                <ReviewItem
+                    index={4}
+                    isEditMode={true}
+                    userObject={{
+                        userID: 2,
+                        userImage: 'https://picsum.photos/24/24?random=1',
+                        userName: '정발산기슭곰발냄새타령부인사잘해',
+                    }}
+                    reviewImage={'https://picsum.photos/1920/1080'}
+                    reviewContent={'인사자뢔'}
+                    starPoint={4.2}
+                    writtenDate="2024-12-24 21:31"
+                />
 
                 <ModalFormInput />
             </div>
 
-            <div>
+            <div style={tempListContainer}>
                 <h5>댓글 컴포넌트</h5>
 
-                <div style={tempListContainer}>
-                    <ReplyItem />
-                    <ReplyItem />
-                    <ReplyItem />
-                    <ReplyItem
-                        index={1}
-                        replyContent="이것이 나의 진심 댓글이다"
-                        writtenDateTime="2024-12-24 21:31"
-                        isMyReply={true}
-                        isEditMode={true}
-                    />
-                </div>
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem />
+
+                <ReplyItem
+                    index={1}
+                    replyContent="이것이 나의 진심 댓글이다"
+                    writtenDateTime="2024-12-24 21:31"
+                    isMyReply={true}
+                    isEditMode={true}
+                />
 
                 <ModalFormInput isIncludeImage={false} />
             </div>

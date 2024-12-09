@@ -2,7 +2,7 @@ export default function getLatestLocation() {
     // localStorage에서 최종 좌표값이 있으면 좌표 객체를 반환한다.
     const isExist = localStorage.getItem('mallangMapLatestLocation');
 
-    if (isExist) {
+    if (!!isExist === true) {
         const [lastLat, lastLng] = isExist
             .replaceAll(/[()/ /]/gim, '')
             .split(',');

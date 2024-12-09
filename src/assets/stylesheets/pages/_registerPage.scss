@@ -1,7 +1,20 @@
 /* _registerPage.scss */
 
-:where(#register-form-container) .service-logo-container {
-    height: 8rem;
+#register-form-container {
+    .service-logo-container {
+        height: 8rem;
+    }
+
+    #login-logo-image {
+        margin-block-start: 3.6rem;
+        width: 8rem;
+    }
+
+    #login-service-name {
+        > h1 {
+            font-size: var(--fnt-title-lg);
+        }
+    }
 }
 
 #form-register {
@@ -57,7 +70,10 @@
     flex-flow: row nowrap;
     margin-inline-start: calc((var(--current-register-screen) * -100%) + 100%);
     width: calc(100% * var(--total-register-steps));
-    transition: margin-inline-start 0.3s;
+    height: var(--current-screen-height, auto);
+    transition:
+        margin-inline-start 0.3s,
+        height 0.25s;
 
     > div {
         width: 100%;

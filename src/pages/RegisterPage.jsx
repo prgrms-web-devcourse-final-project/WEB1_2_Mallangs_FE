@@ -1,19 +1,29 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+
 import Remix from '../components/common/Remix';
 
+import loginBgImage from '../assets/images/login-background-image.png';
+import logoImage from '../assets/images/logo.png';
+
 const RegisterPage = () => {
-    const { terms, basics, town, pets } = useRef();
+    const terms = useRef();
+    const basics = useRef();
+    const town = useRef();
+    const pets = useRef();
+
     const [currentStep, setStep] = useState(1); // 회원 가입 현재 단계
+
     const navigate = useNavigate();
     const thisYear = new Date().getFullYear();
+
     const MAX_STEPS = [
         // 회원 가입 최대 단계
-        { step: 1, label: '이용약관' },
-        { step: 2, label: '기본정보' },
-        { step: 3, label: '동네 설정' },
-        { step: 4, label: '말랑이 설정' },
+        { step: 1, label: '이용약관', container: terms.current },
+        { step: 2, label: '기본정보', container: basics.current },
+        { step: 3, label: '동네 설정', container: town.current },
+        { step: 4, label: '말랑이 설정', container: pets.current },
     ];
 
     const handleRegisterState = (stateMover) => {
@@ -22,13 +32,23 @@ const RegisterPage = () => {
 
         if (currentStep === 1 && stateMover === -1) return;
 
-        setStep(currentStep + stateMover * 1);
+        setStep((current) => current + stateMover * 1);
 
-        console.log(currentStep);
+        console.log();
     };
 
     return (
         <section id="full-page-wrapper">
+            <img
+                src={loginBgImage}
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    userSelect: 'none',
+                    pointerEvents: 'none',
+                }}
+            />
+
             <div
                 id="register-form-wrapper"
                 className="service-container-wrapper"
@@ -57,13 +77,13 @@ const RegisterPage = () => {
                             />
                         </button>
 
-                        <h1>
-                            ♤£¢
-                            <br />
-                            말랑플레이스
-                            <br />
-                            (로고 만들거임)
-                        </h1>
+                        <div id="login-service-name">
+                            <p>말랑이와 함께하는 말랑한 세상</p>
+
+                            <h1>말랑플레이스</h1>
+                        </div>
+
+                        <img id="login-logo-image" src={logoImage} />
                     </div>
 
                     <form
@@ -71,8 +91,6 @@ const RegisterPage = () => {
                         style={{ '--total-register-steps': MAX_STEPS.length }}
                     >
                         {/** 회원 가입 단계에 따라 form 내부 컨테이너를 이동시킨다. */}
-
-                        <hr />
 
                         <ul
                             className="current-register-state"
@@ -94,8 +112,6 @@ const RegisterPage = () => {
                                 );
                             })}
                         </ul>
-
-                        <hr />
 
                         <aside
                             id="register-state-wrapper"
@@ -1463,7 +1479,9 @@ const RegisterPage = () => {
                     {currentStep !== 1 ? (
                         <button
                             className="button-service-control"
-                            onClick={() => handleRegisterState(-1)}
+                            onClick={() => {
+                                handleRegisterState(-1);
+                            }}
                         >
                             <span>이전</span>
                         </button>

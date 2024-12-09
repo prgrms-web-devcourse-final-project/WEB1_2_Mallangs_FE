@@ -1,21 +1,26 @@
 import { useState } from 'react';
-import { useModalStore } from '../stores/modalStatus';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
+
+import useLocationStore from '../stores/locationStore';
+import { useModalStore } from '../stores/modalStatus';
+
 import Remix from './common/Remix';
 import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
+
 import getLatestLocation from '../utils/getLatestLocation';
-import useLocationStore from '../stores/locationStore';
+
+import markerLogo from '../assets/images/logo.png';
+import markerImageAlpha from '../assets/images/marker-alpha.png';
+import markerImageBeta from '../assets/images/marker-beta.png';
+import markerImageGamma from '../assets/images/marker-gamma.png';
 import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
 const { kakao } = window;
 
 const MallangMap = () => {
-    const [currentLocation, setLocation] = useState({
-        lat: 37.48796528597396,
-        lng: 126.98758475187806,
-    });
+    const [currentLocation, setLocation] = useState(getLatestLocation);
     const [currentCategory, setCategory] = useState('all');
     const [isMarkerOpen, setMarkerStatus] = useState(false);
     const [isAreaInfoShowing, setPanel] = useState(false);
@@ -23,9 +28,8 @@ const MallangMap = () => {
         useState('이 위치에 글타래 작성하기');
 
     const setLocationInfo = useLocationStore((state) => state.setLocation);
-    const toggleModal = useModalStore((state) => state.toggleModal);
-    const setModalType = useModalStore((state) => state.setModalType);
-    const setModalData = useModalStore((state) => state.setModalData);
+    const { toggleModal, setEditMode, setModalType, setTotalData } =
+        useModalStore((state) => state);
 
     const handleCategoryChange = (data) => {
         setCategory(data);
@@ -36,6 +40,7 @@ const MallangMap = () => {
         if (currentLocation.lat === 0 && currentLocation.lng === 0) {
             setLocation(getLatestLocation());
         }
+
         return currentLocation;
     };
 
@@ -120,6 +125,7 @@ const MallangMap = () => {
                     console.log('클릭 바운더리:', curBounds);
 
                     setLocation({ lat: curLat, lng: curLng });
+
                     if (isMarkerOpen) setMarkerStatus(false);
 
                     // 클릭한 좌표의 주소 정보 가져오기
@@ -213,18 +219,9 @@ const MallangMap = () => {
                                             )
                                         }
                                         onClick={() => {
-                                            toggleModal(true); // 모달 열기
+                                            setEditMode(true); // 모달 수정 모드
                                             setModalType('writeMode'); // 모달의 navigation 상태
-                                            setModalData({
-                                                // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                                                latitude: currentLocation.lat, // 모달이 가지고 있는 위도
-                                                longitude: currentLocation.lng, // 모달이 가지고 있는 경도
-                                                threadTitle: '말랑이 구조 요청', // 모달 제목
-                                                mainCategory: '',
-                                                subCategory1: '',
-                                                subCategory2: '',
-                                                subCategory3: '',
-                                            });
+                                            toggleModal(true); // 모달 열기
                                         }}
                                     >
                                         <div>
@@ -242,22 +239,35 @@ const MallangMap = () => {
 
                 {tempDB.threads.map((item, index) => {
                     return (
-                        <MapMarker
-                            position={{
-                                lat: item.latitude,
-                                lng: item.longitude,
-                            }}
-                            image={{
-                                src: 'https://picsum.photos/64/64',
-                                size: {
-                                    width: 64,
-                                    height: 64,
-                                },
-                            }}
-                            title={item.threadTitle}
-                            key={index}
-                            onClick={() => console.log(item.threadType)}
-                        />
+                        <>
+                            <MapMarker
+                                position={{
+                                    lat: item.latitude,
+                                    lng: item.longitude,
+                                }}
+                                image={{
+                                    src:
+                                        item.threadType === 'places'
+                                            ? markerImageAlpha
+                                            : item.threadType === 'missing'
+                                              ? markerImageBeta
+                                              : item.threadType === 'rescue'
+                                                ? markerImageGamma
+                                                : markerLogo,
+                                    size: {
+                                        width: 48,
+                                        height: 48,
+                                    },
+                                }}
+                                title={item.threadTitle}
+                                key={index}
+                                onClick={() => {
+                                    setModalType(item.threadType);
+                                    setTotalData(item);
+                                    toggleModal(true);
+                                }}
+                            ></MapMarker>
+                        </>
                     );
                 })}
             </Map>

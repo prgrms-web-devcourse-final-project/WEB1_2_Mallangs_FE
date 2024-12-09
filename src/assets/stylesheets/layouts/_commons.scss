@@ -362,11 +362,18 @@ a:has(#logo-primary) {
     height: 12rem;
     background-color: pink;
     color: rgb(var(--clr-white));
+    overflow: hidden;
 
-    > h1 {
-        font-family: var(--ff-dingbat);
-        font-size: var(--fnt-title-lg);
-        text-align: center;
+    &::before {
+        display: block;
+        position: absolute;
+        inset-inline: -0.8rem;
+        inset-block-end: -1.2rem;
+        height: 2.4rem;
+        border-radius: 100%;
+        background-color: rgb(var(--clr-white));
+        z-index: 2;
+        content: '';
     }
 }
 
@@ -399,11 +406,13 @@ a:has(#logo-primary) {
     color: rgb(var(--clr-text) / 0.5);
     font-size: var(--fnt-sm);
     font-weight: 700;
+    transition: 0.15s;
 
     &:hover {
-        border-color: rgb(var(--clr-alert) / 0.25);
-        background-color: rgb(var(--clr-alert) / 0.1);
-        color: rgb(var(--clr-alert) / 0.5);
+        border-color: rgb(var(--clr-point) / 0.5);
+        background-color: rgb(var(--clr-info) / 0.75);
+        color: rgb(var(--clr-text-on-tint) / 0.5);
+        font-weight: 900;
     }
 
     &.drop-progress {

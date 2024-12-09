@@ -513,6 +513,14 @@ a, a:visited {
     outline-offset: 1.2rem;
   }
 }
+@keyframes shake-paw {
+  from {
+    rotate: -20deg;
+  }
+  to {
+    rotate: 20deg;
+  }
+}
 /* _keyframes.scss */
 /* _utils.scss */
 @property --conic-range {
@@ -902,11 +910,18 @@ a:has(#logo-primary) {
   height: 12rem;
   background-color: pink;
   color: rgb(var(--clr-white));
+  overflow: hidden;
 }
-.service-logo-container > h1 {
-  font-family: var(--ff-dingbat);
-  font-size: var(--fnt-title-lg);
-  text-align: center;
+.service-logo-container::before {
+  display: block;
+  position: absolute;
+  inset-inline: -0.8rem;
+  inset-block-end: -1.2rem;
+  height: 2.4rem;
+  border-radius: 100%;
+  background-color: rgb(var(--clr-white));
+  z-index: 2;
+  content: "";
 }
 
 #button-service-go-back {
@@ -938,11 +953,13 @@ a:has(#logo-primary) {
   color: rgb(var(--clr-text)/0.5);
   font-size: var(--fnt-sm);
   font-weight: 700;
+  transition: 0.15s;
 }
 .button-service-control:hover {
-  border-color: rgb(var(--clr-alert)/0.25);
-  background-color: rgb(var(--clr-alert)/0.1);
-  color: rgb(var(--clr-alert)/0.5);
+  border-color: rgb(var(--clr-point)/0.5);
+  background-color: rgb(var(--clr-info)/0.75);
+  color: rgb(var(--clr-text-on-tint)/0.5);
+  font-weight: 900;
 }
 .button-service-control.drop-progress {
   background-color: rgb(var(--clr-black));
@@ -1306,8 +1323,15 @@ a:has(#logo-primary) {
 @container main-container (max-width: 640px) {}
 /* _mainPage.scss */
 /* _registerPage.scss */
-:where(#register-form-container) .service-logo-container {
+#register-form-container .service-logo-container {
   height: 8rem;
+}
+#register-form-container #login-logo-image {
+  margin-block-start: 3.6rem;
+  width: 8rem;
+}
+#register-form-container #login-service-name > h1 {
+  font-size: var(--fnt-title-lg);
 }
 
 #form-register {
@@ -1355,7 +1379,8 @@ a:has(#logo-primary) {
   flex-flow: row nowrap;
   margin-inline-start: calc(var(--current-register-screen) * -100% + 100%);
   width: calc(100% * var(--total-register-steps));
-  transition: margin-inline-start 0.3s;
+  height: var(--current-screen-height, auto);
+  transition: margin-inline-start 0.3s, height 0.25s;
 }
 #register-state-wrapper > div {
   width: 100%;
@@ -1410,11 +1435,73 @@ a:has(#logo-primary) {
 
 /* _registerPage.scss */
 /* _loginPage.scss */
+#login-service-name {
+  font-family: var(--ff-dingbat);
+  text-align: center;
+  text-shadow: 0 0 1.2rem rgb(var(--clr-point)), 0 0 0.4rem rgb(var(--clr-mid-tone));
+  z-index: 2;
+}
+#login-service-name > p {
+  font-size: var(--fnt-title-xs);
+}
+#login-service-name > h1 {
+  font-size: var(--fnt-title-xl);
+  font-weight: 700;
+}
+
+#login-logo-image {
+  position: absolute;
+  inset: 0;
+  margin-block-start: 5.4rem;
+  margin-inline: auto;
+  width: 12rem;
+  transform-origin: bottom;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  animation: shake-paw alternate 3s ease-in-out forwards infinite;
+}
+
 #form-login {
   display: flex;
   flex-flow: column nowrap;
-  gap: 1.2rem;
+  gap: 0.8rem;
   padding: 1.2rem 0.8rem;
+}
+#form-login > input[type=text],
+#form-login > input[type=password] {
+  height: 2.4rem;
+}
+#form-login > label {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 1.8rem;
+}
+
+.login-error-message {
+  padding: 0.6rem 0.4rem;
+  border-radius: var(--rad-sm);
+  background-color: rgb(var(--clr-alert)/0.15);
+  color: rgb(var(--clr-alert));
+  font-size: var(--fnt-sm);
+  font-weight: 700;
+  text-align: center;
+}
+
+#button-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  height: 2.4rem;
+  border-radius: var(--rad-sm);
+  background-color: rgb(var(--clr-theme));
+  font-size: var(--fnt-sm);
+  font-weight: 700;
+}
+#button-login:hover {
+  background-color: rgb(var(--clr-if-40));
 }
 
 /* _loginPage.scss */
@@ -1828,6 +1915,37 @@ a:has(#logo-primary) {
 }
 
 /* _rescueInfo.scss */
+.thread-place-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  position: relative;
+  box-sizing: border-box;
+  width: min(100% - 1.6rem, 36rem);
+  height: min(100% - 3.2rem, 42rem);
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+.thread-place-container .instruction,
+.thread-place-container .title-bar {
+  width: 100%;
+}
+.thread-place-container .thread-place {
+  width: 100%;
+}
+.thread-place-container .thread-place .section-title {
+  position: relative;
+  color: rgb(var(--clr-text));
+  font-size: var(--fnt-sm);
+  font-weight: 700;
+  text-align: left;
+}
+.thread-place-container .thread-place > .dropdown-container {
+  isolation: isolate;
+  z-index: 2;
+}
+
 /* _buttons.scss */
 button {
   padding: 0;
@@ -2539,8 +2657,10 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 /* _customAlert.scss */
 /* _emptyList.scss */
 .empty-list-placeholder {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
   gap: 1.2rem;
   padding-block: 1.2rem;
   width: 100%;
@@ -4232,6 +4352,34 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 
 /* _reviewItem.scss */
 /* _chatRoomItem.scss */
+.empty-chat-list-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  height: 100%;
+}
+.empty-chat-list-wrapper > .empty-list-placeholder {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#button-start-chat-session {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-inline: 1.2rem;
+  height: 2.4rem;
+  border-radius: var(--rad-lg);
+  background-color: rgb(var(--clr-theme));
+  font-size: var(--fnt-sm);
+  font-weight: 700;
+}
+#button-start-chat-session:hover {
+  background-color: rgb(var(--clr-if-40));
+}
+
 .chat-room-item {
   display: flex;
   gap: 0.4rem;
@@ -5698,3 +5846,16 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 /* _imageGallery.scss */
+.single-input-container .single-input {
+  color: rgb(var(--clr-text));
+  height: 1.6rem;
+  padding: 0.4rem;
+  border: 0.05rem solid rgba(47, 40, 36, 0.15);
+  border-radius: var(--rad-xs);
+}
+.single-input-container .single-input::-moz-placeholder {
+  color: rgb(var(--clr-gray));
+}
+.single-input-container .single-input::placeholder {
+  color: rgb(var(--clr-gray));
+}

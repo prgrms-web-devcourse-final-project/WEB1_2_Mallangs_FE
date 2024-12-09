@@ -1,13 +1,36 @@
+import { useLocation } from 'react-router-dom';
 import { useModalStore } from '../../stores/modalStatus';
+
 import Remix from '../common/Remix';
 import MallangItem from '../common/MallangItem';
 
+import { logoutApi } from '../../api/userApi';
+
 const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
+    const location = useLocation();
     const { toggleModal, setModalType, setProfileData } = useModalStore(
         (state) => state,
     );
 
     const mainPet = userObject.pets.find((pet) => pet.isMain === true);
+
+    const handleLogout = async () => {
+        try {
+            await logoutApi();
+
+            location('/login');
+        } catch (error) {
+            console.error('로그아웃 실패:', error);
+
+            if (error.response?.status === 401) {
+                localStorage.removeItem('accessToken');
+
+                location('/login');
+            } else {
+                alert('로그아웃에 실패했습니다.');
+            }
+        }
+    };
 
     return (
         <aside
@@ -44,7 +67,12 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
                     <p>{'2024. 01. 01.'}</p>
                 </div>
 
-                <button type="button" id="button-user-logout" title="로그아웃">
+                <button
+                    type="button"
+                    id="button-user-logout"
+                    title="로그아웃"
+                    onClick={handleLogout}
+                >
                     <span>로그아웃</span>
                 </button>
             </div>
