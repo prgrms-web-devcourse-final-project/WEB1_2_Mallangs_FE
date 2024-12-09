@@ -6,6 +6,9 @@ import hourFormat from '../utils/hourFormat';
 export const useModalStore = create((set) => ({
     // threadType: [ profile, places, rescue, missing ]
 
+    slaveIndex: 0, // 상태 추가
+    setSlaveIndex: (index) => set({ slaveIndex: index }),
+
     isModalShowing: false,
     modalStatus: {
         isAuthenticated: false,
