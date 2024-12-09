@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useModalStore } from '../stores/modalStatus';
+
 import Remix from './common/Remix';
 import MainModalCover from './common/MainModalCover';
 
@@ -13,8 +14,7 @@ import UserReplies from '../pages/UserReplies';
 import UserReviews from '../pages/UserReviews';
 import UserChatList from '../pages/UserChatList';
 import UserChatRoom from '../pages/UserChatRoom';
-import ThreadMissingReport from '../pages/ThreadMissingReport';
-import ThreadRescue from '../pages/ThreadRescue';
+import UserIgnoreList from '../pages/UserIgnoreList';
 
 // ↓ 글타래 보기 컴포넌트 / 공통
 
@@ -31,13 +31,17 @@ import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
 
 import MissingInfo from '../pages/MissingInfo';
 import MissingSightingReport from '../pages/MissingSightingReport';
-import ThreadPlace from '../pages/ThreadPlace';
-import RescueDisclaimer from '../pages/RescueDisclaimer';
-import RescueDetails from '../pages/RescueDetails';
 
 // ↓ 글타래 보기 컴포넌트 / 구조요청
 
+import RescueDisclaimer from '../pages/RescueDisclaimer';
+import RescueDetails from '../pages/RescueDetails';
+
 // ↓ 글타래 작성 컴포넌트
+
+import ThreadPlace from '../pages/ThreadPlace';
+import ThreadMissingReport from '../pages/ThreadMissingReport';
+import ThreadRescue from '../pages/ThreadRescue';
 
 const MainModal = ({ routeName }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
@@ -93,7 +97,7 @@ const MainModal = ({ routeName }) => {
         'user-reviews': <UserReviews />,
         'user-chat-list': <UserChatList />,
         'user-chat-room': <UserChatRoom />,
-        'user-ignores': <>차단한 유저 목록입니다.</>,
+        'user-ignores': <UserIgnoreList />,
 
         // 장소 글타래 라우트 매치
         'place-info': <PlaceInfo />,

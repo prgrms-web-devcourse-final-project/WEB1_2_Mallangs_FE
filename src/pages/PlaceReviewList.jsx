@@ -9,7 +9,7 @@ const PlaceReviewList = () => {
         <div>
             <ReviewTotalScore />
 
-            <div id="review-list" className="user-common-item-list">
+            <div id="review-list">
                 {reviewList.length > 0 ? (
                     reviewList.map((item, index) => {
                         return <ReviewItem key={index} />;

@@ -22,10 +22,12 @@ const PlaceInfo = () => {
                 const data = await getPlaceDetail(
                     modalData.setObject.articleId,
                 );
+
                 const placeWithType = {
                     ...data,
                     articleType: modalData.setObject.type,
                 };
+
                 setPlaceDetails(placeWithType);
             } catch (err) {
                 setError('장소 정보를 불러오는데 실패했습니다.');
@@ -33,6 +35,7 @@ const PlaceInfo = () => {
                 setLoading(false);
             }
         };
+
         fetchPlaceData();
     }, [modalData?.setObject?.articleId]);
 
