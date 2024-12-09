@@ -17,55 +17,6 @@
                         "count": null
                     }
                 ]
-            },
-            {
-                "label": "사용자 활동",
-                "value": "activities",
-                "count": null,
-                "slaveNavigations": [
-                    {
-                        "label": "작성 글타래",
-                        "value": "user-threads",
-                        "count": null
-                    },
-                    {
-                        "label": "작성 글",
-                        "value": "user-articles",
-                        "count": null
-                    },
-                    {
-                        "label": "작성 댓글",
-                        "value": "user-replies",
-                        "count": null
-                    },
-                    {
-                        "label": "작성 리뷰",
-                        "value": "user-reviews",
-                        "count": null
-                    }
-                ]
-            },
-            {
-                "label": "메시지",
-                "value": "direct-message",
-                "count": null,
-                "slaveNavigations": [
-                    {
-                        "label": "1 : 1 대화 목록",
-                        "value": "user-chat-list",
-                        "count": null
-                    },
-                    {
-                        "label": "1 : 1 대화 (임시)",
-                        "value": "user-chat-room",
-                        "count": null
-                    },
-                    {
-                        "label": "차단 유저 목록 (미확정)",
-                        "value": "user-ignores",
-                        "count": null
-                    }
-                ]
             }
         ]
     },
@@ -79,28 +30,6 @@
                     {
                         "label": "시설 / 업체 소개",
                         "value": "place-info",
-                        "count": null
-                    },
-                    {
-                        "label": "오류 정정 요청",
-                        "value": "place-error-report",
-                        "count": null
-                    }
-                ]
-            },
-            {
-                "label": "리뷰",
-                "value": "review",
-                "count": null,
-                "slaveNavigations": [
-                    {
-                        "label": "리뷰 목록",
-                        "value": "place-review-list",
-                        "count": null
-                    },
-                    {
-                        "label": "나의 리뷰",
-                        "value": "place-review-write",
                         "count": null
                     }
                 ]

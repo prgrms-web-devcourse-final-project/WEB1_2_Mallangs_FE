@@ -86,15 +86,6 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
 
                     <span>프로필</span>
                 </button>
-
-                <button
-                    type="button"
-                    id="button-edit-profile"
-                    className="profile-card-buttons"
-                >
-                    <Remix iconName={'edit-box-line'} />
-                    <span>개인정보 수정</span>
-                </button>
             </div>
         </aside>
     );

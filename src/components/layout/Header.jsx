@@ -105,27 +105,27 @@ const Header = ({ setPanel }) => {
                     </li>
                     */}
 
-                    <li className="nav-item primary">
+                    {/*<li className="nav-item primary">
                         <NavLink to="/museum">
                             <span>컴포넌트 박물관</span>
                         </NavLink>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
 
             <div id="head-controls">
-                <div
+                {/*<div
                     id="total-search-toggler"
                     onClick={() => setPanel('total-search')}
                 >
                     <span>키워드 검색</span>
 
                     <Remix iconName={'search-2-line'} iconSize={0.8} />
-                </div>
+                </div>*/}
 
                 {isLoggedIn ? (
                     <>
-                        <button
+                        {/*<button
                             type="button"
                             id="button-notify"
                             className={unReadNotifications() > 0 ? 'on' : null}
@@ -137,7 +137,7 @@ const Header = ({ setPanel }) => {
                                 iconName={'notification-2-fill'}
                                 iconSize={0.8}
                             />
-                        </button>
+                        </button>*/}
 
                         <button
                             type="button"

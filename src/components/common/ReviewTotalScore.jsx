@@ -2,7 +2,7 @@ import Remix from './Remix';
 
 const ReviewTotalScore = ({
     reviewTarget = '리뷰 대상',
-    reviewScoreEverage = null,
+    reviewScoreEverage = 5,
     reviewCount = 0,
     reviewSummary = '아직 요약할 수 있는 리뷰가 작성되지 않았어요.',
     areYouSure = false,
