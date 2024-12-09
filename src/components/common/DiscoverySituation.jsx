@@ -1,10 +1,10 @@
-const DiscoverySituation = ({ value, onChange }) => {
+const DiscoverySituation = ({ value, onChange, placeholder = 'text' }) => {
     return (
         <div className="discovery-situation">
             <div className="discovery-situation-container">
                 <textarea
                     className="discovery-situation-container-input"
-                    placeholder="상황 설명 입력..."
+                    placeholder={placeholder}
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                 ></textarea>

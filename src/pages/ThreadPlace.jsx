@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axiosInstance from '../api/axios';
+import { createPlaceArticle } from '../api/threadApi';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
@@ -12,6 +12,7 @@ import SingleInput from '../components/common/SingleInput';
 import getLatestLocation from '../utils/getLatestLocation';
 
 const ThreadPlace = () => {
+    const [addressInfo, setAddressInfo] = useState(null);
     const latestLocation = getLatestLocation();
     const [explanation, setExplanation] = useState('');
     const [introduce, setIntroduce] = useState('');
@@ -26,6 +27,10 @@ const ThreadPlace = () => {
         // longitude: latestLocation.lng,
     });
     const [errorMessage, setErrorMessage] = useState('');
+
+    const handleAddressChange = (info) => {
+        setAddressInfo(info);
+    };
 
     const PlaceClasstificationList = [
         '동물약국',
@@ -52,11 +57,8 @@ const ThreadPlace = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // if (!address || !selectedType) {
-        //     // console.log('뭐 빠졌니?');
-        //     setErrorMessage('4가지 중 필수 항목 빠짐');
-        //     return;
-        // }
+        const address =
+            `${addressInfo.roadAddress || addressInfo.jibunAddress} ${addressInfo.building}`.trim();
 
         const formData = {
             type: 'place',
@@ -70,8 +72,8 @@ const ThreadPlace = () => {
             closeDays: holidayTime,
             website: websiteUrl,
             category: holidayTime,
-            address: '부산 해운대구 해변로 45', //지번
-            roadAddress: '부산 해운대구 해변로 45', //도로명
+            address: address, //지번
+            roadAddress: address, //도로명
             hasParking: false,
             isPetFriendly: true,
             contact: facilityContact,
@@ -80,18 +82,8 @@ const ThreadPlace = () => {
         console.log('폼 데이터:', formData);
 
         try {
-            const response = await axiosInstance.post(
-                `${import.meta.env.VITE_API_BASE_URL}/articles`,
-                formData,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                },
-            );
-
+            const response = await createPlaceArticle(formData);
             console.log('응답 성공띠 : ', response.data);
-
             setErrorMessage('');
         } catch (error) {
             // console.error('에러가 무엇잉교:', error);
@@ -138,8 +130,7 @@ const ThreadPlace = () => {
                         주소는 지도에서 선택한 지점에 따라 자동으로 입력됩니다.
                     </span>
                     {/* 주소 */}
-                    <InputAddress value={address} onChange={setAddress} />
-
+                    <InputAddress onAddressChange={handleAddressChange} />
                     <span className="section-title">시설 분류 선택</span>
 
                     <DropdownSelector
