@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { useModalStore } from '../stores/modalStatus';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
+
+import { useModalStore } from '../stores/modalStatus';
+
 import Remix from './common/Remix';
 import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
+
 import getLatestLocation from '../utils/getLatestLocation';
+
 import markerLogo from '../assets/images/logo.png';
 import markerImageAlpha from '../assets/images/marker-alpha.png';
 import markerImageBeta from '../assets/images/marker-beta.png';
@@ -37,9 +41,8 @@ const MallangMap = () => {
         return currentLocation;
     };
 
-    const { toggleModal, setModalType, setTotalData } = useModalStore(
-        (state) => state,
-    );
+    const { toggleModal, setEditMode, setModalType, setTotalData } =
+        useModalStore((state) => state);
 
     const handleMapDrag = (map) => {
         // 지도 드래그로 중심점 이동시 핸들러
@@ -170,18 +173,9 @@ const MallangMap = () => {
                                             )
                                         }
                                         onClick={() => {
-                                            toggleModal(true); // 모달 열기
+                                            setEditMode(true); // 모달 수정 모드
                                             setModalType('writeMode'); // 모달의 navigation 상태
-                                            setModalData({
-                                                // 모달 기본 정보 - 이후 설정 가능값 추가 예정
-                                                latitude: 0.0, // 모달이 가지고 있는 위도
-                                                longitude: 0.0, // 모달이 가지고 있는 경도
-                                                threadTitle: '말랑이 구조 요청', // 모달 제목
-                                                mainCategory: '',
-                                                subCategory1: '',
-                                                subCategory2: '',
-                                                subCategory3: '',
-                                            });
+                                            toggleModal(true); // 모달 열기
                                         }}
                                     >
                                         <div>
