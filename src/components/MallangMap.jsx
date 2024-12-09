@@ -10,6 +10,11 @@ import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
 
 import getLatestLocation from '../utils/getLatestLocation';
+
+import markerLogo from '../assets/images/logo.png';
+import markerImageAlpha from '../assets/images/marker-alpha.png';
+import markerImageBeta from '../assets/images/marker-beta.png';
+import markerImageGamma from '../assets/images/marker-gamma.png';
 import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
 const { kakao } = window;
