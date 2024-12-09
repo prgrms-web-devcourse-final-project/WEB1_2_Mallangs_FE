@@ -31,8 +31,13 @@ const MallangMap = () => {
     const [markers, setMarkers] = useState([]);
 
     const setLocationInfo = useLocationStore((state) => state.setLocation);
-    const { toggleModal, setEditMode, setModalType, setTotalData } =
-        useModalStore((state) => state);
+    const {
+        toggleModal,
+        setEditMode,
+        setModalType,
+        setTotalData,
+        setSlaveIndex,
+    } = useModalStore((state) => state);
 
     const handleCategoryChange = (data) => {
         setCategory(data);
@@ -206,7 +211,12 @@ const MallangMap = () => {
                                                 '이 위치에 글타래 작성하기',
                                             )
                                         }
-                                        onClick={() => console.log(111)}
+                                        onClick={() => {
+                                            setEditMode(true);
+                                            setModalType('writeMode');
+                                            setSlaveIndex(1);
+                                            toggleModal(true);
+                                        }}
                                     >
                                         <div>
                                             <Remix
@@ -226,7 +236,12 @@ const MallangMap = () => {
                                                 '이 위치에 글타래 작성하기',
                                             )
                                         }
-                                        onClick={() => console.log(222)}
+                                        onClick={() => {
+                                            setEditMode(true);
+                                            setModalType('writeMode');
+                                            setSlaveIndex(0);
+                                            toggleModal(true);
+                                        }}
                                     >
                                         <div>
                                             <Remix
@@ -247,9 +262,10 @@ const MallangMap = () => {
                                             )
                                         }
                                         onClick={() => {
-                                            setEditMode(true); // 모달 수정 모드
-                                            setModalType('writeMode'); // 모달의 navigation 상태
-                                            toggleModal(true); // 모달 열기
+                                            setEditMode(true);
+                                            setModalType('writeMode');
+                                            setSlaveIndex(2);
+                                            toggleModal(true);
                                         }}
                                     >
                                         <div>
