@@ -108,7 +108,7 @@
             {
                 "label": "댓글",
                 "value": "reply",
-                "count": 0,
+                "count": null,
                 "slaveNavigations": [
                     {
                         "label": "이 장소의 댓글",
@@ -148,7 +148,7 @@
             {
                 "label": "댓글",
                 "value": "reply",
-                "count": 0,
+                "count": null,
                 "slaveNavigations": [
                     {
                         "label": "이 글타래의 댓글",
@@ -181,7 +181,7 @@
             {
                 "label": "댓글",
                 "value": "reply",
-                "count": 0,
+                "count": null,
                 "slaveNavigations": [
                     {
                         "label": "이 글타래의 댓글",
