@@ -3,36 +3,45 @@ import Remix from './Remix';
 
 const genderTypes = {
     genderless: {
-        value: 'genderless',
+        value: 'ETC',
         label: '중성',
         iconClassName: 'genderless-line',
     },
     male: {
-        value: 'male',
+        value: 'MALE',
         label: '남자',
         iconClassName: 'men-line',
     },
     female: {
-        value: 'female',
+        value: 'FEMALE',
         label: '여자',
         iconClassName: 'women-line',
     },
 };
 
-const GenderSelector = ({ label = '성별', onSelect, initialValue = null }) => {
+const GenderSelector = ({
+    label = '성별',
+    onSelect,
+    initialValue = null,
+    name = 'gender',
+}) => {
     const [selectedGender, setSelectedGender] = useState(initialValue);
 
     const handleGenderSelect = (gender) => {
         setSelectedGender(gender);
         if (onSelect) {
-            onSelect(gender);
+            onSelect({
+                target: {
+                    name,
+                    value: gender,
+                },
+            });
         }
     };
 
     return (
         <div className="gender-selector">
             <div className="block-label">{label}</div>
-
             <div className="checkbox-wrapper">
                 {Object.values(genderTypes).map(({ value, iconClassName }) => (
                     <div
@@ -45,11 +54,12 @@ const GenderSelector = ({ label = '성별', onSelect, initialValue = null }) => 
                         </div>
                     </div>
                 ))}
-
-                <div className="checkbox-group-label">
+                {/* <div className="checkbox-group-label">
                     {selectedGender ? genderTypes[selectedGender].label : ' '}
-                </div>
+                </div> */}
             </div>
+            {/* Hidden input for form compatibility */}
+            <input type="hidden" name={name} value={selectedGender || ''} />
         </div>
     );
 };
