@@ -419,6 +419,15 @@ a:has(#logo-primary) {
         background-color: rgb(var(--clr-black));
         color: rgb(var(--clr-text-on-tint));
     }
+
+    &.done {
+        background-color: rgb(var(--clr-theme));
+
+        &:hover {
+            background-color: rgb(var(--clr-if-40));
+            color: rgb(var(--clr-text));
+        }
+    }
 }
 
 .service-copyright {

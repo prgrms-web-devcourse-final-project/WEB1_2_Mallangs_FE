@@ -305,18 +305,20 @@
 /* 글타래 상태 분류 */
 
 #user-threads-category {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
     padding: 0.8rem 0.8rem 0;
     z-index: 2;
+
+    .swiper-slide {
+        width: fit-content;
+    }
 }
 
 .user-threads-category-item {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-inline: 0.8rem;
-    width: fit-content;
+    width: max-content;
     height: 1.6rem;
     border: 1px solid rgb(var(--clr-text) / 0.15);
     border-radius: var(--rad-full);

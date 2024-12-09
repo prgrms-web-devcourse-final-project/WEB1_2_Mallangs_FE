@@ -77,7 +77,7 @@ export const getArticleMarkers = async (
     }
 };
 
-// 장소 상세 정보 조회
+// 글타래 업체/시설 상세 정보 조회
 export const getPlaceDetail = async (articleId) => {
     try {
         const response = await axiosInstance({
@@ -87,7 +87,60 @@ export const getPlaceDetail = async (articleId) => {
 
         return response.data;
     } catch (error) {
-        console.error('장소 상세 정보 로드 실패:', error.message);
+        console.error('업체/시설 상세 정보 로드 실패:', error.message);
+        throw error;
+    }
+};
+
+// 글타래 댓글 조회
+export const getComments = async (articleId) => {
+    try {
+        const response = await axiosInstance.get(
+            `/comments/article/${articleId}`,
+        );
+        return response.data;
+    } catch (error) {
+        if (error.response?.status === 404) {
+            return [];
+        }
+        throw error;
+    }
+};
+
+// 글타래 댓글 작성
+export const postComment = async (commentData) => {
+    try {
+        const response = await axiosInstance.post(
+            '/comments/article',
+            commentData,
+        );
+        return response.data;
+    } catch (error) {
+        console.error('댓글 작성 실패:', error);
+        throw error;
+    }
+};
+
+// 글타래 댓글 수정
+export const updateComment = async (commentId, commentData) => {
+    try {
+        const response = await axiosInstance.put(
+            `/comments/${commentId}`,
+            commentData,
+        );
+        return response.data;
+    } catch (error) {
+        console.error('댓글 수정 실패:', error);
+        throw error;
+    }
+};
+
+// 글타래 댓글 삭제
+export const deleteComments = async (deleteData) => {
+    try {
+        await axiosInstance.delete('/comments', { data: deleteData });
+    } catch (error) {
+        console.error('댓글 삭제 실패:', error);
         throw error;
     }
 };
@@ -118,6 +171,21 @@ export const getRescueDetail = async (articleId) => {
         return response.data;
     } catch (error) {
         console.error('구조 글타래 불러오기 실패:', error.message);
+        throw error;
+    }
+};
+
+// 실종 글타래 조회
+export const getMissingDetail = async (articleId) => {
+    try {
+        const response = await axiosInstance({
+            method: 'get',
+            url: `/articles/public/${articleId}`,
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('실종 글타래 불러오기 실패:', error.message);
         throw error;
     }
 };

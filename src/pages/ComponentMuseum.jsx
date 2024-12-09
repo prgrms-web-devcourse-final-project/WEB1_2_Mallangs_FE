@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { useModalStore } from '../stores/modalStatus';
 import ReviewItem from '../components/common/ReviewItem';
 import MallangItem from '../components/common/MallangItem';
 import ArticleItem from '../components/common/ArticleItem';
@@ -13,17 +12,9 @@ import StarRating from '../components/common/StarRating';
 import ChatItem from '../components/common/ChatItem';
 import ThreadItem from '../components/common/ThreadItem';
 import ImageGallery from '../components/common/ImageGallery';
+import MultipleImageUploader from '../components/common/MultipleImageUploader';
 
 const ComponentMuseum = () => {
-    const {
-        toggleModal,
-        setEditMode,
-        setModalType,
-        setPlaceData,
-        setMissingData,
-        setRescueData,
-    } = useModalStore((state) => state);
-
     const tempListContainer = {
         display: 'flex',
         flexFlow: 'column nowrap',
@@ -55,6 +46,12 @@ const ComponentMuseum = () => {
                         에러 테스트 페이지
                     </Link>
                 </p>
+            </div>
+
+            <div style={tempListContainer}>
+                <h5>이미지 업로더 컴포넌트</h5>
+
+                <MultipleImageUploader />
             </div>
 
             <div style={tempListContainer}>

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
 import Remix from './Remix';
 
 import 'swiper/scss';

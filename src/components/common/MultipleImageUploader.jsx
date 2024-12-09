@@ -118,7 +118,7 @@ const MultipleImageUploader = ({ onCallFiles }) => {
                         iconSize={1.8}
                     />
 
-                    <span>{`선택한 파일 ${selectedfile.length} / ${maxImageLimit} 개`}</span>
+                    <span>{`${selectedfile.length} / ${maxImageLimit}`}</span>
                 </label>
 
                 <div id="image-preview-wrapper">
