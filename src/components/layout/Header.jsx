@@ -78,17 +78,21 @@ const Header = ({ setPanel }) => {
                         </NavLink>
                     </li>
 
+                    {/*
                     <li className="nav-item primary">
                         <NavLink to="/community">
                             <span>커뮤니티</span>
                         </NavLink>
                     </li>
+                    */}
 
+                    {/*
                     <li className="nav-item primary">
                         <NavLink to="/missing">
                             <span>실종신고</span>
                         </NavLink>
                     </li>
+                    */}
 
                     <li className="nav-item primary">
                         <NavLink to="/museum">
