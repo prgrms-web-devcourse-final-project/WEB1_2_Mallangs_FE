@@ -32,6 +32,20 @@ export const createRescueArticle = async (formData) => {
     }
 };
 
+export const createMissingReportArticle = async (formData) => {
+    try {
+        const response = await axiosInstance({
+            method: 'post',
+            url: '/articles',
+            data: formData,
+        });
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 // 마커 데이터 조회
 export const getArticleMarkers = async (
     bounds,

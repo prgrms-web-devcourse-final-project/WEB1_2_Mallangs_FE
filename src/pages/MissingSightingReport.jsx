@@ -1,12 +1,17 @@
 import { useRef, useState } from 'react';
 import { Map, CustomOverlayMap } from 'react-kakao-maps-sdk';
+
 import Remix from '../components/common/Remix';
+import MultipleImageUploader from '../components/common/MultipleImageUploader';
+
+import getLatestLocation from '../utils/getLatestLocation';
 
 const MissingSightingReport = () => {
     const sightingDateTime = useRef();
     const sitPhotos = useRef();
     const sitDescription = useRef();
-    const [currentLocation, setLocation] = useState({ lat: 36.0, lng: 127.0 });
+
+    const [currentLocation, setLocation] = useState(getLatestLocation);
 
     const handleFormData = () => {
         console.log({
@@ -102,16 +107,10 @@ const MissingSightingReport = () => {
 
                         <span>목격하신 상황 또는 동물의 사진이 있나요?</span>
                     </p>
-                    <input
-                        type="file"
-                        id="input-sighting-images"
-                        multiple
-                        accept=""
-                        disabled
-                        ref={sitPhotos}
-                        onChange={handleFormData}
+
+                    <MultipleImageUploader
+                        onCallFiles={(data) => console.log(data)}
                     />
-                    이미지 업로더 들어갈 자리
                 </div>
 
                 <div className="user-common-labeled-input">

@@ -963,7 +963,7 @@ a:has(#logo-primary) {
 }
 .button-service-control.drop-progress {
   background-color: rgb(var(--clr-black));
-  color: rgb(vaR(--clr-text-on-tint));
+  color: rgb(var(--clr-text-on-tint));
 }
 
 .service-copyright {
@@ -2010,139 +2010,6 @@ button {
 }
 .buttons.only > span {
   display: none;
-}
-
-.button-post-controls {
-  --button-icon-color: currentColor;
-  position: relative;
-  width: 3.6rem;
-  height: 3.6rem;
-  border-radius: 0.4rem;
-  font-size: var(--fnt-sm);
-  overflow: hidden;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-.button-post-controls > .remix {
-  position: absolute;
-  inset-block: 0;
-  inset-inline: 0;
-  margin-block: auto;
-  margin-inline: auto;
-  width: 0.8rem;
-  transition: 0.25s;
-}
-.button-post-controls > span {
-  display: block;
-  position: absolute;
-  inset-block-start: calc(100% + 1.6rem);
-  inset-inline: 0;
-  margin: auto;
-  opacity: 0;
-  transition: 0.25s;
-}
-.button-post-controls:hover, .button-post-controls:focus {
-  background-image: radial-gradient(circle at top, rgb(var(--button-icon-color)/0.1), rgb(var(--clr-surface-0)));
-  -webkit-backdrop-filter: blur(0.4rem);
-          backdrop-filter: blur(0.4rem);
-  box-shadow: 0 0 0.8rem -0.2rem rgb(var(--button-icon-color)/0.25);
-  outline: 1px solid rgb(var(--button-icon-color)/0.25);
-  outline-offset: 1px;
-  text-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
-}
-.button-post-controls:hover > .remix, .button-post-controls:focus > .remix {
-  inset-block: 0 1.2rem;
-  color: rgb(var(--button-icon-color));
-}
-.button-post-controls:hover > span, .button-post-controls:focus > span {
-  inset-block-start: calc(50% + 0.2rem);
-  opacity: 1;
-}
-
-#btnSubmitReply,
-#btnSubmitGuestbook,
-.button-guestbook-reply {
-  flex-shrink: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.2rem;
-  width: 4.2rem;
-  border: 1px solid rgb(var(--clr-tint-60)/0.5);
-  border-radius: 0.2rem;
-  background-color: rgb(var(--clr-theme)/0.1);
-  color: rgb(var(--clr-tint-60));
-  font-weight: 700;
-}
-#btnSubmitReply:hover,
-#btnSubmitGuestbook:hover,
-.button-guestbook-reply:hover {
-  background-color: rgb(var(--clr-tint-60));
-  color: rgb(var(--clr-if-0));
-}
-#btnSubmitReply:active,
-#btnSubmitGuestbook:active,
-.button-guestbook-reply:active {
-  background-color: rgb(var(--clr-tint-0));
-}
-#btnSubmitReply:focus,
-#btnSubmitGuestbook:focus,
-.button-guestbook-reply:focus {
-  border-color: rgb(var(--clr-tint-100));
-}
-#btnSubmitReply:disabled,
-#btnSubmitGuestbook:disabled,
-.button-guestbook-reply:disabled {
-  border-color: rgb(var(--clr-surface-60));
-  background-color: rgb(var(--clr-surface-0));
-  color: rgb(var(--clr-surface-60));
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.25);
-  cursor: no-drop;
-}
-
-.buttons-blog-control {
-  flex: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.2rem;
-  width: 100%;
-  aspect-ratio: 1/1;
-  border: 1px solid transparent;
-  border-radius: 0.4rem;
-  transition: background-color 0.15s;
-}
-.buttons-blog-control > .remix {
-  width: 1rem;
-}
-.buttons-blog-control > span {
-  font-size: var(--fnt-sm);
-}
-.buttons-blog-control:hover, .buttons-blog-control:focus {
-  background-color: rgb(var(--clr-theme));
-  color: rgb(var(--clr-text-on-tint));
-}
-
-.button-guestbook-controls,
-.button-reply-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  font-size: var(--fnt-sm);
-}
-.button-guestbook-controls > .remix,
-.button-reply-controls > .remix {
-  width: 0.7rem;
-  opacity: 0.5;
-}
-.button-guestbook-controls:hover,
-.button-reply-controls:hover {
-  -webkit-text-decoration: 1px solid underline;
-          text-decoration: 1px solid underline;
-  text-underline-offset: 0.2rem;
 }
 
 /* _buttons.scss */
@@ -3447,8 +3314,8 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 
 .cover-descriptions-container {
-  display: flex;
   flex: 1;
+  display: flex;
   padding: 0.8rem;
   height: 100%;
   z-index: 2;
@@ -3470,6 +3337,19 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 }
 .thread-title > .remix {
   color: rgb(var(--clr-clear));
+}
+
+#input-thread-title {
+  height: 1.8rem;
+  font-size: var(--fnt-title-xs);
+  font-weight: 700;
+}
+
+.input-thread-subject-edit {
+  padding-inline: 0.2rem !important;
+  width: 3.2rem;
+  height: 1.2rem !important;
+  font-size: var(--fnt-sm);
 }
 
 .thread-category-container {
@@ -5859,3 +5739,97 @@ input[type=checkbox]:is([data-checkbox-type=toggle]):focus + label .switch-rail 
 .single-input-container .single-input::placeholder {
   color: rgb(var(--clr-gray));
 }
+
+/* _multipleImageUploader.scss */
+#input-multiple-image-uploader {
+  display: none;
+}
+
+#input-multiple-image-uploader-label {
+  background-color: rgb(var(--clr-black)/0.75);
+  transition: background-color 0.15s;
+  cursor: pointer;
+}
+#input-multiple-image-uploader-label:hover {
+  background-color: rgb(var(--clr-info)/0.75);
+}
+#input-multiple-image-uploader-label.limited {
+  background-color: rgb(var(--clr-alert)/0.75);
+  cursor: no-drop;
+}
+
+#image-uploader-body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+}
+
+#image-preview-wrapper {
+  display: contents;
+}
+
+.image-uploader-block {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  position: relative;
+  aspect-ratio: 1/1;
+  border: 1px solid rgb(var(--clr-text)/0.05);
+  border-radius: var(--rad-sm);
+  background-color: rgb(var(--clr-gray));
+  color: rgb(var(--clr-text-on-tint));
+  font-size: var(--fnt-sm);
+  overflow: clip;
+}
+.image-uploader-block > * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.image-uploader-block .remix {
+  opacity: 0.5;
+}
+.image-uploader-block > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.image-uploader-block.empty {
+  background-color: rgb(var(--clr-black)/0.15);
+  outline: 0.1rem dashed rgb(var(--clr-gray));
+  outline-offset: 0.2rem;
+  scale: 0.9;
+}
+.image-uploader-block.empty .remix {
+  opacity: 0.75;
+}
+
+.button-delete-preview-image {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  position: absolute;
+  inset: 0;
+  background-color: rgb(var(--clr-black)/0.75);
+  -webkit-backdrop-filter: blur(0.8rem);
+          backdrop-filter: blur(0.8rem);
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 3;
+}
+.button-delete-preview-image:hover {
+  opacity: 1;
+}
+.button-delete-preview-image:hover .remix {
+  color: rgb(var(--clr-alert));
+  opacity: 1;
+  transition: color 0.25s 0.15s, opacity 0.25s 0.15s;
+}
+
+/* _multipleImageUploader.scss */
