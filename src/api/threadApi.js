@@ -57,7 +57,7 @@ export const getArticleMarkers = async (
             method: 'post',
             url: '/articles/public/articlesMarkers',
             params: {
-                articleType, // 'all'(대신 null값 가능), 'lost', 'rescue', 'place', 'user'
+                articleType, // 'all'(대신 null값 가능), 'lost', 'rescue', 'place'
                 placeCategory, // 카테고리3 항목 (동물약국, 카페 등...)
             },
             data: {
@@ -71,6 +71,21 @@ export const getArticleMarkers = async (
         return response.data;
     } catch (error) {
         console.error('마커 데이터 로드 실패:', error.message);
+        throw error;
+    }
+};
+
+// 장소 상세 정보 조회
+export const getPlaceDetail = async (articleId) => {
+    try {
+        const response = await axiosInstance({
+            method: 'get',
+            url: `/articles/public/${articleId}`,
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('장소 상세 정보 로드 실패:', error.message);
         throw error;
     }
 };
