@@ -1,36 +1,125 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useModalStore } from '../stores/modalStatus';
 import EmptyList from '../components/common/EmptyList';
 import ModalFormInput from '../components/common/ModalFormInput';
 import ReplyItem from '../components/common/ReplyItem';
+import {
+    getComments,
+    postComment,
+    updateComment,
+    deleteComments,
+} from '../api/threadApi';
 
 const ReplyList = () => {
-    const [replyArray, setNewReply] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const modalData = useModalStore((state) => state.modalData);
 
-    const handleWriteReply = (inputObject) => {
-        setNewReply([
-            ...replyArray,
-            {
-                userObject: { userID: 0, userImage: null, userName: '홍길동' },
-                replyContent: inputObject.formText,
-                writtenDateTime: new Date(),
-            },
-        ]);
+    useEffect(() => {
+        const fetchComments = async () => {
+            if (!modalData?.setObject?.articleId) return;
+            try {
+                const data = await getComments(modalData.setObject.articleId);
+                setComments(data || []);
+            } catch (err) {
+                setError('댓글을 불러오는데 실패했습니다.');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchComments();
+    }, [modalData?.setObject?.articleId]);
+
+    const handleWriteReply = async (inputObject) => {
+        if (!inputObject.formText.trim()) return;
+        try {
+            const response = await postComment({
+                memberId: 1,
+                articleId: modalData.setObject.articleId,
+                content: inputObject.formText,
+            });
+
+            const newComment = {
+                ...response,
+                userObject: {
+                    userID: response.memberId,
+                    userImage: response.profileImage,
+                    userName: response.nickname.value,
+                },
+                replyContent: response.content,
+                writtenDateTime: response.createdAt,
+            };
+
+            setComments((prev) => ({
+                ...prev,
+                content: [...prev.content, newComment],
+            }));
+        } catch (err) {
+            console.error('댓글 작성 실패:', err);
+        }
+    };
+
+    if (loading) return <div>로딩 중...</div>;
+    if (error) return <div>{error}</div>;
+    if (!comments) return <div>댓글을 찾을 수 없습니다.</div>;
+
+    const handleEditReply = async (commentId, content) => {
+        try {
+            const response = await updateComment(commentId, {
+                memberId: 1,
+                content,
+            });
+            setComments((prev) => ({
+                ...prev,
+                content: prev.content.map((comment) =>
+                    comment.commentId === commentId ? response : comment,
+                ),
+            }));
+        } catch (err) {
+            console.error('댓글 수정 실패:', err);
+        }
+    };
+
+    const handleDeleteReply = async (commentId) => {
+        try {
+            await deleteComments({
+                memberId: 1,
+                commentIds: [commentId],
+            });
+            setComments((prev) => ({
+                ...prev,
+                content: prev.content.filter(
+                    (comment) => comment.commentId !== commentId,
+                ),
+            }));
+        } catch (err) {
+            console.error('댓글 삭제 실패:', err);
+        }
     };
 
     return (
         <div>
             <div id="reply-list" className="user-common-item-list">
-                {replyArray.length > 0 ? (
-                    replyArray.map((item, index) => {
-                        return (
-                            <ReplyItem
-                                index={index}
-                                replyContent={item.replyContent}
-                                writtenDateTime={item.writtenDateTime}
-                                key={index}
-                            />
-                        );
-                    })
+                {comments.content?.length > 0 ? (
+                    comments.content.map((item, index) => (
+                        <ReplyItem
+                            key={item.commentId}
+                            index={index}
+                            userObject={{
+                                userID: item.memberId,
+                                userImage: item.profileImage,
+                                userName: item.nickname.value,
+                            }}
+                            replyContent={item.content}
+                            writtenDateTime={item.createdAt}
+                            isMyReply={item.memberId === 1}
+                            onEdit={(content) =>
+                                handleEditReply(item.commentId, content)
+                            }
+                            onDelete={() => handleDeleteReply(item.commentId)}
+                        />
+                    ))
                 ) : (
                     <EmptyList placeHolderText="아직 댓글이 없어요. 첫 댓글을 작성해 보는 건 어떨까요?" />
                 )}
@@ -38,7 +127,6 @@ const ReplyList = () => {
 
             <div id="reply-input-container">
                 <hr />
-
                 <ModalFormInput
                     isIncludeImage={false}
                     isHorizontal={true}
