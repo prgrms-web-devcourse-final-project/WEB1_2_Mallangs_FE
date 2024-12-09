@@ -47,6 +47,7 @@ import ThreadRescue from '../pages/ThreadRescue';
 const MainModal = ({ routeName }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
     const currentSlaveIndex = useModalStore((state) => state.slaveIndex);
+    const setSlaveIndex = useModalStore((state) => state.setSlaveIndex);
 
     const modalStatus = useModalStore((state) => state.modalStatus);
     const modalData = useModalStore((state) => state.modalData);
