@@ -45,3 +45,17 @@ export const createMissingReportArticle = async (formData) => {
         throw error;
     }
 };
+
+export const createPlaceArticle = async (formData) => {
+    try {
+        const response = await axiosInstance({
+            method: 'post',
+            url: '/articles',
+            data: formData,
+        });
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
