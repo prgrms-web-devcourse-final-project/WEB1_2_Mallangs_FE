@@ -417,7 +417,7 @@ a:has(#logo-primary) {
 
     &.drop-progress {
         background-color: rgb(var(--clr-black));
-        color: rgb(vaR(--clr-text-on-tint));
+        color: rgb(var(--clr-text-on-tint));
     }
 }
 

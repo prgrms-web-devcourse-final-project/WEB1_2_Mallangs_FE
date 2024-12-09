@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+import debounce from 'lodash/debounce';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 
 import useLocationStore from '../stores/locationStore';
@@ -15,7 +16,8 @@ import markerLogo from '../assets/images/logo.png';
 import markerImageAlpha from '../assets/images/marker-alpha.png';
 import markerImageBeta from '../assets/images/marker-beta.png';
 import markerImageGamma from '../assets/images/marker-gamma.png';
-import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
+import { getArticleMarkers } from '../api/threadApi';
+// import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
 const { kakao } = window;
 
@@ -26,6 +28,7 @@ const MallangMap = () => {
     const [isAreaInfoShowing, setPanel] = useState(false);
     const [toolTipLabel, setTooltipLabel] =
         useState('이 위치에 글타래 작성하기');
+    const [markers, setMarkers] = useState([]);
 
     const setLocationInfo = useLocationStore((state) => state.setLocation);
     const { toggleModal, setEditMode, setModalType, setTotalData } =
@@ -40,21 +43,31 @@ const MallangMap = () => {
         if (currentLocation.lat === 0 && currentLocation.lng === 0) {
             setLocation(getLatestLocation());
         }
-
         return currentLocation;
     };
 
-    const handleMapDrag = (map) => {
-        // 지도 드래그로 중심점 이동시 핸들러
-        const level = map.getLevel(); // 지도 확대율
-        const bounds = map.getBounds(); // 지도 바운더리
-        const latlng = map.getCenter(); // 지도 중심
+    const loadMarkers = useCallback(
+        debounce(async (bounds, level) => {
+            try {
+                if (level > 7) {
+                    setMarkers([]);
+                    return;
+                }
 
-        console.log('최종 위치 기준 바운더리:', bounds);
+                const markerData = await getArticleMarkers(bounds);
 
-        setMarkerStatus(false);
-        localStorage.setItem('mallangMapLatestLocation', latlng);
-    };
+                if (level > 5) {
+                    setMarkers(markerData.slice(0, 50) || []);
+                    return;
+                }
+
+                setMarkers(markerData || []);
+            } catch (error) {
+                console.error('마커 데이터 로드 실패:', error);
+            }
+        }, 300),
+        [],
+    );
 
     const handleWriteMouseOver = (e) => {
         setTooltipLabel(e.target.dataset.tooltipText);
@@ -115,7 +128,14 @@ const MallangMap = () => {
                 center={convertLocation()}
                 level={3}
                 isPanto={true}
-                onDragEnd={(map) => handleMapDrag(map)}
+                onIdle={(map) => {
+                    const bounds = map.getBounds();
+                    const level = map.getLevel();
+                    const center = map.getCenter();
+
+                    localStorage.setItem('mallangMapLatestLocation', center);
+                    loadMarkers(bounds, level);
+                }}
                 onClick={(map, mouseEvent) => {
                     const coords = mouseEvent.latLng;
                     const curLat = coords.getLat();
@@ -123,11 +143,8 @@ const MallangMap = () => {
                     const curBounds = map.getBounds();
 
                     console.log('클릭 바운더리:', curBounds);
-
                     setLocation({ lat: curLat, lng: curLng });
-
                     if (isMarkerOpen) setMarkerStatus(false);
-
                     // 클릭한 좌표의 주소 정보 가져오기
                     getAddressFromCoords(coords);
                 }}
@@ -166,9 +183,7 @@ const MallangMap = () => {
                                         type="button"
                                         className="button-marker-write missing"
                                         data-tooltip-text={'실종신고'}
-                                        onMouseOver={(e) =>
-                                            handleWriteMouseOver(e)
-                                        }
+                                        onMouseOver={handleWriteMouseOver}
                                         onMouseLeave={() =>
                                             setTooltipLabel(
                                                 '이 위치에 글타래 작성하기',
@@ -188,9 +203,7 @@ const MallangMap = () => {
                                         type="button"
                                         className="button-marker-write places"
                                         data-tooltip-text={'시설 / 업체'}
-                                        onMouseOver={(e) =>
-                                            handleWriteMouseOver(e)
-                                        }
+                                        onMouseOver={handleWriteMouseOver}
                                         onMouseLeave={() =>
                                             setTooltipLabel(
                                                 '이 위치에 글타래 작성하기',
@@ -210,9 +223,7 @@ const MallangMap = () => {
                                         type="button"
                                         className="button-marker-write rescue"
                                         data-tooltip-text={'구조요청'}
-                                        onMouseOver={(e) =>
-                                            handleWriteMouseOver(e)
-                                        }
+                                        onMouseOver={handleWriteMouseOver}
                                         onMouseLeave={() =>
                                             setTooltipLabel(
                                                 '이 위치에 글타래 작성하기',
@@ -237,39 +248,35 @@ const MallangMap = () => {
                     </CustomOverlayMap>
                 )}
 
-                {tempDB.threads.map((item, index) => {
-                    return (
-                        <>
-                            <MapMarker
-                                position={{
-                                    lat: item.latitude,
-                                    lng: item.longitude,
-                                }}
-                                image={{
-                                    src:
-                                        item.threadType === 'places'
-                                            ? markerImageAlpha
-                                            : item.threadType === 'missing'
-                                              ? markerImageBeta
-                                              : item.threadType === 'rescue'
-                                                ? markerImageGamma
-                                                : markerLogo,
-                                    size: {
-                                        width: 48,
-                                        height: 48,
-                                    },
-                                }}
-                                title={item.threadTitle}
-                                key={index}
-                                onClick={() => {
-                                    setModalType(item.threadType);
-                                    setTotalData(item);
-                                    toggleModal(true);
-                                }}
-                            ></MapMarker>
-                        </>
-                    );
-                })}
+                {markers.map((item, index) => (
+                    <MapMarker
+                        key={item.articleId || index}
+                        position={{
+                            lat: item.latitude,
+                            lng: item.longitude,
+                        }}
+                        image={{
+                            src:
+                                item.type === 'PLACE'
+                                    ? markerImageAlpha
+                                    : item.type === 'LOST'
+                                      ? markerImageBeta
+                                      : item.type === 'RESCUE'
+                                        ? markerImageGamma
+                                        : markerLogo,
+                            size: {
+                                width: 48,
+                                height: 48,
+                            },
+                        }}
+                        title={item.title}
+                        onClick={() => {
+                            setModalType(item.type.toLowerCase());
+                            setTotalData(item);
+                            toggleModal(true);
+                        }}
+                    />
+                ))}
             </Map>
         </div>
     );

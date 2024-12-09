@@ -6,6 +6,7 @@ import ModalInstruction from '../components/common/ModalInstruction';
 import dateFormat from '../utils/dateFormat';
 import hourFormat from '../utils/hourFormat';
 import ImageGallery from '../components/common/ImageGallery';
+import { useModalStore } from '../stores/modalStatus';
 
 const MissingBasicInfo = ({ iconName, blockTitle, blockDescription }) => {
     return (
@@ -24,7 +25,14 @@ const MissingBasicInfo = ({ iconName, blockTitle, blockDescription }) => {
 };
 
 const MissingInfo = () => {
-    const [currentLocation, setLocation] = useState({ lat: 36.0, lng: 127.0 });
+    const modalData = useModalStore((state) => state.modalData);
+    const missingInfo = modalData.missingInfo;
+
+    const [currentLocation, setLocation] = useState({
+        lat: modalData.latitude,
+        lng: modalData.longitude,
+    });
+
     const sightingArray = [
         {
             reportID: 0,
@@ -50,7 +58,7 @@ const MissingInfo = () => {
                         textAlign: 'center',
                     }}
                 >
-                    <h4>으아앙 흑흑 우리 예쁜 애기</h4>
+                    <h4>{missingInfo.petSpecifics}</h4>
                 </div>
             </div>
 
