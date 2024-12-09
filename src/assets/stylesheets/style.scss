@@ -34,9 +34,8 @@
 ;
 
 // 6. Pages
-@import 'pages/registerPage', 'pages/loginPage', 'pages/myPage',
-    'pages/mallangMap', 'pages/userProfile', 'pages/placeInfo',
-    'pages/missingReport', 'pages/rescueInfo', "pages/threadPlace";
+@import "pages/registerPage", "pages/loginPage", "pages/myPage", "pages/mallangMap", "pages/userProfile",
+    "pages/placeInfo", "pages/missingReport", "pages/rescueInfo", "pages/threadPlace";
 
 // 7. Components
 @import "components/buttons", "components/formElements", "components/spinLoader", "components/customAlert",
