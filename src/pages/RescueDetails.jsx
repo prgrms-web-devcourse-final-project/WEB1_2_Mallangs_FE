@@ -6,7 +6,7 @@ import DataTableRow from '../components/common/DataTableRow';
 import ImageGallery from '../components/common/ImageGallery';
 
 import { useModalStore } from '../stores/modalStatus';
-import { getArticleDetail } from '../api/threadApi';
+import { getRescueDetail } from '../api/threadApi';
 
 const Test = () => {
     const [rescueDetails, setRescueDetails] = useState(null);
@@ -20,7 +20,7 @@ const Test = () => {
                 return;
             }
             try {
-                const data = await getArticleDetail(
+                const data = await getRescueDetail(
                     modalData.setObject.articleId,
                 );
                 setRescueDetails(data);

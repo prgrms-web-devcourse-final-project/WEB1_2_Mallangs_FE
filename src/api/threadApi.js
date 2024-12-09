@@ -108,7 +108,7 @@ export const createPlaceArticle = async (formData) => {
 };
 
 // 구조 글타래 조회
-export const getArticleDetail = async (articleId) => {
+export const getRescueDetail = async (articleId) => {
     try {
         const response = await axiosInstance({
             method: 'get',
