@@ -1,21 +1,33 @@
+import { useEffect, useMemo } from 'react';
 import useLocationStore from '../../stores/locationStore';
 
-const InputAddress = () => {
-    const roadAddress = useLocationStore(
-        (state) => state.locationStatus.roadAddress,
-    );
-    const jibunAddress = useLocationStore(
-        (state) => state.locationStatus.jibunAddress,
-    );
-    const building = useLocationStore((state) => state.locationStatus.building);
+const InputAddress = ({ onAddressChange }) => {
+    const roadAddress = useLocationStore((state) => state.roadAddress);
+    const jibunAddress = useLocationStore((state) => state.jibunAddress);
+    const building = useLocationStore((state) => state.building);
+    const coordinates = useLocationStore((state) => state.coordinates);
     const setBuilding = useLocationStore((state) => state.setBuilding);
 
     const handleBuildingChange = (e) => {
         setBuilding(e.target.value);
     };
 
-    // 도로명주소가 있으면 사용하고, 없으면 지번주소를 사용
     const displayAddress = roadAddress || jibunAddress;
+
+    // 메모이제이션된 주소 정보 객체
+    const addressInfo = useMemo(
+        () => ({
+            roadAddress,
+            jibunAddress,
+            building,
+            coordinates,
+        }),
+        [roadAddress, jibunAddress, building, coordinates],
+    );
+
+    useEffect(() => {
+        onAddressChange?.(addressInfo);
+    }, [addressInfo, onAddressChange]);
 
     return (
         <div className="address">
@@ -23,7 +35,7 @@ const InputAddress = () => {
                 <input
                     className="address-region"
                     placeholder="강원특별자치도 춘천시 공지로 어쩌고"
-                    value={displayAddress}
+                    value={displayAddress || ''}
                     readOnly
                 />
                 <input

@@ -1,42 +1,27 @@
 import { create } from 'zustand';
 
 export const useLocationStore = create((set) => ({
-    locationStatus: {
-        coordinates: { lat: 0, lng: 0 },
-        roadAddress: '',
-        jibunAddress: '',
-        building: '', // 상세주소
-    },
+    // locationStatus 객체를 제거하고 직접 상태로 관리
+    coordinates: { lat: 0, lng: 0 },
+    roadAddress: '',
+    jibunAddress: '',
+    building: '',
 
-    // 위치 정보 설정
     setLocation: (locationData) =>
-        set((state) => ({
-            locationStatus: {
-                ...state.locationStatus,
-                coordinates: locationData.coordinates,
-                roadAddress: locationData.roadAddress,
-                jibunAddress: locationData.jibunAddress,
-            },
-        })),
+        set({
+            coordinates: locationData.coordinates,
+            roadAddress: locationData.roadAddress,
+            jibunAddress: locationData.jibunAddress,
+        }),
 
-    // 상세주소 설정
-    setBuilding: (building) =>
-        set((state) => ({
-            locationStatus: {
-                ...state.locationStatus,
-                building,
-            },
-        })),
+    setBuilding: (building) => set({ building }),
 
-    // 위치 초기화
     resetLocation: () =>
         set({
-            locationStatus: {
-                coordinates: { lat: 0, lng: 0 },
-                roadAddress: '',
-                jibunAddress: '',
-                building: '',
-            },
+            coordinates: { lat: 0, lng: 0 },
+            roadAddress: '',
+            jibunAddress: '',
+            building: '',
         }),
 }));
 
