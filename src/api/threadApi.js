@@ -91,3 +91,18 @@ export const createPlaceArticle = async (formData) => {
         throw error;
     }
 };
+
+// 구조 글타래 조회
+export const getArticleDetail = async (articleId) => {
+    try {
+        const response = await axiosInstance({
+            method: 'get',
+            url: `/articles/public/${articleId}`,
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error('구조 글타래 불러오기 실패:', error.message);
+        throw error;
+    }
+};
