@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createRescueArticle } from '../api/threadApi';
+import { useThreadsTitleStore } from '../stores/titleStatus';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
@@ -16,6 +17,7 @@ const ThreadRescue = () => {
     const [dateTime, setDateTime] = useState('');
     const [situation, setSituation] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const { threadsTitle } = useThreadsTitleStore();
 
     const mallangTypes = [
         { id: 'DOG', label: '강아지' },
@@ -54,7 +56,7 @@ const ThreadRescue = () => {
         const formData = {
             type: 'rescue',
             articleStatus: 'PUBLISHED', // 필요한 상태값
-            title: '꽁꽁 얼어붙은 한강 위로 고양이가 걸어다닙니다', // 제목
+            title: threadsTitle, // 제목
             latitude: addressInfo.coordinates.lat.toString(), // 위도
             longitude: addressInfo.coordinates.lng.toString(), // 경도
             description: situation, // 상황 설명

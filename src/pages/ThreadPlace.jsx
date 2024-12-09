@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPlaceArticle } from '../api/threadApi';
+import { useThreadsTitleStore } from '../stores/titleStatus';
 
 import ModalInstruction from '../components/common/ModalInstruction';
 import ModalSectionTitle from '../components/common/ModalSectionTitle';
@@ -27,6 +28,7 @@ const ThreadPlace = () => {
         // longitude: latestLocation.lng,
     });
     const [errorMessage, setErrorMessage] = useState('');
+    const { threadsTitle } = useThreadsTitleStore();
 
     const handleAddressChange = (info) => {
         setAddressInfo(info);
@@ -63,7 +65,7 @@ const ThreadPlace = () => {
         const formData = {
             type: 'place',
             articleStatus: 'PUBLISHED',
-            title: '테스트스테',
+            title: threadsTitle,
             latitude: latestLocation.lat || 0, // 위도
             longitude: latestLocation.lng || 0, // 경도
             description: introduce,

@@ -1,10 +1,19 @@
 import { useModalStore } from '../../stores/modalStatus';
+import { useThreadsTitleStore } from '../../stores/titleStatus';
 import Remix from './Remix';
 import DropdownSelector from './DropdownSelector';
 import SignatureImage from './SignatureImage';
 import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
-const MainModalCover = ({ isPlaceEdit = null }) => {
+const MainModalCover = ({ isPlaceEdit = null, onTitleChange = () => {} }) => {
+    const { threadsTitle, setThreadsTitle } = useThreadsTitleStore();
+
+    const handleTitleChange = (event) => {
+        const newTitle = event.target.value;
+        setThreadsTitle(newTitle);
+        onTitleChange(newTitle);
+    };
+
     const { modalStatus, modalData, toggleModal, setEditMode, setSlaveIndex } =
         useModalStore((state) => state);
 
@@ -95,10 +104,12 @@ const MainModalCover = ({ isPlaceEdit = null }) => {
                                     type="text"
                                     id="input-thread-title"
                                     placeholder="글타래 제목 입력..."
+                                    value={threadsTitle}
+                                    onChange={handleTitleChange}
                                 />
                             ) : (
                                 <span className="thread-title-content">
-                                    {modalData.threadTitle}
+                                    {threadsTitle}
                                 </span>
                             )}
                         </h5>
