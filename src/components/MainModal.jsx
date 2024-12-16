@@ -30,7 +30,6 @@ import PlaceReviewWrtie from '../pages/PlaceReviewWrite';
 // ↓ 글타래 보기 컴포넌트 / 실종신고
 
 import MissingInfo from '../pages/MissingInfo';
-// import Test from '../pages/Test';
 import MissingSightingReport from '../pages/MissingSightingReport';
 
 // ↓ 글타래 보기 컴포넌트 / 구조요청

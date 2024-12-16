@@ -177,6 +177,38 @@ const MallangMap = () => {
                     onNav={handleCategoryChange}
                 />
 
+                {/* {markers.map((item, index) => ( */}
+                {filteredMarkers.map((item, index) => (
+                    <MapMarker
+                        key={item.articleId || index}
+                        position={{
+                            lat: item.latitude,
+                            lng: item.longitude,
+                        }}
+                        image={{
+                            src:
+                                item.type === 'PLACE'
+                                    ? markerImageAlpha
+                                    : item.type === 'LOST'
+                                      ? markerImageBeta
+                                      : item.type === 'RESCUE'
+                                        ? markerImageGamma
+                                        : markerLogo,
+                            size: {
+                                width: 48,
+                                height: 48,
+                            },
+                        }}
+                        title={item.title}
+                        onClick={() => {
+                            console.log(`Marker ${index}:`, item);
+                            setModalType(item.type.toLowerCase());
+                            setTotalData(item);
+                            toggleModal(true);
+                        }}
+                    />
+                ))}
+
                 {currentLocation.lat === 0 &&
                 currentLocation.lng === 0 ? null : (
                     <CustomOverlayMap
@@ -281,38 +313,6 @@ const MallangMap = () => {
                         </div>
                     </CustomOverlayMap>
                 )}
-
-                {/* {markers.map((item, index) => ( */}
-                {filteredMarkers.map((item, index) => (
-                    <MapMarker
-                        key={item.articleId || index}
-                        position={{
-                            lat: item.latitude,
-                            lng: item.longitude,
-                        }}
-                        image={{
-                            src:
-                                item.type === 'PLACE'
-                                    ? markerImageAlpha
-                                    : item.type === 'LOST'
-                                      ? markerImageBeta
-                                      : item.type === 'RESCUE'
-                                        ? markerImageGamma
-                                        : markerLogo,
-                            size: {
-                                width: 48,
-                                height: 48,
-                            },
-                        }}
-                        title={item.title}
-                        onClick={() => {
-                            console.log(`Marker ${index}:`, item);
-                            setModalType(item.type.toLowerCase());
-                            setTotalData(item);
-                            toggleModal(true);
-                        }}
-                    />
-                ))}
             </Map>
         </div>
     );

@@ -12,7 +12,10 @@ const AreaThreadArticle = ({ articleObject }) => {
             <div className="area-thread-item-image-wrapper">
                 {articleObject.threadImages.length > 0 ? (
                     <img
-                        src={articleObject.threadImages[0].imageSrc}
+                        src={
+                            articleObject.threadImages[0].imageSrc ||
+                            'https://picsum.photos/96/96'
+                        }
                         alt="글타래 이미지 미리보기"
                     />
                 ) : (

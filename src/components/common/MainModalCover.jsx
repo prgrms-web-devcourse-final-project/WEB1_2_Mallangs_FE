@@ -5,7 +5,11 @@ import DropdownSelector from './DropdownSelector';
 import SignatureImage from './SignatureImage';
 import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
-const MainModalCover = ({ isPlaceEdit = null, onTitleChange = () => {} }) => {
+const MainModalCover = ({
+    isPlaceEdit = null,
+    onTitleChange = () => {},
+    onClose,
+}) => {
     const { threadsTitle, setThreadsTitle } = useThreadsTitleStore();
 
     const handleTitleChange = (event) => {
@@ -74,8 +78,8 @@ const MainModalCover = ({ isPlaceEdit = null, onTitleChange = () => {} }) => {
                     title="창 닫기"
                     onClick={() => {
                         document.body.classList.remove('prevent-scroll');
-                        setEditMode(false);
-                        toggleModal(false);
+
+                        onClose();
                     }}
                 >
                     <Remix iconName={'close-line'} />

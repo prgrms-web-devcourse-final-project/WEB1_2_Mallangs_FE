@@ -2,6 +2,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { OverlayProvider } from 'overlay-kit';
+
 import BaseLayout from './components/layout/BaseLayout';
 import MainModal from './components/MainModal';
 import MainPage from './pages/MainPage';
@@ -23,52 +25,63 @@ const queryClient = new QueryClient();
 mallangPlace.render(
     <StrictMode>
         <QueryClientProvider client={queryClient}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<BaseLayout />}>
-                        <Route index element={<MainPage />}></Route>
+            <OverlayProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<BaseLayout />}>
+                            <Route index element={<MainPage />}></Route>
 
-                        <Route path="community">
-                            <Route index element={<CommunityPage />}></Route>
+                            <Route path="community">
+                                <Route
+                                    index
+                                    element={<CommunityPage />}
+                                ></Route>
+
+                                <Route
+                                    path=":categoryName"
+                                    element={<ArticleListPage />}
+                                ></Route>
+
+                                <Route
+                                    path=":categoryName/:articleID"
+                                    element={<ArticleDetailsPage />}
+                                ></Route>
+                            </Route>
+
+                            <Route path="missing">
+                                <Route
+                                    index
+                                    element={<MissingListPage />}
+                                ></Route>
+
+                                <Route
+                                    path=":articleID"
+                                    element={<MissingDetailsPage />}
+                                ></Route>
+                            </Route>
 
                             <Route
-                                path=":categoryName"
-                                element={<ArticleListPage />}
-                            ></Route>
-
-                            <Route
-                                path=":categoryName/:articleID"
-                                element={<ArticleDetailsPage />}
+                                path="museum"
+                                element={<ComponentMuseum />}
                             ></Route>
                         </Route>
 
-                        <Route path="missing">
-                            <Route index element={<MissingListPage />}></Route>
-
-                            <Route
-                                path=":articleID"
-                                element={<MissingDetailsPage />}
-                            ></Route>
-                        </Route>
+                        <Route path="/login" element={<LoginPage />}></Route>
 
                         <Route
-                            path="museum"
-                            element={<ComponentMuseum />}
+                            path="/register"
+                            element={<RegisterPage />}
                         ></Route>
-                    </Route>
 
-                    <Route path="/login" element={<LoginPage />}></Route>
+                        <Route
+                            path="/find-account"
+                            element={<FindAccountPage />}
+                        ></Route>
 
-                    <Route path="/register" element={<RegisterPage />}></Route>
-
-                    <Route
-                        path="/find-account"
-                        element={<FindAccountPage />}
-                    ></Route>
-
-                    <Route path="/*" element={<ErrorPage />}></Route>
-                </Routes>
-            </BrowserRouter>
+                        <Route path="/*" element={<ErrorPage />}></Route>
+                    </Routes>
+                </BrowserRouter>
+            </OverlayProvider>
         </QueryClientProvider>
     </StrictMode>,
 );

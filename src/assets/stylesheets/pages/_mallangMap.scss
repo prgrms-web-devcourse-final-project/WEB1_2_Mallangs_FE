@@ -13,6 +13,7 @@
     position: relative;
     width: 1.2rem;
     height: 1.2rem;
+    z-index: 2;
 
     > .floating-tooltip {
         inset-block-start: calc(100% + 1.2rem);

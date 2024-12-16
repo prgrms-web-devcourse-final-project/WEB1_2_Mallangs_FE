@@ -1581,6 +1581,7 @@ a:has(#logo-primary) {
   position: relative;
   width: 1.2rem;
   height: 1.2rem;
+  z-index: 2;
 }
 .marker-item > .floating-tooltip {
   inset-block-start: calc(100% + 1.2rem);
