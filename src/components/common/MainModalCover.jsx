@@ -1,8 +1,10 @@
 import { useModalStore } from '../../stores/modalStatus';
 import { useThreadsTitleStore } from '../../stores/titleStatus';
+
 import Remix from './Remix';
 import DropdownSelector from './DropdownSelector';
 import SignatureImage from './SignatureImage';
+
 import tempOptionList from '../../datas/temp-options-list.json'; // 임시 드롭다운 옵션 데이터
 
 const MainModalCover = ({

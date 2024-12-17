@@ -599,7 +599,22 @@ a, a:visited {
   overflow: hidden;
 }
 
+.full-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-block: 1.2rem;
+}
+.full-wrapper > .inner-wrapper {
+  margin-inline: 0;
+  padding-inline: 0.8rem;
+}
+
+.full-page-sidebar {
+  width: 12rem;
+}
 .inner-wrapper {
+  flex-shrink: 0;
   margin-inline: auto;
   width: min(100% - 1.6rem, 36rem);
 }
@@ -992,7 +1007,11 @@ a:has(#logo-primary) {
 }
 
 /* 반응형 쿼리 */
-@container main-container (max-width: 960px) {}
+@container main-container (max-width: 960px) {
+  .full-page-sidebar {
+    display: none;
+  }
+}
 @container main-container (max-width: 720px) {
   #logo-primary > p {
     display: none;
@@ -1329,6 +1348,8 @@ a:has(#logo-primary) {
 @container main-container (max-width: 960px) {}
 @container main-container (max-width: 640px) {}
 /* _mainPage.scss */
+/* _forumBoard.scss */
+/* _forumBoard.scss */
 /* _registerPage.scss */
 #register-form-container .service-logo-container {
   height: 8rem;

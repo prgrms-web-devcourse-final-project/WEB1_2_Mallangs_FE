@@ -1,8 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import Remix from '../common/Remix';
-import EmptyList from '../common/EmptyList';
+
 import dateFormat from '../../utils/dateFormat';
 import { getThreadList } from '../../api/threadApi';
+
+import Remix from '../common/Remix';
+import EmptyList from '../common/EmptyList';
+
 import tempTown from '../../datas/temp-area-information.json'; // 임시 지역 데이터
 
 const AreaThreadArticle = ({ articleObject }) => {

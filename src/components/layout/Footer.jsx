@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+
 import Remix from '../common/Remix';
+
 import logoImage from '../../assets/images/logo.png';
 
 const Footer = () => {

@@ -30,8 +30,9 @@
     // Headers
     'layouts/footers',
     // Footers
-    'layouts/mainPage' // Main Page Layout
-;
+    'layouts/mainPage',
+    // Main Page Layout
+    'layouts/forumBoard';
 
 // 6. Pages
 @import 'pages/registerPage', 'pages/loginPage', 'pages/myPage',

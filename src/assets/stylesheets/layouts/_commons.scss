@@ -23,8 +23,32 @@
     overflow: hidden;
 }
 
+.full-wrapper {
+    // 전체 화면 사이드바 포함 래퍼
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-block: 1.2rem;
+
+    > .inner-wrapper {
+        margin-inline: 0;
+        padding-inline: 0.8rem;
+    }
+}
+
+.full-page-sidebar {
+    width: 12rem;
+
+    &.left {
+    }
+
+    &.right {
+    }
+}
+
 .inner-wrapper {
     // 내부 사이징 래퍼
+    flex-shrink: 0;
     margin-inline: auto;
     width: min(100% - 1.6rem, 36rem);
 }
@@ -453,6 +477,9 @@ a:has(#logo-primary) {
 /* 반응형 쿼리 */
 
 @container main-container (max-width: 960px) {
+    .full-page-sidebar {
+        display: none;
+    }
 }
 
 @container main-container (max-width: 720px) {
