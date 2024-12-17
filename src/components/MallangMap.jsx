@@ -1,23 +1,24 @@
 import { useState, useCallback, useMemo } from 'react';
+import { overlay } from 'overlay-kit';
 import debounce from 'lodash/debounce';
 import { Map, CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 
 import useLocationStore from '../stores/locationStore';
 import { useModalStore } from '../stores/modalStatus';
 
+import getLatestLocation from '../utils/getLatestLocation';
+import { getArticleMarkers } from '../api/threadApi';
+
 import Remix from './common/Remix';
 import ToolTip from './common/ToolTip';
 import AreaInfoPanel from './layout/AreaInfoPanel';
 import MarkerCategory from './layout/MarkerCategory';
-
-import getLatestLocation from '../utils/getLatestLocation';
+import MainModal from './MainModal';
 
 import markerLogo from '../assets/images/logo.png';
 import markerImageAlpha from '../assets/images/marker-alpha.png';
 import markerImageBeta from '../assets/images/marker-beta.png';
 import markerImageGamma from '../assets/images/marker-gamma.png';
-import { getArticleMarkers } from '../api/threadApi';
-// import tempDB from '../datas/temp-db.json'; // 임시 가라 데이터
 
 const { kakao } = window;
 
@@ -166,7 +167,9 @@ const MallangMap = () => {
                     const curBounds = map.getBounds();
 
                     console.log('클릭 바운더리:', curBounds);
+
                     setLocation({ lat: curLat, lng: curLng });
+
                     if (isMarkerOpen) setMarkerStatus(false);
                     // 클릭한 좌표의 주소 정보 가져오기
                     getAddressFromCoords(coords);
@@ -177,7 +180,6 @@ const MallangMap = () => {
                     onNav={handleCategoryChange}
                 />
 
-                {/* {markers.map((item, index) => ( */}
                 {filteredMarkers.map((item, index) => (
                     <MapMarker
                         key={item.articleId || index}
@@ -202,9 +204,21 @@ const MallangMap = () => {
                         title={item.title}
                         onClick={() => {
                             console.log(`Marker ${index}:`, item);
+
                             setModalType(item.type.toLowerCase());
                             setTotalData(item);
-                            toggleModal(true);
+
+                            overlay.open(
+                                ({ isOpen, close }) => {
+                                    return (
+                                        <MainModal
+                                            open={isOpen}
+                                            onClose={close}
+                                        />
+                                    );
+                                },
+                                { overlayId: 'mainModal' },
+                            );
                         }}
                     />
                 ))}
@@ -248,7 +262,18 @@ const MallangMap = () => {
                                             setEditMode(true);
                                             setModalType('writeMode');
                                             setSlaveIndex(1);
-                                            toggleModal(true);
+
+                                            overlay.open(
+                                                ({ isOpen, close }) => {
+                                                    return (
+                                                        <MainModal
+                                                            open={isOpen}
+                                                            onClose={close}
+                                                        />
+                                                    );
+                                                },
+                                                { overlayId: 'mainModal' },
+                                            );
                                         }}
                                     >
                                         <div>
@@ -273,7 +298,18 @@ const MallangMap = () => {
                                             setEditMode(true);
                                             setModalType('writeMode');
                                             setSlaveIndex(0);
-                                            toggleModal(true);
+
+                                            overlay.open(
+                                                ({ isOpen, close }) => {
+                                                    return (
+                                                        <MainModal
+                                                            open={isOpen}
+                                                            onClose={close}
+                                                        />
+                                                    );
+                                                },
+                                                { overlayId: 'mainModal' },
+                                            );
                                         }}
                                     >
                                         <div>
@@ -298,7 +334,18 @@ const MallangMap = () => {
                                             setEditMode(true);
                                             setModalType('writeMode');
                                             setSlaveIndex(2);
-                                            toggleModal(true);
+
+                                            overlay.open(
+                                                ({ isOpen, close }) => {
+                                                    return (
+                                                        <MainModal
+                                                            open={isOpen}
+                                                            onClose={close}
+                                                        />
+                                                    );
+                                                },
+                                                { overlayId: 'mainModal' },
+                                            );
                                         }}
                                     >
                                         <div>

@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useModalStore } from '../../stores/modalStatus';
+import { overlay } from 'overlay-kit';
+
+import { logoutApi } from '../../api/userApi';
 
 import Remix from '../common/Remix';
 import MallangItem from '../common/MallangItem';
-
-import { logoutApi } from '../../api/userApi';
+import MainModal from '../MainModal';
 
 const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
     const navigate = useNavigate();
@@ -79,7 +81,15 @@ const UserProfileCard = ({ currentPanel, setPanel, userObject }) => {
                     onClick={() => {
                         setModalType('profile');
                         setProfileData(userObject);
-                        toggleModal(true);
+
+                        overlay.open(
+                            ({ isOpen, close }) => {
+                                return (
+                                    <MainModal open={isOpen} onClose={close} />
+                                );
+                            },
+                            { overlayId: 'mainModal' },
+                        );
                     }}
                 >
                     <Remix iconName={'information-2-fill'} />

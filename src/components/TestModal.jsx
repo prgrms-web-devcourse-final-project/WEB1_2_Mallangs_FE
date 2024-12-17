@@ -45,7 +45,7 @@ import ThreadPlace from '../pages/ThreadPlace';
 import ThreadMissingReport from '../pages/ThreadMissingReport';
 import ThreadRescue from '../pages/ThreadRescue';
 
-const MainModal = ({ open, onClose }) => {
+const TestModal = ({ open, onClose }) => {
     const [currentTabIndex, setTabIndex] = useState(0);
     const currentSlaveIndex = useModalStore((state) => state.slaveIndex);
     const setSlaveIndex = useModalStore((state) => state.setSlaveIndex);
@@ -215,4 +215,4 @@ const MainModal = ({ open, onClose }) => {
         );
 };
 
-export default MainModal;
+export default TestModal;

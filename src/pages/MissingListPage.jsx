@@ -1,5 +1,5 @@
 import { overlay } from 'overlay-kit';
-import TestModal from '../components/layout/TestModal';
+import TestModal from '../components/TestModal';
 
 const MissingListPage = () => {
     return (

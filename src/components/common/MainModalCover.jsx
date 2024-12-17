@@ -36,6 +36,7 @@ const MainModalCover = ({
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
+                        userSelect: 'none',
                     }}
                     alt="글타래 배경 이미지"
                 />
