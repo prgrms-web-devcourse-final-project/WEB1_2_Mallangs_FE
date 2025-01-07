@@ -9,11 +9,12 @@ export default defineConfig({
         host: true,
         proxy: {
             '/api': {
-                target: 'http://mallangs2-two-env.eba-b7cptgum.ap-northeast-2.elasticbeanstalk.com',
+                target: 'http://mallangs2-two-env.eba-b7cptgum.ap-northeast-2.elasticbeanstalk.com/',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '/api/v1'),
             },
         },
     },
     include: '**/*.svg?react',
+    define: { global: 'globalThis' },
 });
