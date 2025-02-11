@@ -2,7 +2,7 @@ import Remix from './Remix';
 
 import nullImage from '../../assets/images/placeholder-paw.png';
 
-const UserProfileImage = ({ imageSrc = null, imageSize = 1.2 }) => {
+const UserProfileImage = ({ imageSrc = null, imageSize = 1 }) => {
     const handleImgError = (e) => {
         e.currentTarget.src = nullImage;
     };
